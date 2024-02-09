@@ -1,0 +1,218 @@
+# Haarat
+
+## Johdanto
+
+Jos halutaan kehittää samasta ohjelmistosta useita rinnakkaisia versioita yhtaikaa, tarvitaan versiopuuhun __haara__.
+
+Haarautumista tarvitaan esim., kun
+- Kehitetään tuotteen seuraavaa versiota samaan aikaan, kun nykyiseen tehdään korjauksia
+- Tehdään asiakaskohtaisia korjauksia tai räätälöintejä
+- Moni kehittäjä kehittää samaa ohjelmistoa yhtaikaa.
+
+![](./assets/branching.svg)
+
+[Source](https://www.atlassian.com/git/tutorials/using-branches)
+
+> Tähän voisi sopia jokin käytännön hands-on esimerkki haarojen käytöstä
+
+## Miten Git toimii
+
+Haarautumisen ymmärtämiseksi on syytä perehtyä muutamiin Git:n toimintaperiaatteisiin.
+
+__Commit__ tallettaa viittaukset niihin tiedostoversioihin, jotka olet sinne lisännyt, sekä viittauksen edelliseen commitiin. Muutoksia (committeja) voi siis navigoida taaksepäin.
+
+__Haara__ (branch) on viittaus committiin, josta tulee aikanaan seuraavan commitin parent. Kun teet uuden commitin, haaraviittaus siirtyy siihen.
+
+__HEAD__ on viittaus siihen haaraan, jossa tällä hetkellä olet.
+
+![](./assets/commit_branch_head.png)
+
+
+[Source](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
+
+## Uuden haaran luominen
+
+Kun perustat repositoryn, sinulle on jo valmiiksi luotu yksi haara nimeltä master, ja HEAD viittaa siihen. Se on siis oletushaara.
+
+Joka kerta, kun teet commitin, master viittaus siirtyy eteenpäin siihen, jonka juuri teit.
+Voit luoda haaran komennolla branch.
+
+```bash
+git branch testing
+```
+
+Tämä luo uuden haaran, joka osoittaa samaan committiin kuin nykyinen haarasikin.
+
+Huomaa, että HEAD ei siirry! Olet edelleen master-haarassa. 
+
+![](./assets/new_brach.png)
+
+## Haaran vaihtaminen 
+
+Näet nykyisen haarasi komennolla status
+```bash
+git status
+```
+
+Näet olemassa olevat haarat komennolla branch
+```bash
+git branch
+```
+
+Haaran voit vaihtaa komennolla checkout
+```bash
+git checkout testing
+```
+
+Nyt HEAD osoittaa uuteen haaraan, ja seuraava commit tulee menemään siihen.
+
+![](./assets/change_branch.png)
+
+[Source](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
+
+## Haarauttaminen
+
+Toistaiseksi ei ole vielä tapahtunut mitään, mutta tehdäänpä nyt yksi commit (nykyinen haara on siis `testing`).
+
+Testing-haara siirtyy nyt yhden commitin eteenpäin, mutta master jää ennalleen.
+
+Jos nyt vaihdat takaisin master-haaraan,
+- HEAD siirtyy osoittamaan `master`-haaraa ja  
+- hakemiston __tiedostot muuttuvat takaisin master-haaran tilanteeseen__.
+
+![](./assets/change_branch_back.png)
+
+> Kuva kertoo tilanteen ennen, pitäisikö olla kuva vaihtamisen jälkeen
+>
+> Jossain pitää selvittää käsite _working set_. Olisiko tässä hyvä?
+
+[Source](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
+
+## Eriytyneet haarat
+
+Jos nyt teet uuden commitin master-haaraan, projektilla on kaksi toisistaan erkaantunutta haaraa, joita voidaan toisistaan riippumatta kehittää eteenpäin täysin hallitusti.
+
+
+![](./assets/separate_branches.png)
+
+Nyt commit-lokin esittäminen käy vähän hankalammaksi, kun on esitettävä rinnakkain eteneviä historiapolkuja, esim näin:
+```bash
+git log --graph --all --oneline
+```
+
+Haaroittumisen visualisoinnissa graafiset työkalut voisivat olla paikallaan, esim. GitGUI
+
+> Materiaalissa pitäisi ehkä olla jokin vinkki hyvistä työkaluista
+
+## Yhdistäminen (_merge_)
+Haaroihin eriytynyt kehitys halutaan usein jälleen yhdistää, esim. haarassa tehty korjaus halutaan viedä pääkehityshaaraan
+
+![](./assets/merge_before.png)
+
+Yhdistämisen logiikka on, että haaraan, johon yhdistetään, tehdään uusi commit, joka sisältää molempien haarojen muutokset.
+
+Tässä esimerkissä on kehitetty korjausta haarassa iss53. Yhdistäminen masteriin:
+```bash
+$ git checkout master	
+$ git merge iss53		
+```
+Jos muutokset ovat automaattisesti yhdistettävissä, asia on kerralla selvä. 
+
+![](./assets/merge_after.png)
+
+## Konflikti (_merge conflict_)
+
+Jos eri haarojen muutokset ovat joltain osin keskenään ristiriitaisia, yhdistäminen ei onnistukaan suoraan, vaan Git raportoi __konfliktin__.
+
+Tällöin commit jää kesken, ja hakemistossa on konfliktin sisältävistä tiedostoista uudet versiot, joissa Git on yhdistänyt kaiken sen, mitä se automaattisesti kykeni. Git on merkinnyt ja lisännyt ristiriitakohtiin molempien haarojen muutokset. 
+
+Konflikti kuulostaa pahalta, mutta kyse on vain siitä, että ei ole mahdollista koneellisesti päättää, mikä on oikea tapa yhdistää muutokset. Kehittäjän on korjattava käsin ristiriitaiset kohdat (_resolve conflict_). Kun se on tehty, hän tekee normaalisti commitin.
+
+Koodieditoreissa on toiminnallisuuksia, jotka auttavat konfliktien ratkaisemisessa.
+
+![](./assets/vscode_resolve_conflict.png)
+
+## Esimerkki konfliktista
+
+```
+$ git merge testing
+Auto-merging hello.html
+CONFLICT (content): Merge conflict in hello.html
+Automatic merge failed; fix conflicts and then commit the result.
+```
+![](./assets/merge_conflict_example.png)
+
+```
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit``")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+        both modified:   hello.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+## Konfliktin ratkaiseminen
+
+Kehittäjä tekee oikeat korjaukset ja poistaa konfliktimerkit tiedostoista. Sitten vain lisätään korjatut tiedostot committiin ja tehdään commit.
+
+```
+$ git add .	
+$ git status
+On branch master
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+
+        modified:   hello.html
+
+$ git commit
+[master 577421e] Merge branch 'testing'
+```
+![](./assets/merge_conflict_example_solved.png)
+
+
+## Haarautumisen käyttötapoja
+
+Haarautumista voit käyttää, kun haluat pitää uuden kehityksen erillään kehityksen, jotta et sotkisi toimivaa versiota  keskeneräisillä, toimimattomilla tai epäyhteensopivilla commiteilla, esim.
+- Kehität ominaisuutta, joka vaatii muutoksia nykyisiin toiminnallisuuksiin.
+- Haluat kokeilla jotain turvallisesti sotkematta varsinaista kehitystä.
+- Kehität tuotteen useita versioita yhtaikaa, esim. version 1 vikakorjauksia ja version 2 uuskehitystä.
+
+Haaroittamisstrategioita on useita. Yksi yleinen ja yksinkertainen strategia on, että kaikki uudet ominaisuudet kehitetään omissa haaroissaan, ja ne yhdistetään päähaaraan vasta, kun ne ovat valmiita ja toimivia (_feature branch workflow_).
+
+### Toiminnallisuus omaan haaraan (_feature branch_)
+
+Ota lähtökohdaksi päähaarasi (tässä master) tuorein commit
+```bash
+git checkout master 		# vaihda master-haaraan
+```
+
+Luo uudelle ominaisuudelle haara (git branch) ja vaihda siihen haaraan  (git checkout). Tähän on pikakomento:
+```bash
+git checkout –b feat123		# luo haaran ja vaihtaa siihen 
+```
+
+Tee muutoksia ja committeja feat123-haaraan, ja kun toiminnallisuus on valmis, yhdistä muutokset päähaaraan
+```bash
+git add .
+git commit
+git checkout master
+git merge feat123
+```
+### Pysyvät ja väliaikaiset haarat
+Useimmat työnkulut perustuvat siihen, että jotkin haarat ovat __päähaaroja__, joissa pidetään yllä tuoreinta tilannetta, ja yksittäisille ominaisuuksille voidaan tehdä omia __väliaikaisia haaroja__, jotka on tarkoitus yhdistää johonkin päähaaraan.
+
+Päähaarat ovat sellaisia konfiguraatioita, joita kehitetään pitkän aikaa, esim. ohjelmiston versio 1, 2, 3 jne. Väliaikaiset haarat voidaan poistaa sen jälkeen, kun ne on onnistuneesti yhdistetty johonkin päähaaraan.
+
+Myös voidaan toimia niin, että toimitettaville versioille (_release_) on omat päähaaransa, ja kehitys pidetään omassa päähaarassaan. 
+
+Tällöin väliaikaiset haarat yhdistetään ensin kehityshaaraan, ja kehityshaarasta yhdistetään release-haaraan vain valmiit testatut ja viimeistellyt toimitettavat versiot.
+
+Tilanteeseen sopivinta haaroittamiskäytäntöä kannattaa miettiä projektin alussa hetki, vaikka olisit tekemässä projektia yksinkin. Yksittäinen kehittäjäkin voi tehostaa työtään hyödyntämällä haarautumista.
+
