@@ -1,219 +1,163 @@
 # Johdanto
 
-## Mikä on Git
+## Mitä on versionhallinta
 
-Versionhallinnan tarkoituksena on tallettaa lähdekoodin versioiden muutoksia siten, että 
+Versionhallinnan tarkoituksena on tallettaa lähdekoodin versioiden muutoksia siten, että
+- Saman ohjelmiston eri versioille voidaan antaa tunnisteet muuttamatta ohjelmakoodin sisältöä (esim. tiedostonimiä)
 - Aikaisemmat versiot voidaan tarvittaessa palauttaa
 - Ohjelmistosta voidaan kehittää useita eri versioita yhtaikaa hallitusti.
 - Ohjelmistoon tehtyjä muutoksia voidaan seurata, dokumentoida ja hallita. 
 
-Versionhallintajärjestelmiä on useita erilaisia. Niistä Git on muodostunut de-facto standardiksi, sitä käytetään hyvin yleisesti.
-Git on 
-- Avointa lähdekoodia
-- Ilmainen
-- Hajautettu, siinä ei siis ole minkäänlaista keskitettyä palvelinta. Jokainen Git-tietovarasto on itsenäinen.
+Versionhallinta helpottaa ja tehostaa yksittäisen kehittäjän työtä. Ennen kaikkea se kuitenkin mahdollistaa ohjelmistojen tehokkaan kehittämisen ohjelmistotiimeissä. 
 
-## Repositoryt ja hajautus
+Versionhallinnan käyttö on yksi ohjelmistoalan ammattilaisen perustaitoja.
 
-Git tallettaa kaiken informaation paikallisesti omaan tietovarastoonsa, jota kutsutaan repositoryksi.
+## Mikä on Git
 
-Lähes kaikki toiminnot voidaan tehdä paikallisesti. Voit siis kehittää ja tallettaa versioita ilman verkkoyhteyttä.
+Versionhallintajärjestelmiä on useita erilaisia. Käytännössä niistä __Git__ on muodostunut versionhallinnan de-facto standardiksi.
 
-Itsenäisten repositoryjen sisältöjä voidaan synkronoida keskenään. Tähän tietysti tarvitaan verkkoyhteys.
+Syynä Git:n suosioon lienee, että se on 
+- Avointa lähdekoodia. Git on lisensoitu avoimen lähdekoodin GPLv2-lisenssillä. 
+- Ilmainen. 
+- Hajautettu. Siinä ei ole minkäänlaista keskitettyä palvelinta. 
+- Saatavilla kaikkiin ympäristöihin.
+
+
+
+### Git-repositoriot
+
+Git tallettaa kaiken informaation paikallisesti omaan tietovarastoonsa, jota kutsutaan nimellä __repositorio__. 
+
+Lähes kaikki toiminnot voidaan tehdä paikallisesti. Voit siis kehittää ja tallettaa ohjelmiston versioita ilman verkkoyhteyttä.
+
+Repositorio sijaitsee paikallisella koneella siinä hakemistossa, jossa ohjelmistoa kehitetään. 
+
+### Repositorioiden hajautus ja synkronointi
+
+Itsenäisten repositoryjen sisältöjä voidaan __synkronoida__ keskenään. Tähän tietysti tarvitaan verkkoyhteys. 
 
 ![](assets/repo_push_pull.png)
 
+Repositorioiden sisältöjen synkronointi mahdollistaa niiden sisältöjen jakamisen useiden kehittäjien kesken. Tyypillinen malli on, että kehittäjät synkronoivat oman työnsä verkkopalvelussa sijaitsevaan repositorioon, ja saavat muiden kehittäjien tekemän työn sen kautta synkronoitua itselleen.
+
+> tee uusi kuva
+
 ## Git:n käyttöönotto
 
-### Asennus
+### Komentorivi
 
-Git-ohjelmisto on oltava asennettuna jokaisella tietokoneella, jolla sitä haluataan käyttää
+Git:lle on useita graafisia käyttöliittymiä, myös Windows-asennuspaketissa on yksi sellainen. Tällä kurssilla käytämme kuitenkin __komentorivikomentoja__.  Niin tekevät useimmat ammattilaisetkin.
 
--  Linux: https://git-scm.com/download/linux
--  Mac:  https://git-scm.com/download/mac
--  Windows: https://git-scm.com/download/win 
+Windows-käyttöjärjestelmällä on kaksi komentotulkkia, _cmd_ ja _powershell_. Git:n Windows-asennus sisältää _Git Bash_ –komentotulkin, joka emuloi iOS- ja Linux-järjestelmiin esiasennettua _bash_-komentotulkkia
 
-Windows-asennus sisältää Git Bash –komentotulkin, joka amuloi linux-järjestelmissä yleisesti käytettyä bash-komentotulkkia (shell)
+Git-komennot ovat kaikissa komentotulkeissa samat. Hakemistojen ja tiedostojen käsittelykomennot voivat eri komentotulkeissa poiketa toisistaan. 
 
-Git:lle on useita graafisia käyttöliittymiä, myös Windows-asennuspaketissa on yksi sellainen, mutta kurssilla käytämme komentorivikomentoja.  Niin tekevät useimmat ammattilaisetkin.
+Jos komentotulkin käyttäminen ei ole entuudestaan tuttua, voit perehtyä siihen esim. oheisen materiaalin avulla: 
+- https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line
 
-> Komentorivin käytöstä voisi olla jonkinlainen yhteenveto ja tehtävä tms.
-
-> Eri komentotulkit
-
-> Tässä materiaalissa käytetään mahdollisissa tiedostojärjestelmäkomennoissa bash-komentoja. git-komennot ovat samat kaikilla komentotulkeilla (vai ovatko?).
+> Tässä materiaalissa käytetään mahdollisissa tiedostojärjestelmäkomennoissa bash-komentoja. 
 
 ### Konfigurointi
+
+Asennuksen jälkeen on tarpeen tehdä joitakin konfigurointeja, ennen kuin git-käyttö voidaan aloittaa.
+
+#### Käyttäjän tiedot
 
 Jokaiseen talletettuun muutokseen tallentuu käyttäjän nimi ja sähköpostiosoite
 Käyttäjätiedot tarvitsee asettaa tietokoneelle vain kerran, ja niitä voi tarvittaessa myöhemmin muuttaa
 ```
-$ git config –-global user.name ”Markku Ruonavaara”
-$ git config –-global user.email markku.ruonavaara@haaga-helia.fi
+git config –-global user.name ”Markku Ruonavaara”
+git config –-global user.email markku.ruonavaara@haaga-helia.fi
 ```
 
 Konfigurointitietoja tallennetaan systeemi-, käyttäjä- ja projektikohtaisesti. Tarkennin `-–global` viittaa siihen, että asetus on systeemikohtainen.
 
-Voit halutessasi asettaa editorin, jonka Git toimintojen yhteydessä käynnistää tekstin kirjoittamista varten. Oletusarvoisesti se on systeemin oletuseditori, joka yleensä on vi.
+#### Editori
+
+Joidenkin toimintojen yhteydessä Git käynnistää editorin tekstin kirjoittamista varten. Oletusarvoisesti se on systeemin oletuseditori, joka yleensä on vi.
+
+Voit halutessasi asettaa editorin, jonka Git käynnistää. Seuraava komento asettaa editoriksi Visual Studio Code:n.
 
 ```
-$ git config --global core.editor "code --wait"
+git config --global core.editor "code --wait"
 ```
 
-Konfigurointi määrittää käynnistyskomennon, joten jos editoria ei löydy polusta, voit joutua antamaan koko polun. Windows-ympäristössä näin usein on.
+Konfiguroinnissa määritetään käynnistyskomento, joten jos editoria ei löydy polusta, voit joutua antamaan koko polun. 
 
-Asetukset voit tarkistaa näin:
-```
-$ git config –-list
-```
-# Peruskäyttö
+Jos kuitenkin joskus päädyt vi-editoriin, oheisesta ohjeesta voi olla sinulle hyötyä:
+- https://www.linuxjournal.com/content/how-use-vi-editor-linux 
 
-## Repositoryn perustaminen
+#### Konfiguraatioasetusten tarkastelu
 
-Voit perustaa repositoryn hakemistoon, joka ei ole vielä versionhallinnassa, komennolla init.
-
+Kaikki asetukset voit tarkistaa näin:
 ```bash
-$ mkdir demo 		# luodaan hakemisto
-$ cd demo		    # vaihdetaan uusi hakemisto oletushakemistoksi
-$ git init
+git config –-list
 ```
 
-Komento luo tyhjän repositoryn, johon voit tallettaa versioita. Tiedot tallentuvat alihakemistoon .git-nimiseen alihakemistoon. 
-.git-hakemistosta tunnistat, onko hakemisto Git-versionhallinnassa.
-
-> Miten voit nähdä, mihin tiedot on talletettu?
-
-## Repositoryn perustaminen toisesta reposta
-
-Usein haluat kopioida olemassa olevan repositoryn ja jatkaa työskentelyä siitä. Tämä tapahtuu komennolla clone, esim.
-
+Yhden parametrin arvon voit tarkistaa antamalla `config` komennon parametriksi parametrin nimen:
 ```
-$ git clone https://github.com/libgit2/libgit2
+git config user.email
 ```
 
-Komento lisää nykyiseen hakemistoon alihakemiston libgit2, joka sisältää alkuperäisen repositoryn datan kopion (.git) sekä uusimman version tiedostot.
+## Git-komennoista yleisesti
 
-Se myös konfiguroi alkuperäisen repositoryn uuden repositoryn etärepositoryksi, tästä lisää myöhemmin.
-
-## Tiedostot Git-työhakemistossa
-
-Tiedostot voivat olla joko 
--  Tracked – Git:n hallinnassa
--  Untracked – ei Git:ssä
-
-Git:n hallitsema tiedosto voi olla
-- Unmodified - sama kuin uusin versio 
-- Modified – erilainen kuin uusin versio
-- Staged – merkitty otettavaksi seuraavaan committiin
-
-![](assets/git_file_states.png)
-
-
-## Tiedoston vienti Git-hallintaan
-
-Jotta voit tallettaa muutoksia, tiedosto on lisättävä repositoryyn.
-
-```bash
-$ git add hello.html
+Kaikki Git-komennot alkavat `git`, sen jälkeen tulee varsinainen __komento__ (esim. `config`). Komennoilla voi olla __parametreja__. Tässä esimerkissä komennolle `config` annetaan parametriksi halutun konfiguraatioparametrin nimi `core.editor` 
+```
+git config core.editor
 ```
 
-Voit myös lisätä koko hakemiston, jolloin kaikki hakemiston tiedostot ja alihakemistot sisältöineen lisätään kerralla.
-
-```bash
-$ git add .		# . viittaa nykyiseen hakemistoon
+Komennoille voidaan antaa myös valitsimia (_option_), jotka täsmentävät, mitä halutaan tehdä. Tässä esimerkissä valitsin `--list` määrittää, että halutaan listata konfiguraatioparametrit, ja valitsin `--global`, että halutaan vain globaalit, kaikkiin repositorioihisi vaikuttavat parametrit.  
 ```
-
-Työhakemiston tiedostojen Git-tilaa voi tarkastella komennolla status.
-
-```bash
-$ git status
+git config --list --global
 ```
+Joillekin valitsimille voi olla myös lyhyt muoto, esim. edellisen esimerkin valitsin `--list` voidaan myös antaa lyhyemmässä muodossa `-l`.  
 
-Nyt tiedostot ovat __tracked__ ja __staged__, valmiita __commit__-toimintoa varten.
+Kaikille komennoille saa lyhyen opastustekstin valitsimella `-h`
 
-> Tämä osio pitää järjestellä uudelleen, esitys on epälooginen
-
-## Muutosten tallettaminen: add
-
-Kun teet muutoksia Git-hallinnassa olevaan tiedostoon, sen tilaksi tulee modified.
-
-Kun tiedosto on valmis talletettavaksi versionhallintaan, muutettu tiedosto on merkittävä otettavaksi mukaan seuraavaan committiin. Tätä kutsutaan Git-terminologiassa nimellä staging, ja se tehdään komennolla add. 
-
-```bash
-$ git add .	# merkitse kaikki uudet ja muuttuneet tiedostot mukaan otettaviksi
 ```
+$ git config -h
+usage: git config [<options>]
 
-Nyt muuttuneet tiedostot ovat valmiita talletettavaksi versionhallintaan. Kuten huomasit, uuden tiedoston tuominen on muutos siinä kuin olemassa olevankin muuttaminen.
+Config file location
+    --global              use global config file
+    --system              use system config file
+    --local               use repository config file
+    --worktree            use per-worktree config file
+    -f, --file <file>     use given config file
+    --blob <blob-id>      read config from given blob object
 
-## Muutosten tallettaminen: commit
+Action
+    --get                 get value: name [value-pattern]
+    --get-all             get all values: key [value-pattern]
+    --get-regexp          get values for regexp: name-regex [value-pattern]
+    --get-urlmatch        get value specific for the URL: section[.var] URL
+    --replace-all         replace all matching variables: name value [value-pattern]
+    --add                 add a new variable: name value
+    --unset               remove a variable: name [value-pattern]
+    --unset-all           remove all matches: name [value-pattern]
+    --rename-section      rename section: old-name new-name
+    --remove-section      remove a section: name
+    -l, --list            list all
+    --fixed-value         use string equality when comparing values to 'value-pattern'
+    -e, --edit            open an editor
+    --get-color           find the color configured: slot [default]
+    --get-colorbool       find the color setting: slot [stdout-is-tty]
 
-Varsinainen talletus tapahtuu komennolla commit.
+Type
+    -t, --type <type>     value is given this type
+    --bool                value is "true" or "false"
+    --int                 value is decimal number
+    --bool-or-int         value is --bool or --int
+    --bool-or-str         value is --bool or string
+    --path                value is a path (file or directory name)
+    --expiry-date         value is an expiry date
 
-```bash
-$ git commit
+Other
+    -z, --null            terminate values with NUL byte
+    --name-only           show variable names only
+    --includes            respect include directives on lookup
+    --show-origin         show origin of config (file, standard input, blob, command line)
+    --show-scope          show scope of config (worktree, local, global, system, command)
+    --default <value>     with --get, use default value when missing entry
+
 ```
-
-Komento käynnistää editorin, jolla voit kirjoittaa muutokseen talletettavan kommentin. Kun talletat ja suljet, muutos viedään tietovarastoon.
-
-Kirjaa kommenttiin muutoksen aihe selkeästi, ne ovat tärkeää kommunikaatio itsellesi ja projektiryhmällesi.
-
-Voit myös kirjata kommentin komentorivillä ilman editoria:
-
-```bash
-$ git commit –m "Lisätty logout-toiminnallisuus"
-```
-## Muutosten tarkastelu
-
-Näet commit-historian komennolla log.
-
-```bash
-$ git log
-```
-
-Komento listaa kaikki commitit käänteisessä aikajärjestyksessä.
-Työtilan muutoksia verrattuna talletettuihin voit tarkastella tutulla komennolla status
-
-Tiedoston muutoksia aiempaan versioon voi tarkastella komennolla diff.
-
-```bash
-$ git diff hello.html
-```
-
-> Pitää lisätä selvitys committien tunnisteista ja erilaisista tavoista viitata committeihin. Tuleeko seuraavassa osiossa?
->
-> Myös selvitys työtilan toiminnasta, mitä tekee checkout
-
-## Oho! Eiku…
-
-Jos commitista unohtui jotain tai viesti meni väärin, voit täydentää tuoreinta kommittia laajentimella --amend. Lisää (add) muutokset ja tee commit:
-
-```bash
-$ git commit --amend
-```
-> Tätä ei ehkä kannata mainita ainakaan vielä tässä
-> 
-Jos lisäsit seuraavaan committiin (add) tiedoston, joka ei sinne kuuluisi, voit peruuttaa stagingin komennolla reset.
-
-```bash
-$ git reset HEAD temp.log 	# HEAD viittaa tuoreimpaan versioon
-```
-> Mainitse, että tämä ei tuhoa mitään, vain muuttaa teidoston tilan
-
-Jos haluat hylätä tiedostoon tekemäsi muutokset ja palata versionhallinnassa olevaan versioon, se onnistuu komennolla checkout.
-
-```bash
-$ git checkout –- hello.html
-```
-> Mainitse, että tämä hävittää tehdyt muutokset tiedostosta
-
-Muista, että kaikki, mikä on commitilla talletettu, on palautettavissa. Siksi committeja kannattaa tehdä usein.
-
-> Tästä voi katsoa mallia, jäsentely, eteneminen ja komentojen esitystapa näyttää hyvältä: https://githowto.com/
->
-> 
-
-## Yhteenveto
-
-Yhteenveto osion tärkeimmistä sisällöistä
-
-Jokin Moodle-tehtävä?

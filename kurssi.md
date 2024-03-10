@@ -20,6 +20,39 @@ Sisältö
 - Haarat ja niiden käyttö projektissa
 - Muita git-toimintoja
 
+## Materiaali
+
+## Kurssilla tarvittavat työkalut
+
+Git-ohjelmisto on oltava asennettuna jokaisella tietokoneella, jolla sitä halutaan käyttää.
+
+-  Linux: https://git-scm.com/download/linux
+-  Mac:  https://git-scm.com/download/mac
+-  Windows: https://git-scm.com/download/win 
+
+Kurssin tehtävien tekemiseen tarvitaan ohjelmointieditori. Editoriksi suositellaan Visual Studio Codea.
+- https://code.visualstudio.com/download
+
+Kurssilla tehtävät tehtävät talletetaan GitHub-palveluun ja palautetaan sen kautta. Palvelun käyttämiseksi on luotava palveluun tili. Palvelun käyttäminen on maksutonta eikä rekisteröitymiseen tarvita maksutietoja..
+- https://github.com/
+
+## Kurssin käytännöt
+
+### Tehtävät
+
+Versionhallintaa on vaikea ymmärtää ja oppia lukemalla. Tällä kurssilla oleellista onkin omakohtainen harjoittelu ja kokeilu. Materiaalissa esitettyjä komentoja kannattaakin aina kokeilla itse.
+
+Kaikki tehtävät tehdään Git-versionhallintaa käyttäen. Kurssin suoritukseen vaadittavat tehtävät on merkitty materiaaliin otsikolla __Tehtävä__. 
+
+### Arviointi
+
+Kurssin arviointi perustuu kurssin harjoitusten tekemisen kautta muodostuneeseen lopputuotokseen ja sen versiohistoriaan.
+
+### Ohjaus
+
+
+
+
 # Versionhallinta ja Git
 
 ## Mitä on versionhallinta
@@ -27,6 +60,8 @@ Sisältö
 ## Mikä on git
 
 ## Asennukset ja käyttöönotto
+
+## Komentorivi
 
 # Paikallinen git
 
