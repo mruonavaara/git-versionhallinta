@@ -2,7 +2,7 @@
 
 ## Johdanto
 
-Jos halutaan kehittää samasta ohjelmistosta useita rinnakkaisia versioita yhtaikaa, tarvitaan versiopuuhun __haara__.
+Jos halutaan kehittää samasta ohjelmistosta useita rinnakkaisia versioita yhtaikaa, tarvitaan versiopuuhun __haara__ (_branch_)
 
 Haarautumista tarvitaan esim., kun
 - Kehitetään tuotteen seuraavaa versiota samaan aikaan, kun nykyiseen tehdään korjauksia
@@ -11,7 +11,11 @@ Haarautumista tarvitaan esim., kun
 
 ![](./assets/branching.svg)
 
-[Source](https://www.atlassian.com/git/tutorials/using-branches)
+_Lähde: [Git Branch, Atlassian](https://www.atlassian.com/git/tutorials/using-branches)_
+
+Jokaisessa mainituista tapauksista halutaan tehdä yhtaikaisesti kehitystä kahteen tai useampaan versioon ohjelmistosta. Monen kehittäjän tapauksessa jokainen kehittäjä luo omaa versiotaan ohjelmistosta. 
+
+Versionhallintajärjestelmän keinoin haarautuneet versiot ohjemistosta voidaan jälleen __yhdistää__ (_merge_). Esimerkiksi, kehittäjä yhdistää oman kehityshaaransa muutokset yhteiseen versiohaaraan, josta toiset kehittäjät saavat sen käyttöönsä ja edelleen kehitettäväksi.
 
 > Tähän voisi sopia jokin käytännön hands-on esimerkki haarojen käytöstä
 
@@ -19,81 +23,90 @@ Haarautumista tarvitaan esim., kun
 
 Haarautumisen ymmärtämiseksi on syytä perehtyä muutamiin Git:n toimintaperiaatteisiin.
 
-__Commit__ tallettaa viittaukset niihin tiedostoversioihin, jotka olet sinne lisännyt, sekä viittauksen edelliseen commitiin. Muutoksia (committeja) voi siis navigoida taaksepäin.
+__Talletus__ (commit) tallettaa viittaukset niihin tiedostoversioihin, jotka olet sinne lisännyt (_snapshot_), sekä viittauksen edelliseen commitiin. Muutoksia (committeja) voi siis navigoida taaksepäin.
 
-__Haara__ (branch) on viittaus committiin, josta tulee aikanaan seuraavan commitin parent. Kun teet uuden commitin, haaraviittaus siirtyy siihen.
+__Haara__ (branch) on viittaus committiin, josta tulee aikanaan seuraavan talletuksen edeltäjä. Kun teet uuden talletuksen, haaraviittaus siirtyy eteenpäin osoittamaan tekemääsi uutta talletusta. 
 
-__HEAD__ on viittaus siihen haaraan, jossa tällä hetkellä olet.
+__HEAD__ on viittaus siihen haaraan, jossa tällä hetkellä olet. Se on siis looginen tunniste. 
 
 ![](./assets/commit_branch_head.png)
 
 
-[Source](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
+_Lähde: [Chacon S., Straub B, Pro Git, luku 3.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/)_
 
 ## Uuden haaran luominen
 
-Kun perustat repositoryn, sinulle on jo valmiiksi luotu yksi haara nimeltä master, ja HEAD viittaa siihen. Se on siis oletushaara.
+Kun perustat repositoryn, sinulle on jo valmiiksi luotu yksi haara nimeltä `master`, ja `HEAD` viittaa siihen. Se on siis Git:n oletushaara. 
 
-Joka kerta, kun teet commitin, master viittaus siirtyy eteenpäin siihen, jonka juuri teit.
-Voit luoda haaran komennolla branch.
+Joka kerta, kun teet talletuksen, `master`-viittaus siirtyy eteenpäin siihen, jonka juuri teit.
+
+Voit luoda haaran komennolla `branch`.
 
 ```bash
 git branch testing
 ```
 
-Tämä luo uuden haaran, joka osoittaa samaan committiin kuin nykyinen haarasikin.
+Tämä luo uuden haaran, joka osoittaa samaan talletukseen kuin nykyinen haarasikin. Tällä hetkellä haarojen välillä ei ole mitään eroa.
 
-Huomaa, että HEAD ei siirry! Olet edelleen master-haarassa. 
+Huomaa, että `HEAD` ei siirry! Olet edelleen `master`-haarassa.
 
 ![](./assets/new_brach.png)
 
+_Lähde: [Chacon S., Straub B, Pro Git, luku 3.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/)_
+
 ## Haaran vaihtaminen 
 
-Näet nykyisen haarasi komennolla status
+Näet nykyisen haarasi komennolla `status`
 ```bash
 git status
 ```
 
-Näet olemassa olevat haarat komennolla branch
+Näet olemassa olevat haarat komennolla `branch`
 ```bash
 git branch
 ```
 
-Haaran voit vaihtaa komennolla checkout
+Haaran voit vaihtaa komennolla `switch`
 ```bash
-git checkout testing
+git switch testing
 ```
 
-Nyt HEAD osoittaa uuteen haaraan, ja seuraava commit tulee menemään siihen.
+Nyt `HEAD` osoittaa uuteen `testing`-haaraan, ja seuraava talletus tulee menemään siihen.
 
 ![](./assets/change_branch.png)
 
-[Source](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
+_Lähde: [Chacon S., Straub B, Pro Git, luku 3.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/)_
 
 ## Haarauttaminen
 
-Toistaiseksi ei ole vielä tapahtunut mitään, mutta tehdäänpä nyt yksi commit (nykyinen haara on siis `testing`).
+Toistaiseksi ei ole vielä tehty mitään muutoksia, mutta tehdäänpä nyt yksi talletus (nykyinen haara on siis `testing`).
 
-Testing-haara siirtyy nyt yhden commitin eteenpäin, mutta master jää ennalleen.
+`testing`-haara siirtyy nyt yhden talletuksen eteenpäin, mutta `master` jää ennalleen.
+
+![](./assets/commit_branch_forward.png)
+
+_Lähde: [Chacon S., Straub B, Pro Git, luku 3.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/)_
 
 Jos nyt vaihdat takaisin master-haaraan,
-- HEAD siirtyy osoittamaan `master`-haaraa ja  
-- hakemiston __tiedostot muuttuvat takaisin master-haaran tilanteeseen__.
+- `HEAD` siirtyy osoittamaan `master`-haaraa ja  
+- työhakemiston tiedostot muutetaan takaisin master-haaran tilanteeseen.
 
-![](./assets/change_branch_back.png)
+![](./assets/change_branch_back_.png)
 
-> Kuva kertoo tilanteen ennen, pitäisikö olla kuva vaihtamisen jälkeen
->
-> Jossain pitää selvittää käsite _working set_. Olisiko tässä hyvä?
+_Lähde: [Chacon S., Straub B, Pro Git, luku 3.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/)_
 
-[Source](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
+Haaroissa `master` ja `testing` on nyt erilaiset versiot. 
+
+Vaihtamalla haaraa voit  tarkastella niitä, kehittää niitä eteenpäin ja tehdä niistä uusia versioita toisistaan riippumatta.  Eri haaroihin tehdyt muutokset pysyvät erillisinä, ja voit milloin tahansa lähtötilanteeseen, jos tulet katumapäälle.
 
 ## Eriytyneet haarat
 
-Jos nyt teet uuden commitin master-haaraan, projektilla on kaksi toisistaan erkaantunutta haaraa, joita voidaan toisistaan riippumatta kehittää eteenpäin täysin hallitusti.
+Jos esimerkissämme nyt teet uuden talletuksen `master`-haaraan, projektilla on kaksi toisistaan erkaantunutta haaraa, joita voidaan toisistaan riippumatta kehittää eteenpäin täysin hallitusti.
 
 
 ![](./assets/separate_branches.png)
+
+_Lähde: [Chacon S., Straub B, Pro Git, luku 3.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/)_
 
 Nyt commit-lokin esittäminen käy vähän hankalammaksi, kun on esitettävä rinnakkain eteneviä historiapolkuja, esim näin:
 ```bash
@@ -109,6 +122,8 @@ Haaroihin eriytynyt kehitys halutaan usein jälleen yhdistää, esim. haarassa t
 
 ![](./assets/merge_before.png)
 
+_Lähde: [Chacon S., Straub B, Pro Git, luku 3.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/)_
+
 Yhdistämisen logiikka on, että haaraan, johon yhdistetään, tehdään uusi commit, joka sisältää molempien haarojen muutokset.
 
 Tässä esimerkissä on kehitetty korjausta haarassa iss53. Yhdistäminen masteriin:
@@ -119,6 +134,8 @@ $ git merge iss53
 Jos muutokset ovat automaattisesti yhdistettävissä, asia on kerralla selvä. 
 
 ![](./assets/merge_after.png)
+
+_Lähde: [Chacon S., Straub B, Pro Git, luku 3.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/)_
 
 ## Konflikti (_merge conflict_)
 
