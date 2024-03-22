@@ -7,12 +7,14 @@ Tällä opintojaksolla tutustut Git-versionhallintajärjestelmän ja GitHub-palv
 ## Osaamistavoitteet
 
 Opintojakson suoritettuaan opiskelija
+
 - tuntee git-versionhallintajärjestelmän peruskäsitteet
 - osaa käyttää git-versionhallintajärestelmän yleisimpiä toimintoja
 - osaa käyttää git-hosting-palveluita
 - osaa soveltaa versiohaaroja omassa ja tiiminsä kehitystyössä
 
 Sisältö
+
 - Mitä on versionhallinta, mikä on git
 - Käyttöönotto
 - Peruskäyttö
@@ -22,19 +24,19 @@ Sisältö
 
 ## Materiaali
 
+Git-versionhallinnasta on paljon ohjeita, tutoriaaleja ja ohjevideoita saatavana verkossa. Kurssimateriaali perustuu pitkälti Scott Chaconin ja BenSTraubin kirjaan Pro Git (_Chacon, Straub. 2014. Pro Git, 2nd edition. Apress. Berkeley_). 
+
+Kirja on vapaasti saatavana verkosta osoitteesta [https://git-scm.com/book/en/v2](https://git-scm.com/book/en/v2).
+
+
+
 ## Kurssilla tarvittavat työkalut
 
-Git-ohjelmisto on oltava asennettuna jokaisella tietokoneella, jolla sitä halutaan käyttää.
+Git-ohjelmisto on oltava asennettuna jokaisella tietokoneella, jolla sitä halutaan käyttää. Voit ladata asennuspaketin osoitteesta [https://git-scm.com/downloads](https://git-scm.com/downloads)
 
--  Linux: https://git-scm.com/download/linux
--  Mac:  https://git-scm.com/download/mac
--  Windows: https://git-scm.com/download/win 
+Kurssin tehtävien tekemiseen tarvitaan ohjelmointieditori. Editoriksi suositellaan Visual Studio Codea. Sen voit ladata osoitteesta [https://code.visualstudio.com/download](https://code.visualstudio.com/download). Voit halutessasi käyttää myös mitä tahansa muuta ohjelmoitieditoria.
 
-Kurssin tehtävien tekemiseen tarvitaan ohjelmointieditori. Editoriksi suositellaan Visual Studio Codea.
-- https://code.visualstudio.com/download
-
-Kurssilla tehtävät tehtävät talletetaan GitHub-palveluun ja palautetaan sen kautta. Palvelun käyttämiseksi on luotava palveluun tili. Palvelun käyttäminen on maksutonta eikä rekisteröitymiseen tarvita maksutietoja..
-- https://github.com/
+Kurssilla tehtävät tehtävät talletetaan GitHub-palveluun ja palautetaan sen kautta. Palvelun käyttämiseksi on luotava palveluun tili. Palvelun käyttäminen on maksutonta eikä rekisteröitymiseen tarvita maksutietoja. Voit rekisterityä GitHub palveluun osoitteessa [https://github.com/](https://code.visualstudio.com/download).
 
 ## Kurssin käytännöt
 

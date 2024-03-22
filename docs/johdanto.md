@@ -3,6 +3,7 @@
 ## Mitä on versionhallinta
 
 Versionhallinnan tarkoituksena on tallettaa lähdekoodin versioiden muutoksia siten, että
+
 - Saman ohjelmiston eri versioille voidaan antaa tunnisteet muuttamatta ohjelmakoodin sisältöä (esim. tiedostonimiä)
 - Aikaisemmat versiot voidaan tarvittaessa palauttaa
 - Ohjelmistosta voidaan kehittää useita eri versioita yhtaikaa hallitusti.
@@ -17,6 +18,7 @@ Versionhallinnan käyttö on yksi ohjelmistoalan ammattilaisen perustaitoja.
 Versionhallintajärjestelmiä on useita erilaisia. Käytännössä niistä __Git__ on muodostunut versionhallinnan de-facto standardiksi.
 
 Syynä Git:n suosioon lienee, että se on 
+
 - Avointa lähdekoodia. Git on lisensoitu avoimen lähdekoodin GPLv2-lisenssillä. 
 - Ilmainen. 
 - Hajautettu. Siinä ei ole minkäänlaista keskitettyä palvelinta. 
@@ -24,7 +26,7 @@ Syynä Git:n suosioon lienee, että se on
 
 
 
-### Git-repositoriot
+## Git-repositoriot
 
 Git tallettaa kaiken informaation paikallisesti omaan tietovarastoonsa, jota kutsutaan nimellä __repositorio__. 
 
@@ -32,7 +34,7 @@ Lähes kaikki toiminnot voidaan tehdä paikallisesti. Voit siis kehittää ja ta
 
 Repositorio sijaitsee paikallisella koneella siinä hakemistossa, jossa ohjelmistoa kehitetään. 
 
-### Repositorioiden hajautus ja synkronointi
+## Repositorioiden hajautus ja synkronointi
 
 Itsenäisten repositoryjen sisältöjä voidaan __synkronoida__ keskenään. Tähän tietysti tarvitaan verkkoyhteys. 
 
@@ -48,14 +50,17 @@ Repositorioiden sisältöjen synkronointi mahdollistaa niiden sisältöjen jakam
 
 Git:lle on useita graafisia käyttöliittymiä, myös Windows-asennuspaketissa on yksi sellainen. Tällä kurssilla käytämme kuitenkin __komentorivikomentoja__.  Niin tekevät useimmat ammattilaisetkin.
 
-Windows-käyttöjärjestelmällä on kaksi komentotulkkia, _cmd_ ja _powershell_. Git:n Windows-asennus sisältää _Git Bash_ –komentotulkin, joka emuloi iOS- ja Linux-järjestelmiin esiasennettua _bash_-komentotulkkia
+Windows-käyttöjärjestelmällä on kaksi __komentotulkkia__, _cmd_ ja _powershell_. Git:n Windows-asennus sisältää _Git Bash_ –komentotulkin, joka emuloi iOS- ja Linux-järjestelmiin esiasennettua _bash_-komentotulkkia
 
 Git-komennot ovat kaikissa komentotulkeissa samat. Hakemistojen ja tiedostojen käsittelykomennot voivat eri komentotulkeissa poiketa toisistaan. 
 
 Jos komentotulkin käyttäminen ei ole entuudestaan tuttua, voit perehtyä siihen esim. oheisen materiaalin avulla: 
-- https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line
 
-> Tässä materiaalissa käytetään mahdollisissa tiedostojärjestelmäkomennoissa bash-komentoja. 
+- [Command line crash course](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line)
+
+!!! note "Huomautus"
+
+    Tässä materiaalissa käytetään mahdollisissa tiedostojärjestelmäkomennoissa bash-komentoja. 
 
 ### Konfigurointi
 
@@ -105,6 +110,8 @@ Kaikki Git-komennot alkavat `git`, sen jälkeen tulee varsinainen __komento__ (e
 ```
 git config core.editor
 ```
+!!! note "Huomautus"
+    Tässä materiaalissa Git-komentoihin viitataan tekstissä vain komento-osalla, esim. `config`. Komentorivillä annettava komento on tällöin `git config`. 
 
 Komennoille voidaan antaa myös valitsimia (_option_), jotka täsmentävät, mitä halutaan tehdä. Tässä esimerkissä valitsin `--list` määrittää, että halutaan listata konfiguraatioparametrit, ja valitsin `--global`, että halutaan vain globaalit, kaikkiin repositorioihisi vaikuttavat parametrit.  
 ```
@@ -161,3 +168,9 @@ Other
     --default <value>     with --get, use default value when missing entry
 
 ```
+
+!!! question "Harjoitus 1"
+    1. Asenna koneellesi git ja Visual Studio Code.
+    2. Konfiguroi git, ainakin käyttäjätiedot ja editori.
+    3. Avaa GitHub-palveluun tili.
+

@@ -45,5 +45,5 @@ Koodieditoreihin on saatavana Markdown tukilaajennuksia, esim. esikatselu
 
 Markdownia käytetään usein projektien dokumentointiin, sillä siten saadaan dokumentaatiollekin samanlainen versionhallinta kuin koodille.
 
-> Lisää tähän esitykseen havainnollistavia kuvia
+![](./assets/vscode_md_preview.png)
 

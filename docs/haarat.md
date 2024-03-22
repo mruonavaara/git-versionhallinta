@@ -15,19 +15,17 @@ _Lähde: [Git Branch, Atlassian](https://www.atlassian.com/git/tutorials/using-b
 
 Jokaisessa mainituista tapauksista halutaan tehdä yhtaikaisesti kehitystä kahteen tai useampaan versioon ohjelmistosta. Monen kehittäjän tapauksessa jokainen kehittäjä luo omaa versiotaan ohjelmistosta. 
 
-Versionhallintajärjestelmän keinoin haarautuneet versiot ohjemistosta voidaan jälleen __yhdistää__ (_merge_). Esimerkiksi, kehittäjä yhdistää oman kehityshaaransa muutokset yhteiseen versiohaaraan, josta toiset kehittäjät saavat sen käyttöönsä ja edelleen kehitettäväksi.
-
-> Tähän voisi sopia jokin käytännön hands-on esimerkki haarojen käytöstä
+Versionhallintajärjestelmän keinoin haarautuneet versiot ohjelmistosta voidaan jälleen __yhdistää__ (_merge_). Esimerkiksi, kehittäjä yhdistää oman kehityshaaransa muutokset yhteiseen versiohaaraan, josta toiset kehittäjät saavat sen käyttöönsä ja edelleen kehitettäväksi.
 
 ## Miten Git toimii
 
 Haarautumisen ymmärtämiseksi on syytä perehtyä muutamiin Git:n toimintaperiaatteisiin.
 
-__Talletus__ (commit) tallettaa viittaukset niihin tiedostoversioihin, jotka olet sinne lisännyt (_snapshot_), sekä viittauksen edelliseen commitiin. Muutoksia (committeja) voi siis navigoida taaksepäin.
+__Talletus__ (_commit_) tallettaa viittaukset niihin tiedostoversioihin, jotka olet sinne lisännyt (_snapshot_), sekä viittauksen edelliseen commitiin. Muutoksia voi siis navigoida taaksepäin.
 
-__Haara__ (branch) on viittaus committiin, josta tulee aikanaan seuraavan talletuksen edeltäjä. Kun teet uuden talletuksen, haaraviittaus siirtyy eteenpäin osoittamaan tekemääsi uutta talletusta. 
+__Haara__ (_branch_) on viittaus committiin, josta tulee aikanaan seuraavan talletuksen edeltäjä. Kun teet uuden talletuksen, haaraviittaus siirtyy eteenpäin osoittamaan tekemääsi uutta talletusta. 
 
-__HEAD__ on viittaus siihen haaraan, jossa tällä hetkellä olet. Se on siis looginen tunniste. 
+__HEAD__ on viittaus siihen haaraan, jossa tällä hetkellä olet. Se on siis looginen tunniste, ei haara. 
 
 ![](./assets/commit_branch_head.png)
 
@@ -36,7 +34,7 @@ _Lähde: [Chacon S., Straub B, Pro Git, luku 3.](https://git-scm.com/book/en/v2/
 
 ## Uuden haaran luominen
 
-Kun perustat repositoryn, sinulle on jo valmiiksi luotu yksi haara nimeltä `master`, ja `HEAD` viittaa siihen. Se on siis Git:n oletushaara. 
+Kun perustat repositoryn, sinulle on jo valmiiksi luotu yksi haara nimeltä `master`, ja `HEAD` viittaa siihen. Se on Git:n oletushaara. 
 
 Joka kerta, kun teet talletuksen, `master`-viittaus siirtyy eteenpäin siihen, jonka juuri teit.
 
@@ -97,12 +95,15 @@ _Lähde: [Chacon S., Straub B, Pro Git, luku 3.](https://git-scm.com/book/en/v2/
 
 Haaroissa `master` ja `testing` on nyt erilaiset versiot. 
 
-Vaihtamalla haaraa voit  tarkastella niitä, kehittää niitä eteenpäin ja tehdä niistä uusia versioita toisistaan riippumatta.  Eri haaroihin tehdyt muutokset pysyvät erillisinä, ja voit milloin tahansa lähtötilanteeseen, jos tulet katumapäälle.
+Vaihtamalla haaraa voit  tarkastella niitä, kehittää niitä eteenpäin ja tehdä niistä uusia versioita toisistaan riippumatta.  
+
+Eri haaroihin tehdyt muutokset pysyvät erillisinä, ja voit milloin tahansa palata lähtötilanteeseen, jos tulet katumapäälle. Toiseen haaraan tekemäsi muutokset jäävät silti talteen, ja voit jatkaa niidenkin kehittämistä. 
 
 ## Eriytyneet haarat
 
-Jos esimerkissämme nyt teet uuden talletuksen `master`-haaraan, projektilla on kaksi toisistaan erkaantunutta haaraa, joita voidaan toisistaan riippumatta kehittää eteenpäin täysin hallitusti.
+Jos esimerkissämme nyt teet uuden talletuksen `master`-haaraan, projektilla on kaksi toisistaan erkaantunutta haaraa. Erkaantunut tarkoittaa sitä, että molemmissa haaroissa on talletuksia, joita toisessa ei ole. 
 
+Molempia voidaan kehittää eteenpäin toisistaan riippumatta täysin hallitusti. 
 
 ![](./assets/separate_branches.png)
 
@@ -118,20 +119,22 @@ Haaroittumisen visualisoinnissa graafiset työkalut voisivat olla paikallaan, es
 > Materiaalissa pitäisi ehkä olla jokin vinkki hyvistä työkaluista
 
 ## Yhdistäminen (_merge_)
-Haaroihin eriytynyt kehitys halutaan usein jälleen yhdistää, esim. haarassa tehty korjaus halutaan viedä pääkehityshaaraan
+Haaroihin eriytynyt kehitys halutaan usein jälleen yhdistää, esim. haarassa tehty korjaus halutaan viedä pääkehityshaaraan. 
+
+Seuraavassa esimerkissä pääkehityshaara on `master` ja haaraan `iss53` on tehty vikakorjausta. Vikakorjaus on nyt valmis ja se halutaan viedä pääkehityshaaraan.
 
 ![](./assets/merge_before.png)
 
 _Lähde: [Chacon S., Straub B, Pro Git, luku 3.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/)_
 
-Yhdistämisen logiikka on, että haaraan, johon yhdistetään, tehdään uusi commit, joka sisältää molempien haarojen muutokset.
+Yhdistämisen logiikka on, että haaraan, johon yhdistetään, tehdään uusi talletus, joka sisältää molempien haarojen muutokset.
 
-Tässä esimerkissä on kehitetty korjausta haarassa iss53. Yhdistäminen masteriin:
+Tässä esimerkissä on kehitetty korjausta haarassa `iss53`. Sen yhdistäminen `master`-haaraan käy näin:
 ```bash
-$ git checkout master	
-$ git merge iss53		
+git switch master   # siirrytään siihen haaraan, johon muutos halutaan yhdistää
+git merge iss53     # yhdistäminen tehdään komennolla merge
 ```
-Jos muutokset ovat automaattisesti yhdistettävissä, asia on kerralla selvä. 
+Toiminto merge tekee uuden talletuksen, jossa on yhdistetty molempien haarojen muutokset. Jos muutokset ovat automaattisesti yhdistettävissä, asia on kerralla selvä. 
 
 ![](./assets/merge_after.png)
 
@@ -141,7 +144,7 @@ _Lähde: [Chacon S., Straub B, Pro Git, luku 3.](https://git-scm.com/book/en/v2/
 
 Jos eri haarojen muutokset ovat joltain osin keskenään ristiriitaisia, yhdistäminen ei onnistukaan suoraan, vaan Git raportoi __konfliktin__.
 
-Tällöin commit jää kesken, ja hakemistossa on konfliktin sisältävistä tiedostoista uudet versiot, joissa Git on yhdistänyt kaiken sen, mitä se automaattisesti kykeni. Git on merkinnyt ja lisännyt ristiriitakohtiin molempien haarojen muutokset. 
+Tällöin talletus jää kesken, ja hakemistossa on konfliktin sisältävistä tiedostoista uudet versiot, joissa Git on yhdistänyt kaiken sen, mitä se automaattisesti kykeni. Git on merkinnyt ja lisännyt ristiriitakohtiin molempien haarojen muutokset. 
 
 Konflikti kuulostaa pahalta, mutta kyse on vain siitä, että ei ole mahdollista koneellisesti päättää, mikä on oikea tapa yhdistää muutokset. Kehittäjän on korjattava käsin ristiriitaiset kohdat (_resolve conflict_). Kun se on tehty, hän tekee normaalisti commitin.
 

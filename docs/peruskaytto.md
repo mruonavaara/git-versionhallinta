@@ -2,16 +2,16 @@
 
 ## Repositorion perustaminen
 
-Voit perustaa repositoryn hakemistoon, joka ei ole vielä versionhallinnassa, komennolla init.
+Voit perustaa repositoryn hakemistoon, joka ei ole vielä versionhallinnassa, komennolla `init`.
 
 ```bash
-$ mkdir demo 		# luodaan hakemisto
-$ cd demo		    # vaihdetaan uusi hakemisto oletushakemistoksi
-$ git init
+mkdir demo 		# luodaan hakemisto
+cd demo		    # vaihdetaan uusi hakemisto oletushakemistoksi
+git init
 ```
 
-Komento luo tyhjän repositoryn, johon voit tallettaa versioita. Tiedot tallentuvat alihakemistoon .git-nimiseen alihakemistoon. 
-.git-hakemistosta tunnistat, onko hakemisto Git-versionhallinnassa.
+Komento luo tyhjän repositoryn, johon voit tallettaa versioita. Tiedot tallentuvat alihakemistoon `.git`-nimiseen alihakemistoon. 
+`.git`-hakemistosta tunnistat, onko hakemisto Git-versionhallinnassa.
 
 Tiedostot ja hakemistot, joiden nimi alkaa pisteellä, ovat piilotettuja, niitä ei oletusarvoisesti näytetä. Saat piilotetut hakemistot näkyviin `ls`-komennon laajentimella `-a`. Laajentimella `-l`` näytetään tiedostojen ja hakemistojen kaikki tiedot.
 
@@ -31,39 +31,57 @@ drwxr-xr-x 1 h01975 1049089    0 Feb 15 12:36 .github/
 
 Jotta piilotetut tiedostot näkyisivät Windowsin tiedostojenhallinnassa, on tiedostojenhallinan asetuksissa määritettävä piilotetut tiedostot näkyviin.
 
+- [View hidden files and folders in Windows](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-97fbc472-c603-9d90-91d0-1166d1d9f4b5)
+
 ### Repositorion perustaminen toisesta repositoriosta
 
 Usein haluat kopioida olemassa olevan repositoryn ja jatkaa työskentelyä siitä. Tämä tapahtuu komennolla clone, esim.
 
 ```
-$ git clone https://github.com/libgit2/libgit2
+git clone https://github.com/libgit2/libgit2
 ```
 
-Komento lisää nykyiseen hakemistoon alihakemiston libgit2, joka sisältää alkuperäisen repositoryn datan kopion (.git) sekä uusimman version tiedostot. Se myös konfiguroi alkuperäisen repositoryn uuden repositoryn etärepositoryksi. Näistä lisää myöhemmin.
+Komento lisää nykyiseen hakemistoon alihakemiston libgit2, joka sisältää alkuperäisen repositoryn datan kopion (`.git`) sekä uusimman version tiedostot. Se myös konfiguroi alkuperäisen repositoryn uuden repositoryn etärepositoryksi. 
 
-## Tiedostojen talletus Git-hallintaan
+Täsä aihetta käsitellään myöhemmin osiossa _Hajautettu Git_.
 
-Hakemisto, johon on perustettu Git-repositorio, on Git:n __työhakemisto__. Sen tiedostot ja alihakemistot ovat otettavissa Git-hallintaan. Ne pitää erikseen viedä Git-hallintaan, jos niiden versioita halutaan hallinnoida.
+## Tiedostot Git-hakemistossa
 
-Git:n näkökulmasta hakemistossa olevat tiedostot tiedostot voivat olla joko 
--  Tracked – Otettu Git:n hallintaan
--  Untracked – ei Git-hallinnassa
+Hakemisto, johon on perustettu Git-repositorio, on Git:n __työhakemisto__. 
 
-Git:n hallinnassa oleva olevan työhakemiston tiedosto voi olla
-- Unmodified - muuttumaton sama kuin talletettu uusin versio 
-- Modified – muuttunut, erilainen kuin talletettu uusin versio
-- Staged – merkitty otettavaksi seuraavaan talletukseen (_commit_)
+Työhakemistossa olevat tiedostot ja alihakemistot ovat otettavissa Git-hallintaan. Tiedostot pitää viedä erikseen Git-hallintaan, jos niiden versioita halutaan hallinnoida.
 
+Git:n näkökulmasta hakemistossa olevat tiedostot voivat Git-termein olla joko 
+
+-  _Tracked_ (Otettu Git:n hallintaan) tai 
+-  _Untracked_ (Ei Git-hallinnassa).
+
+Git:n hallinnassa oleva työhakemiston tiedosto voi olla
+
+- _Unmodified_ - muuttumaton sama kuin talletettu uusin versio 
+- _Modified_ – muuttunut, erilainen kuin talletettu uusin versio
+- _Staged_ – merkitty otettavaksi seuraavaan talletukseen
+
+Oheinen kuva kuvaa eri tiloja ja niiden välisiä siirtymiä.
+
+- Jos hakemistoon lisätään uusi tiedosto, se on `untracked`.
+- Jos hakemistossa oleva Git-hallinnassa oleva tiedosto muuttuu, sen tilaksi tulee `modified`.
+- Uudet ja muuttuneet tiedostot voidaan merkitä otettavaksi seuraavaan talletukseen toiminnolla (_Stage the file_). 
+- Kun talletus  (_commit_) tehdään, kaikki mukaan otettavaksi merkityt tiedostoversiot talletetaan, ja niiden tilaksi tulee `unmodified`.
 
 ![](assets/git_file_states.png)
 
 Työhakemiston tiedostojen Git-tilaa voi tarkastella komennolla status.
 
 ```bash
-$ git status
+git status
 ```
 
-### Muutosten tallettaminen, vaihe 1: add
+!!! tip "Vinkki"
+    
+    Työhakemiston git-tilaa (komento `status`) kannattaa tarkastella ennen Git-operaatioita ja niiden jälkeen, niin pysyt aina tilanteen tasalla, mitä repositoriossasi tapahtuu. 
+
+## Muutosten tallettaminen, vaihe 1: add
 
 Tiedostoversioiden tallettaminen on kaksivaiheinen operaatio. 
 
@@ -72,24 +90,25 @@ Kun tiedosto on valmis talletettavaksi versionhallintaan, uusi tai muutettu tied
 Tiedostot voidaan lisätä seuraavaan talletukseen yksittäin.
 
 ```bash
-$ git add hello.html   # tiedosto hello.html otetaan mukaan seuraavaan talletukseen
+git add hello.html   # tiedosto hello.html otetaan mukaan seuraavaan talletukseen
 ```
+
 Voit myös lisätä koko hakemiston, jolloin kaikki hakemiston tiedostot ja alihakemistot sisältöineen lisätään kerralla. Hakemistot ovat myös tiedostoja, nekin versioituvat.
 
 ```bash
-$ git add .		# . viittaa nykyiseen hakemistoon, kaikki uudet ja muuttuneet tiedostot otetaan mukaan
+git add .		# . viittaa nykyiseen hakemistoon, kaikki uudet ja muuttuneet tiedostot otetaan mukaan
 ```
 
 Nyt muuttuneet tiedostot ovat valmiita talletettavaksi versionhallintaan. Kuten huomasit, uuden tiedoston tuominen on muutos siinä kuin olemassa olevankin muuttaminen.
 
 Nyt Git on tietoinen, mitä pitää tallentaa, ja ollaan valmiita `commit`-toimintoa varten.
 
-### Muutosten tallettaminen, vaihe 2: commit
+## Muutosten tallettaminen, vaihe 2: commit
 
 Varsinainen talletus tapahtuu komennolla `commit`.
 
 ```bash
-$ git commit
+git commit
 ```
 
 Komento käynnistää editorin, jolla voit kirjoittaa muutokseen talletettavan kommentin. Kun talletat ja suljet, muutos viedään tietovarastoon.
@@ -99,58 +118,92 @@ Kirjaa kommenttiin muutoksen aihe selkeästi, ne ovat tärkeää kommunikaatiota
 Voit myös kirjata kommentin komentorivillä ilman editoria:
 
 ```bash
-$ git commit –m "Lisätty logout-toiminnallisuus"
+git commit –m "Lisätty logout-toiminnallisuus"
 ```
-### Talletusten tarkastelu
+
+## Talletusten tarkastelu
 
 Työtilan muutoksia verrattuna talletettuihin voit tarkastella tutulla komennolla `status`. Sitä kannattaa käyttää ahkerasti, jotta pysyt selvillä, mikä on hakemiston ja sen muutosten Git-tila:
+
 ```bash
-$ git status
+git status
 ```
+
 Näet commit-talletusten historian komennolla `log`.
 
 ```bash
-$ git log
+git log
 ```
 
-Komento listaa kaikki talletukset käänteisessä aikajärjestyksessä. Laajentimella `--stat` Git lisää tulostukseen lyhyen yhteenvedon talletuksen muutoksista:
+Komento listaa kaikki talletukset käänteisessä aikajärjestyksessä. Laajentimella `--stat` Git lisää tulostukseen lyhyen yhteenvedon talletusten muutoksista:
 
 ```
-$ git log --stat
+git log --stat
 ```
 
-Työhakemistossa olevan tiedoston muutoksia verratuuna viimeksi talletettuun versioon voi tarkastella komennolla `diff`.
+Työhakemistossa olevan tiedoston muutoksia verrattuna viimeksi talletettuun versioon voi tarkastella komennolla `diff`.
 
 ```bash
-$ git diff hello.html
+git diff hello.html
 ```
 
-### Tiedostojen poistaminen ja siirtäminen
+## Tiedostojen poistaminen ja siirtäminen
 
 Kuten aiemmin todettiin, hakemistot versioituvat myös. Jos haluat poistaa tiedoston repositoriosta tai siirtää tiedoston toiseen hakemistoon, olet tekemässä uutta versiota hakemistoista. 
 
-Git-komento `rm` poistaa tiedoston paitsi työhakemistosta myös Git-hallinnasta. Muutos on sen lisäksi talletettava versionhallintaan
+Git-komento `rm` poistaa tiedoston paitsi työhakemistosta myös Git-hallinnasta. Muutos on sen lisäksi talletettava versionhallintaan.
+
 ```bash
-$ git rm test.txt
-$ git commit -m "Poistettu tarpeeton tiedosto"
+git rm test.txt
+git commit -m "Poistettu tarpeeton tiedosto"
 ```
+
 Huomaa, että vanhat talletetut versiot säilyvät versionhallinnassa! Se, mikä on versionhallintaan talletettu, säilyy siellä.
 
 Git-komennolla `mv` voi nimeätä tiedoston uudelleen tai siirtää toiseen hakemistoon. 
 
 ```bash
-$ git mv oldname.txt newname.txt
-$ mkdir newdir
-$ git mv newname.txt newdir
-$ git add .
-$ git commit -m "Uudelleenjärjestelty tiedostoja"
+git mv oldname.txt newname.txt
+mkdir newdir
+git mv newname.txt newdir
+git add .
+git commit -m "Uudelleenjärjestelty tiedostoja"
 ```
 
-Tiedostoja voi poistaa ja siirtää repositorion sisällä käyttöjärjestelmän komennoilla (esim. `rm` tai `mv`). Muutokset talletetaan Git-hallintaan samalla tapaa kuin mikä tahansa muutos: ensin `add`, sitten `commit`. Vastaavilla Git-komennoilla ei `add`-vaihetta tarvita
+Tiedostoja voi poistaa ja siirtää repositorion sisällä käyttöjärjestelmän komennoilla (esim. `rm` tai `mv`). Muutokset talletetaan Git-hallintaan samalla tapaa kuin mikä tahansa muutos: ensin `add`, sitten `commit`. Vastaavilla Git-komennoilla ei `add`-vaihetta tarvita.
+
+!!! question "Harjoitus 2"
+    Harjoitellaan perustoimintoja. 
+
+    Tarkista repositorion tilanne joka välissä komennolla `status`. Muista laatia talletuksillesi kuvaava kommenttiviesti!
+
+    1. Tee koneellesi kurssin harjoituksia varten hakemisto ja perusta sinne Git-repositorio.
+    2. Tee repositorioon tiedosto (esim. `test.txt`) ja kirjoita tiedostoon jotain. Talleta tiedosto Git-hallintaan. 
+    4. Tee repositorioon hakemisto `hello` ja sinne tiedosto `hello.html`. Tiedoston sisältö voi olla esim.
+
+        ```
+        Hei maailma!
+        ```
+
+        Vie nämä muutokset Git-hallintaan.
+
+    5. `hello.html`-tiedoston sisältö ei vielä ole HTML-koodia. Lisää tekstiin h1-merkkaus, jolloin siitä tulee HTML-elementti:
+
+        ```
+        <h1>Hei maailma!</h1>
+        ```
+
+        Vie muutos versionhallintaan. 
+
+    6. Muuta `hello.html`-tiedoston nimeksi `index.html` ja talleta muutos.
+    7. Ensimmäisenä luotu test.txt-tiedosto on nyt käynyt tarpeettomaksi. Poista se versionhallinnasta ja talleta muutos. Laadi talletuksellesi kuvaava kommenttiviesti.
+    8. Lisää vielä joitakin tiedostoja ja talleta ne versionhallintaan. 
+    9. Tarkastele tekemiäsi talletuksia komennolla `git log`. Kokeile myös komentoa laajentimella `--stat`. Mitä lisätietoa saat?
+
 
 ## Paluu menneisyyteen
 
-Johdanto-osiossa väitettiin, että versionhallinnan avulla on mahdollista palauttaa ohjelmiston aiempia versioita. Kokeillaa sitä seuraavassa.
+Johdanto-osiossa väitettiin, että versionhallinnan avulla on mahdollista palauttaa ohjelmiston aiempia versioita. Kokeillaan sitä seuraavassa.
 
 Tarkastellaan Git-komennon `log` tulostusta:
 ```
@@ -225,7 +278,12 @@ Takaisin nykytilaan päästään esimerkiksi Git:n antaman neuvon mukaisesti:
 git switch -     # palataan siihen haaraan, josta checkout tehtiin
 ```
 
-Siihen, mistä tässä on kyse ja miten kannattaa toimia, palataan myöhemmin. 
+Siihen, mistä tässä on kyse ja miten kannattaa toimia, palataan myöhemmin osiossa _Haarat_. 
+
+!!! tip "Vinkki"
+    Git neuvoo sinua aina, kun teet jonkin toimenpiteen. 
+    
+    Ilmoituksia kannattaa lukea ja yrittää tulkita. Ongelmatilanteissa sen ehdotukset usein ohjaavat oikeaan suuntaan.
 
 
 ## Oho! Eiku…
@@ -237,32 +295,32 @@ Versionhallintatoimintojen kanssa voi helposti tulla erehdyksiä. Hätä ei kuit
 Jos lisäsit seuraavaan talletukseen tiedoston, joka ei sinne kuuluisi, voit peruuttaa lisäyksen komennolla `reset`.
 
 ```bash
-$ git reset temp.log
+git reset temp.log
 ```
 
 Jos et anna parametria, kaikki lisätyt tiedostot poistetaan seuraavasta tallennuksesta.
 
-Komento ei poista tiedostoja, vain muuttaa tiedoston tilan talletuksen suhteen.
+Komento ei poista tai muuta tiedostoja, vain muuttaa tiedostojen tilan talletuksen suhteen.
 
 ### Työtilaan tehtyjen muutosten peruuttaminen ennen talletusta
 
-Jos haluat peruuttaa tiedostoon työtilassa tekemäsi muutokset, joita ei ole talletettu versionhallintaan (_commit_), voit palauttaa tiedoston versionhallinnan tuoreimman version tasalle komennolla `restore`:
+Jos haluat peruuttaa työtilassa tekemäsi muutokset, __joita ei vielä ole talletettu versionhallintaan__, voit palauttaa tiedoston versionhallinnan tuoreimman version tasalle komennolla `restore`:
 
 ```bash
 git restore hello.html
 ```
+!!! danger "Varoitus"
+    Huomaa, että tässä tapauksessa __tekemästi muutokset häviävät eivätkä ne ole palautettavissa__. Vain talletetut versiot voidaan palautettaa.
 
-Huomaa, että tässä tapauksessa tekemästi muutokset häviävät eivätkä ne ole palautettavissa. Vain talletetut versiot ovat palautettavissa.
-
-Jos haluat peruuttaa kaikki työtilaan tekemäsi muutokset, se onnistuu komennolla `git reset`.
+Jos haluat peruuttaa kaikki työtilaan tekemäsi muutokset, se onnistuu komennolla `git reset --hard`. Käytä sitä vain, kun olet varma, että haluat hylätä kaikki tekemästi muutoksiet
 
 ### Tallennettujen muutosten peruminen
 
-Jos olet tallentanut muutoksen versionhallintaan, muutokselle on jo luotu tunniste ja siitä on talletettu kaikki tiedot. Jos sitä muutettaisiin, jouduttaisin peukaloimaan historiaa.
+Jos olet tallentanut muutoksen versionhallintaan, muutokselle on jo luotu tunniste ja siitä on talletettu kaikki tiedot. Jos sitä muutettaisiin, jouduttaisin peukaloimaan repositorion versiohistoriaa.
 
-Muutoksen poistaminen ei oikeastaan ole edes järkevää. Sen sijaan että yrittäisit muuttaa historiaa, voit tehdä uuden muutoksen, jossa väärä muutos korjataan. 
+Talletetun muutoksen poistaminen ei oikeastaan edes ole järkevää. Sen sijaan että yrittäisit muuttaa historiaa, voit tehdä uuden muutoksen, jossa väärä muutos korjataan. 
 
-Yksi ylimääräinen talletus ei haittaa, ja korjaus on täysin riskitön. Sen sijaan historian muuttaminen olisi riskialtista, se voisi aiheuttaa monin verroin suurempia ongelmia kuin ylimääräinen talletus.
+Yksi ylimääräinen talletus ei haittaa, ja korjaus on täysin riskitön. Historian muuttaminen sen sijaan olisi riskialtista, se voisi aiheuttaa monin verroin suurempia ongelmia kuin ylimääräinen talletus.
 
 Voit peruuttaa kokonaisen talletuksen tekemällä "anti-talletuksen" Git-komennolla `revert`. Komento tekee muutoksen, joka peruuttaa sille parametrina annetun talletuksen kokonaan.
 
@@ -303,34 +361,24 @@ Date:   Sun Mar 10 16:58:47 2024 +0200
 ```
 Komento `revert` peruuttaa yhden talletuksen kerrallaan. Jos haluat peruuttaa useampia talletuksia, jokainen pitää peruuttaa yksi kerrallaan.
 
-Muista, että __kaikki, mikä on versionhallintaan talletettu, on palautettavissa__. Siksi commit-talletuksia kannattaa tehdä usein.
+Muista, että __kaikki, mikä on versionhallintaan talletettu, on palautettavissa__. Siksi `commit`-talletuksia kannattaa tehdä usein.
 
-## Yhteenveto
+!!! question "Harjoitus 3"
 
-Yhteenveto osion tärkeimmistä sisällöistä
+    1. Tee repositorioosi useita muutoksia: muuta talletettuja tiedostoja ja lisää uusia tiedostoja.  Älä talleta!
+   
+    2. Kokeile `add`-toiminnon peruuttamista. 
+        - Lisää muutokset seuraavaan talletukseen (`add`).
+        - Poista muutoksia yksittäin seuraavasta talletuksesta.
+        - Poista kaikki loput muutokset seuraavasta talletuksesta. 
+        - Sinulla pitäisi nyt olla työtilassa useita tallettamattomia muutoksia, joista mikään ei ole menossa seuraavaan talletukseen. 
 
-Jokin Moodle-tehtävä?
+    3. Kokeile työtilaan tehtyjen muutosten peruuttamista. Tarkista tilanne joka välissä komennolla `status`.
+        - Peruuta jonkin talletetun tiedoston muutokset työtilasta.
+        - Poista kaikki loput muutokset työtilasta. 
+        - Mitä tapahtui uusille _untracked_-tilassa oleville tiedostoille?
 
+    4. Kokeile talletuksen peruuttamista
+        - Talleta nyt kaikki muutokset. 
+        - Peruuta talletus komennolla `revert`. 
 
-> __Harjoitus__
->
-> 1. Tee koneellesi kurssin harjoituksia varten hakemisto ja perusta sinne Git-repositorio.
-> 
-> 2. Tee repositorioon tiedosto (esim. `test.txt`) ja kirjoita tiedostoon jotain.
-> 
-> 3. Talleta tiedosto Git-hallintaan. Laadi talletuksellesi kuvaava kommenttiviesti.
->
-> 4. Tee repositorioon hakemisto `hello` ja sinne tiedosto `hello.html`. Tiedoston sisältö voi olla esim.
-> ```
-> Hello World!
-> ```
-> 5. Vie nämä muutokset Git-hallintaan. Laadi talletuksellesi kuvaava kommenttiviesti.
-> 
-> 6. Ensimmäisenä luotu text.txt-tiedosto on nyt käynyt tarpeettomaksi. Poista se versionhallinnasta. Laadi talletuksellesi kuvaava kommenttiviesti.
->
-> 7. Voit kokeeksi tehdä muitakin muutoksia ja tallettaa niitä versionhallintaan. Lopuksi kopioi komennon `git log --stat` tulostus tiedostoon `log.txt` ja talleta se repositoriosi päätasolle.
->
-> __Vinkkejä__
-> - Työhakemiston sisältöä (`ls`) ja sen git-tilaa (komento `status`) kannattaa tarkastella Git-operaatiota ennen ja niiden jälkeen. 
-> - Git neuvoo sinua aina, kun teet jonkin toimenpiteen. Ilmoituksia kannattaa lukea ja yrittää tulkita. 
-> - Voit ohjata komentorivillä komennon tulostuksen suoraan tiedostoon näin: `git log --stat > log.txt`
