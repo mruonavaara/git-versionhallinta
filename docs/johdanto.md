@@ -40,8 +40,6 @@ Itsenäisten repositoryjen sisältöjä voidaan __synkronoida__ keskenään. Tä
 
 Repositorioiden sisältöjen synkronointi mahdollistaa niiden sisältöjen jakamisen useiden kehittäjien kesken. Tyypillinen malli on, että kehittäjät synkronoivat oman työnsä verkkopalvelussa sijaitsevaan repositorioon, ja saavat muiden kehittäjien tekemän työn sen kautta synkronoitua itselleen.
 
-> tee uusi kuva
-
 ## Git:n käyttöönotto
 
 ### Komentorivi

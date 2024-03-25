@@ -221,9 +221,9 @@ Ota lähtökohdaksi päähaarasi (tässä master) tuorein commit
 git checkout master 		# vaihda master-haaraan
 ```
 
-Luo uudelle ominaisuudelle haara (git branch) ja vaihda siihen haaraan  (git checkout). Tähän on pikakomento:
+Luo uudelle ominaisuudelle haara (git branch) ja vaihda siihen haaraan  (git switch). Tähän on pikakomento:
 ```bash
-git checkout –b feat123		# luo haaran ja vaihtaa siihen 
+git switch –c feat123		# luo haaran ja vaihtaa siihen 
 ```
 
 Tee muutoksia ja committeja feat123-haaraan, ja kun toiminnallisuus on valmis, yhdistä muutokset päähaaraan
