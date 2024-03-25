@@ -1,0 +1,702 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../versionhallinta_projektissa/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
+    
+    
+      
+        <title>Muita toimintoja - Git-versionhallinta</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#muita-toimintoja" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Git-versionhallinta" class="md-header__button md-logo" aria-label="Git-versionhallinta" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Git-versionhallinta
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Muita toimintoja
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Git-versionhallinta" class="md-nav__button md-logo" aria-label="Git-versionhallinta" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Git-versionhallinta
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../johdanto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Johdanto versionhallintaan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Paikallinen Git
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Paikallinen Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../peruskaytto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Peruskäyttö
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../haarat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Haarat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hajautettu Git
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Hajautettu Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../etarepositoriot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Etärepositoriot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hosting_palvelut/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git-hosting-palvelut
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versionhallinta_projektissa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git projektissa
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Muita toimintoja
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Muita toimintoja
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Sisällysluettelo">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sisällysluettelo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tiedostojen-jattaminen-versionhallinnan-ulkopuolelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tiedostojen jättäminen versionhallinnan ulkopuolelle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tiedostojen jättäminen versionhallinnan ulkopuolelle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#luottamuksellinen-tieto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Luottamuksellinen tieto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ignore-saannot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ignore-säännöt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esimerkkeja-gitignore-saantojen-laatimisesta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Esimerkkejä .gitignore-sääntöjen laatimisesta
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#huomiotta-jatetyn-tiedoston-poistaminen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Huomiotta jätetyn tiedoston poistaminen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tarpeettomien-tiedostojen-poistaminen-tyotilasta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tarpeettomien tiedostojen poistaminen työtilasta
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tagit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tagit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tagit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tagit-etarepositorioissa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tagit etärepositorioissa
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="muita-toimintoja">Muita toimintoja</h1>
+<h2 id="tiedostojen-jattaminen-versionhallinnan-ulkopuolelle">Tiedostojen jättäminen versionhallinnan ulkopuolelle</h2>
+<p>Kaikkia projektin tiedostoja ei kannata viedä versionhallintaan.</p>
+<p>Yleissääntönä pois jätetään </p>
+<ul>
+<li>kaikki tiedostot, joita projektissa ei tarvita,  </li>
+<li>käännöstuotokset ja build-hakemistot,</li>
+<li>generoidut tiedostot, </li>
+<li>työkalujen tuottamat loki- ja väliaikaistiedostot,</li>
+<li>pakettienhallinnan lataamat tiedostot ja</li>
+<li>henkilökohtaiset konfiguraatiotiedostot.</li>
+</ul>
+<p>Repositorioon pitää viedä kaikki sellaiset tiedostot, joita tarvitaan kehittämiseen. Jos uusi kehittäjä kloonaa repositorion, hänen pitäisi pystyä jatkamaan kehitystä siitä.</p>
+<h3 id="luottamuksellinen-tieto">Luottamuksellinen tieto</h3>
+<p>Versionhallintaan ei pitäisi viedä luottamuksellisia tietoja kuten käyttäjätunnuksia, salasanoja ja järjestelmäkonfiguraatioita. Jos ne ovat versionhallinnassa ja viedään etärepositoryyn, ne ovat kaikkien niiden nähtävissä, joilla on repositoriaan lukuoikeus.</p>
+<p>Luottamuksellisia tietoja kuitenkin tarvitaan järjestelmien kehittämisessä esimerkiksi tietokantayhteyden muodostamiseen. Tällöin on tehtävä jokin ratkaisu, jolla luottamukselliset tiedot tuodaan järjestelmään jotenkin toisin. </p>
+<p>Ratkaisu voi olla esim.
+- Luottamukselliset tiedot ovat konfiguraatiotiedostossa, jota ei viedä versionhallintaan
+- Luottamukselliset tiedot luetaan ympäristömuuttujista</p>
+<p>Tällöin kehittäjä antaa paikallisesti luottamukselliset tiedot.</p>
+<h3 id="ignore-saannot">Ignore-säännöt</h3>
+<p>Git:lle voi määrittää sääntöjä, mitkä tiedostot se jättää huomioimatta. Säännöt määritetään <code>.gitignore</code>-tiedostoon</p>
+<p>Yleensä projektilla on yksi <code>.gitignore</code>-tiedosto projektin juurihakemistossa. Se vaikuttaa siihen hakemistoon, jossa se on sekä rekursiivisesti kaikkiin alihakemistoihin.</p>
+<h3 id="esimerkkeja-gitignore-saantojen-laatimisesta">Esimerkkejä .gitignore-sääntöjen laatimisesta</h3>
+<p>Kommenttirivit alkavat <code>#</code>-merkillä. Tyhjät rivit jätetään huomiotta. Normaalit korvaus-patternit (esim. <code>*</code>) toimivat. </p>
+<p>Esimerkkejä:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># Jätä huomiotta kaikki tiedostot, jotka päättyvät tilde-merkkiin (~)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>*~
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a># Jätä huomiotta kaikki .log-tiedostot
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>*.log
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a># Jätä huomiotta kaikki .o- ja .a-tiedostot
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>*.[oa]
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a># Jätä huomiotta kaikki build-hakemistot missä tahansa hakemistossa
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>build/
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a># Jos sääntö alkaa /-merkille, sitä ei sovelleta alihakemistoihin:
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a># Jätä huomiotta vain tässä hakemistossa oleva temp-hakemisto
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>/temp
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a># Sääntöön voi tehdä poikkeuksen !-merkillä:
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a># Jätä huomiotta kaikki .log-tiedostot paitsi change.log
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>*.log
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>!change.log
+</span></code></pre></div>
+<p>GitHubilla on laaja valikoima .gitignore-malleja erilaisille projekteille. Niistä saat hyvän lähtökohdan oman projektisi konfigurointiin (<a href="https://github.com/github/gitignore">https://github.com/github/gitignore</a>).</p>
+<h3 id="huomiotta-jatetyn-tiedoston-poistaminen">Huomiotta jätetyn tiedoston poistaminen</h3>
+<p>Joskus repositorioon lipsahtaa jotain sellaista, jonka ei sinne olisi pitänyt mennä, koska <code>.gitignore</code>-tiedostosta puuttuu sääntö, joka olisi pitänyt sinne laatia.</p>
+<p>Tällöin voidaan poistaa tiedosto Git-hallinnasta:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>rm<span class="w"> </span>--cached<span class="w"> </span>tiedostonimi
+</span></code></pre></div>
+Tiedosto merkitään poistettavaksi hakemistosta seuraavassa commitissa, valitsin <code>--cached</code> kuitenkin säilyttää sen työtilassa. Tiedosto on nyt työhakemistossasi untracked-tilassa, voit nyt lisätä .gitignore-säännön ja tehdä commitin, jossa tiedoston poisto talletetaan.</p>
+<p><strong>Huom!</strong> Tiedoston vanhat versiot kuitenkin jäävät historiaan. Jos haluat poistaa ne sieltäkin, on muutettava historiaa, mikä on aina riskialtista. Perehdy huolellisesti dokumentaatioon, jos lähdet sitä tekemään.</p>
+<h2 id="tarpeettomien-tiedostojen-poistaminen-tyotilasta">Tarpeettomien tiedostojen poistaminen työtilasta</h2>
+<p>Komento <code>clean</code> poistaa kaikki <code>untracked</code>-tiedostot, joita ei ole erikseen mainittu .gitignoressa. Sillä voit puhdistaa työhakemiston turhista tiedostoista, joita ei tarvita repositoryssä eikä muutenkaan.</p>
+<p>Koska tämä komento poistaa tiedostoja, on hyvä ensin tarkistaa, mitä clean tekisi:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>clean<span class="w"> </span>–d<span class="w"> </span>–-dry-run<span class="w">            </span><span class="c1"># -d poistaa myös hakemistot</span>
+</span></code></pre></div>
+<p>Kun olet varma, että poistettavat tiedostot todella ovat turhia, voit ajaa komennon</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clean<span class="w"> </span>-d
+</span></code></pre></div>
+<p>Komennolla on myös interaktiivinen moodi, jossa aina kysytään, mitä tehdään:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>clean<span class="w"> </span>-i<span class="w"> </span>-d
+</span></code></pre></div>
+<h2 id="tagit">Tagit</h2>
+<p>Versiohistoriaan voidaan kirjata muistiin tiettyjä nimettyjä versioita. Tällaisia ovat tyypillisesti järjestelmän julkaisuversiot (esim <em>v1.0.3</em>).</p>
+<p>Git-järjestelmässä tämä tehdään toiminnolla <code>tag</code>. Tagit ovat viittauksia tiettyihin talletuksiin, ja niihin voidaan kirjata metatietoa kuten talletukseen (<em>annotated tag</em>):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>tag<span class="w"> </span>–a<span class="w"> </span>v.1.0.3<span class="w"> </span>–m<span class="w"> </span><span class="s2">&quot;v1.0.3&quot;</span><span class="w">   </span><span class="c1"># -a tarkoittaa &quot;annotated&quot;</span>
+</span></code></pre></div>
+<p>Tagit voi listata komennolla <code>tag</code>. Tagin tiedot voi listat komennolla <code>show</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>tag
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>git<span class="w"> </span>show<span class="w"> </span>v1.0.3
+</span></code></pre></div>
+<p>Tagin voi asettaa mihin tahansa talletukseen myöhemminkin:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v1.2<span class="w"> </span>9fceb02
+</span></code></pre></div>
+<h3 id="tagit-etarepositorioissa">Tagit etärepositorioissa</h3>
+<p>Tageja ei viedä etärepositoryyn push-operaatiolla automaattisesti vaan ne pitää viedä erikseen. Se tapahtuu samalla tavalla kuin haarojen vienti:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>v1.0.3<span class="w">      </span><span class="c1"># &quot;origin&quot; on etärepositorio, &quot;v1.0.3&quot; on tag</span>
+</span></code></pre></div>
+<p>Kaikki tagit saa vietyä kerralla laajentimella <code>--tags</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--tags
+</span></code></pre></div>
+<p>Tagi voidaan poistaa laajentimella <code>-d</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>tag<span class="w"> </span>-d<span class="w"> </span>v1.0.3
+</span></code></pre></div>
+<p>Koska tagit ovat viittauksia talletuksiin siinä kuin muutkin viittaukset, niitä voi käyttää samalla tapaa, esim.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>v1.2
+</span></code></pre></div></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "toc.integrate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      
+    
+  </body>
+</html>
