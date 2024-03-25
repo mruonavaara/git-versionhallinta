@@ -230,7 +230,7 @@ Tee muutoksia ja committeja feat123-haaraan, ja kun toiminnallisuus on valmis, y
 ```bash
 git add .
 git commit
-git checkout master
+git switch master
 git merge feat123
 ```
 ### Pysyvät ja väliaikaiset haarat
