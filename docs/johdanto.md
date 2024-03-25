@@ -1,4 +1,4 @@
-# Johdanto
+# Johdanto versionhallintaan
 
 ## Mitä on versionhallinta
 
@@ -23,8 +23,6 @@ Syynä Git:n suosioon lienee, että se on
 - Ilmainen. 
 - Hajautettu. Siinä ei ole minkäänlaista keskitettyä palvelinta. 
 - Saatavilla kaikkiin ympäristöihin.
-
-
 
 ## Git-repositoriot
 
@@ -169,8 +167,11 @@ Other
 
 ```
 
-!!! question "Harjoitus 1"
-    1. Asenna koneellesi git ja Visual Studio Code.
-    2. Konfiguroi git, ainakin käyttäjätiedot ja editori.
-    3. Avaa GitHub-palveluun tili.
+## Harjoitus 1
+
+Pannaan ympäristö kuntoon harjoituksia varten.
+
+1. Asenna koneellesi git ja Visual Studio Code (tai vastaava ohjelmointieditori).
+2. Konfiguroi Git, ainakin käyttäjätiedot ja editori.
+3. Avaa GitHub-palveluun tili.
 

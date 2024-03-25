@@ -1,0 +1,960 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../johdanto/">
+      
+      
+        <link rel="next" href="../haarat/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
+    
+    
+      
+        <title>Peruskäyttö - Git-versionhallinta</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#peruskaytto" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Git-versionhallinta" class="md-header__button md-logo" aria-label="Git-versionhallinta" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Git-versionhallinta
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Peruskäyttö
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Git-versionhallinta" class="md-nav__button md-logo" aria-label="Git-versionhallinta" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Git-versionhallinta
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../johdanto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Johdanto versionhallintaan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Paikallinen Git
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Paikallinen Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Peruskäyttö
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Peruskäyttö
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Sisällysluettelo">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sisällysluettelo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#repositorion-perustaminen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repositorion perustaminen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Repositorion perustaminen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repositorion-perustaminen-toisesta-repositoriosta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repositorion perustaminen toisesta repositoriosta
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tiedostot-git-hakemistossa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tiedostot Git-hakemistossa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#muutosten-tallettaminen-vaihe-1-add" class="md-nav__link">
+    <span class="md-ellipsis">
+      Muutosten tallettaminen, vaihe 1: add
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#muutosten-tallettaminen-vaihe-2-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Muutosten tallettaminen, vaihe 2: commit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#talletusten-tarkastelu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Talletusten tarkastelu
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tiedostojen-poistaminen-ja-siirtaminen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tiedostojen poistaminen ja siirtäminen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#harjoitus-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Harjoitus 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paluu-menneisyyteen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paluu menneisyyteen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oho-eiku" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oho! Eiku…
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oho! Eiku…">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-komennon-peruuttaminen" class="md-nav__link">
+    <span class="md-ellipsis">
+      add-komennon peruuttaminen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tyotilaan-tehtyjen-muutosten-peruuttaminen-ennen-talletusta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Työtilaan tehtyjen muutosten peruuttaminen ennen talletusta
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tallennettujen-muutosten-peruminen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tallennettujen muutosten peruminen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#harjoitus-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Harjoitus 3
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../haarat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Haarat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hajautettu Git
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Hajautettu Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../etarepositoriot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Etärepositoriot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hosting_palvelut/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git-hosting-palvelut
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versionhallinta_projektissa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git projektissa
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../muita_toimintoja/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Muita toimintoja
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="peruskaytto">Peruskäyttö</h1>
+<h2 id="repositorion-perustaminen">Repositorion perustaminen</h2>
+<p>Voit perustaa repositoryn hakemistoon, joka ei ole vielä versionhallinnassa, komennolla <code>init</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>demo<span class="w">      </span><span class="c1"># luodaan hakemisto</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>demo<span class="w">         </span><span class="c1"># vaihdetaan uusi hakemisto oletushakemistoksi</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>git<span class="w"> </span>init
+</span></code></pre></div>
+<p>Komento luo tyhjän repositoryn, johon voit tallettaa versioita. Tiedot tallentuvat alihakemistoon <code>.git</code>-nimiseen alihakemistoon. 
+<code>.git</code>-hakemistosta tunnistat, onko hakemisto Git-versionhallinnassa.</p>
+<p>Tiedostot ja hakemistot, joiden nimi alkaa pisteellä, ovat piilotettuja, niitä ei oletusarvoisesti näytetä. Saat piilotetut hakemistot näkyviin <code>ls</code>-komennon laajentimella <code>-a</code>. Laajentimella `-l`` näytetään tiedostojen ja hakemistojen kaikki tiedot.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>-a
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>total<span class="w"> </span><span class="m">31</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>drwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>h01975<span class="w"> </span><span class="m">1049089</span><span class="w">    </span><span class="m">0</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">15</span>:04<span class="w"> </span>./
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>drwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>h01975<span class="w"> </span><span class="m">1049089</span><span class="w">    </span><span class="m">0</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="m">15</span>:08<span class="w"> </span>../
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>drwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>h01975<span class="w"> </span><span class="m">1049089</span><span class="w">    </span><span class="m">0</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">15</span>:04<span class="w"> </span>.git/
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>h01975<span class="w"> </span><span class="m">1049089</span><span class="w">   </span><span class="m">81</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">12</span>:36<span class="w"> </span>.gitattributes
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>drwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>h01975<span class="w"> </span><span class="m">1049089</span><span class="w">    </span><span class="m">0</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">12</span>:36<span class="w"> </span>.github/
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>h01975<span class="w"> </span><span class="m">1049089</span><span class="w">  </span><span class="m">490</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">12</span>:36<span class="w"> </span>.gitignore
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>h01975<span class="w"> </span><span class="m">1049089</span><span class="w">   </span><span class="m">13</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">13</span>:42<span class="w"> </span>hello.txt
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>h01975<span class="w"> </span><span class="m">1049089</span><span class="w"> </span><span class="m">9305</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">12</span>:36<span class="w"> </span>readme.md
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>h01975<span class="w"> </span><span class="m">1049089</span><span class="w">   </span><span class="m">29</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">15</span>:04<span class="w"> </span>time.txt
+</span></code></pre></div>
+<p>Jotta piilotetut tiedostot näkyisivät Windowsin tiedostojenhallinnassa, on tiedostojenhallinan asetuksissa määritettävä piilotetut tiedostot näkyviin.</p>
+<ul>
+<li><a href="https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-97fbc472-c603-9d90-91d0-1166d1d9f4b5">View hidden files and folders in Windows</a></li>
+</ul>
+<h3 id="repositorion-perustaminen-toisesta-repositoriosta">Repositorion perustaminen toisesta repositoriosta</h3>
+<p>Usein haluat kopioida olemassa olevan repositoryn ja jatkaa työskentelyä siitä. Tämä tapahtuu komennolla clone, esim.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git clone https://github.com/libgit2/libgit2
+</span></code></pre></div>
+<p>Komento lisää nykyiseen hakemistoon alihakemiston libgit2, joka sisältää alkuperäisen repositoryn datan kopion (<code>.git</code>) sekä uusimman version tiedostot. Se myös konfiguroi alkuperäisen repositoryn uuden repositoryn etärepositoryksi. </p>
+<p>Täsä aihetta käsitellään myöhemmin osiossa <em>Hajautettu Git</em>.</p>
+<h2 id="tiedostot-git-hakemistossa">Tiedostot Git-hakemistossa</h2>
+<p>Hakemisto, johon on perustettu Git-repositorio, on Git:n <strong>työhakemisto</strong>. </p>
+<p>Työhakemistossa olevat tiedostot ja alihakemistot ovat otettavissa Git-hallintaan. Tiedostot pitää viedä erikseen Git-hallintaan, jos niiden versioita halutaan hallinnoida.</p>
+<p>Git:n näkökulmasta hakemistossa olevat tiedostot voivat Git-termein olla joko </p>
+<ul>
+<li><em>Tracked</em> (Otettu Git:n hallintaan) tai </li>
+<li><em>Untracked</em> (Ei Git-hallinnassa).</li>
+</ul>
+<p>Git:n hallinnassa oleva työhakemiston tiedosto voi olla</p>
+<ul>
+<li><em>Unmodified</em> - muuttumaton sama kuin talletettu uusin versio </li>
+<li><em>Modified</em> – muuttunut, erilainen kuin talletettu uusin versio</li>
+<li><em>Staged</em> – merkitty otettavaksi seuraavaan talletukseen</li>
+</ul>
+<p>Oheinen kuva kuvaa eri tiloja ja niiden välisiä siirtymiä.</p>
+<ul>
+<li>Jos hakemistoon lisätään uusi tiedosto, se on <code>untracked</code>.</li>
+<li>Jos hakemistossa oleva Git-hallinnassa oleva tiedosto muuttuu, sen tilaksi tulee <code>modified</code>.</li>
+<li>Uudet ja muuttuneet tiedostot voidaan merkitä otettavaksi seuraavaan talletukseen toiminnolla (<em>Stage the file</em>). </li>
+<li>Kun talletus  (<em>commit</em>) tehdään, kaikki mukaan otettavaksi merkityt tiedostoversiot talletetaan, ja niiden tilaksi tulee <code>unmodified</code>.</li>
+</ul>
+<p><img alt="" src="../assets/git_file_states.png" /></p>
+<p>Työhakemiston tiedostojen Git-tilaa voi tarkastella komennolla status.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Vinkki</p>
+<p>Työhakemiston git-tilaa (komento <code>status</code>) kannattaa tarkastella ennen Git-operaatioita ja niiden jälkeen, niin pysyt aina tilanteen tasalla, mitä repositoriossasi tapahtuu. </p>
+</div>
+<h2 id="muutosten-tallettaminen-vaihe-1-add">Muutosten tallettaminen, vaihe 1: add</h2>
+<p>Tiedostoversioiden tallettaminen on kaksivaiheinen operaatio. </p>
+<p>Kun tiedosto on valmis talletettavaksi versionhallintaan, uusi tai muutettu tiedosto on merkittävä otettavaksi mukaan seuraavaan talletukseen (<em>commit</em>). Tätä toimintoa kutsutaan Git-terminologiassa nimellä <em>staging</em>, ja se tehdään komennolla <code>add</code>. </p>
+<p>Tiedostot voidaan lisätä seuraavaan talletukseen yksittäin.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>add<span class="w"> </span>hello.html<span class="w">   </span><span class="c1"># tiedosto hello.html otetaan mukaan seuraavaan talletukseen</span>
+</span></code></pre></div>
+<p>Voit myös lisätä koko hakemiston, jolloin kaikki hakemiston tiedostot ja alihakemistot sisältöineen lisätään kerralla. Hakemistot ovat myös tiedostoja, nekin versioituvat.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>add<span class="w"> </span>.<span class="w">       </span><span class="c1"># . viittaa nykyiseen hakemistoon, kaikki uudet ja muuttuneet tiedostot otetaan mukaan</span>
+</span></code></pre></div>
+<p>Nyt muuttuneet tiedostot ovat valmiita talletettavaksi versionhallintaan. Kuten huomasit, uuden tiedoston tuominen on muutos siinä kuin olemassa olevankin muuttaminen.</p>
+<p>Nyt Git on tietoinen, mitä pitää tallentaa, ja ollaan valmiita <code>commit</code>-toimintoa varten.</p>
+<h2 id="muutosten-tallettaminen-vaihe-2-commit">Muutosten tallettaminen, vaihe 2: commit</h2>
+<p>Varsinainen talletus tapahtuu komennolla <code>commit</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>commit
+</span></code></pre></div>
+<p>Komento käynnistää editorin, jolla voit kirjoittaa muutokseen talletettavan kommentin. Kun talletat ja suljet, muutos viedään tietovarastoon.</p>
+<p>Kirjaa kommenttiin muutoksen aihe selkeästi, ne ovat tärkeää kommunikaatiota itsellesi ja projektiryhmällesi.</p>
+<p>Voit myös kirjata kommentin komentorivillä ilman editoria:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>commit<span class="w"> </span>–m<span class="w"> </span><span class="s2">&quot;Lisätty logout-toiminnallisuus&quot;</span>
+</span></code></pre></div>
+<h2 id="talletusten-tarkastelu">Talletusten tarkastelu</h2>
+<p>Työtilan muutoksia verrattuna talletettuihin voit tarkastella tutulla komennolla <code>status</code>. Sitä kannattaa käyttää ahkerasti, jotta pysyt selvillä, mikä on hakemiston ja sen muutosten Git-tila:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<p>Näet commit-talletusten historian komennolla <code>log</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>log
+</span></code></pre></div>
+<p>Komento listaa kaikki talletukset käänteisessä aikajärjestyksessä. Laajentimella <code>--stat</code> Git lisää tulostukseen lyhyen yhteenvedon talletusten muutoksista:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git log --stat
+</span></code></pre></div>
+<p>Työhakemistossa olevan tiedoston muutoksia verrattuna viimeksi talletettuun versioon voi tarkastella komennolla <code>diff</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git<span class="w"> </span>diff<span class="w"> </span>hello.html
+</span></code></pre></div>
+<h2 id="tiedostojen-poistaminen-ja-siirtaminen">Tiedostojen poistaminen ja siirtäminen</h2>
+<p>Kuten aiemmin todettiin, hakemistot versioituvat myös. Jos haluat poistaa tiedoston repositoriosta tai siirtää tiedoston toiseen hakemistoon, olet tekemässä uutta versiota hakemistoista. </p>
+<p>Git-komento <code>rm</code> poistaa tiedoston paitsi työhakemistosta myös Git-hallinnasta. Muutos on sen lisäksi talletettava versionhallintaan.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git<span class="w"> </span>rm<span class="w"> </span>test.txt
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Poistettu tarpeeton tiedosto&quot;</span>
+</span></code></pre></div>
+<p>Huomaa, että vanhat talletetut versiot säilyvät versionhallinnassa! Se, mikä on versionhallintaan talletettu, säilyy siellä.</p>
+<p>Git-komennolla <code>mv</code> voi nimeätä tiedoston uudelleen tai siirtää toiseen hakemistoon. </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git<span class="w"> </span>mv<span class="w"> </span>oldname.txt<span class="w"> </span>newname.txt
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>mkdir<span class="w"> </span>newdir
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>git<span class="w"> </span>mv<span class="w"> </span>newname.txt<span class="w"> </span>newdir
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Uudelleenjärjestelty tiedostoja&quot;</span>
+</span></code></pre></div>
+<p>Tiedostoja voi poistaa ja siirtää repositorion sisällä käyttöjärjestelmän komennoilla (esim. <code>rm</code> tai <code>mv</code>). Muutokset talletetaan Git-hallintaan samalla tapaa kuin mikä tahansa muutos: ensin <code>add</code>, sitten <code>commit</code>. Vastaavilla Git-komennoilla ei <code>add</code>-vaihetta tarvita.</p>
+<h2 id="harjoitus-2">Harjoitus 2</h2>
+<p>Harjoitellaan perustoimintoja. </p>
+<p>Tarkista repositorion tilanne joka välissä komennolla <code>status</code>. Muista laatia talletuksillesi kuvaava kommenttiviesti!</p>
+<ol>
+<li>Tee koneellesi kurssin harjoituksia varten hakemisto ja perusta sinne Git-repositorio.</li>
+<li>Tee repositorioon tiedosto (esim. <code>test.txt</code>) ja kirjoita tiedostoon jotain. Talleta tiedosto Git-hallintaan. </li>
+<li>
+<p>Tee repositorioon hakemisto <code>hello</code> ja sinne tiedosto <code>hello.html</code>. Tiedoston sisältö voi olla esim.</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Hei maailma!
+</span></code></pre></div>
+<p>Vie nämä muutokset Git-hallintaan.</p>
+</li>
+<li>
+<p><code>hello.html</code>-tiedoston sisältö ei vielä ole HTML-koodia. Lisää tekstiin h1-merkkaus, jolloin siitä tulee HTML-elementti:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hei maailma!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p>Vie muutos versionhallintaan. </p>
+</li>
+<li>
+<p>Muuta <code>hello.html</code>-tiedoston nimeksi <code>index.html</code> ja talleta muutos.</p>
+</li>
+<li>Ensimmäisenä luotu test.txt-tiedosto on nyt käynyt tarpeettomaksi. Poista se versionhallinnasta ja talleta muutos. Laadi talletuksellesi kuvaava kommenttiviesti.</li>
+<li>Lisää vielä joitakin tiedostoja ja talleta ne versionhallintaan. </li>
+<li>Tarkastele tekemiäsi talletuksia komennolla <code>git log</code>. Kokeile myös komentoa laajentimella <code>--stat</code>. Mitä lisätietoa saat?</li>
+</ol>
+<h2 id="paluu-menneisyyteen">Paluu menneisyyteen</h2>
+<p>Johdanto-osiossa väitettiin, että versionhallinnan avulla on mahdollista palauttaa ohjelmiston aiempia versioita. Kokeillaan sitä seuraavassa.</p>
+<p>Tarkastellaan Git-komennon <code>log</code> tulostusta:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>commit 6fa5fd1b94a163464aaf56a7b69b6f7f4cca429b
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Author: Ruonavaara Markku &lt;markku.ruonavaara@haaga-helia.fi&gt;
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>Date:   Sun Mar 10 15:16:39 2024 +0200
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>    Lisätty toinen tiedosto
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>commit 77d8790ada4aa9ce8e438a360e44657334eeb7d3
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>Author: Ruonavaara Markku &lt;markku.ruonavaara@haaga-helia.fi&gt;
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>Date:   Sun Mar 10 15:14:41 2024 +0200
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>    Uudelleenjärjestelty tiedostoja
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>commit 5d565f66349cb8eb1b3550855d89d12496f23a1b
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>Author: Ruonavaara Markku &lt;markku.ruonavaara@haaga-helia.fi&gt;
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>Date:   Sun Mar 10 15:13:46 2024 +0200
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>    Lisätty tiedosto
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>commit f78c0a4d638b3c3f3cfb85a2c5e7eba38023d8b3
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>Author: Ruonavaara Markku &lt;markku.ruonavaara@haaga-helia.fi&gt;
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>Date:   Sun Mar 10 14:57:53 2024 +0200
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>
+</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>    Ensimmäinen commit
+</span></code></pre></div>
+Git antaa jokaiselle talletukselle (<em>commit</em>) yksikäsitteisen tunnistemerkkijonon (esim. <em>6fa5fd1b94a163464aaf56a7b69b6f7f4cca429b</em>). Tätä tunnistetta kutsutaan Git-terminologiassa nimellä <em>hash</em>.</p>
+<p>Kun tiedämme tallennuksen tunnisteen, voimme palata sen tilanteeseen komennolla <code>checkout</code>. Palataan ensimmäisen tallennuksen <em>Ensimmäinen commit</em> tilanteeseen: 
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>f78c0a4
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>Note:<span class="w"> </span>switching<span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;f78c0a4&#39;</span>.
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>You<span class="w"> </span>are<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s1">&#39;detached HEAD&#39;</span><span class="w"> </span>state.<span class="w"> </span>You<span class="w"> </span>can<span class="w"> </span>look<span class="w"> </span>around,<span class="w"> </span>make<span class="w"> </span>experimental
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>changes<span class="w"> </span>and<span class="w"> </span>commit<span class="w"> </span>them,<span class="w"> </span>and<span class="w"> </span>you<span class="w"> </span>can<span class="w"> </span>discard<span class="w"> </span>any<span class="w"> </span>commits<span class="w"> </span>you<span class="w"> </span>make<span class="w"> </span><span class="k">in</span><span class="w"> </span>this
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>state<span class="w"> </span>without<span class="w"> </span>impacting<span class="w"> </span>any<span class="w"> </span>branches<span class="w"> </span>by<span class="w"> </span>switching<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>branch.
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>If<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>create<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>branch<span class="w"> </span>to<span class="w"> </span>retain<span class="w"> </span>commits<span class="w"> </span>you<span class="w"> </span>create,<span class="w"> </span>you<span class="w"> </span>may
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="k">do</span><span class="w"> </span>so<span class="w"> </span><span class="o">(</span>now<span class="w"> </span>or<span class="w"> </span>later<span class="o">)</span><span class="w"> </span>by<span class="w"> </span>using<span class="w"> </span>-c<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>switch<span class="w"> </span>command.<span class="w"> </span>Example:
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">  </span>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>&lt;new-branch-name&gt;
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>Or<span class="w"> </span>undo<span class="w"> </span>this<span class="w"> </span>operation<span class="w"> </span>with:
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">  </span>git<span class="w"> </span>switch<span class="w"> </span>-
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>Turn<span class="w"> </span>off<span class="w"> </span>this<span class="w"> </span>advice<span class="w"> </span>by<span class="w"> </span>setting<span class="w"> </span>config<span class="w"> </span>variable<span class="w"> </span>advice.detachedHead<span class="w"> </span>to<span class="w"> </span><span class="nb">false</span>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>HEAD<span class="w"> </span>is<span class="w"> </span>now<span class="w"> </span>at<span class="w"> </span>f78c0a4<span class="w"> </span>Ensimmäinen<span class="w"> </span>commit
+</span></code></pre></div>
+Koko tunnistetta ei tarvitse antaa, seitsemän ensimmäistä merkkiä riittää.</p>
+<p>Nyt työhakemisto on päivittynyt ensimmäisen commit-tallennuksen tilanteeseen, ja hakemistossa on vain sinne ensimmäisenä tehty tiedosto <code>text.txt</code>.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>$ ls -l -a
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>total 13
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>drwxr-xr-x 1 h01975 1049089  0 Mar 10 16:17 ./
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>drwxr-xr-x 1 h01975 1049089  0 Mar 10 13:49 ../
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>drwxr-xr-x 1 h01975 1049089  0 Mar 10 16:20 .git/
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>-rw-r--r-- 1 h01975 1049089 17 Mar 10 15:00 test.txt
+</span></code></pre></div>
+<p>Komennon ilmoitus kertoo, että olemme <em>detached HEAD</em>-tilassa. Se tarkoittaa, että jos teemme muutoksia, ne eivät tule tallettumaan mihinkään <em>haaraan</em>, jolloin ne eivät näkyisi versiohistoriassa. Käytännössä tässä tilassa ei kannata tallettaa muutoksia. </p>
+<p>Takaisin nykytilaan päästään esimerkiksi Git:n antaman neuvon mukaisesti:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>git<span class="w"> </span>switch<span class="w"> </span>-<span class="w">     </span><span class="c1"># palataan siihen haaraan, josta checkout tehtiin</span>
+</span></code></pre></div>
+<p>Siihen, mistä tässä on kyse ja miten kannattaa toimia, palataan myöhemmin osiossa <em>Haarat</em>. </p>
+<div class="admonition tip">
+<p class="admonition-title">Vinkki</p>
+<p>Git neuvoo sinua aina, kun teet jonkin toimenpiteen. </p>
+<p>Ilmoituksia kannattaa lukea ja yrittää tulkita. Ongelmatilanteissa sen ehdotukset usein ohjaavat oikeaan suuntaan.</p>
+</div>
+<h2 id="oho-eiku">Oho! Eiku…</h2>
+<p>Versionhallintatoimintojen kanssa voi helposti tulla erehdyksiä. Hätä ei kuitenkaan ole tämännäköinen, kaikki on oikaistavissa. Tässä joitakin peruutusohjeita.</p>
+<h3 id="add-komennon-peruuttaminen"><code>add</code>-komennon peruuttaminen</h3>
+<p>Jos lisäsit seuraavaan talletukseen tiedoston, joka ei sinne kuuluisi, voit peruuttaa lisäyksen komennolla <code>reset</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>git<span class="w"> </span>reset<span class="w"> </span>temp.log
+</span></code></pre></div>
+<p>Jos et anna parametria, kaikki lisätyt tiedostot poistetaan seuraavasta tallennuksesta.</p>
+<p>Komento ei poista tai muuta tiedostoja, vain muuttaa tiedostojen tilan talletuksen suhteen.</p>
+<h3 id="tyotilaan-tehtyjen-muutosten-peruuttaminen-ennen-talletusta">Työtilaan tehtyjen muutosten peruuttaminen ennen talletusta</h3>
+<p>Jos haluat peruuttaa työtilassa tekemäsi muutokset, <strong>joita ei vielä ole talletettu versionhallintaan</strong>, voit palauttaa tiedoston versionhallinnan tuoreimman version tasalle komennolla <code>restore</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>git<span class="w"> </span>restore<span class="w"> </span>hello.html
+</span></code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Varoitus</p>
+<p>Huomaa, että tässä tapauksessa <strong>tekemästi muutokset häviävät eivätkä ne ole palautettavissa</strong>. Vain talletetut versiot voidaan palautettaa.</p>
+</div>
+<p>Jos haluat peruuttaa kaikki työtilaan tekemäsi muutokset, se onnistuu komennolla <code>git reset --hard</code>. Käytä sitä vain, kun olet varma, että haluat hylätä kaikki tekemästi muutoksiet</p>
+<h3 id="tallennettujen-muutosten-peruminen">Tallennettujen muutosten peruminen</h3>
+<p>Jos olet tallentanut muutoksen versionhallintaan, muutokselle on jo luotu tunniste ja siitä on talletettu kaikki tiedot. Jos sitä muutettaisiin, jouduttaisin peukaloimaan repositorion versiohistoriaa.</p>
+<p>Talletetun muutoksen poistaminen ei oikeastaan edes ole järkevää. Sen sijaan että yrittäisit muuttaa historiaa, voit tehdä uuden muutoksen, jossa väärä muutos korjataan. </p>
+<p>Yksi ylimääräinen talletus ei haittaa, ja korjaus on täysin riskitön. Historian muuttaminen sen sijaan olisi riskialtista, se voisi aiheuttaa monin verroin suurempia ongelmia kuin ylimääräinen talletus.</p>
+<p>Voit peruuttaa kokonaisen talletuksen tekemällä "anti-talletuksen" Git-komennolla <code>revert</code>. Komento tekee muutoksen, joka peruuttaa sille parametrina annetun talletuksen kokonaan.</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>-2<span class="w">      </span><span class="c1"># näyttää kaksi viimeisintä talletusta</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>commit<span class="w"> </span>4a731586b83b6c1469416a489e5da1a4560707d4<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>master<span class="o">)</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>Author:<span class="w"> </span>Ruonavaara<span class="w"> </span>Markku<span class="w"> </span>&lt;markku.ruonavaara@haaga-helia.fi&gt;
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>Date:<span class="w">   </span>Sun<span class="w"> </span>Mar<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">16</span>:58:47<span class="w"> </span><span class="m">2024</span><span class="w"> </span>+0200
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">    </span>Lisätty<span class="w"> </span>log-tiedosto
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>commit<span class="w"> </span>21f29c9814e6f101319edc51a199b2d62eb97fae
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>Author:<span class="w"> </span>Ruonavaara<span class="w"> </span>Markku<span class="w"> </span>&lt;markku.ruonavaara@haaga-helia.fi&gt;
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>Date:<span class="w">   </span>Sun<span class="w"> </span>Mar<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">15</span>:19:32<span class="w"> </span><span class="m">2024</span><span class="w"> </span>+0200
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="w">    </span>Siirrelty<span class="w"> </span>taas<span class="w"> </span>tiedostoja
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>$<span class="w"> </span>git<span class="w"> </span>revert<span class="w"> </span>4a73158
+</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="o">[</span>master<span class="w"> </span>83e809b<span class="o">]</span><span class="w"> </span>Revert<span class="w"> </span><span class="s2">&quot;Lisätty log-tiedosto&quot;</span>
+</span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">53</span><span class="w"> </span>deletions<span class="o">(</span>-<span class="o">)</span>
+</span><span id="__span-22-17"><a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="w"> </span>delete<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>log.txt
+</span><span id="__span-22-18"><a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>
+</span><span id="__span-22-19"><a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>-2
+</span><span id="__span-22-20"><a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a>commit<span class="w"> </span>83e809b0dd28076a423d916229567e61f8f44043<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>master<span class="o">)</span>
+</span><span id="__span-22-21"><a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a>Author:<span class="w"> </span>Ruonavaara<span class="w"> </span>Markku<span class="w"> </span>&lt;markku.ruonavaara@haaga-helia.fi&gt;
+</span><span id="__span-22-22"><a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a>Date:<span class="w">   </span>Sun<span class="w"> </span>Mar<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">16</span>:59:26<span class="w"> </span><span class="m">2024</span><span class="w"> </span>+0200
+</span><span id="__span-22-23"><a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a>
+</span><span id="__span-22-24"><a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a><span class="w">    </span>Revert<span class="w"> </span><span class="s2">&quot;Lisätty log-tiedosto&quot;</span>
+</span><span id="__span-22-25"><a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a>
+</span><span id="__span-22-26"><a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a><span class="w">    </span>This<span class="w"> </span>reverts<span class="w"> </span>commit<span class="w"> </span>4a731586b83b6c1469416a489e5da1a4560707d4.
+</span><span id="__span-22-27"><a id="__codelineno-22-27" name="__codelineno-22-27" href="#__codelineno-22-27"></a>
+</span><span id="__span-22-28"><a id="__codelineno-22-28" name="__codelineno-22-28" href="#__codelineno-22-28"></a>commit<span class="w"> </span>4a731586b83b6c1469416a489e5da1a4560707d4
+</span><span id="__span-22-29"><a id="__codelineno-22-29" name="__codelineno-22-29" href="#__codelineno-22-29"></a>Author:<span class="w"> </span>Ruonavaara<span class="w"> </span>Markku<span class="w"> </span>&lt;markku.ruonavaara@haaga-helia.fi&gt;
+</span><span id="__span-22-30"><a id="__codelineno-22-30" name="__codelineno-22-30" href="#__codelineno-22-30"></a>Date:<span class="w">   </span>Sun<span class="w"> </span>Mar<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">16</span>:58:47<span class="w"> </span><span class="m">2024</span><span class="w"> </span>+0200
+</span><span id="__span-22-31"><a id="__codelineno-22-31" name="__codelineno-22-31" href="#__codelineno-22-31"></a>
+</span><span id="__span-22-32"><a id="__codelineno-22-32" name="__codelineno-22-32" href="#__codelineno-22-32"></a><span class="w">    </span>Lisätty<span class="w"> </span>log-tiedosto
+</span></code></pre></div>
+Komento <code>revert</code> peruuttaa yhden talletuksen kerrallaan. Jos haluat peruuttaa useampia talletuksia, jokainen pitää peruuttaa yksi kerrallaan.</p>
+<p>Muista, että <strong>kaikki, mikä on versionhallintaan talletettu, on palautettavissa</strong>. Siksi <code>commit</code>-talletuksia kannattaa tehdä usein.</p>
+<h2 id="harjoitus-3">Harjoitus 3</h2>
+<p>Harjoitellaan peruuttelua.</p>
+<ol>
+<li>
+<p>Tee repositorioosi useita muutoksia: muuta talletettuja tiedostoja ja lisää uusia tiedostoja.  Älä talleta!</p>
+</li>
+<li>
+<p>Kokeile <code>add</code>-toiminnon peruuttamista. </p>
+<ul>
+<li>Lisää muutokset seuraavaan talletukseen (<code>add</code>).</li>
+<li>Poista muutoksia yksittäin seuraavasta talletuksesta.</li>
+<li>Poista kaikki loput muutokset seuraavasta talletuksesta. </li>
+<li>Sinulla pitäisi nyt olla työtilassa useita tallettamattomia muutoksia, joista mikään ei ole menossa seuraavaan talletukseen. </li>
+</ul>
+</li>
+<li>
+<p>Kokeile työtilaan tehtyjen muutosten peruuttamista. Tarkista tilanne joka välissä komennolla <code>status</code>.</p>
+<ul>
+<li>Peruuta jonkin talletetun tiedoston muutokset työtilasta.</li>
+<li>Poista kaikki loput muutokset työtilasta. </li>
+<li>Mitä tapahtui uusille <em>untracked</em>-tilassa oleville tiedostoille?</li>
+</ul>
+</li>
+<li>
+<p>Kokeile talletuksen peruuttamista</p>
+<ul>
+<li>Talleta nyt kaikki muutokset. </li>
+<li>Peruuta talletus komennolla <code>revert</code>. </li>
+<li>Mitä näyttää komento <code>log</code>?</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "toc.integrate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      
+    
+  </body>
+</html>

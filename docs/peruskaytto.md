@@ -162,7 +162,7 @@ Huomaa, että vanhat talletetut versiot säilyvät versionhallinnassa! Se, mikä
 
 Git-komennolla `mv` voi nimeätä tiedoston uudelleen tai siirtää toiseen hakemistoon. 
 
-```bash
+``` bash
 git mv oldname.txt newname.txt
 mkdir newdir
 git mv newname.txt newdir
@@ -172,33 +172,33 @@ git commit -m "Uudelleenjärjestelty tiedostoja"
 
 Tiedostoja voi poistaa ja siirtää repositorion sisällä käyttöjärjestelmän komennoilla (esim. `rm` tai `mv`). Muutokset talletetaan Git-hallintaan samalla tapaa kuin mikä tahansa muutos: ensin `add`, sitten `commit`. Vastaavilla Git-komennoilla ei `add`-vaihetta tarvita.
 
-!!! question "Harjoitus 2"
-    Harjoitellaan perustoimintoja. 
+## Harjoitus 2
+Harjoitellaan perustoimintoja. 
 
-    Tarkista repositorion tilanne joka välissä komennolla `status`. Muista laatia talletuksillesi kuvaava kommenttiviesti!
+Tarkista repositorion tilanne joka välissä komennolla `status`. Muista laatia talletuksillesi kuvaava kommenttiviesti!
 
-    1. Tee koneellesi kurssin harjoituksia varten hakemisto ja perusta sinne Git-repositorio.
-    2. Tee repositorioon tiedosto (esim. `test.txt`) ja kirjoita tiedostoon jotain. Talleta tiedosto Git-hallintaan. 
-    4. Tee repositorioon hakemisto `hello` ja sinne tiedosto `hello.html`. Tiedoston sisältö voi olla esim.
+1. Tee koneellesi kurssin harjoituksia varten hakemisto ja perusta sinne Git-repositorio.
+2. Tee repositorioon tiedosto (esim. `test.txt`) ja kirjoita tiedostoon jotain. Talleta tiedosto Git-hallintaan. 
+4. Tee repositorioon hakemisto `hello` ja sinne tiedosto `hello.html`. Tiedoston sisältö voi olla esim.
 
-        ```
-        Hei maailma!
-        ```
+    ``` html
+    Hei maailma!
+    ```
 
-        Vie nämä muutokset Git-hallintaan.
+    Vie nämä muutokset Git-hallintaan.
 
-    5. `hello.html`-tiedoston sisältö ei vielä ole HTML-koodia. Lisää tekstiin h1-merkkaus, jolloin siitä tulee HTML-elementti:
+5. `hello.html`-tiedoston sisältö ei vielä ole HTML-koodia. Lisää tekstiin h1-merkkaus, jolloin siitä tulee HTML-elementti:
 
-        ```
-        <h1>Hei maailma!</h1>
-        ```
+    ``` html
+    <h1>Hei maailma!</h1>
+    ```
 
-        Vie muutos versionhallintaan. 
+    Vie muutos versionhallintaan. 
 
-    6. Muuta `hello.html`-tiedoston nimeksi `index.html` ja talleta muutos.
-    7. Ensimmäisenä luotu test.txt-tiedosto on nyt käynyt tarpeettomaksi. Poista se versionhallinnasta ja talleta muutos. Laadi talletuksellesi kuvaava kommenttiviesti.
-    8. Lisää vielä joitakin tiedostoja ja talleta ne versionhallintaan. 
-    9. Tarkastele tekemiäsi talletuksia komennolla `git log`. Kokeile myös komentoa laajentimella `--stat`. Mitä lisätietoa saat?
+6. Muuta `hello.html`-tiedoston nimeksi `index.html` ja talleta muutos.
+7. Ensimmäisenä luotu test.txt-tiedosto on nyt käynyt tarpeettomaksi. Poista se versionhallinnasta ja talleta muutos. Laadi talletuksellesi kuvaava kommenttiviesti.
+8. Lisää vielä joitakin tiedostoja ja talleta ne versionhallintaan. 
+9. Tarkastele tekemiäsi talletuksia komennolla `git log`. Kokeile myös komentoa laajentimella `--stat`. Mitä lisätietoa saat?
 
 
 ## Paluu menneisyyteen
@@ -363,22 +363,25 @@ Komento `revert` peruuttaa yhden talletuksen kerrallaan. Jos haluat peruuttaa us
 
 Muista, että __kaikki, mikä on versionhallintaan talletettu, on palautettavissa__. Siksi `commit`-talletuksia kannattaa tehdä usein.
 
-!!! question "Harjoitus 3"
+## Harjoitus 3
 
-    1. Tee repositorioosi useita muutoksia: muuta talletettuja tiedostoja ja lisää uusia tiedostoja.  Älä talleta!
-   
-    2. Kokeile `add`-toiminnon peruuttamista. 
-        - Lisää muutokset seuraavaan talletukseen (`add`).
-        - Poista muutoksia yksittäin seuraavasta talletuksesta.
-        - Poista kaikki loput muutokset seuraavasta talletuksesta. 
-        - Sinulla pitäisi nyt olla työtilassa useita tallettamattomia muutoksia, joista mikään ei ole menossa seuraavaan talletukseen. 
+Harjoitellaan peruuttelua.
 
-    3. Kokeile työtilaan tehtyjen muutosten peruuttamista. Tarkista tilanne joka välissä komennolla `status`.
-        - Peruuta jonkin talletetun tiedoston muutokset työtilasta.
-        - Poista kaikki loput muutokset työtilasta. 
-        - Mitä tapahtui uusille _untracked_-tilassa oleville tiedostoille?
+1. Tee repositorioosi useita muutoksia: muuta talletettuja tiedostoja ja lisää uusia tiedostoja.  Älä talleta!
 
-    4. Kokeile talletuksen peruuttamista
-        - Talleta nyt kaikki muutokset. 
-        - Peruuta talletus komennolla `revert`. 
+2. Kokeile `add`-toiminnon peruuttamista. 
+     - Lisää muutokset seuraavaan talletukseen (`add`).
+     - Poista muutoksia yksittäin seuraavasta talletuksesta.
+     - Poista kaikki loput muutokset seuraavasta talletuksesta. 
+     - Sinulla pitäisi nyt olla työtilassa useita tallettamattomia muutoksia, joista mikään ei ole menossa seuraavaan talletukseen. 
+
+3. Kokeile työtilaan tehtyjen muutosten peruuttamista. Tarkista tilanne joka välissä komennolla `status`.
+     - Peruuta jonkin talletetun tiedoston muutokset työtilasta.
+     - Poista kaikki loput muutokset työtilasta. 
+     - Mitä tapahtui uusille _untracked_-tilassa oleville tiedostoille?
+
+4. Kokeile talletuksen peruuttamista
+     - Talleta nyt kaikki muutokset. 
+     - Peruuta talletus komennolla `revert`. 
+     - Mitä näyttää komento `log`?
 

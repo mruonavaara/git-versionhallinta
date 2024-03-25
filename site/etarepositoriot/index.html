@@ -1,0 +1,720 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../haarat/">
+      
+      
+        <link rel="next" href="../hosting_palvelut/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
+    
+    
+      
+        <title>Etärepositoriot - Git-versionhallinta</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#etarepositoriot" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Git-versionhallinta" class="md-header__button md-logo" aria-label="Git-versionhallinta" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Git-versionhallinta
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Etärepositoriot
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Git-versionhallinta" class="md-nav__button md-logo" aria-label="Git-versionhallinta" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Git-versionhallinta
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../johdanto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Johdanto versionhallintaan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Paikallinen Git
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Paikallinen Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../peruskaytto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Peruskäyttö
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../haarat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Haarat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hajautettu Git
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Hajautettu Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Etärepositoriot
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Etärepositoriot
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Sisällysluettelo">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sisällysluettelo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#repositoriouden-hajautus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repositoriouden hajautus
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kloonaus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kloonaus
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etarepositorion-maarittely" class="md-nav__link">
+    <span class="md-ellipsis">
+      Etärepositorion määrittely
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tietojen-haku-etarepositoriosta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tietojen haku etärepositoriosta
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tietojen haku etärepositoriosta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fetch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fetch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pull
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tietojen-vienti-etarepositorioon-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tietojen vienti etärepositorioon (push)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etarepositoriot-ja-haarat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Etärepositoriot ja haarat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useita-etarepositorioita" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useita etärepositorioita
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hosting_palvelut/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git-hosting-palvelut
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versionhallinta_projektissa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git projektissa
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../muita_toimintoja/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Muita toimintoja
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="etarepositoriot">Etärepositoriot</h1>
+<h2 id="repositoriouden-hajautus">Repositoriouden hajautus</h2>
+<p>Kuten jo aiemmin todettiin, git tallettaa kaiken informaation paikallisesti omaan tietovarastoonsa, jota kutsutaan repositorioksi. Paikallinen tietovarasto sisältää kaiken tarvittavan tiedon</p>
+<p>Itsenäisten repositorioiden välille voidaan määritellä yhteys, jolloin niiden sisältöjä voidaan synkronoida keskenään. Synkronointia voidaan tehdä yhteen suuntaan tai molempiin.</p>
+<p>Muut repositoriot, joihin paikallisella repositoriolla on yhteys, ovat <strong>etärepositorioita</strong> (<em>remote</em>).</p>
+<blockquote>
+<p>Tähän kuva</p>
+</blockquote>
+<h2 id="kloonaus">Kloonaus</h2>
+<p>Kun työskennellään projektissa, on jossakin yhteisesti sovittu pää-repositorio, jossa pidetään yllä yhteistä koodia.
+Tällöin paikallinen kopio repositoriosta saadaan helposti clone-operaatiolla</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/libgit2/libgit2
+</span></code></pre></div>
+Kloonaaminen tekee valmiin paikallisen repositorion, joka on täydellinen kopio alkuperäisestä:
+- lisää hakemistoon master-haaran uusimmat tiedostot
+- konfiguroi alkuperäisen repositorion uuden repositorion etärepositorioksi oletusnimellä <code>origin</code></p>
+<p>Tästä voi heti jatkaa kehitystä omassa työtilassaan.</p>
+<h2 id="etarepositorion-maarittely">Etärepositorion määrittely</h2>
+<p>Etärepositoriosuhteita voi määrittää myös ilman kloonausta. Tämä on tarpeen esim. silloin, kun haluat tehdä projektin yhteisen repositorion olemassa olevasta paikallisesta repositoriosta.</p>
+<p>Voit määritellä etärepositorioita komennolla <code>remote add</code>:</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/user/repository.git
+</span></code></pre></div>
+- <code>origin</code> of etärepositoriolle annettu nimi
+- <code>https://github.com/user/repository.git</code> on sen osoite.</p>
+<p>Koska <code>origin</code> on etärepositorion oletusnimi, sitä käytetään useimmiten. Se on kuitenkin vain nimi, ei varattu sana. </p>
+<p>Voit listata etärepositoriot komennolla <code>remote</code>. </p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>remote
+</span></code></pre></div>
+Enemmän tietoja saat laajentimella <code>–v</code> (<code>--verbose</code>).
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>remote<span class="w"> </span>-v
+</span></code></pre></div>
+Etärepositorioita voi uudelleennimetä komennolla <code>rename</code> ja poistaa komennolla <code>rm</code>.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>remote<span class="w"> </span>rename<span class="w"> </span>origin<span class="w"> </span>temp
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>remote<span class="w"> </span>rm<span class="w"> </span>temp
+</span></code></pre></div></p>
+<h2 id="tietojen-haku-etarepositoriosta">Tietojen haku etärepositoriosta</h2>
+<p>Repositorioiden tietojen synkronointi tapahtuu kahdessa vaiheessa:
+1. Etärepositorien haarassa olevat tiedot haetaan paikalliseen repositorioon paikallisten haarojen rinnalle (<em>fetch</em>).
+2. Etärepositorion haara yhdistetään sitä vastaavaan paikalliseen haaraan (<em>merge</em>).</p>
+<h3 id="fetch">Fetch</h3>
+<p>Komento fetch lataa etärepositorion tiedot paikalliseen repositorioon. </p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
+</span></code></pre></div>
+Se ei kuitenkaan tee muutoksia paikallisen repositorion haaroihin vaan tallettaa ne erikseen. Fetch on siis täysin turvallinen komento, mikään repositoriossasi ei muutu, ellet niin erikseen käske.</p>
+<p>Etärepositorion haarat löytyvät etärepositorion nimen alta, esim. <code>origin/master</code>. etärepositorion haarat voit listata laajentimella <code>–r</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>branch<span class="w"> </span>-r
+</span></code></pre></div>
+<p>Voit tutkia etärepositoriosta ladattua sisältöä tavallisella <code>checkout</code>-komennolla (ja <code>git log</code> yms.) ja halutessasi yhdistää paikalliseen sisältöön tavallisella <code>merge</code>-komennolla.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>master
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>merge<span class="w"> </span>origin/master
+</span></code></pre></div>
+<h3 id="pull">Pull</h3>
+<p>Fetch lataa etärepositorystä saataville kaikki muutokset, joita sinulla ei vielä ole. Jotta saisit ne oman repositorysi haaraan, ne on yhdistettävä sinne (merge). </p>
+<p>Koska tämä kaksivaiheinen operaatio on niin tavallinen, sille on erikseen komento pull, joka hakee nykyisen haaran uudet tiedot etärepositorysta ja tekee mergen nykyiseen haaraasi automaattisesti.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>
+</span></code></pre></div>
+<p>Tämä toiminto on siis sama kuin </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>fetch
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>git<span class="w"> </span>merge
+</span></code></pre></div>
+<p>Koska <code>pull</code> tekee myös yhdistämisen, komennon suorituksessa voi tulla konflikteja. Joskus voi olla selkeämpää tehdä toiminnot erikseen.</p>
+<h2 id="tietojen-vienti-etarepositorioon-push">Tietojen vienti etärepositorioon (<em>push</em>)</h2>
+<p>Komento <code>push</code> synkronoi paikallisen repositoryn tietoja etärepositoryyn.</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master<span class="w">    </span><span class="c1"># vie paikallinen master origin-repositorioon</span>
+</span></code></pre></div>
+- <code>origin</code> on etärepositorion nimi, johon tietoja viedään
+- <code>master</code> on vietävän haaran nimi</p>
+<p>Paikallisia haaroja ei automaattisesti viedä etärepositoryyn vaan ne pitää eksplisiittisesti viedä sinne. Näin voit jättää osan haaroista täysin paikallisiksi, esim. väliaikaisia haaroja usein ei tarvitse synkronoida.</p>
+<p>Kaikki paikalliset haarat viedään, jos käytät laajenninta <code>–all</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git<span class="w"> </span>push<span class="w"> </span>--all<span class="w">            </span><span class="c1"># vie kaikki paikalliset haarat origin-repositorioon</span>
+</span></code></pre></div>
+<p>Ensimmäisellä kerralla kannattaa käyttää <code>push</code>-komennossa laajenninta <code>–u</code> (<code>--set-upstream</code>). Se asettaa kyseinen etärepositoriohaaran vietävän paikallisen haaran oletusarvoiseksi etärepositoriohaaraksi. </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>master
+</span></code></pre></div>
+<p>Tällöin etärepositoryä ei tarvitse jatkossa erikseen komennossa ilmoittaa vaan riittää </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git<span class="w"> </span>push<span class="w">                  </span><span class="c1"># vie nykyinen haara oletusarvoiseen etähaaraansa</span>
+</span></code></pre></div>
+<h2 id="etarepositoriot-ja-haarat">Etärepositoriot ja haarat</h2>
+<p>Etärepositoryjen synkronoinnissa on itse asiassa kyse haarojen synkronoinnista. </p>
+<p>Kun teet haaroja paikallisesti, ja käytössä on etärepositorio, on päätettävä, haluatko synkronoida sen vai et. Jos haluat, sinun täytyy erikseen se sinne viedä (ellet käytä laajenninta <code>--a</code>). Samalla kannattaa määrittää etähaaralle oletusarvo, niin synkronointi on jatkossa helpompaa.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feat123
+</span></code></pre></div></p>
+<p>Komento fetch tuo haaran tiedot paikalliseen repositoryyn, mutta ei yhdistä sitä</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
+</span></code></pre></div>
+<p>Tuloksena paikalliseen repositoryyn tulee tiedot etärepositoryn muutoksista. Ne talletetaan paikallisiin haaroihin, joiden nimi on muotoa <code>&lt;etärepository&gt;/&lt;haara&gt;</code>.</p>
+<p>Paikallinen <code>origin/master</code> on siis kopio etärepositoryn <code>origin</code> haarasta <code>master</code>. Kun yhdistät tuotuja haaroja, se tapahtuu paikallisen kopion kanssa. </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>git<span class="w"> </span>merge<span class="w"> </span>origin/master
+</span></code></pre></div>
+<p>Komento <code>git pull</code> tekee molemmat toimenpiteet kerralla. Se hakee ensin etärepositorion haaran (<em>fetch</em>) ja yhdistää sen paikalliseen haaraan (<em>merge</em>).
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>git<span class="w"> </span>pull<span class="w"> </span>origin
+</span></code></pre></div></p>
+<h2 id="useita-etarepositorioita">Useita etärepositorioita</h2>
+<p>Useimmiten sisältöjä synkronoidaan vain yhden etärepositorion kanssa, mutta niitä voi olla useampiakin. Tällöin kaikkien synkronoitavien repositorioiden pitää olla samaa kantaa, niillä pitää olla yhteinen lähtökohta, johon versiohistorioita voidaan yhdistää.</p>
+<p>Seuraavassa esimerkissä paikalliselle repositoriolle on määritelty kaksi etärepositoriota, <code>origin</code> ja <code>upstream</code>. Tilanne voisi olla seuraava:</p>
+<ul>
+<li>Pilvipalvelussa sijaitsevassa <code>upstream</code>-repositoriossa on kurssin tehtäviä, joita opiskelijat voivat kloonata omaan repositorioonsa. </li>
+<li>Opiskelija tekee tehtävät ja tallettaa vastaukset omaan repositorioonsa.</li>
+<li>Opiskelija perustaa pilvipalveluun oman repositorion palautuksia varten ja jakaa sitä kautta palautukset opettajalle.</li>
+</ul>
+<p>Tässä tapauksessa opiskelijalla ei ole kirjoitusoikeutta <code>upstream</code>-repositorioon. Hän voi kuitenkin yhdistää sieltä saatavia mahdollisia tehtäväpäivityksiä omaan repositorioonsa, koska kaikilla repositorioilla on yhteinen alkuperä, <code>upstream</code>-repositorio.</p>
+<p><img alt="" src="../assets/repo_sync.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "toc.integrate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      
+    
+  </body>
+</html>

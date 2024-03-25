@@ -21,11 +21,19 @@ Versionhallintajärjestelmän keinoin haarautuneet versiot ohjelmistosta voidaan
 
 Haarautumisen ymmärtämiseksi on syytä perehtyä muutamiin Git:n toimintaperiaatteisiin.
 
-__Talletus__ (_commit_) tallettaa viittaukset niihin tiedostoversioihin, jotka olet sinne lisännyt (_snapshot_), sekä viittauksen edelliseen commitiin. Muutoksia voi siis navigoida taaksepäin.
+__Talletus__ (_commit_) tallettaa 
+1. viittaukset niihin tiedostoversioihin, jotka olet sinne lisännyt (_snapshot_), sekä 
+2. viittauksen edelliseen talletukseen. 
+ 
+Muutoksia voi siis navigoida taaksepäin seuraamalla viittauksia.
 
-__Haara__ (_branch_) on viittaus committiin, josta tulee aikanaan seuraavan talletuksen edeltäjä. Kun teet uuden talletuksen, haaraviittaus siirtyy eteenpäin osoittamaan tekemääsi uutta talletusta. 
+__Haara__ (_branch_) on viittaus talletukseen, josta tulee aikanaan seuraavan talletuksen edeltäjä. Kun teet uuden talletuksen, haaraviittaus siirtyy eteenpäin osoittamaan tekemääsi uutta talletusta. 
 
-__HEAD__ on viittaus siihen haaraan, jossa tällä hetkellä olet. Se on siis looginen tunniste, ei haara. 
+Haara siis antaa nimen tiettyyn talletusketjuun, ja haaraviittauksen avulla löydetään sen tuorein talletus.
+
+__HEAD__ on viittaus siihen haaraan, jossa tällä hetkellä olet. Se on looginen tunniste, ei haara. 
+
+Jokin haara on aina valittuna, HEAD viittaa aina johonkin haaraan.
 
 ![](./assets/commit_branch_head.png)
 
@@ -235,4 +243,61 @@ Myös voidaan toimia niin, että toimitettaville versioille (_release_) on omat 
 Tällöin väliaikaiset haarat yhdistetään ensin kehityshaaraan, ja kehityshaarasta yhdistetään release-haaraan vain valmiit testatut ja viimeistellyt toimitettavat versiot.
 
 Tilanteeseen sopivinta haaroittamiskäytäntöä kannattaa miettiä projektin alussa hetki, vaikka olisit tekemässä projektia yksinkin. Yksittäinen kehittäjäkin voi tehostaa työtään hyödyntämällä haarautumista.
+
+## Harjoitus 4
+
+Harjoitellaan ominaisuushaarojen (_feature branch_) käyttöä kehityksessä.
+
+1. `hello`-ohjelmamme on vielä kovin riisuttu. Lisätään siihen HTML-sivun perusrakenne:
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello</title>
+</head>
+
+<body>
+  <main>
+    <h1>Hei maailma!</h1>
+  </main>
+
+</body>
+
+</html>
+```
+2. Talleta muutokset `master`-haaraan.
+3. Lisätään tyylejä. Lisää projektiin tiedosto `styles.css`, jonka sisältö voi olla esim.
+```css
+html {
+  height: 100%;
+}
+
+body {
+  background-color:linen;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+main {
+  text-align: center;
+}
+```
+Tyylit pitää vielä liittää `hello.html`-tiedostoon. Lisää sen `head`-osioon määritys
+```html
+<link rel="stylesheet" href="styles.css">
+```
+Testaa selaimessa, että sivun tyylit toimivat.
+
+4. Käytetään ominaisuushaaraa: Luo muutosta varten uusi haara esim. nimellä `tyylit` ja talleta tyylimuutokset sinne.
+
+5. Kokeile vaihtaa aktiivista haaraa haarojen `master` ja `tyylit` välillä ja lataa sivu selaimessa aina uudelleen. Miten sivu muuttuu?
+
+6. Kun olet tyytyväinen `tyylit`-haaran versioon, yhdistä se `master`-haaraan. 
+
+7. Kokeile vaihtaa aktiivista haaraa haarojen `master` ja `tyylit` välillä ja lataa sivu selaimessa aina uudelleen. Miten sivu muuttuu? 
 
