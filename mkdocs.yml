@@ -1,4 +1,6 @@
 site_name: Git-versionhallinta
+site_author: Markku Ruonavaara
+copyright: Markku Ruonavaara 2024
 nav:
   - johdanto.md
   - 'Paikallinen Git':

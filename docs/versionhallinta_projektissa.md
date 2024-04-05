@@ -228,7 +228,9 @@ Projektissa seuraavaksi lisätään sovellukseen toiminta, jolla käyttäjälle 
     
     Kun muutos on valmis, vie se yhteiseen kehityshaaraan.
 
-6.  Seuraavassa Scrum-kokouksessa todetaan, että ominaisuus on valmis esiteltäväksi sprintin katselmoinnissa `develop`-haaran uusimman version mukaisena. Yhdistä se päähaaraan.
+6.  Seuraavassa Scrum-kokouksessa todetaan, että ominaisuus on valmis esiteltäväksi sprintin katselmoinnissa `develop`-haaran uusimman version mukaisena. 
+
+    Yhdistä se päähaaraan. Muista viedä päähaarakin etärepositorioon!
 
 Lopputulos näyttää jokseenkin tämänkaltaiselta:
 
