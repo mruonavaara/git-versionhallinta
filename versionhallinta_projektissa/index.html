@@ -619,10 +619,16 @@
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># ...ratkotaan mahdolliset konfliktit</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>$<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master<span class="w">    </span><span class="c1"># 3. viedään valmis lopputulos yhteiseen repositorioon</span>
 </span></code></pre></div>
-<p>ToVaiheet 1 ja 2 (<code>fetch</code> ja <code>merge</code>) tehdään usein kerralla komennolla <code>pull</code>.</p>
+<p>Vaiheet 1 ja 2 (<code>fetch</code> ja <code>merge</code>) tehdään usein kerralla komennolla <code>pull</code>.</p>
 <p><div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>master
 </span></code></pre></div>
 Huomaa, että <code>pull</code> voi aiheuttaa konflikteja, sillä se tekee myös yhdistämisen. Jos tilanne näyttää liian sekavalta, keskeneräisen yhdistämisen voi peruuttaa komennolla <code>git merge --abort</code>. </p>
+<p>Voit tarkistaa etukäteen, onko etärepositoriossa uusia talletuksia, tekemällä <code>fetch</code>-toiminnon. Tällöin <code>status</code> kertoo tilanteen.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$ git status
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>On branch main
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Your branch is behind &#39;origin/main&#39; by 2 commits, and can be fast-forwarded.
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  (use &quot;git pull&quot; to update your local branch)
+</span></code></pre></div>
 <h2 id="yhteenvetoa">Yhteenvetoa</h2>
 <p>Jokaisesta loogisesta kokonaisuudesta kannattaa tehdä erillinen talletus. Tällöin muutosten tarkastelu ja käsittely projektissa on mahdollisimman selkeää. </p>
 <p>Talletusten kommentointi on tärkeää projketin kehittäjien välisen kommunikoinnin kannalta. Noudata hyviä kommentointikäytäntöjä. </p>
@@ -638,7 +644,82 @@ Huomaa, että <code>pull</code> voi aiheuttaa konflikteja, sillä se tekee myös
 </ul>
 <h2 id="harjoitus-6">Harjoitus 6</h2>
 <p>Harjoitellaan ohjelmiston kehittämistä ja muutosten synkronointia verkkopalvelussa sijaitsevan etärepositorion kanssa. </p>
-<p><em>Täydennetään myöhemmin</em></p>
+<div class="admonition note">
+<p class="admonition-title">Tehtävän esivalmistelut</p>
+<p>Tähän tehtävään saat virtuaalisen tiimikaverin. Hän jatkokehittää aiemmissa harjoituksissa laadittua sovellusta kanssasi.</p>
+<p>Tehtävän suorittamiseksi on repositorioosi tehtävä valmisteluja. Anna seuraavat komennot:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git remote add actions https://github.com/mruonavaara/git-actions.git
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git fetch actions main
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>git merge actions/main --allow-unrelated-histories
+</span></code></pre></div>
+<p>Harjoitus perustuu aiemmin tehtyihin harjoituksiin, ja sen tekemisessä tarvitaan kaikkien aiempien osioiden oppeja! </p>
+</div>
+<p>Kehitätte <code>hello</code>-sovellusta projektitiimissä. Olette sopineet seuraavat versionhallintakäytännöt:</p>
+<ul>
+<li>Kukin tekee omat muutoksensa aina ensin haaraan nimeltä <code>develop</code>.</li>
+<li>Päähaaraan viedään vain versioita, jotka on testattu ja yhteisesti todettu valmiiksi. </li>
+</ul>
+<p>Projektissa seuraavaksi lisätään sovellukseen toiminta, jolla käyttäjälle näytetään kellonaika. Sait tehtäväksesi lisätä nappulan, jolla käyttäjä voi pyytää näyttämään kellonajan. </p>
+<ol>
+<li>
+<p>Versionhallintakäytännön mukaisesti siirry haaraan <code>develop</code>. Sitä ei vielä ole, joten se pitää luoda.</p>
+<div class="language-bash no-copy highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>develop
+</span></code></pre></div>
+<p>Sitä ei ole etärepositoriossakaan, viedään se sinne.</p>
+<div class="language-bash no-copy highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>develop<span class="w"> </span><span class="c1"># -u on sama kuin --set-upstream</span>
+</span></code></pre></div>
+</li>
+<li>
+<p>Lisää html-tiedostoon <code>&lt;main&gt;</code>-osioon nappulaelementti päivämäärää ja kellonaikaa varten sekä nappula, jota painamalla tiedot näytetään:</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;datetime&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span>Mitä kello on?<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p>Nappula ei vielä toimi, mutta ei huolta, tiimikaverisi toteuttaa sen toiminnallisuuden.</p>
+<p>Testaa sivu. Kun olet tyytyväinen lopputulokseen, talleta muutokset <code>develop</code>-haaraan.</p>
+<p>Vie <code>develop</code>-haara GitHub-palvelussa olevaan etärepositorioon.</p>
+</li>
+<li>
+<p>Huomaat, että tiimikaverisi on tehnyt nappulatoiminnallisuuden (mistä?). Liitä JavaScript-tiedosto ohjelmaasi lisäämällä <code>&lt;body&gt;</code>-osion loppuun </p>
+<p><div class="language-html highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;scripts.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></code></pre></div>
+Hän on kirjannut talletuskommenttiin myös ohjeet, miten toiminnallisuus liitetään nappulaan.</p>
+<p>Liitä toiminnallisuus nappulaan ja testaa, että nappula toimii. </p>
+<p>Kun olet tyytyväinen, talleta muutos ja vie se yhteiseen kehityshaaraan.</p>
+</li>
+<li>
+<p>Toteat, että perusnappula näyttää ankealta. Määritä sille paremmat tyylimääritykset CSS-tiedostoon, esim.</p>
+<p><div class="language-css highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">button</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">blue</span><span class="p">;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="p">}</span>
+</span></code></pre></div>
+Testaa sivu. </p>
+<p>Kun olet tyytyväinen lopputulokseen, talleta muutokset <code>develop</code>-haaraan ja vie etärepositorioon.</p>
+</li>
+<li>
+<p>Scrum-kokouksessa aamulla päätettiin muuttaa toimintaa niin, että kellonaika näytetäänkin jatkuvasti. Tiimikaverisi on jo ehtinyt toteuttaa JavaScript-toiminnallisuuden, sinun tehtäväksesi sovittiin tarpeettomaksi käyneen nappulan poistaminen.</p>
+<p>Hae tiimikaverisi muutokset ja poista kaikki nappulaan liittyvä tarpeeton koodi, testaa, että kaikki toimii.</p>
+<p>Kun muutos on valmis, vie se yhteiseen kehityshaaraan.</p>
+</li>
+<li>
+<p>Seuraavassa Scrum-kokouksessa todetaan, että ominaisuus on valmis esiteltäväksi sprintin katselmoinnissa <code>develop</code>-haaran uusimman version mukaisena. Yhdistä se päähaaraan.</p>
+</li>
+</ol>
+<p>Lopputulos näyttää jokseenkin tämänkaltaiselta:</p>
+<p><img alt="" src="../assets/hei_maailma_lopputulos.png" /></p>
+<p>Eikö lopputulos näytä samalta? Muistitko hakea muiden tuoreimmat muutokset ennen yhdistämistä? Jos et, hae ne, testaa <code>develop</code>-haarassa ja yhdistä sitten uudelleen päähaaraan.</p>
+<details class="note">
+<summary>Haluatko kokeilla uudelleen?</summary>
+<p>Jos haluat tehdä tehtävän uudelleen, voit poistaa sekä paikallisen repositorion että etärepositorion <code>develop</code>-haaran ja palata alkukohtaan. Siirry repositoriosi päähaaraan ja anna seuraavat komennot:</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git<span class="w"> </span>branch<span class="w"> </span>-D<span class="w"> </span>develop<span class="w"> </span><span class="c1"># poistetaan paikallinen develop</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--delete<span class="w"> </span>develop<span class="w"> </span><span class="c1"># poistetaan origin-etärepositorion develop</span>
+</span></code></pre></div>
+Mitä tapahtuu haaraan tehdyille talletuksille? </p>
+<p>Kuten aiemmin luvattiin, kaikki, mikä on versionhallintaan talletettu, säilyy siellä. Niin nämäkin, mutta haaraviittaus niihin (<code>develop</code>) on poistettu. Talletuksia on vaikeampi löytää ja käsitellä, mutta ne on mahdollista palauttaa.</p>
+</details>
 
 
 
