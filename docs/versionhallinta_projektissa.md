@@ -111,12 +111,21 @@ $ git merge origin/master   # 2. yhdistetään ne omiin muutoksiin
 $ git push origin master    # 3. viedään valmis lopputulos yhteiseen repositorioon
 ```
 
-ToVaiheet 1 ja 2 (`fetch` ja `merge`) tehdään usein kerralla komennolla `pull`.
+Vaiheet 1 ja 2 (`fetch` ja `merge`) tehdään usein kerralla komennolla `pull`.
 
 ```bash
 $ git pull origin master
 ```
 Huomaa, että `pull` voi aiheuttaa konflikteja, sillä se tekee myös yhdistämisen. Jos tilanne näyttää liian sekavalta, keskeneräisen yhdistämisen voi peruuttaa komennolla `git merge --abort`. 
+
+Voit tarkistaa etukäteen, onko etärepositoriossa uusia talletuksia, tekemällä `fetch`-toiminnon. Tällöin `status` kertoo tilanteen.
+
+```
+$ git status
+On branch main
+Your branch is behind 'origin/main' by 2 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+```
 
 ## Yhteenvetoa
 Jokaisesta loogisesta kokonaisuudesta kannattaa tehdä erillinen talletus. Tällöin muutosten tarkastelu ja käsittely projektissa on mahdollisimman selkeää. 
@@ -139,9 +148,106 @@ _Lähde: [Chacon S., Straub B, Pro Git, luku 5.](https://git-scm.com/book/en/v2/
 
 Harjoitellaan ohjelmiston kehittämistä ja muutosten synkronointia verkkopalvelussa sijaitsevan etärepositorion kanssa. 
 
-_Täydennetään myöhemmin_
+!!! note "Tehtävän esivalmistelut"
+
+    Tähän tehtävään saat virtuaalisen tiimikaverin. Hän jatkokehittää aiemmissa harjoituksissa laadittua sovellusta kanssasi.
+    
+    Tehtävän suorittamiseksi on repositorioosi tehtävä valmisteluja. Anna seuraavat komennot:
+
+    ```
+    git remote add actions https://github.com/mruonavaara/git-actions.git
+    git fetch actions main
+    git merge actions/main --allow-unrelated-histories
+    ``` 
+
+    Harjoitus perustuu aiemmin tehtyihin harjoituksiin, ja sen tekemisessä tarvitaan kaikkien aiempien osioiden oppeja! 
 
 
+
+Kehitätte `hello`-sovellusta projektitiimissä. Olette sopineet seuraavat versionhallintakäytännöt:
+
+- Kukin tekee omat muutoksensa aina ensin haaraan nimeltä `develop`.
+- Päähaaraan viedään vain versioita, jotka on testattu ja yhteisesti todettu valmiiksi. 
+
+Projektissa seuraavaksi lisätään sovellukseen toiminta, jolla käyttäjälle näytetään kellonaika. Sait tehtäväksesi lisätä nappulan, jolla käyttäjä voi pyytää näyttämään kellonajan. 
+
+1. Versionhallintakäytännön mukaisesti siirry haaraan `develop`. Sitä ei vielä ole, joten se pitää luoda.
+
+    ``` { .bash .no-copy }
+    git switch -c develop
+    ```
+
+    Sitä ei ole etärepositoriossakaan, viedään se sinne.
+
+    ``` { .bash .no-copy }
+    git push -u origin develop # -u on sama kuin --set-upstream
+    ```
+   
+2. Lisää html-tiedostoon `<main>`-osioon nappulaelementti päivämäärää ja kellonaikaa varten sekä nappula, jota painamalla tiedot näytetään:
+
+    ```html
+    <div id="datetime"></div>
+    <button>Mitä kello on?</button>
+    ```
+
+    Nappula ei vielä toimi, mutta ei huolta, tiimikaverisi toteuttaa sen toiminnallisuuden.
+
+    Testaa sivu. Kun olet tyytyväinen lopputulokseen, talleta muutokset `develop`-haaraan.
+    
+    Vie `develop`-haara GitHub-palvelussa olevaan etärepositorioon.
+
+3. Huomaat, että tiimikaverisi on tehnyt nappulatoiminnallisuuden (mistä?). Liitä JavaScript-tiedosto ohjelmaasi lisäämällä `<body>`-osion loppuun 
+
+    ```html
+    <script src="scripts.js"></script>
+    ```
+    Hän on kirjannut talletuskommenttiin myös ohjeet, miten toiminnallisuus liitetään nappulaan.
+
+    Liitä toiminnallisuus nappulaan ja testaa, että nappula toimii. 
+    
+    Kun olet tyytyväinen, talleta muutos ja vie se yhteiseen kehityshaaraan.
+
+4. Toteat, että perusnappula näyttää ankealta. Määritä sille paremmat tyylimääritykset CSS-tiedostoon, esim.
+
+    ```css
+    button {
+      background-color: blue;
+      color: white;
+      margin: 10px;
+      padding: 8px;
+      border-radius: 8px;
+    }
+    ```
+    Testaa sivu. 
+    
+    Kun olet tyytyväinen lopputulokseen, talleta muutokset `develop`-haaraan ja vie etärepositorioon.
+
+5. Scrum-kokouksessa aamulla päätettiin muuttaa toimintaa niin, että kellonaika näytetäänkin jatkuvasti. Tiimikaverisi on jo ehtinyt toteuttaa JavaScript-toiminnallisuuden, sinun tehtäväksesi sovittiin tarpeettomaksi käyneen nappulan poistaminen.
+
+    Hae tiimikaverisi muutokset ja poista kaikki nappulaan liittyvä tarpeeton koodi, testaa, että kaikki toimii.
+    
+    Kun muutos on valmis, vie se yhteiseen kehityshaaraan.
+
+6.  Seuraavassa Scrum-kokouksessa todetaan, että ominaisuus on valmis esiteltäväksi sprintin katselmoinnissa `develop`-haaran uusimman version mukaisena. Yhdistä se päähaaraan.
+
+Lopputulos näyttää jokseenkin tämänkaltaiselta:
+
+![](./assets/hei_maailma_lopputulos.png)
+
+Eikö lopputulos näytä samalta? Muistitko hakea muiden tuoreimmat muutokset ennen yhdistämistä? Jos et, hae ne, testaa `develop`-haarassa ja yhdistä sitten uudelleen päähaaraan.
+
+??? note "Haluatko kokeilla uudelleen?"
+
+    Jos haluat tehdä tehtävän uudelleen, voit poistaa sekä paikallisen repositorion että etärepositorion `develop`-haaran ja palata alkukohtaan. Siirry repositoriosi päähaaraan ja anna seuraavat komennot:
+
+    ```bash
+    git branch -D develop # poistetaan paikallinen develop
+    git push origin --delete develop # poistetaan origin-etärepositorion develop
+    ```
+    Mitä tapahtuu haaraan tehdyille talletuksille? 
+    
+    Kuten aiemmin luvattiin, kaikki, mikä on versionhallintaan talletettu, säilyy siellä. Niin nämäkin, mutta haaraviittaus niihin (`develop`) on poistettu. Talletuksia on vaikeampi löytää ja käsitellä, mutta ne on mahdollista palauttaa.
+    
 
 
 

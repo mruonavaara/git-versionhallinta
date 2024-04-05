@@ -43,7 +43,5 @@ Git-ohjelmisto on oltava asennettuna jokaisella tietokoneella, jolla sitä halut
 
 Kurssin tehtävien tekemiseen tarvitaan ohjelmointieditori. Editoriksi suositellaan Visual Studio Codea. Sen voit ladata osoitteesta [https://code.visualstudio.com/download](https://code.visualstudio.com/download). Voit halutessasi käyttää myös mitä tahansa muuta ohjelmoitieditoria.
 
-Kurssilla tehtävät tehtävät talletetaan GitHub-palveluun ja palautetaan sen kautta. Palvelun käyttämiseksi on luotava palveluun tili. Palvelun käyttäminen on maksutonta eikä rekisteröitymiseen tarvita maksutietoja. Voit rekisteröityä GitHub palveluun osoitteessa [https://github.com/](https://code.visualstudio.com/download).
-
-
+Kurssilla tehtävät tehtävät talletetaan GitHub-palveluun ja palautetaan sen kautta. Palvelun käyttämiseksi on luotava palveluun tili. Palvelun käyttäminen on maksutonta eikä rekisteröitymiseen tarvita maksutietoja. Voit rekisteröityä GitHub palveluun osoitteessa [https://github.com/](https://github.com/).
 
