@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="fi" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
       
       
 
@@ -67,7 +67,7 @@
       
         
         <a href="#peruskaytto" class="md-skip">
-          Skip to content
+          Hyppää sisältöön
         </a>
       
     </div>
@@ -81,7 +81,7 @@
   
 
 <header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="Ylätunniste">
     <a href=".." title="Git-versionhallinta" class="md-header__button md-logo" aria-label="Git-versionhallinta" data-md-component="logo">
       
   
@@ -122,16 +122,16 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Hae" placeholder="Hae" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="Haku">
         
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Tyhjää" aria-label="Tyhjää" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
@@ -142,7 +142,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            Aloitetaan hakua
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -177,7 +177,7 @@
 
   
 
-<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigaatio" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Git-versionhallinta" class="md-nav__button md-logo" aria-label="Git-versionhallinta" data-md-component="logo">
       
@@ -417,9 +417,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tallennettujen-muutosten-peruminen" class="md-nav__link">
+  <a href="#talletettujen-muutosten-peruminen" class="md-nav__link">
     <span class="md-ellipsis">
-      Tallennettujen muutosten peruminen
+      Talletettujen muutosten peruminen
     </span>
   </a>
   
@@ -617,14 +617,14 @@
 
 <h1 id="peruskaytto">Peruskäyttö</h1>
 <h2 id="repositorion-perustaminen">Repositorion perustaminen</h2>
-<p>Voit perustaa repositoryn hakemistoon, joka ei ole vielä versionhallinnassa, komennolla <code>init</code>.</p>
+<p>Voit perustaa repositorion hakemistoon, joka ei ole vielä versionhallinnassa, komennolla <code>init</code>.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>demo<span class="w">      </span><span class="c1"># luodaan hakemisto</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>demo<span class="w">         </span><span class="c1"># vaihdetaan uusi hakemisto oletushakemistoksi</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>git<span class="w"> </span>init
 </span></code></pre></div>
-<p>Komento luo tyhjän repositoryn, johon voit tallettaa versioita. Tiedot tallentuvat alihakemistoon <code>.git</code>-nimiseen alihakemistoon. 
+<p>Komento luo tyhjän repositorion, johon voit tallettaa versioita. Tiedot tallentuvat alihakemistoon <code>.git</code>-nimiseen alihakemistoon. 
 <code>.git</code>-hakemistosta tunnistat, onko hakemisto Git-versionhallinnassa.</p>
-<p>Tiedostot ja hakemistot, joiden nimi alkaa pisteellä, ovat piilotettuja, niitä ei oletusarvoisesti näytetä. Saat piilotetut hakemistot näkyviin <code>ls</code>-komennon laajentimella <code>-a</code>. Laajentimella `-l`` näytetään tiedostojen ja hakemistojen kaikki tiedot.</p>
+<p>Tiedostot ja hakemistot, joiden nimi alkaa pisteellä, ovat piilotettuja, niitä ei oletusarvoisesti näytetä. Saat piilotetut hakemistot näkyviin <code>ls</code>-komennon laajentimella <code>-a</code>. Laajentimella <code>-l</code> näytetään tiedostojen ja hakemistojen kaikki tiedot.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>-a
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>total<span class="w"> </span><span class="m">31</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>drwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>h01975<span class="w"> </span><span class="m">1049089</span><span class="w">    </span><span class="m">0</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">15</span>:04<span class="w"> </span>./
@@ -642,13 +642,13 @@
 <li><a href="https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-97fbc472-c603-9d90-91d0-1166d1d9f4b5">View hidden files and folders in Windows</a></li>
 </ul>
 <h3 id="repositorion-perustaminen-toisesta-repositoriosta">Repositorion perustaminen toisesta repositoriosta</h3>
-<p>Usein haluat kopioida olemassa olevan repositoryn ja jatkaa työskentelyä siitä. Tämä tapahtuu komennolla clone, esim.</p>
+<p>Usein haluat kopioida olemassa olevan repositoryn ja jatkaa työskentelyä siitä. Tämä tapahtuu komennolla <code>clone</code>, esim.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git clone https://github.com/libgit2/libgit2
 </span></code></pre></div>
 <p>Komento lisää nykyiseen hakemistoon alihakemiston libgit2, joka sisältää alkuperäisen repositoryn datan kopion (<code>.git</code>) sekä uusimman version tiedostot. Se myös konfiguroi alkuperäisen repositoryn uuden repositoryn etärepositoryksi. </p>
 <p>Täsä aihetta käsitellään myöhemmin osiossa <em>Hajautettu Git</em>.</p>
 <h2 id="tiedostot-git-hakemistossa">Tiedostot Git-hakemistossa</h2>
-<p>Hakemisto, johon on perustettu Git-repositorio, on Git:n <strong>työhakemisto</strong>. </p>
+<p>Hakemisto, johon on perustettu Git-repositorio, on Git:n <strong>työhakemisto</strong> (<em>working set</em>). </p>
 <p>Työhakemistossa olevat tiedostot ja alihakemistot ovat otettavissa Git-hallintaan. Tiedostot pitää viedä erikseen Git-hallintaan, jos niiden versioita halutaan hallinnoida.</p>
 <p>Git:n näkökulmasta hakemistossa olevat tiedostot voivat Git-termein olla joko </p>
 <ul>
@@ -665,7 +665,7 @@
 <ul>
 <li>Jos hakemistoon lisätään uusi tiedosto, se on <code>untracked</code>.</li>
 <li>Jos hakemistossa oleva Git-hallinnassa oleva tiedosto muuttuu, sen tilaksi tulee <code>modified</code>.</li>
-<li>Uudet ja muuttuneet tiedostot voidaan merkitä otettavaksi seuraavaan talletukseen toiminnolla (<em>Stage the file</em>). </li>
+<li>Uudet ja muuttuneet tiedostot voidaan merkitä otettavaksi seuraavaan talletukseen toiminnolla <code>add</code> (<em>stage the file</em>). </li>
 <li>Kun talletus  (<em>commit</em>) tehdään, kaikki mukaan otettavaksi merkityt tiedostoversiot talletetaan, ja niiden tilaksi tulee <code>unmodified</code>.</li>
 </ul>
 <p><img alt="" src="../assets/git_file_states.png" /></p>
@@ -799,7 +799,7 @@ Git antaa jokaiselle talletukselle (<em>commit</em>) yksikäsitteisen tunnisteme
 </span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>HEAD<span class="w"> </span>is<span class="w"> </span>now<span class="w"> </span>at<span class="w"> </span>f78c0a4<span class="w"> </span>Ensimmäinen<span class="w"> </span>commit
 </span></code></pre></div>
 Koko tunnistetta ei tarvitse antaa, seitsemän ensimmäistä merkkiä riittää.</p>
-<p>Nyt työhakemisto on päivittynyt ensimmäisen commit-tallennuksen tilanteeseen, ja hakemistossa on vain sinne ensimmäisenä tehty tiedosto <code>text.txt</code>.</p>
+<p>Nyt työhakemisto on päivittynyt ensimmäisen talltuksen tilanteeseen, ja hakemistossa on vain sinne ensimmäisenä tehty tiedosto <code>text.txt</code>.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>$ ls -l -a
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>total 13
 </span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>drwxr-xr-x 1 h01975 1049089  0 Mar 10 16:17 ./
@@ -834,8 +834,8 @@ Koko tunnistetta ei tarvitse antaa, seitsemän ensimmäistä merkkiä riittää.
 <p>Huomaa, että tässä tapauksessa <strong>tekemästi muutokset häviävät eivätkä ne ole palautettavissa</strong>. Vain talletetut versiot voidaan palautettaa.</p>
 </div>
 <p>Jos haluat peruuttaa kaikki työtilaan tekemäsi muutokset, se onnistuu komennolla <code>git reset --hard</code>. Käytä sitä vain, kun olet varma, että haluat hylätä kaikki tekemästi muutoksiet</p>
-<h3 id="tallennettujen-muutosten-peruminen">Tallennettujen muutosten peruminen</h3>
-<p>Jos olet tallentanut muutoksen versionhallintaan, muutokselle on jo luotu tunniste ja siitä on talletettu kaikki tiedot. Jos sitä muutettaisiin, jouduttaisin peukaloimaan repositorion versiohistoriaa.</p>
+<h3 id="talletettujen-muutosten-peruminen">Talletettujen muutosten peruminen</h3>
+<p>Jos olet tallettanut muutoksen versionhallintaan, muutokselle on jo luotu tunniste ja siitä on talletettu kaikki tiedot. Jos sitä muutettaisiin, jouduttaisin peukaloimaan repositorion versiohistoriaa.</p>
 <p>Talletetun muutoksen poistaminen ei oikeastaan edes ole järkevää. Sen sijaan että yrittäisit muuttaa historiaa, voit tehdä uuden muutoksen, jossa väärä muutos korjataan. </p>
 <p>Yksi ylimääräinen talletus ei haittaa, ja korjaus on täysin riskitön. Historian muuttaminen sen sijaan olisi riskialtista, se voisi aiheuttaa monin verroin suurempia ongelmia kuin ylimääräinen talletus.</p>
 <p>Voit peruuttaa kokonaisen talletuksen tekemällä "anti-talletuksen" Git-komennolla <code>revert</code>. Komento tekee muutoksen, joka peruuttaa sille parametrina annetun talletuksen kokonaan.</p>
@@ -956,10 +956,10 @@ Komento <code>revert</code> peruuttaa yhden talletuksen kerrallaan. Jos haluat p
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "toc.integrate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "toc.integrate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Kopioitu leikep\u00f6yd\u00e4lle", "clipboard.copy": "Kopioi leikep\u00f6yd\u00e4lle", "search.result.more.one": "1 lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.more.other": "# lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.none": "Ei t\u00e4sm\u00e4\u00e4vi\u00e4 dokumentteja", "search.result.one": "1 t\u00e4sm\u00e4\u00e4v\u00e4 dokumentti", "search.result.other": "# t\u00e4sm\u00e4\u00e4v\u00e4\u00e4 dokumenttia", "search.result.placeholder": "Kirjoita aloittaaksesi haun", "search.result.term.missing": "Puuttuu", "select.version": "Valitse versio"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
       
     
   </body>
