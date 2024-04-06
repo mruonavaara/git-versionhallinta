@@ -94,6 +94,7 @@ Toistaiseksi ei ole vielä tehty mitään muutoksia, mutta tehdäänpä nyt yksi
 _Lähde: [Chacon S., Straub B, Pro Git, luku 3.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/)_
 
 Jos nyt vaihdat takaisin master-haaraan,
+
 - `HEAD` siirtyy osoittamaan `master`-haaraa ja  
 - työhakemiston tiedostot muutetaan takaisin master-haaran tilanteeseen.
 
@@ -101,9 +102,7 @@ Jos nyt vaihdat takaisin master-haaraan,
 
 _Lähde: [Chacon S., Straub B, Pro Git, luku 3.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/)_
 
-Haaroissa `master` ja `testing` on nyt erilaiset versiot. 
-
-Vaihtamalla haaraa voit  tarkastella niitä, kehittää niitä eteenpäin ja tehdä niistä uusia versioita toisistaan riippumatta.  
+Haaroissa `master` ja `testing` on nyt erilaiset versiot. Vaihtamalla haaraa voit  tarkastella niitä, kehittää niitä eteenpäin ja tehdä niistä uusia versioita toisistaan riippumatta.  
 
 Eri haaroihin tehdyt muutokset pysyvät erillisinä, ja voit milloin tahansa palata lähtötilanteeseen, jos tulet katumapäälle. Toiseen haaraan tekemäsi muutokset jäävät silti talteen, ja voit jatkaa niidenkin kehittämistä. 
 
@@ -124,7 +123,7 @@ git log --graph --all --oneline
 
 Haaroittumisen visualisoinnissa graafiset työkalut voisivat olla paikallaan, esim. GitGUI
 
-> Materiaalissa pitäisi ehkä olla jokin vinkki hyvistä työkaluista
+<!-- Materiaalissa pitäisi ehkä olla jokin vinkki hyvistä työkaluista -->
 
 ## Yhdistäminen (_merge_)
 Haaroihin eriytynyt kehitys halutaan usein jälleen yhdistää, esim. haarassa tehty korjaus halutaan viedä pääkehityshaaraan. 
@@ -208,6 +207,7 @@ $ git commit
 ## Haarautumisen käyttötapoja
 
 Haarautumista voit käyttää, kun haluat pitää uuden kehityksen erillään kehityksen, jotta et sotkisi toimivaa versiota  keskeneräisillä, toimimattomilla tai epäyhteensopivilla commiteilla, esim.
+
 - Kehität ominaisuutta, joka vaatii muutoksia nykyisiin toiminnallisuuksiin.
 - Haluat kokeilla jotain turvallisesti sotkematta varsinaista kehitystä.
 - Kehität tuotteen useita versioita yhtaikaa, esim. version 1 vikakorjauksia ja version 2 uuskehitystä.

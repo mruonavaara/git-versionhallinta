@@ -2,7 +2,7 @@
 
 ## Repositorion perustaminen
 
-Voit perustaa repositoryn hakemistoon, joka ei ole vielä versionhallinnassa, komennolla `init`.
+Voit perustaa repositorion hakemistoon, joka ei ole vielä versionhallinnassa, komennolla `init`.
 
 ```bash
 mkdir demo 		# luodaan hakemisto
@@ -10,10 +10,10 @@ cd demo		    # vaihdetaan uusi hakemisto oletushakemistoksi
 git init
 ```
 
-Komento luo tyhjän repositoryn, johon voit tallettaa versioita. Tiedot tallentuvat alihakemistoon `.git`-nimiseen alihakemistoon. 
+Komento luo tyhjän repositorion, johon voit tallettaa versioita. Tiedot tallentuvat alihakemistoon `.git`-nimiseen alihakemistoon. 
 `.git`-hakemistosta tunnistat, onko hakemisto Git-versionhallinnassa.
 
-Tiedostot ja hakemistot, joiden nimi alkaa pisteellä, ovat piilotettuja, niitä ei oletusarvoisesti näytetä. Saat piilotetut hakemistot näkyviin `ls`-komennon laajentimella `-a`. Laajentimella `-l`` näytetään tiedostojen ja hakemistojen kaikki tiedot.
+Tiedostot ja hakemistot, joiden nimi alkaa pisteellä, ovat piilotettuja, niitä ei oletusarvoisesti näytetä. Saat piilotetut hakemistot näkyviin `ls`-komennon laajentimella `-a`. Laajentimella `-l` näytetään tiedostojen ja hakemistojen kaikki tiedot.
 
 ``` bash
 $ ls -l -a
@@ -35,7 +35,7 @@ Jotta piilotetut tiedostot näkyisivät Windowsin tiedostojenhallinnassa, on tie
 
 ### Repositorion perustaminen toisesta repositoriosta
 
-Usein haluat kopioida olemassa olevan repositoryn ja jatkaa työskentelyä siitä. Tämä tapahtuu komennolla clone, esim.
+Usein haluat kopioida olemassa olevan repositoryn ja jatkaa työskentelyä siitä. Tämä tapahtuu komennolla `clone`, esim.
 
 ```
 git clone https://github.com/libgit2/libgit2
@@ -47,7 +47,7 @@ Täsä aihetta käsitellään myöhemmin osiossa _Hajautettu Git_.
 
 ## Tiedostot Git-hakemistossa
 
-Hakemisto, johon on perustettu Git-repositorio, on Git:n __työhakemisto__. 
+Hakemisto, johon on perustettu Git-repositorio, on Git:n __työhakemisto__ (_working set_). 
 
 Työhakemistossa olevat tiedostot ja alihakemistot ovat otettavissa Git-hallintaan. Tiedostot pitää viedä erikseen Git-hallintaan, jos niiden versioita halutaan hallinnoida.
 
@@ -66,7 +66,7 @@ Oheinen kuva kuvaa eri tiloja ja niiden välisiä siirtymiä.
 
 - Jos hakemistoon lisätään uusi tiedosto, se on `untracked`.
 - Jos hakemistossa oleva Git-hallinnassa oleva tiedosto muuttuu, sen tilaksi tulee `modified`.
-- Uudet ja muuttuneet tiedostot voidaan merkitä otettavaksi seuraavaan talletukseen toiminnolla (_Stage the file_). 
+- Uudet ja muuttuneet tiedostot voidaan merkitä otettavaksi seuraavaan talletukseen toiminnolla `add` (_stage the file_). 
 - Kun talletus  (_commit_) tehdään, kaikki mukaan otettavaksi merkityt tiedostoversiot talletetaan, ja niiden tilaksi tulee `unmodified`.
 
 ![](assets/git_file_states.png)
@@ -258,7 +258,7 @@ HEAD is now at f78c0a4 Ensimmäinen commit
 ```
 Koko tunnistetta ei tarvitse antaa, seitsemän ensimmäistä merkkiä riittää.
 
-Nyt työhakemisto on päivittynyt ensimmäisen commit-tallennuksen tilanteeseen, ja hakemistossa on vain sinne ensimmäisenä tehty tiedosto `text.txt`.
+Nyt työhakemisto on päivittynyt ensimmäisen talltuksen tilanteeseen, ja hakemistossa on vain sinne ensimmäisenä tehty tiedosto `text.txt`.
 
 ```
 $ ls -l -a
@@ -314,9 +314,9 @@ git restore hello.html
 
 Jos haluat peruuttaa kaikki työtilaan tekemäsi muutokset, se onnistuu komennolla `git reset --hard`. Käytä sitä vain, kun olet varma, että haluat hylätä kaikki tekemästi muutoksiet
 
-### Tallennettujen muutosten peruminen
+### Talletettujen muutosten peruminen
 
-Jos olet tallentanut muutoksen versionhallintaan, muutokselle on jo luotu tunniste ja siitä on talletettu kaikki tiedot. Jos sitä muutettaisiin, jouduttaisin peukaloimaan repositorion versiohistoriaa.
+Jos olet tallettanut muutoksen versionhallintaan, muutokselle on jo luotu tunniste ja siitä on talletettu kaikki tiedot. Jos sitä muutettaisiin, jouduttaisin peukaloimaan repositorion versiohistoriaa.
 
 Talletetun muutoksen poistaminen ei oikeastaan edes ole järkevää. Sen sijaan että yrittäisit muuttaa historiaa, voit tehdä uuden muutoksen, jossa väärä muutos korjataan. 
 

@@ -10,29 +10,28 @@ Käytetyimmät palvelut ovat
 - Bitbucket ([https://bitbucket.org/](https://bitbucket.org/))
 - GitLab ([https://gitlab.com/](https://gitlab.com/))
 
-## Palvelujen käyttö
-
-Kuten muissakin online-palveluissa, käyttäjien on avattava tili palvelussa. 
-Tilille voi perustaa useita repositorioita (projekteja).
-
-Palvelussa oleva reposiotorio toimii kehittäjän etärepositoriona. Palvelussa olevan etärepositorion kautta kehittäjä voi jakaa oman työnsä  muille, ja vastaavasti saada muiden kehittäjien tekemiä muutoksia omaan paikalliseen repositorioonsa.
-
-Kirjautumisten helpottamiseksi palveluihin voi tallettaa SSH-salausavaimen, jolloin liikennöinti repositoryjen kanssa tapahtuu SSH-protokollalla ilman erillistä kirjautumista.
-
 Palvelut tarjoavat Git-toiminnallisuuden ja talletustilan lisäksi mm.
+
 - Projektin jäsenten käsittelyn (_collaborators_)
 - Vikaraportoinnin (_issue and bug tracking_)
 - Projektinhallintatoiminnallisuutta (_agile boards_)
 
 Ilmaisella tilillä on mahdollista toteuttaa pieniä projekteja. Maksullisilla tilauksilla saadaan suurempien projektien toteuttamiseen tarvittavia palveluja.
 
-## Repositoryjen luominen palveluun
+## Palvelujen käyttö
 
-Repositorioita voi luoda palvelun web-käyttöliittymässä. Osa palveluista tukee myös repositoryn perustamista suoraan push-operaatiolla
+Kuten muissakin online-palveluissa, käyttäjien on avattava tili palvelussa. 
+Tilille voi perustaa useita repositorioita (projekteja).
 
-Repositorioihin voidaan lisätä jäseniä (_collaborator_), ja heille voidaan antaa erilaisia oikeuksia, esim. _guest_, _reporter_, _developer_, _maintainer_.
+Palvelussa oleva repositorio toimii kehittäjän etärepositoriona. Palvelussa olevan etärepositorion kautta kehittäjä voi jakaa oman työnsä  muille, ja vastaavasti saada muiden kehittäjien tekemiä muutoksia omaan paikalliseen repositorioonsa.
 
-Erilaisia toimintoja ja asetuksia on runsaasti, esim. notifikaatioita, automaattisia toimintoja (_hooks_).
+Kirjautumisten helpottamiseksi palveluihin voi tallettaa SSH-salausavaimen, jolloin liikennöinti repositoryjen kanssa tapahtuu SSH-protokollalla ilman erillistä kirjautumista.
+
+Repositorioita voi luoda palvelun web-käyttöliittymässä. Osa palveluista tukee myös repositoryn perustamista suoraan push-operaatiolla.
+
+Repositorioihin voidaan lisätä jäseniä (_collaborator_), ja heille voidaan antaa erilaisia oikeuksia, esim. _guest_, _reporter_, _developer_, _maintainer_. 
+
+Erilaisia toimintoja ja asetuksia on runsaasti, esim. notifikaatioita ja automatisointitoimintoja. 
 
 Perehdy palveluntarjoajasi ohjeisiin. Kaikilla suurilla palveluilla on erinomainen dokumentaatio.
 
@@ -40,9 +39,9 @@ Perehdy palveluntarjoajasi ohjeisiin. Kaikilla suurilla palveluilla on erinomain
 
 Palvelut esittävät README-nimisen tiedoston repositoryn etusivulla. Yleensä siitä tehdään projektin kotisivu. README kirjoitetaan Markdown-kielellä. 
 
-Markdown on yksinkertainen merkkauskieli, katso esim. https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+Markdown on yksinkertainen merkkauskieli, katso esim. [https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
-Koodieditoreihin on saatavana Markdown tukilaajennuksia, esim. esikatselu
+Koodieditoreihin on saatavana Markdown tukilaajennuksia, esim. Visual Studio Code -editorissa on jo esiasennettuna esikatselu ja useita editointiaputoimintoja ([https://code.visualstudio.com/docs/languages/markdown](https://code.visualstudio.com/docs/languages/markdown)).
 
 Markdownia käytetään usein projektien dokumentointiin, sillä siten saadaan dokumentaatiollekin samanlainen versionhallinta kuin koodille.
 
@@ -64,7 +63,7 @@ Viedään projekti GitHub-palveluun.
 
 4. Mitä GitHub-repositoriosivulla nyt näkyy? Mitä haaroja näet GitHubissa, entä paikallisessa repositoriossasi?
 
-5. GitHub-palvelun web-käyttöliittymässä voi myös tehdä muutoksia repositorioon. Luo GitHubin käyttöliittymässä jokin uusi tiedosto ja talleta muutos (_Commit changes_).
+5. GitHub-palvelun web-käyttöliittymässä voi myös tehdä muutoksia repositorioon. Luo GitHubin käyttöliittymässä jokin uusi tiedosto ja talleta muutos.
 
 6. Etärepositoriossa on nyt eri sisältö kuin paikallisessa repositoriossasi. Hae muutokset paikalliseen repositorioon ja mene katsomaan niitä:
 ```bash
@@ -73,11 +72,11 @@ git checkout origin/master
 ```
     Mikä muuttui?
 
-7. Palaa `master`-haaraan. Mitä komento `status` sanoo?
+1. Palaa `master`-haaraan. Mitä komento `status` sanoo?
 
-8. Yhdistä `origin/master`-haaran muutokset. Mitä komento `status` nyt sanoo?
+2. Yhdistä `origin/master`-haaran muutokset. Mitä komento `status` nyt sanoo?
 
 Vinkkejä:
 
 - [GitHubin ohjeet repositorion luontiin](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository#creating-a-new-repository-from-the-web-ui)
-- [gitHubin ohjeet tiedoston lisäämisestä GitHubin käyttöliittymässä](https://docs.github.com/en/repositories/working-with-files/managing-files/creating-new-files)
+- [GitHubin ohjeet tiedoston lisäämisestä GitHubin käyttöliittymässä](https://docs.github.com/en/repositories/working-with-files/managing-files/creating-new-files)

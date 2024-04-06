@@ -8,17 +8,18 @@ Itsenäisten repositorioiden välille voidaan määritellä yhteys, jolloin niid
 
 Muut repositoriot, joihin paikallisella repositoriolla on yhteys, ovat __etärepositorioita__ (_remote_).
 
-> Tähän kuva
+<!-- Tähän kuva -->
 
 ## Kloonaus
 
 Kun työskennellään projektissa, on jossakin yhteisesti sovittu pää-repositorio, jossa pidetään yllä yhteistä koodia.
-Tällöin paikallinen kopio repositoriosta saadaan helposti clone-operaatiolla
+Tällöin paikallinen kopio repositoriosta saadaan helposti `clone`-operaatiolla
 
 ```bash
 git clone https://github.com/libgit2/libgit2
 ```
 Kloonaaminen tekee valmiin paikallisen repositorion, joka on täydellinen kopio alkuperäisestä:
+
 - lisää hakemistoon master-haaran uusimmat tiedostot
 - konfiguroi alkuperäisen repositorion uuden repositorion etärepositorioksi oletusnimellä `origin`
 
@@ -33,6 +34,7 @@ Voit määritellä etärepositorioita komennolla `remote add`:
 ```bash
 git remote add origin https://github.com/user/repository.git
 ```
+
 - `origin` of etärepositoriolle annettu nimi
 - `https://github.com/user/repository.git` on sen osoite.
 
@@ -43,7 +45,7 @@ Voit listata etärepositoriot komennolla `remote`.
 ```bash
 git remote
 ```
-Enemmän tietoja saat laajentimella `–v` (`--verbose`).
+Enemmän tietoja saat valitsimella `–v` (`--verbose`).
 ```bash
 git remote -v
 ```
@@ -56,19 +58,20 @@ git remote rm temp
 ## Tietojen haku etärepositoriosta
 
 Repositorioiden tietojen synkronointi tapahtuu kahdessa vaiheessa:
+
 1. Etärepositorien haarassa olevat tiedot haetaan paikalliseen repositorioon paikallisten haarojen rinnalle (_fetch_).
 2. Etärepositorion haara yhdistetään sitä vastaavaan paikalliseen haaraan (_merge_).
 
 ### Fetch
 
-Komento fetch lataa etärepositorion tiedot paikalliseen repositorioon. 
+Komento `fetch` lataa etärepositorion tiedot paikalliseen repositorioon. 
 
 ```bash
 git fetch origin
 ```
 Se ei kuitenkaan tee muutoksia paikallisen repositorion haaroihin vaan tallettaa ne erikseen. Fetch on siis täysin turvallinen komento, mikään repositoriossasi ei muutu, ellet niin erikseen käske.
 
-Etärepositorion haarat löytyvät etärepositorion nimen alta, esim. `origin/master`. etärepositorion haarat voit listata laajentimella `–r`.
+Etärepositorion haarat löytyvät etärepositorion nimen alta, esim. `origin/master`. etärepositorion haarat voit listata valitsimella `–r`.
 
 ```bash
 git branch -r
@@ -83,9 +86,9 @@ git merge origin/master
 
 ### Pull
 
-Fetch lataa etärepositorystä saataville kaikki muutokset, joita sinulla ei vielä ole. Jotta saisit ne oman repositorysi haaraan, ne on yhdistettävä sinne (merge). 
+Komento `fetch` lataa etärepositoriosta saataville kaikki muutokset, joita sinulla ei vielä ole. Jotta saisit ne oman repositoriosi haaraan, ne on yhdistettävä sinne (`merge`). 
 
-Koska tämä kaksivaiheinen operaatio on niin tavallinen, sille on erikseen komento pull, joka hakee nykyisen haaran uudet tiedot etärepositorysta ja tekee mergen nykyiseen haaraasi automaattisesti.
+Koska tämä kaksivaiheinen operaatio on niin tavallinen, sille on erikseen komento `pull`, joka hakee nykyisen haaran uudet tiedot etärepositoriosta ja yhdistää ne nykyiseen haaraasi automaattisesti.
 
 ```bash
 git pull origin 
@@ -102,29 +105,30 @@ Koska `pull` tekee myös yhdistämisen, komennon suorituksessa voi tulla konflik
 
 ## Tietojen vienti etärepositorioon (_push_)
 
-Komento `push` synkronoi paikallisen repositoryn tietoja etärepositoryyn.
+Komento `push` synkronoi paikallisen repositorion tietoja etärepositorioon.
 
 ```bash
 git push origin master    # vie paikallinen master origin-repositorioon
 ```
+
 - `origin` on etärepositorion nimi, johon tietoja viedään
 - `master` on vietävän haaran nimi
 
-Paikallisia haaroja ei automaattisesti viedä etärepositoryyn vaan ne pitää eksplisiittisesti viedä sinne. Näin voit jättää osan haaroista täysin paikallisiksi, esim. väliaikaisia haaroja usein ei tarvitse synkronoida.
+Paikallisia haaroja ei automaattisesti viedä etärepositorioon vaan ne pitää eksplisiittisesti viedä sinne. Näin voit jättää osan haaroista täysin paikallisiksi, esim. väliaikaisia haaroja usein ei tarvitse synkronoida.
 
-Kaikki paikalliset haarat viedään, jos käytät laajenninta `–all`.
+Kaikki paikalliset haarat viedään, jos käytät valitsinta `–all`.
 
 ```bash
 git push --all            # vie kaikki paikalliset haarat origin-repositorioon
 ```
 
-Ensimmäisellä kerralla kannattaa käyttää `push`-komennossa laajenninta `–u` (`--set-upstream`). Se asettaa kyseinen etärepositoriohaaran vietävän paikallisen haaran oletusarvoiseksi etärepositoriohaaraksi. 
+Ensimmäisellä kerralla kannattaa käyttää `push`-komennossa valitsinta `–u` (`--set-upstream`). Se asettaa kyseinen etärepositoriohaaran vietävän paikallisen haaran oletusarvoiseksi etärepositoriohaaraksi. 
 
 ```bash
 git push -u origin master
 ```
 
-Tällöin etärepositoryä ei tarvitse jatkossa erikseen komennossa ilmoittaa vaan riittää 
+Tällöin etärepositoriota ei tarvitse jatkossa erikseen komennossa ilmoittaa vaan riittää 
 
 ```bash
 git push                  # vie nykyinen haara oletusarvoiseen etähaaraansa
@@ -132,22 +136,22 @@ git push                  # vie nykyinen haara oletusarvoiseen etähaaraansa
 
 ## Etärepositoriot ja haarat
 
-Etärepositoryjen synkronoinnissa on itse asiassa kyse haarojen synkronoinnista. 
+Etärepositorioiden synkronoinnissa on itse asiassa kyse haarojen synkronoinnista. 
 
-Kun teet haaroja paikallisesti, ja käytössä on etärepositorio, on päätettävä, haluatko synkronoida sen vai et. Jos haluat, sinun täytyy erikseen se sinne viedä (ellet käytä laajenninta `--a`). Samalla kannattaa määrittää etähaaralle oletusarvo, niin synkronointi on jatkossa helpompaa.
+Kun teet haaroja paikallisesti, ja käytössä on etärepositorio, on päätettävä, haluatko synkronoida sen vai et. Jos haluat, sinun täytyy erikseen se sinne viedä (ellet käytä valitsinta `--a`). Samalla kannattaa määrittää etähaaralle oletusarvo, niin synkronointi on jatkossa helpompaa.
 ```bash
 git push -u origin feat123
 ```
 
-Komento fetch tuo haaran tiedot paikalliseen repositoryyn, mutta ei yhdistä sitä
+Komento fetch tuo haaran tiedot paikalliseen repositorioon, mutta ei yhdistä sitä
 
 ```bash
 git fetch origin
 ```
 
-Tuloksena paikalliseen repositoryyn tulee tiedot etärepositoryn muutoksista. Ne talletetaan paikallisiin haaroihin, joiden nimi on muotoa `<etärepository>/<haara>`.
+Tuloksena paikalliseen repositorioon tulee tiedot etärepositorionn muutoksista. Ne talletetaan paikallisiin haaroihin, joiden nimi on muotoa `<etärepositorio>/<haara>`.
 
-Paikallinen `origin/master` on siis kopio etärepositoryn `origin` haarasta `master`. Kun yhdistät tuotuja haaroja, se tapahtuu paikallisen kopion kanssa. 
+Paikallinen `origin/master` on siis kopio etärepositorion `origin` haarasta `master`. Kun yhdistät tuotuja haaroja, se tapahtuu paikallisen kopion kanssa. 
 
 ```bash
 git merge origin/master

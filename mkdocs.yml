@@ -13,6 +13,7 @@ nav:
   - muita_toimintoja.md
 theme:
   name: material
+  language: fi
   features:
     - content.code.copy
     - content.code.select
