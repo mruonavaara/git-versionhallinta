@@ -164,6 +164,26 @@ Other
     --default <value>     with --get, use default value when missing entry
 
 ```
+## Git-suomi -sanasto
+
+Tässä materiaalissa käytetään Git-termeistä seuraavia suomenkielisiä vastineita:
+
+Git | suomi
+--- | ---
+branch | haara
+command line | komentorivi
+commit | talletus
+directory | hakemisto
+fetch | _[haaran]_ haku _[etärepositoriosta]_
+merge | yhdistäminen
+_[command]_ option | valitsin
+pull | _[haaran]_ tuonti _[etärepositoriosta]_
+push | _[haaran]_ vienti _[etärepositorioon]_
+remote | etärepositorio
+repository | repositorio
+shell | komentotulkki
+working directory | työhakemisto
+
 
 ## Harjoitus 1
 

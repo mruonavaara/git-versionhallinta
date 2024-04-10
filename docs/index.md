@@ -44,23 +44,3 @@ Git-ohjelmisto on oltava asennettuna jokaisella tietokoneella, jolla sitä halut
 Kurssin tehtävien tekemiseen tarvitaan ohjelmointieditori. Editoriksi suositellaan Visual Studio Codea. Sen voit ladata osoitteesta [https://code.visualstudio.com/download](https://code.visualstudio.com/download). Voit halutessasi käyttää myös mitä tahansa muuta ohjelmoitieditoria.
 
 Kurssilla tehtävät tehtävät talletetaan GitHub-palveluun ja palautetaan sen kautta. Palvelun käyttämiseksi on luotava palveluun tili. Palvelun käyttäminen on maksutonta eikä rekisteröitymiseen tarvita maksutietoja. Voit rekisteröityä GitHub palveluun osoitteessa [https://github.com/](https://github.com/).
-
-## Git-suomi -sanasto
-
-Tässä materiaalissa käytetään Git-termeistä seuraavia suomenkielisiä vastineita:
-
-Git | suomi
---- | ---
-branch | haara
-command line | komentorivi
-commit | talletus
-directory | hakemisto
-fetch | _[haaran]_ haku _[etärepositoriosta]_
-merge | yhdistäminen
-_[command]_ option | valitsin
-pull | _[haaran]_ tuonti _[etärepositoriosta]_
-push | _[haaran]_ vienti _[etärepositorioon]_
-remote | etärepositorio
-repository | repositorio
-shell | komentotulkki
-working directory | työhakemisto
