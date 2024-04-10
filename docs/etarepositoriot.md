@@ -173,4 +173,4 @@ Seuraavassa esimerkissä paikalliselle repositoriolle on määritelty kaksi etä
 
 Tässä tapauksessa opiskelijalla ei ole kirjoitusoikeutta `upstream`-repositorioon. Hän voi kuitenkin yhdistää sieltä saatavia mahdollisia tehtäväpäivityksiä omaan repositorioonsa, koska kaikilla repositorioilla on yhteinen alkuperä, `upstream`-repositorio.
 
-![](./assets/repo_sync.png)
+![](./assets/repo_push_pull.png)

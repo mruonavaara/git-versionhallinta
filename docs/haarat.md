@@ -44,6 +44,12 @@ _Lähde: [Chacon S., Straub B, Pro Git, luku 3.](https://git-scm.com/book/en/v2/
 
 Kun perustat repositoryn, sinulle on jo valmiiksi luotu yksi haara nimeltä `master`, ja `HEAD` viittaa siihen. Se on Git:n oletushaara. 
 
+!!! note "Huomautus"
+
+    Git:n oletushaara on nimeltään `master`, mutta haaran nimen voi vaihtaa. GitHub ja muut Git-hosting -palvelut käyttävät nykyään oletushaaralle nimeä `main` ja suosittelevat nimen vaihtamista. 
+
+    Voit siis tavata repositorioita, joissa oletushaara on `master` sekä sellaisia, joissa se on `main`. Tässä materiaalissa käytetään oletushaarasta nimeä `master`.
+
 Joka kerta, kun teet talletuksen, `master`-viittaus siirtyy eteenpäin siihen, jonka juuri teit.
 
 Voit luoda haaran komennolla `branch`.
