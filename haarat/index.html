@@ -634,6 +634,11 @@
 <p><em>Lähde: <a href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell">Chacon S., Straub B, Pro Git, luku 3.</a> <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a></em></p>
 <h2 id="uuden-haaran-luominen">Uuden haaran luominen</h2>
 <p>Kun perustat repositoryn, sinulle on jo valmiiksi luotu yksi haara nimeltä <code>master</code>, ja <code>HEAD</code> viittaa siihen. Se on Git:n oletushaara. </p>
+<div class="admonition note">
+<p class="admonition-title">Huomautus</p>
+<p>Git:n oletushaara on nimeltään <code>master</code>, mutta haaran nimen voi vaihtaa. GitHub ja muut Git-hosting -palvelut käyttävät nykyään oletushaaralle nimeä <code>main</code> ja suosittelevat nimen vaihtamista. </p>
+<p>Voit siis tavata repositorioita, joissa oletushaara on <code>master</code> sekä sellaisia, joissa se on <code>main</code>. Tässä materiaalissa käytetään oletushaarasta nimeä <code>master</code>.</p>
+</div>
 <p>Joka kerta, kun teet talletuksen, <code>master</code>-viittaus siirtyy eteenpäin siihen, jonka juuri teit.</p>
 <p>Voit luoda haaran komennolla <code>branch</code>.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>branch<span class="w"> </span>testing
