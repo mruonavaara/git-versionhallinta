@@ -573,9 +573,11 @@
 <h3 id="luottamuksellinen-tieto">Luottamuksellinen tieto</h3>
 <p>Versionhallintaan ei pitäisi viedä luottamuksellisia tietoja kuten käyttäjätunnuksia, salasanoja ja järjestelmäkonfiguraatioita. Jos ne ovat versionhallinnassa ja viedään etärepositoryyn, ne ovat kaikkien niiden nähtävissä, joilla on repositoriaan lukuoikeus.</p>
 <p>Luottamuksellisia tietoja kuitenkin tarvitaan järjestelmien kehittämisessä esimerkiksi tietokantayhteyden muodostamiseen. Tällöin on tehtävä jokin ratkaisu, jolla luottamukselliset tiedot tuodaan järjestelmään jotenkin toisin. </p>
-<p>Ratkaisu voi olla esim.
-- Luottamukselliset tiedot ovat konfiguraatiotiedostossa, jota ei viedä versionhallintaan
-- Luottamukselliset tiedot luetaan ympäristömuuttujista</p>
+<p>Ratkaisu voi olla esim.</p>
+<ul>
+<li>Luottamukselliset tiedot ovat konfiguraatiotiedostossa, jota ei viedä versionhallintaan</li>
+<li>Luottamukselliset tiedot luetaan ympäristömuuttujista</li>
+</ul>
 <p>Tällöin kehittäjä antaa paikallisesti luottamukselliset tiedot.</p>
 <h3 id="ignore-saannot">Ignore-säännöt</h3>
 <p>Git:lle voi määrittää sääntöjä, mitkä tiedostot se jättää huomioimatta. Säännöt määritetään <code>.gitignore</code>-tiedostoon</p>
@@ -610,7 +612,7 @@
 <p>Tällöin voidaan poistaa tiedosto Git-hallinnasta:
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>rm<span class="w"> </span>--cached<span class="w"> </span>tiedostonimi
 </span></code></pre></div>
-Tiedosto merkitään poistettavaksi hakemistosta seuraavassa commitissa, valitsin <code>--cached</code> kuitenkin säilyttää sen työtilassa. Tiedosto on nyt työhakemistossasi untracked-tilassa, voit nyt lisätä .gitignore-säännön ja tehdä commitin, jossa tiedoston poisto talletetaan.</p>
+Tiedosto merkitään poistettavaksi hakemistosta seuraavassa commitissa, valitsin <code>--cached</code> kuitenkin säilyttää sen työtilassa. Tiedosto on nyt työhakemistossasi <code>untracked</code>-tilassa, voit nyt lisätä .gitignore-säännön ja tehdä commitin, jossa tiedoston poisto talletetaan.</p>
 <p><strong>Huom!</strong> Tiedoston vanhat versiot kuitenkin jäävät historiaan. Jos haluat poistaa ne sieltäkin, on muutettava historiaa, mikä on aina riskialtista. Perehdy huolellisesti dokumentaatioon, jos lähdet sitä tekemään.</p>
 <h2 id="tarpeettomien-tiedostojen-poistaminen-tyotilasta">Tarpeettomien tiedostojen poistaminen työtilasta</h2>
 <p>Komento <code>clean</code> poistaa kaikki <code>untracked</code>-tiedostot, joita ei ole erikseen mainittu .gitignoressa. Sillä voit puhdistaa työhakemiston turhista tiedostoista, joita ei tarvita repositoryssä eikä muutenkaan.</p>
