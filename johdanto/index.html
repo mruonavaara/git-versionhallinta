@@ -651,15 +651,22 @@ Käyttäjätiedot tarvitsee asettaa tietokoneelle vain kerran, ja niitä voi tar
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git config –-global user.name ”Markku Ruonavaara”
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git config –-global user.email markku.ruonavaara@haaga-helia.fi
 </span></code></pre></div></p>
-<p>Konfigurointitietoja tallennetaan systeemi-, käyttäjä- ja projektikohtaisesti. Tarkennin <code>-–global</code> viittaa siihen, että asetus on systeemikohtainen.</p>
+<p>Konfigurointitietoja tallennetaan järjestelmä-, käyttäjä- ja projektikohtaisesti. Valitsin <code>-–global</code> viittaa siihen, että asetus on järjestelmä- ja käyttäjäkohtainen: se on voimassa tällä tietokoneella (järjestelmä) tämän käyttäjän kaikille repositorioille.</p>
+<p>Jos mitään valitsinta ei määritetä, asetuksesta tulee projektikohtainen. Se tarkoittaa, että asetus on voimassa vain siinä repositoriossa, jossa se tehtiin. </p>
 <h4 id="editori">Editori</h4>
 <p>Joidenkin toimintojen yhteydessä Git käynnistää editorin tekstin kirjoittamista varten. Oletusarvoisesti se on systeemin oletuseditori, joka yleensä on vi.</p>
 <p>Voit halutessasi asettaa editorin, jonka Git käynnistää. Seuraava komento asettaa editoriksi Visual Studio Code:n.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git config --global core.editor &quot;code --wait&quot;
 </span></code></pre></div>
 <p>Konfiguroinnissa määritetään käynnistyskomento, joten jos editoria ei löydy polusta, voit joutua antamaan koko polun. </p>
-<p>Jos kuitenkin joskus päädyt vi-editoriin, oheisesta ohjeesta voi olla sinulle hyötyä:
-- https://www.linuxjournal.com/content/how-use-vi-editor-linux </p>
+<p>Jos kuitenkin joskus päädyt vi-editoriin, oheisesta ohjeesta voi olla sinulle hyötyä:</p>
+<ul>
+<li><a href="https://www.linuxjournal.com/content/how-use-vi-editor-linux">https://www.linuxjournal.com/content/how-use-vi-editor-linux </a></li>
+</ul>
+<p>GitHub-palvelun dokumentaation ohjeita editorien konfiguroinnista:</p>
+<ul>
+<li><a href="https://docs.github.com/en/get-started/getting-started-with-git/associating-text-editors-with-git">https://docs.github.com/en/get-started/getting-started-with-git/associating-text-editors-with-git</a></li>
+</ul>
 <h4 id="konfiguraatioasetusten-tarkastelu">Konfiguraatioasetusten tarkastelu</h4>
 <p>Kaikki asetukset voit tarkistaa näin:
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>config<span class="w"> </span>–-list
