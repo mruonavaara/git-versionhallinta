@@ -71,7 +71,9 @@ git config –-global user.name ”Markku Ruonavaara”
 git config –-global user.email markku.ruonavaara@haaga-helia.fi
 ```
 
-Konfigurointitietoja tallennetaan systeemi-, käyttäjä- ja projektikohtaisesti. Tarkennin `-–global` viittaa siihen, että asetus on systeemikohtainen.
+Konfigurointitietoja tallennetaan järjestelmä-, käyttäjä- ja projektikohtaisesti. Valitsin `-–global` viittaa siihen, että asetus on järjestelmä- ja käyttäjäkohtainen: se on voimassa tällä tietokoneella (järjestelmä) tämän käyttäjän kaikille repositorioille.
+
+Jos mitään valitsinta ei määritetä, asetuksesta tulee projektikohtainen. Se tarkoittaa, että asetus on voimassa vain siinä repositoriossa, jossa se tehtiin. 
 
 #### Editori
 
@@ -86,7 +88,12 @@ git config --global core.editor "code --wait"
 Konfiguroinnissa määritetään käynnistyskomento, joten jos editoria ei löydy polusta, voit joutua antamaan koko polun. 
 
 Jos kuitenkin joskus päädyt vi-editoriin, oheisesta ohjeesta voi olla sinulle hyötyä:
-- https://www.linuxjournal.com/content/how-use-vi-editor-linux 
+
+- [https://www.linuxjournal.com/content/how-use-vi-editor-linux ](https://www.linuxjournal.com/content/how-use-vi-editor-linux )
+
+GitHub-palvelun dokumentaation ohjeita editorien konfiguroinnista:
+
+- [https://docs.github.com/en/get-started/getting-started-with-git/associating-text-editors-with-git](https://docs.github.com/en/get-started/getting-started-with-git/associating-text-editors-with-git)
 
 #### Konfiguraatioasetusten tarkastelu
 
