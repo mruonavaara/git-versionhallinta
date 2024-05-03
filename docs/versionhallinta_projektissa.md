@@ -162,14 +162,16 @@ Harjoitellaan ohjelmiston kehittämistä ja muutosten synkronointia verkkopalvel
 
     Harjoitus perustuu aiemmin tehtyihin harjoituksiin, ja sen tekemisessä tarvitaan kaikkien aiempien osioiden oppeja! 
 
-
-
 Kehitätte `hello`-sovellusta projektitiimissä. Olette sopineet seuraavat versionhallintakäytännöt:
 
 - Kukin tekee omat muutoksensa aina ensin haaraan nimeltä `develop`.
 - Päähaaraan viedään vain versioita, jotka on testattu ja yhteisesti todettu valmiiksi. 
 
 Projektissa seuraavaksi lisätään sovellukseen toiminta, jolla käyttäjälle näytetään kellonaika. Sait tehtäväksesi lisätä nappulan, jolla käyttäjä voi pyytää näyttämään kellonajan. 
+
+!!! note "Huomautus"
+
+    Virtuaalinen tiimikaverisi olettaa, että `hello`-sivusto on repositorion juurihakemistossa. Jos se on alihakemistossa, siirrä se tehtävää varten repositorion juureen.
 
 1. Versionhallintakäytännön mukaisesti siirry haaraan `develop`. Sitä ei vielä ole, joten se pitää luoda.
 

@@ -21,6 +21,7 @@ Versionhallintaan ei pitäisi viedä luottamuksellisia tietoja kuten käyttäjä
 Luottamuksellisia tietoja kuitenkin tarvitaan järjestelmien kehittämisessä esimerkiksi tietokantayhteyden muodostamiseen. Tällöin on tehtävä jokin ratkaisu, jolla luottamukselliset tiedot tuodaan järjestelmään jotenkin toisin. 
 
 Ratkaisu voi olla esim.
+
 - Luottamukselliset tiedot ovat konfiguraatiotiedostossa, jota ei viedä versionhallintaan
 - Luottamukselliset tiedot luetaan ympäristömuuttujista
 
@@ -72,7 +73,7 @@ Tällöin voidaan poistaa tiedosto Git-hallinnasta:
 ```bash
 git rm --cached tiedostonimi
 ```
-Tiedosto merkitään poistettavaksi hakemistosta seuraavassa commitissa, valitsin `--cached` kuitenkin säilyttää sen työtilassa. Tiedosto on nyt työhakemistossasi untracked-tilassa, voit nyt lisätä .gitignore-säännön ja tehdä commitin, jossa tiedoston poisto talletetaan.
+Tiedosto merkitään poistettavaksi hakemistosta seuraavassa commitissa, valitsin `--cached` kuitenkin säilyttää sen työtilassa. Tiedosto on nyt työhakemistossasi `untracked`-tilassa, voit nyt lisätä .gitignore-säännön ja tehdä commitin, jossa tiedoston poisto talletetaan.
 
 __Huom!__ Tiedoston vanhat versiot kuitenkin jäävät historiaan. Jos haluat poistaa ne sieltäkin, on muutettava historiaa, mikä on aina riskialtista. Perehdy huolellisesti dokumentaatioon, jos lähdet sitä tekemään.
 
