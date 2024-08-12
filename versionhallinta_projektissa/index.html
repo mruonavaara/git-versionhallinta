@@ -555,11 +555,11 @@
 
 <h1 id="git-projektissa">Git projektissa</h1>
 <h2 id="tyonkulut-hajautetussa-git-ymparistossa">Työnkulut hajautetussa Git-ympäristössä</h2>
-<p>Git:n käyttö perustuu siihen, että kaikki tapahtuu paikallisessa repositoryssä. Kun projektissa on useita kehittäjiä, eri kehittäjien työ jaetaan toisille etärepositoryjen avulla.</p>
-<p>Etä-repositoryt voidaan organisoida usein eri tavoin, ja niiden käyttöön voidaan laatia erilaisia työnkulkuja. Työnkulku vastaa kysymyksiin
-- Miten organisoin oman työni omassa repositoryssani, jotta sen vieminen yhteiseen projektiin onnistuu
+<p>Git:n käyttö perustuu siihen, että kaikki tapahtuu paikallisessa repositoriossa. Kun projektissa on useita kehittäjiä, eri kehittäjien työ jaetaan toisille etärepositorioiden avulla.</p>
+<p>Etä-repositoriot voidaan organisoida usein eri tavoin, ja niiden käyttöön voidaan laatia erilaisia työnkulkuja. Työnkulku vastaa kysymyksiin
+- Miten organisoin oman työni omassa repositoriossani, jotta sen vieminen yhteiseen projektiin onnistuu
 - Miten vien oman työni yhteiseen projektiin
-- Miten saan muiden työt omaan repositoryyni</p>
+- Miten saan muiden työt omaan repositoriooni</p>
 <p>Seuraavassa esitellään esimerkinomaisesti kaksi erilaista tapaa organisoida versionhallinnan työnkulkuja projektissa.</p>
 <h3 id="keskitetty-malli">Keskitetty malli</h3>
 <p>Keskitetyssä mallissa projektilla on yksi yhteinen repositorio, jonka kanssa kaikki kehittäjät synkronoivat oman työnsä. </p>
@@ -573,13 +573,15 @@
 <p>Yksi repositorio on yhteinen ”virallinen”, johon kaikilla on lukuoikeus, mutta jonne vain projektin ylläpitäjällä (<em>integraatiomanageri</em>) on oikeus viedä muutoksia.</p>
 <p><img alt="" src="../assets/integration_manager_workflow.png" /></p>
 <p><em>Lähde: <a href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell">Chacon S., Straub B, Pro Git, luku 5.</a> <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a></em></p>
-<p>Kukin kehittäjä julkaisee muutoksensa omaan julkiseen repositorioonsa ja lähettää ylläpitäjälle pyynnön yhdistää ne viralliseen repositorioon. </p>
-<p>Tätä työnkulkua tässä materiaalissa ei käsitellä tämän enempää.  </p>
+<p>Kukin kehittäjä julkaisee muutoksensa omaan julkiseen repositorioonsa ja lähettää ylläpitäjälle muutospyynnön (<em>pull request</em>) yhdistää ne viralliseen repositorioon. Ylläpitäjä voi täten tarkastella ehdotettua muutosta ja halutessaan ottaa sen mukaan joko sellaisenaan tai pyytää tekijältä siihen korjauksia.</p>
+<p>Muutospyyntöjä voidaan tehdä repositorioiden sisälläkin, ja tosielämän projektien versionhallintakäytännöissä muutokset yhteiseen koodiin usein viedään juuri muutospyyntöjen kautta. Tätä ei kuitenkaan tässä materiaalissa tämän laajemmin käsitellä.</p>
 <h2 id="talletusten-kaytannot">Talletusten käytännöt</h2>
 <p>Tallennusten kommentit viestittävät projektin kehittäjille, mitä muutoksia toiset ovat projektiin tehneet. Talletusten kommentoinnin käytännöistä on syytä sopia projektissa yhteisesti.</p>
-<p>Kommentointiin on vakiintuneita hyviä käytäntöjä, esim. <a href="https://cbea.ms/git-commit/">How to Write a Git Commit Message</a>. Niiden mukaan kommentteihin on hyvä kirjata
-- Lyhyt (max 50 merkkiä), otsikkotyyppinen kuvaus ensimmäiselle riville.
-- Tarvittaessa pidempi kuvaus muutoksesta ja se syistä rivinvaihdolla erotettuna.</p>
+<p>Kommentointiin on vakiintuneita hyviä käytäntöjä, esim. <a href="https://cbea.ms/git-commit/">How to Write a Git Commit Message</a>. Niiden mukaan kommentteihin on hyvä kirjata</p>
+<ul>
+<li>Lyhyt (max 50 merkkiä), otsikkotyyppinen kuvaus ensimmäiselle riville.</li>
+<li>Tarvittaessa pidempi kuvaus muutoksesta ja se syistä rivinvaihdolla erotettuna.</li>
+</ul>
 <p>Jokaisesta loogisesta kokonaisuudesta kannattaa tehdä erillinen talletus. Tällöin muutosten tarkastelu ja käsittely projektissa on mahdollisimman selkeää. Vaikka olisit kehittänyt useita ominaisuuksia kerralla, voit <code>add</code>-vaiheessa jakaa muutokset eri talletuksiin. </p>
 <p>Ylimääräinen white-space (välilyönnit, tabulaattorit, rivinvaihdot jne.) ei vaikuta suoritukseen mutta voi näkyä Git-talletuksissa muille turhina muutoksia. Voit tarkistaa sellaiset <code>diff</code>-komennolla:
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>git<span class="w"> </span>diff<span class="w"> </span>--check
@@ -633,7 +635,7 @@ Huomaa, että <code>pull</code> voi aiheuttaa konflikteja, sillä se tekee myös
 </span></code></pre></div>
 <h2 id="yhteenvetoa">Yhteenvetoa</h2>
 <p>Jokaisesta loogisesta kokonaisuudesta kannattaa tehdä erillinen talletus. Tällöin muutosten tarkastelu ja käsittely projektissa on mahdollisimman selkeää. </p>
-<p>Talletusten kommentointi on tärkeää projketin kehittäjien välisen kommunikoinnin kannalta. Noudata hyviä kommentointikäytäntöjä. </p>
+<p>Talletusten kommentointi on tärkeää projektin kehittäjien välisen kommunikoinnin kannalta. Noudata hyviä kommentointikäytäntöjä. </p>
 <p>Seuraava kuva summaa tyypillisen työnkulun projektissa, jossa noudatetaan keskitettyä mallia. </p>
 <p><img alt="" src="../assets/centralized_workflow_example.png" /></p>
 <p><em>Lähde: <a href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell">Chacon S., Straub B, Pro Git, luku 5.</a> <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a></em></p>
@@ -656,7 +658,7 @@ Huomaa, että <code>pull</code> voi aiheuttaa konflikteja, sillä se tekee myös
 </span></code></pre></div>
 <p>Harjoitus perustuu aiemmin tehtyihin harjoituksiin, ja sen tekemisessä tarvitaan kaikkien aiempien osioiden oppeja! </p>
 </div>
-<p>Kehitätte <code>hello</code>-sovellusta projektitiimissä. Olette sopineet seuraavat versionhallintakäytännöt:</p>
+<p>Kehitätte Hello-sovellusta projektitiimissä. Olette sopineet seuraavat versionhallintakäytännöt:</p>
 <ul>
 <li>Kukin tekee omat muutoksensa aina ensin haaraan nimeltä <code>develop</code>.</li>
 <li>Päähaaraan viedään vain versioita, jotka on testattu ja yhteisesti todettu valmiiksi. </li>
@@ -664,7 +666,7 @@ Huomaa, että <code>pull</code> voi aiheuttaa konflikteja, sillä se tekee myös
 <p>Projektissa seuraavaksi lisätään sovellukseen toiminta, jolla käyttäjälle näytetään kellonaika. Sait tehtäväksesi lisätä nappulan, jolla käyttäjä voi pyytää näyttämään kellonajan. </p>
 <div class="admonition note">
 <p class="admonition-title">Huomautus</p>
-<p>Virtuaalinen tiimikaverisi olettaa, että <code>hello</code>-sivusto on repositorion juurihakemistossa. Jos se on alihakemistossa, siirrä se tehtävää varten repositorion juureen.</p>
+<p>Virtuaalinen tiimikaverisi olettaa, että Hello-sivusto on repositorion juurihakemistossa ja html-tiedoston nimi on <code>index.html</code>. Jos olet tehnyt sivuston alihakemistoon, siirrä se tehtävää varten repositorion juureen.</p>
 </div>
 <ol>
 <li>
@@ -685,12 +687,13 @@ Huomaa, että <code>pull</code> voi aiheuttaa konflikteja, sillä se tekee myös
 <p>Vie <code>develop</code>-haara GitHub-palvelussa olevaan etärepositorioon.</p>
 </li>
 <li>
-<p>Huomaat, että tiimikaverisi on tehnyt nappulatoiminnallisuuden (mistä?). Liitä JavaScript-tiedosto ohjelmaasi lisäämällä <code>&lt;body&gt;</code>-osion loppuun </p>
+<p>Huomaat, että tiimikaverisi on tehnyt nappulatoiminnallisuuden (mistä?). </p>
+<p>Liitä JavaScript-tiedosto ohjelmaasi lisäämällä <code>&lt;body&gt;</code>-osion loppuun </p>
 <p><div class="language-html highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;scripts.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></code></pre></div>
 Hän on kirjannut talletuskommenttiin myös ohjeet, miten toiminnallisuus liitetään nappulaan.</p>
 <p>Liitä toiminnallisuus nappulaan ja testaa, että nappula toimii. </p>
-<p>Kun olet tyytyväinen, talleta muutos ja vie se yhteiseen kehityshaaraan.</p>
+<p>Kun olet tyytyväinen sivun toimintaan, talleta muutos ja vie se yhteiseen kehityshaaraan.</p>
 </li>
 <li>
 <p>Toteat, että perusnappula näyttää ankealta. Määritä sille paremmat tyylimääritykset CSS-tiedostoon, esim.</p>
@@ -751,6 +754,46 @@ Mitä tapahtuu haaraan tehdyille talletuksille? </p>
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Alatunniste" >
+        
+          
+          <a href="../hosting_palvelut/" class="md-footer__link md-footer__link--prev" aria-label="Edellinen: Git-hosting-palvelut">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Edellinen
+              </span>
+              <div class="md-ellipsis">
+                Git-hosting-palvelut
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../muita_toimintoja/" class="md-footer__link md-footer__link--next" aria-label="Seuraava: Muita toimintoja">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Seuraava
+              </span>
+              <div class="md-ellipsis">
+                Muita toimintoja
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -777,7 +820,7 @@ Mitä tapahtuu haaraan tehdyille talletuksille? </p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "toc.integrate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Kopioitu leikep\u00f6yd\u00e4lle", "clipboard.copy": "Kopioi leikep\u00f6yd\u00e4lle", "search.result.more.one": "1 lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.more.other": "# lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.none": "Ei t\u00e4sm\u00e4\u00e4vi\u00e4 dokumentteja", "search.result.one": "1 t\u00e4sm\u00e4\u00e4v\u00e4 dokumentti", "search.result.other": "# t\u00e4sm\u00e4\u00e4v\u00e4\u00e4 dokumenttia", "search.result.placeholder": "Kirjoita aloittaaksesi haun", "search.result.term.missing": "Puuttuu", "select.version": "Valitse versio"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "toc.integrate", "navigation.footer"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Kopioitu leikep\u00f6yd\u00e4lle", "clipboard.copy": "Kopioi leikep\u00f6yd\u00e4lle", "search.result.more.one": "1 lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.more.other": "# lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.none": "Ei t\u00e4sm\u00e4\u00e4vi\u00e4 dokumentteja", "search.result.one": "1 t\u00e4sm\u00e4\u00e4v\u00e4 dokumentti", "search.result.other": "# t\u00e4sm\u00e4\u00e4v\u00e4\u00e4 dokumenttia", "search.result.placeholder": "Kirjoita aloittaaksesi haun", "search.result.term.missing": "Puuttuu", "select.version": "Valitse versio"}}</script>
     
     
       <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
