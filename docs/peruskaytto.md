@@ -29,7 +29,7 @@ drwxr-xr-x 1 h01975 1049089    0 Feb 15 12:36 .github/
 -rw-r--r-- 1 h01975 1049089   29 Feb 15 15:04 time.txt
 ```
 
-Jotta piilotetut tiedostot näkyisivät Windowsin tiedostojenhallinnassa, on tiedostojenhallinan asetuksissa määritettävä piilotetut tiedostot näkyviin.
+Jotta piilotetut tiedostot näkyisivät Windowsin tiedostojenhallinnassa, on tiedostojenhallinnan asetuksissa määritettävä piilotetut tiedostot näkyviin.
 
 - [View hidden files and folders in Windows](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-97fbc472-c603-9d90-91d0-1166d1d9f4b5)
 
@@ -64,10 +64,10 @@ Git:n hallinnassa oleva työhakemiston tiedosto voi olla
 
 Oheinen kuva kuvaa eri tiloja ja niiden välisiä siirtymiä.
 
-- Jos hakemistoon lisätään uusi tiedosto, se on `untracked`.
-- Jos hakemistossa oleva Git-hallinnassa oleva tiedosto muuttuu, sen tilaksi tulee `modified`.
-- Uudet ja muuttuneet tiedostot voidaan merkitä otettavaksi seuraavaan talletukseen toiminnolla `add` (_stage the file_). 
-- Kun talletus  (_commit_) tehdään, kaikki mukaan otettavaksi merkityt tiedostoversiot talletetaan, ja niiden tilaksi tulee `unmodified`.
+1. Kun hakemistoon lisätään uusi tiedosto (_add the file_), se on `untracked`.
+2. Kun hakemiston jo Git-hallinnassa oleva tiedosto muuttuu (_edit the file_), sen tilaksi tulee `modified`.
+3. Uudet ja muuttuneet tiedostot voidaan merkitä otettavaksi seuraavaan talletukseen toiminnolla `add` (_stage the file_). Tällöin tiedostot ovat tilassa `staged`
+4. Kun talletus  (_commit_) tehdään, kaikki mukaan otettavaksi merkityt tiedostoversiot talletetaan, ja niiden tilaksi tulee `unmodified`.
 
 ![](assets/git_file_states.png)
 
@@ -81,9 +81,11 @@ git status
     
     Työhakemiston git-tilaa (komento `status`) kannattaa tarkastella ennen Git-operaatioita ja niiden jälkeen, niin pysyt aina tilanteen tasalla, mitä repositoriossasi tapahtuu. 
 
-## Muutosten tallettaminen, vaihe 1: add
+## Muutosten tallettaminen 
 
 Tiedostoversioiden tallettaminen on kaksivaiheinen operaatio. 
+
+### Vaihe 1: add
 
 Kun tiedosto on valmis talletettavaksi versionhallintaan, uusi tai muutettu tiedosto on merkittävä otettavaksi mukaan seuraavaan talletukseen (_commit_). Tätä toimintoa kutsutaan Git-terminologiassa nimellä _staging_, ja se tehdään komennolla `add`. 
 
@@ -96,14 +98,14 @@ git add hello.html   # tiedosto hello.html otetaan mukaan seuraavaan talletuksee
 Voit myös lisätä koko hakemiston, jolloin kaikki hakemiston tiedostot ja alihakemistot sisältöineen lisätään kerralla. Hakemistot ovat myös tiedostoja, nekin versioituvat.
 
 ```bash
-git add .		# . viittaa nykyiseen hakemistoon, kaikki uudet ja muuttuneet tiedostot otetaan mukaan
+git add .		# piste viittaa nykyiseen hakemistoon, kaikki uudet ja muuttuneet tiedostot otetaan mukaan
 ```
 
 Nyt muuttuneet tiedostot ovat valmiita talletettavaksi versionhallintaan. Kuten huomasit, uuden tiedoston tuominen on muutos siinä kuin olemassa olevankin muuttaminen.
 
 Nyt Git on tietoinen, mitä pitää tallentaa, ja ollaan valmiita `commit`-toimintoa varten.
 
-## Muutosten tallettaminen, vaihe 2: commit
+### Vaihe 2: commit
 
 Varsinainen talletus tapahtuu komennolla `commit`.
 
@@ -121,6 +123,18 @@ Voit myös kirjata kommentin komentorivillä ilman editoria:
 git commit –m "Lisätty logout-toiminnallisuus"
 ```
 
+!!! tip "Vinkki"
+
+    Jos et ollut määritellyt mitään muuta, Git avaa oletusarvoisesti `vim`-editorin, joka perehtymättömälle on melko hankala ymmärtää ja käyttää. 
+
+    `vim` editorista pääsee ulos seuraavasti:
+
+    1. Paina ++escape++ siirtyäksi komentotilaan.
+    2. Anna komento `:wq` tallettaaksesi ja poistuaksesi editorista.
+
+    Sen jälkeen voit palata lukuun [Git:n käyttöönottoluvun konfigurointi-osioon](johdanto.md#editori) ja määritellä mieleisesi Git-editorin.
+
+
 ## Talletusten tarkastelu
 
 Työtilan muutoksia verrattuna talletettuihin voit tarkastella tutulla komennolla `status`. Sitä kannattaa käyttää ahkerasti, jotta pysyt selvillä, mikä on hakemiston ja sen muutosten Git-tila:
@@ -129,7 +143,7 @@ Työtilan muutoksia verrattuna talletettuihin voit tarkastella tutulla komennoll
 git status
 ```
 
-Näet commit-talletusten historian komennolla `log`.
+Näet `commit`-talletusten historian komennolla `log`.
 
 ```bash
 git log
@@ -179,7 +193,7 @@ Tarkista repositorion tilanne joka välissä komennolla `status`. Muista laatia 
 
 1. Tee koneellesi kurssin harjoituksia varten hakemisto ja perusta sinne Git-repositorio.
 2. Tee repositorioon tiedosto (esim. `test.txt`) ja kirjoita tiedostoon jotain. Talleta tiedosto Git-hallintaan. 
-4. Tee repositorioon hakemisto `hello` ja sinne tiedosto `hello.html`. Tiedoston sisältö voi olla esim.
+4. Tee repositorioon tiedosto `hello.html`. Tiedoston sisältö voi olla esim.
 
     ``` html
     Hei maailma!
@@ -380,8 +394,8 @@ Harjoitellaan peruuttelua.
      - Poista kaikki loput muutokset työtilasta. 
      - Mitä tapahtui uusille _untracked_-tilassa oleville tiedostoille?
 
-4. Kokeile talletuksen peruuttamista
-     - Talleta nyt kaikki muutokset. 
+4. Kokeile talletuksen peruuttamista.
+     - Tee useita muutoksia ja talleta ne. 
      - Peruuta talletus komennolla `revert`. 
      - Mitä näyttää komento `log`?
 

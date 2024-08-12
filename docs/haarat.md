@@ -4,10 +4,11 @@
 
 Jos halutaan kehittää samasta ohjelmistosta useita rinnakkaisia versioita yhtaikaa, tarvitaan versiopuuhun __haara__ (_branch_)
 
-Haarautumista tarvitaan esim., kun
-- Kehitetään tuotteen seuraavaa versiota samaan aikaan, kun nykyiseen tehdään korjauksia
-- Tehdään asiakaskohtaisia korjauksia tai räätälöintejä
-- Moni kehittäjä kehittää samaa ohjelmistoa yhtaikaa.
+Haarautumista tarvitaan esimerkiksi kun
+
+- kehitetään tuotteen seuraavaa versiota samaan aikaan, kun nykyiseen tehdään korjauksia
+- tehdään asiakaskohtaisia korjauksia tai räätälöintejä
+- moni kehittäjä kehittää samaa ohjelmistoa yhtaikaa.
 
 ![](./assets/branching.svg)
 
@@ -21,7 +22,8 @@ Versionhallintajärjestelmän keinoin haarautuneet versiot ohjelmistosta voidaan
 
 Haarautumisen ymmärtämiseksi on syytä perehtyä muutamiin Git:n toimintaperiaatteisiin.
 
-__Talletus__ (_commit_) tallettaa 
+__Talletus__ (_commit_) tallettaa
+
 1. viittaukset niihin tiedostoversioihin, jotka olet sinne lisännyt (_snapshot_), sekä 
 2. viittauksen edelliseen talletukseen. 
  
@@ -31,9 +33,9 @@ __Haara__ (_branch_) on viittaus talletukseen, josta tulee aikanaan seuraavan ta
 
 Haara siis antaa nimen tiettyyn talletusketjuun, ja haaraviittauksen avulla löydetään sen tuorein talletus.
 
-__HEAD__ on viittaus siihen haaraan, jossa tällä hetkellä olet. Se on looginen tunniste, ei haara. 
+__HEAD__ on viittaus siihen haaraan, jossa tällä hetkellä olet. Se on looginen tunniste, ei haara. Jokin haara on aina valittuna, HEAD viittaa aina johonkin haaraan.
 
-Jokin haara on aina valittuna, HEAD viittaa aina johonkin haaraan.
+Seuraavassa kuvassa **talletukset** ovat <span style="background-color: lightgrey">harmaita</span>, **haarat** ovat <span style="background-color: darkorange">oransseja</span>, **HEAD**-viittaus on  <span style="background-color: gold">keltainen</span> ja <span style="background-color: teal; color: white;">vihreät</span> **muutosjoukot** (_snapshot_) sisältävät kuhunkin talletukseen kuuluvat muutokset.   
 
 ![](./assets/commit_branch_head.png)
 
@@ -127,7 +129,7 @@ Nyt commit-lokin esittäminen käy vähän hankalammaksi, kun on esitettävä ri
 git log --graph --all --oneline
 ```
 
-Haaroittumisen visualisoinnissa graafiset työkalut voisivat olla paikallaan, esim. GitGUI
+Haaroittumisen visualisoinnissa graafiset työkalut voisivat olla paikallaan, esim. GitGUI.
 
 <!-- Materiaalissa pitäisi ehkä olla jokin vinkki hyvistä työkaluista -->
 
@@ -159,7 +161,7 @@ Jos eri haarojen muutokset ovat joltain osin keskenään ristiriitaisia, yhdist�
 
 Tällöin talletus jää kesken, ja hakemistossa on konfliktin sisältävistä tiedostoista uudet versiot, joissa Git on yhdistänyt kaiken sen, mitä se automaattisesti kykeni. Git on merkinnyt ja lisännyt ristiriitakohtiin molempien haarojen muutokset. 
 
-Konflikti kuulostaa pahalta, mutta kyse on vain siitä, että ei ole mahdollista koneellisesti päättää, mikä on oikea tapa yhdistää muutokset. Kehittäjän on korjattava käsin ristiriitaiset kohdat (_resolve conflict_). Kun se on tehty, hän tekee normaalisti commitin.
+Konflikti kuulostaa pahalta, mutta kyse on vain siitä, että ei ole mahdollista koneellisesti päättää, mikä on oikea tapa yhdistää muutokset. Kehittäjän on korjattava käsin ristiriitaiset kohdat (_resolve conflict_). Kun se on tehty, hän tekee normaalisti talletuksen.
 
 Koodieditoreissa on toiminnallisuuksia, jotka auttavat konfliktien ratkaisemisessa.
 
@@ -254,7 +256,7 @@ Tilanteeseen sopivinta haaroittamiskäytäntöä kannattaa miettiä projektin al
 
 Harjoitellaan ominaisuushaarojen (_feature branch_) käyttöä kehityksessä.
 
-1. `hello`-ohjelmamme on vielä kovin riisuttu. Lisätään siihen HTML-sivun perusrakenne:
+1. Hello-ohjelmamme on vielä kovin riisuttu. Lisätään siihen HTML-sivun perusrakenne:
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -305,5 +307,5 @@ Testaa selaimessa, että sivun tyylit toimivat.
 
 6. Kun olet tyytyväinen `tyylit`-haaran versioon, yhdistä se `master`-haaraan. 
 
-7. Kokeile vaihtaa aktiivista haaraa haarojen `master` ja `tyylit` välillä ja lataa sivu selaimessa aina uudelleen. Miten sivu muuttuu? 
+7. Kokeile nyt vaihtaa aktiivista haaraa haarojen `master` ja `tyylit` välillä ja lataa sivu selaimessa aina uudelleen. Miten sivu muuttuu? 
 

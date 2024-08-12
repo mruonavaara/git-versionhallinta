@@ -2,12 +2,12 @@
 
 ## Työnkulut hajautetussa Git-ympäristössä
 
-Git:n käyttö perustuu siihen, että kaikki tapahtuu paikallisessa repositoryssä. Kun projektissa on useita kehittäjiä, eri kehittäjien työ jaetaan toisille etärepositoryjen avulla.
+Git:n käyttö perustuu siihen, että kaikki tapahtuu paikallisessa repositoriossa. Kun projektissa on useita kehittäjiä, eri kehittäjien työ jaetaan toisille etärepositorioiden avulla.
 
-Etä-repositoryt voidaan organisoida usein eri tavoin, ja niiden käyttöön voidaan laatia erilaisia työnkulkuja. Työnkulku vastaa kysymyksiin
-- Miten organisoin oman työni omassa repositoryssani, jotta sen vieminen yhteiseen projektiin onnistuu
+Etä-repositoriot voidaan organisoida usein eri tavoin, ja niiden käyttöön voidaan laatia erilaisia työnkulkuja. Työnkulku vastaa kysymyksiin
+- Miten organisoin oman työni omassa repositoriossani, jotta sen vieminen yhteiseen projektiin onnistuu
 - Miten vien oman työni yhteiseen projektiin
-- Miten saan muiden työt omaan repositoryyni
+- Miten saan muiden työt omaan repositoriooni
 
 Seuraavassa esitellään esimerkinomaisesti kaksi erilaista tapaa organisoida versionhallinnan työnkulkuja projektissa.
 
@@ -35,15 +35,16 @@ Yksi repositorio on yhteinen ”virallinen”, johon kaikilla on lukuoikeus, mut
 
 _Lähde: [Chacon S., Straub B, Pro Git, luku 5.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/)_
 
-Kukin kehittäjä julkaisee muutoksensa omaan julkiseen repositorioonsa ja lähettää ylläpitäjälle pyynnön yhdistää ne viralliseen repositorioon. 
+Kukin kehittäjä julkaisee muutoksensa omaan julkiseen repositorioonsa ja lähettää ylläpitäjälle muutospyynnön (_pull request_) yhdistää ne viralliseen repositorioon. Ylläpitäjä voi täten tarkastella ehdotettua muutosta ja halutessaan ottaa sen mukaan joko sellaisenaan tai pyytää tekijältä siihen korjauksia.
 
-Tätä työnkulkua tässä materiaalissa ei käsitellä tämän enempää.  
+Muutospyyntöjä voidaan tehdä repositorioiden sisälläkin, ja tosielämän projektien versionhallintakäytännöissä muutokset yhteiseen koodiin usein viedään juuri muutospyyntöjen kautta. Tätä ei kuitenkaan tässä materiaalissa tämän laajemmin käsitellä.
 
 ## Talletusten käytännöt
 
 Tallennusten kommentit viestittävät projektin kehittäjille, mitä muutoksia toiset ovat projektiin tehneet. Talletusten kommentoinnin käytännöistä on syytä sopia projektissa yhteisesti.
 
 Kommentointiin on vakiintuneita hyviä käytäntöjä, esim. [How to Write a Git Commit Message](https://cbea.ms/git-commit/). Niiden mukaan kommentteihin on hyvä kirjata
+
 - Lyhyt (max 50 merkkiä), otsikkotyyppinen kuvaus ensimmäiselle riville.
 - Tarvittaessa pidempi kuvaus muutoksesta ja se syistä rivinvaihdolla erotettuna.
 
@@ -130,7 +131,7 @@ Your branch is behind 'origin/main' by 2 commits, and can be fast-forwarded.
 ## Yhteenvetoa
 Jokaisesta loogisesta kokonaisuudesta kannattaa tehdä erillinen talletus. Tällöin muutosten tarkastelu ja käsittely projektissa on mahdollisimman selkeää. 
 
-Talletusten kommentointi on tärkeää projketin kehittäjien välisen kommunikoinnin kannalta. Noudata hyviä kommentointikäytäntöjä. 
+Talletusten kommentointi on tärkeää projektin kehittäjien välisen kommunikoinnin kannalta. Noudata hyviä kommentointikäytäntöjä. 
 
 Seuraava kuva summaa tyypillisen työnkulun projektissa, jossa noudatetaan keskitettyä mallia. 
 
@@ -162,7 +163,7 @@ Harjoitellaan ohjelmiston kehittämistä ja muutosten synkronointia verkkopalvel
 
     Harjoitus perustuu aiemmin tehtyihin harjoituksiin, ja sen tekemisessä tarvitaan kaikkien aiempien osioiden oppeja! 
 
-Kehitätte `hello`-sovellusta projektitiimissä. Olette sopineet seuraavat versionhallintakäytännöt:
+Kehitätte Hello-sovellusta projektitiimissä. Olette sopineet seuraavat versionhallintakäytännöt:
 
 - Kukin tekee omat muutoksensa aina ensin haaraan nimeltä `develop`.
 - Päähaaraan viedään vain versioita, jotka on testattu ja yhteisesti todettu valmiiksi. 
@@ -171,7 +172,7 @@ Projektissa seuraavaksi lisätään sovellukseen toiminta, jolla käyttäjälle 
 
 !!! note "Huomautus"
 
-    Virtuaalinen tiimikaverisi olettaa, että `hello`-sivusto on repositorion juurihakemistossa. Jos se on alihakemistossa, siirrä se tehtävää varten repositorion juureen.
+    Virtuaalinen tiimikaverisi olettaa, että Hello-sivusto on repositorion juurihakemistossa ja html-tiedoston nimi on `index.html`. Jos olet tehnyt sivuston alihakemistoon, siirrä se tehtävää varten repositorion juureen.
 
 1. Versionhallintakäytännön mukaisesti siirry haaraan `develop`. Sitä ei vielä ole, joten se pitää luoda.
 
@@ -184,7 +185,7 @@ Projektissa seuraavaksi lisätään sovellukseen toiminta, jolla käyttäjälle 
     ``` { .bash .no-copy }
     git push -u origin develop # -u on sama kuin --set-upstream
     ```
-   
+
 2. Lisää html-tiedostoon `<main>`-osioon nappulaelementti päivämäärää ja kellonaikaa varten sekä nappula, jota painamalla tiedot näytetään:
 
     ```html
@@ -198,7 +199,9 @@ Projektissa seuraavaksi lisätään sovellukseen toiminta, jolla käyttäjälle 
     
     Vie `develop`-haara GitHub-palvelussa olevaan etärepositorioon.
 
-3. Huomaat, että tiimikaverisi on tehnyt nappulatoiminnallisuuden (mistä?). Liitä JavaScript-tiedosto ohjelmaasi lisäämällä `<body>`-osion loppuun 
+3. Huomaat, että tiimikaverisi on tehnyt nappulatoiminnallisuuden (mistä?). 
+   
+    Liitä JavaScript-tiedosto ohjelmaasi lisäämällä `<body>`-osion loppuun 
 
     ```html
     <script src="scripts.js"></script>
@@ -207,7 +210,7 @@ Projektissa seuraavaksi lisätään sovellukseen toiminta, jolla käyttäjälle 
 
     Liitä toiminnallisuus nappulaan ja testaa, että nappula toimii. 
     
-    Kun olet tyytyväinen, talleta muutos ja vie se yhteiseen kehityshaaraan.
+    Kun olet tyytyväinen sivun toimintaan, talleta muutos ja vie se yhteiseen kehityshaaraan.
 
 4. Toteat, että perusnappula näyttää ankealta. Määritä sille paremmat tyylimääritykset CSS-tiedostoon, esim.
 

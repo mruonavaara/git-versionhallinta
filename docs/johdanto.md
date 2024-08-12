@@ -77,7 +77,7 @@ Jos mitään valitsinta ei määritetä, asetuksesta tulee projektikohtainen. Se
 
 #### Editori
 
-Joidenkin toimintojen yhteydessä Git käynnistää editorin tekstin kirjoittamista varten. Oletusarvoisesti se on systeemin oletuseditori, joka yleensä on vi.
+Joidenkin toimintojen yhteydessä Git käynnistää editorin tekstin kirjoittamista varten. Oletusarvoisesti se on systeemin oletuseditori, joka yleensä on vim.
 
 Voit halutessasi asettaa editorin, jonka Git käynnistää. Seuraava komento asettaa editoriksi Visual Studio Code:n.
 
@@ -87,7 +87,7 @@ git config --global core.editor "code --wait"
 
 Konfiguroinnissa määritetään käynnistyskomento, joten jos editoria ei löydy polusta, voit joutua antamaan koko polun. 
 
-Jos kuitenkin joskus päädyt vi-editoriin, oheisesta ohjeesta voi olla sinulle hyötyä:
+Jos kuitenkin joskus päädyt vim-editoriin, oheisesta ohjeesta voi olla sinulle hyötyä:
 
 - [https://www.linuxjournal.com/content/how-use-vi-editor-linux ](https://www.linuxjournal.com/content/how-use-vi-editor-linux )
 

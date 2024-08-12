@@ -18,10 +18,10 @@ Tällöin paikallinen kopio repositoriosta saadaan helposti `clone`-operaatiolla
 ```bash
 git clone https://github.com/libgit2/libgit2
 ```
-Kloonaaminen tekee valmiin paikallisen repositorion, joka on täydellinen kopio alkuperäisestä:
+Kloonaaminen tekee valmiin paikallisen repositorion, joka on täydellinen kopio alkuperäisestä. Kloonaus
 
-- lisää hakemistoon master-haaran uusimmat tiedostot
-- konfiguroi alkuperäisen repositorion uuden repositorion etärepositorioksi oletusnimellä `origin`
+- lisää hakemistoon master-haaran uusimmat tiedostot ja
+- konfiguroi alkuperäisen repositorion uuden repositorion etärepositorioksi oletusnimellä `origin`.
 
 Tästä voi heti jatkaa kehitystä omassa työtilassaan.
 
