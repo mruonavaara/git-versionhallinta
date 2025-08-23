@@ -16,9 +16,9 @@ Pyynnön oleelliset tiedot ovat:
 - mihin repositorioon ja haaraan ne haluttaisiin mukaan
 - muutoksen otsikko ja kuvaus
 
-Tavallisin tapa on tehdä ehdotettava muutos omaan ominaisuushaaraansa ja tehdä haaralle yhdistämispyyntö. Kohdehaara on jokin projektissa sovittu yhteinen haara. 
+Pyyntö tehdään siis haaralle. Tavallisimmin ehdotettava muutos tehdään ominaisuushaaraan, joka asetetaan yhdistämispyynnön lähdehaaraksi. Kohdehaarana on jokin projektissa sovittu yhteinen haara. 
 
-Yhdistämispyynnölle annetaan 
+Yhdistämispyynnölle annetaan lisäksi
 
 - otsikko, jolla se esitetään listauksissa, ja 
 - pyynnön käsittelijöitä varten kuvaus, mikä muutos on ja miksi sitä ehdotetaan.
@@ -139,10 +139,6 @@ sequenceDiagram
   kehittäjä->>local: Päivitä paikallinen repositorio
   local-->>fork: pull
   note over local: Muutos yhdistetty kohdehaaraan
-
-
-
-
 
 ```
 
