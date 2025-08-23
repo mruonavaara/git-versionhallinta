@@ -1,4 +1,4 @@
-# Muita toimintoja
+# Muita Git-toimintoja
 
 ## Tiedostojen jättäminen versionhallinnan ulkopuolelle
 

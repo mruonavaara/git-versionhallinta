@@ -9,7 +9,9 @@ nav:
   - 'Hajautettu Git':
     - etarepositoriot.md
     - hosting_palvelut.md
-  - versionhallinta_projektissa.md
+  - 'Git projektissa':
+    - versionhallinta_projektissa.md
+    - muutospyynnöt.md
   - muita_toimintoja.md
 theme:
   name: material

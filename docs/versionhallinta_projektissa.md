@@ -1,6 +1,4 @@
-# Git projektissa
-
-## Työnkulut hajautetussa Git-ympäristössä
+# Työnkulut hajautetussa Git-ympäristössä
 
 Git:n käyttö perustuu siihen, että kaikki tapahtuu paikallisessa repositoriossa. Kun projektissa on useita kehittäjiä, eri kehittäjien työ jaetaan toisille etärepositorioiden avulla.
 
