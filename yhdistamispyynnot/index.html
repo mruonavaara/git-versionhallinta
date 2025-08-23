@@ -1,0 +1,855 @@
+
+<!doctype html>
+<html lang="fi" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Markku Ruonavaara">
+      
+      
+      
+        <link rel="prev" href="../versionhallinta_projektissa/">
+      
+      
+        <link rel="next" href="../muita_toimintoja/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Yhdistämispyynnöt - Git-versionhallinta</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#yhdistamispyynnot" class="md-skip">
+          Hyppää sisältöön
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Ylätunniste">
+    <a href=".." title="Git-versionhallinta" class="md-header__button md-logo" aria-label="Git-versionhallinta" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Git-versionhallinta
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Yhdistämispyynnöt
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Hae" placeholder="Hae" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Haku">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Tyhjää" aria-label="Tyhjää" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Aloitetaan hakua
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigaatio" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Git-versionhallinta" class="md-nav__button md-logo" aria-label="Git-versionhallinta" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Git-versionhallinta
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../johdanto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Johdanto versionhallintaan
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Paikallinen Git
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Paikallinen Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../peruskaytto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Peruskäyttö
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../haarat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Haarat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hajautettu Git
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Hajautettu Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../etarepositoriot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Etärepositoriot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hosting_palvelut/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git-hosting-palvelut
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Git projektissa
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Git projektissa
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versionhallinta_projektissa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Työnkulut hajautetussa Git-ympäristössä
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Yhdistämispyynnöt
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Yhdistämispyynnöt
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Sisällysluettelo">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sisällysluettelo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#johdanto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Johdanto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yhdistamispyynnon-tekeminen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Yhdistämispyynnön tekeminen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yhdistamispyynnon-kasittely" class="md-nav__link">
+    <span class="md-ellipsis">
+      Yhdistämispyynnön käsittely
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yhdistamispyynnot-repositoriosta-toiseen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Yhdistämispyynnöt repositoriosta toiseen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Yhdistämispyynnöt repositoriosta toiseen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avoimen-lahdekoodin-versionhallinta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avoimen lähdekoodin versionhallinta
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yhdistamispyynnot-projekteissa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Yhdistämispyynnöt projekteissa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#harjoitus-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Harjoitus 7
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../muita_toimintoja/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Muita Git-toimintoja
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="yhdistamispyynnot">Yhdistämispyynnöt</h1>
+<h2 id="johdanto">Johdanto</h2>
+<p>Git-palvelut tarjoavat toiminnallisuutta, jossa Git-repositorihin voi tehdä <strong>yhdistämispyyntöjä</strong> (<em>pull request</em>, <em>merge request</em>). Yhdistämispyyntö on ehdotus repositorion ylläpitäjille yhdistää pyynnön tekijän laatimat muutokset repositorion johonkin haaraan.</p>
+<p>Yhdistämispyyntöihin voidaan liittää tietoja muutoksesta, kehittäjät voivat keskustella siitä, yhdistämispyyntöä voidaan jatkokehittää, ja muutospyynnöille voidaan määrittää katselmointityönkulkuja. </p>
+<p>Kaikki Git-palvelut tarjoavat samanlaisen toiminnallisuuden. Tässä materiaalissa eismerkkinä käytetään GitHub-palvelun yhdistämispyyntöjä.</p>
+<h2 id="yhdistamispyynnon-tekeminen">Yhdistämispyynnön tekeminen</h2>
+<p>Pyynnön oleelliset tiedot ovat:</p>
+<ul>
+<li>mistä repositoriosta ja haarasta muutoksia ehdotetaan </li>
+<li>mihin repositorioon ja haaraan ne haluttaisiin mukaan</li>
+<li>muutoksen otsikko ja kuvaus</li>
+</ul>
+<p>Tavallisin tapa on tehdä ehdotettava muutos omaan ominaisuushaaraansa ja tehdä haaralle yhdistämispyyntö. Kohdehaara on jokin projektissa sovittu yhteinen haara. </p>
+<p>Yhdistämispyynnölle annetaan </p>
+<ul>
+<li>otsikko, jolla se esitetään listauksissa, ja </li>
+<li>pyynnön käsittelijöitä varten kuvaus, mikä muutos on ja miksi sitä ehdotetaan.</li>
+</ul>
+<p>Seuraavassa esimerkissä tehdään yhdistämispyyntö GitHub-palvelussa.</p>
+<p>Ensin ehdotettava muutos on tehtävä paikallisesti. Sille tehdään ominaisuushaara ja viedään muutokset siihen. Ominaisuushaara täytyy viedä etärepositorioon GitHub-palvelussa, jotta sille voidaan tehdä yhdistämispyyntö.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git switch -c muutospyynnot
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git add .
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>git commit -m &quot;Lisää luku muutospyynnöistä&quot;
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>git push -u origin muutospyynnot
+</span></code></pre></div>
+<p><img alt="" src="../assets/pr_feature_branch.png" /></p>
+<p>Kun haara näkyy etärepositoriossa, yhdistämispyyntö voidaan tehdä GitHubin web-käyttöliittymässä.</p>
+<p><img alt="" src="../assets/pr_create_form.png" /></p>
+<p>Yhdistämispyyntö voidaan kohdistaa yhdelle tai useammalle repositorion ylläpitäjälle käsiteltäväksi tai katselmoitavaksi. Tällöin he saavat notifikaation pyynnöstä.</p>
+<h2 id="yhdistamispyynnon-kasittely">Yhdistämispyynnön käsittely</h2>
+<p>Yhdistämispyyntöä voidaan kommentoida, ja siitä käyty keskustelu tallentuu yhdistämispyyntöön. 
+Yhdistämispyyntöä voidaan myös täydentää, siis tehdä uusia talletuksia sen haaraan.</p>
+<p><img alt="" src="../assets/pr_elaboration.png" /></p>
+<p>Kun pyyntöön ollaan tyytyväisiä, se voidaan hyväksyä. Tässä tapauksessa yhdistäminen onnistuu automaattisesti. Jos muutos aiheuttaisi konflikteja, ne olisi ensin ratkaistava. </p>
+<p><img alt="" src="../assets/pr_ready_to_merge.png" /></p>
+<p>Yhdistämisen tuloksena syntyy uusi talletus etärepositorioon.</p>
+<p><img alt="" src="../assets/pr_merge_form.png" /></p>
+<p>Kun yhdistämispyynnön ominaisuushaara on yhdistetty, haara voidaan poistaa etärepositoriosta.</p>
+<p><img alt="" src="../assets/pr_delete_branch.png" /></p>
+<p>Paikallinen repositorio pitää nyt päivittää, sillä uudet muutokset ovat vasta etärepositoriossa. Huomaa, että yhdistämispyynnön haara on vielä tallella paikallisesti, se pitää poistaa erikseen.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># git switch master
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Your branch is behind &#39;origin/master&#39; by 3 commits, and can be fast-forwarded.
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  (use &quot;git pull&quot; to update your local branch)
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a># git pull         
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Updating 473853e..9fe0f50
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Fast-forward
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a> docs/assets/pr_create_form.png      | Bin 0 -&gt; 47869 bytes
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a> docs/assets/pr_feature_branch.png   | Bin 0 -&gt; 41894 bytes
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a> docs/assets/pr_list.png             | Bin 0 -&gt; 22471 bytes
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a> docs/muita_toimintoja.md            |   2 +-
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a> &quot;docs/muutospyynn\303\266t.md&quot;      |  38 ++++++++++++++++++++++++++++++++++++
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a> docs/versionhallinta_projektissa.md |   4 +---
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a> mkdocs.yml                          |   4 +++-
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a> 7 files changed, 43 insertions(+), 5 deletions(-)
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a># git branch
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>* master
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>  muutospyynnot
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a># git branch -d muutospyynnot
+</span></code></pre></div>
+<h2 id="yhdistamispyynnot-repositoriosta-toiseen">Yhdistämispyynnöt repositoriosta toiseen</h2>
+<p>Edellisessä esimerkissä yhdistämispyyntöjä tehtiin yhden repositorion sisällä. Pyyntöjä on mahdollista tehdä myös eri repositorioiden kesken.</p>
+<p>Tällöin yhdistämispyynnön tekijällä on oltava Git-palvelussa <strong>oma versio</strong> repositoriosta, johon muutoksia halutaan ehdottaa, ja ehdotettava muutoshaara tehdään tähän repositorioon. </p>
+<p>Git-palvelut tarjoavat fork-toiminnon, jolla voi yhdellä klikkauksella luoda itselleen oman version toisesta repositoriosta. Kehittäjällä on siis aina kaksi versiota kohderepositoriosta: Git-palvelussa oleva fork-repositorio sekä paikallinen repositorio, jossa muutoksia työstetään ja jonka etärepositorio fork on.</p>
+<p>Repositorioiden käyttöoikeuksien pitää olla määritelty niin, että sekä yhdistämispyynnön tekijä että vastaanottajat näkevät toistensa repositoriot. Jos ne ovat julkisia, näin on aina.</p>
+<h3 id="avoimen-lahdekoodin-versionhallinta">Avoimen lähdekoodin versionhallinta</h3>
+<p>Avoimen lähdekoodin projekteissa kuka tahansa voi itsenäisesti kehittää projektiin muutoksia. Ei kuitenkaan ole mahdollista antaa suoria muutosoikeuksia repositorioihin kenelle tahansa. Tällöin käytetään forking-työnkulkua:</p>
+<ol>
+<li>Kehittäjä tekee Git-palvelussa fork-repositorion projektin virallisesta repositoriosta. Virallinen repositorio on julkinen, niinpä oma fork on myös julkinen.</li>
+<li>Hän kloonaa fork-repositorion koneelleen. Tässä repositoriossa tehdään oma kehitys.</li>
+<li>Jotta oma kopio voisi pysyä ajan tasalla virallisen repositorion muutosten kanssa, myös virallinen repositorio on konfiguroitava paikallisen repositorion etärepositorioksi. Tapana on antaa etärepositorion nimeksi <code>upstream</code></li>
+<li>Uusi kehitys tehdään ominaisuushaaraan. </li>
+<li>Ominaisuushaara viedään omaan fork-repositorioon. </li>
+<li>Kehittäjä avaa uuden yhdistämispyynnön viralliseen repositorioon. Lähdehaaraksi asetetaan fork-repositorion ominaisuushaara.</li>
+<li>Virallisen repositorion ylläpitäjä käsittelee yhdistämispyynnön. Hän yhdistää pyynnön haaran ensin omaan paikalliseen repositorioonsa testatakseen sen, ja hyväksyy tai sulkee yhdistämispyynnön. Pyynnöstä voidaan käydä keskustelua ja pyyntöhaaraa voidaan kehittää edelleen.</li>
+<li>Jos pyyntö hyväksyttiin, kehittäjän täytyy päivittää omien repositorioidensa sisällöt vastaamaan virallisen repositorion uutta sisältöä. Hän siis tuo oman muutoksensa <code>upstream</code>-etärepositoriosta takaisin siinä haarassa, johon se virallisessa repositoriossa yhdistettiin. Nythän se on virallista sisältöä!</li>
+</ol>
+<pre class="mermaid"><code>sequenceDiagram
+  actor kehittäjä
+  participant local
+  box GitHub
+  participant fork
+  participant official
+  end
+  actor ylläpitäjä
+
+  kehittäjä-&gt;&gt;official: Luo fork
+  official--&gt;&gt;fork: kloonaus
+  kehittäjä-&gt;&gt;fork: Kloonaa fork
+  fork--&gt;&gt;local: kloonaus
+  kehittäjä-&gt;&gt;local: Luo ominaisuushaara
+  kehittäjä-&gt;&gt;local: Tee muutos ominaisuushaaraan
+  local--&gt;&gt;local: commit
+  note over local: Muutos ominaisuushaarassa
+  kehittäjä-&gt;&gt;local: Vie ominaisuushaara fork-repositorioon
+  local--&gt;&gt;fork: push
+  note over fork: Muutos ominaisuushaarassa
+  kehittäjä-&gt;&gt;official: Avaa yhdistämispyyntö ominaisuushaaralle
+  note over official: Pyynnön käsittely: keskustelu, jatkokehitys
+  ylläpitäjä-&gt;&gt;official: Hyväksy yhdistämispyyntö
+  official--&gt;&gt;fork: pull
+  note over official: Muutos yhdistetty kohdehaaraan
+  kehittäjä-&gt;&gt;fork: Päivitä fork ("Sync fork" GitHub-käyttöliittymässä)
+  fork--&gt;&gt;official: pull
+  note over fork: Muutos yhdistetty kohdehaaraan
+  kehittäjä-&gt;&gt;local: Päivitä paikallinen repositorio
+  local--&gt;&gt;fork: pull
+  note over local: Muutos yhdistetty kohdehaaraan
+
+
+
+
+</code></pre>
+<h2 id="yhdistamispyynnot-projekteissa">Yhdistämispyynnöt projekteissa</h2>
+<p>Projekteissa, joissa on useita kehittäjiä, yhdistämispyynnöt tarjoavat mahdollisuuden muutoksista keskusteluun ja niiden työstämiseen usean kehittäjän kesken. Yhdistämispyyntöjä käyttämällä voidaan parantaa projektin laadun- ja muutostenhallintaa. Esimerkiksi,</p>
+<ul>
+<li>voidaan edellyttää, että kaikki muutokset projektin päähaaraan on tehtävä yhdistämispyyntöinä</li>
+<li>vaaditaan, että yhdistämispyynnöt on aina katselmoitava tietyllä tapaa</li>
+<li>yhdistämispyynnöille voidaan ajaa automaattisia tarkastuksia ja testejä.</li>
+</ul>
+<p>Git-palvelut tukevat monipuolisesti erilaisten käyttöoikeuksien myöntämistä eri käyttäjille ja erilaisten työnkulkujen täytäntöönpanoa. Niihin ominaisuuksiin voit tutustua perehtymällä palveluntarjoajasi dokumentaatioon.</p>
+<h2 id="harjoitus-7">Harjoitus 7</h2>
+<p>Harjoitellaan yhdistämispyyntöjen tekemistä, käsittelyä ja hyväksymistä. </p>
+<ol>
+<li>
+<p>Tee harjoituksen 6 repositorioon yhdistämispyyntö:</p>
+<ol>
+<li>Luo uusi haara paikalliseen repositorioosi muutoksia varten</li>
+<li>Tee muutokset ominaisuushaaraan paikallisessa repositoriossa</li>
+<li>Vie ominaisuushaara etärepositorioon</li>
+<li>Tee GitHubissa pyyntö yhdistää ominaisuushaara etärepositoriosi päähaaraan.</li>
+</ol>
+</li>
+<li>
+<p>Kommentoi pyyntöäsi. </p>
+</li>
+<li>Tee pyynnön haaraan toinen talletus ja vie se etärepositorioon.</li>
+<li>Hyväksy yhdistämispyyntö ja poista ominaisuushaara etärepositoriosta.</li>
+<li>Päivitä paikallinen repositoriosi vastaamaan etärepositorion sisältöä, ja poista paikallinen ominaisuushaara.</li>
+</ol>
+<p>Lopputuloksena </p>
+<ul>
+<li>Etärepositorioon on syntynyt uusi muutos.</li>
+<li>Muutoksesta on jäänyt selkeä dokumentaatio, joka on nähtävissä repositoriossa GitHubissa.</li>
+<li>Paikallinen repositorio on samassa tilassa kuin etärepositorio.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Alatunniste" >
+        
+          
+          <a href="../versionhallinta_projektissa/" class="md-footer__link md-footer__link--prev" aria-label="Edellinen: Työnkulut hajautetussa Git-ympäristössä">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Edellinen
+              </span>
+              <div class="md-ellipsis">
+                Työnkulut hajautetussa Git-ympäristössä
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../muita_toimintoja/" class="md-footer__link md-footer__link--next" aria-label="Seuraava: Muita Git-toimintoja">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Seuraava
+              </span>
+              <div class="md-ellipsis">
+                Muita Git-toimintoja
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Markku Ruonavaara 2024
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "toc.integrate", "navigation.footer"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Kopioitu leikep\u00f6yd\u00e4lle", "clipboard.copy": "Kopioi leikep\u00f6yd\u00e4lle", "search.result.more.one": "1 lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.more.other": "# lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.none": "Ei t\u00e4sm\u00e4\u00e4vi\u00e4 dokumentteja", "search.result.one": "1 t\u00e4sm\u00e4\u00e4v\u00e4 dokumentti", "search.result.other": "# t\u00e4sm\u00e4\u00e4v\u00e4\u00e4 dokumenttia", "search.result.placeholder": "Kirjoita aloittaaksesi haun", "search.result.term.missing": "Puuttuu", "select.version": "Valitse versio"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
