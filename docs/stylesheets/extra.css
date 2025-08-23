@@ -2,3 +2,8 @@
 .md-typeset details {
  font-size: 1em;
 }
+
+img:not(nav *) {
+  border: 0.1rem solid #e5e7eb;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

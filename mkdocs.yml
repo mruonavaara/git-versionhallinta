@@ -11,7 +11,7 @@ nav:
     - hosting_palvelut.md
   - 'Git projektissa':
     - versionhallinta_projektissa.md
-    - muutospyynnöt.md
+    - yhdistamispyynnot.md
   - muita_toimintoja.md
 theme:
   name: material
@@ -35,4 +35,9 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.keys
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
