@@ -235,6 +235,11 @@ Projektissa seuraavaksi lisätään sovellukseen toiminta, jolla käyttäjälle 
 
     Yhdistä se päähaaraan. Muista viedä päähaarakin etärepositorioon!
 
+10. Kun olet saanut tehtävän valmiiksi, lisää viimeisimpään talletukseen tunniste `harjoitus6` antamalla komento
+
+    ```
+    git tag harjoitus6
+    ```
 Lopputulos näyttää jokseenkin tämänkaltaiselta:
 
 ![](./assets/hei_maailma_lopputulos.png)

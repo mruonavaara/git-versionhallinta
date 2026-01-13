@@ -76,6 +76,12 @@ git checkout origin/master
 
 2. Yhdistä `origin/master`-haaran muutokset. Mitä komento `status` nyt sanoo?
 
+10. Kun olet saanut tehtävän valmiiksi, lisää viimeisimpään talletukseen tunniste `harjoitus5` antamalla komento
+
+    ```
+    git tag harjoitus5
+    ```
+
 Vinkkejä:
 
 - [GitHubin ohjeet repositorion luontiin](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository#creating-a-new-repository-from-the-web-ui)

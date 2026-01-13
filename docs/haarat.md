@@ -241,6 +241,63 @@ git commit
 git switch master
 git merge feat123
 ```
+
+### Pikakelaus (_fast-forwarding_)
+
+Olkoon tilanne, että olet erkaantunut ominaisuushaaraan `feat123` ja tehnyt sinne muutoksia. Samaan aikaan alkuperäiseen haaraan ei ole tullut mitään muutoksia.
+
+```mermaid
+gitGraph
+
+commit id:"alfa"
+commit id:"beta" tag:"main"
+branch feat123
+checkout feat123
+commit id:"gamma"
+commit id:"delta"
+commit id:"epsilon" tag:"feat123"
+```
+
+Kun nyt yhdistät ominaisuushaaran `feat123` päähaaraan, ei Git:n tarvitse tehdä muustosten yhdistämiseksi oikeastaan mitään, vaan ominaisuushaaran talletukset voidaan viedä päähaaraan jatkoksi sellaisinaan. Haara `main` siirretään vain osoittamaan `feat123`-haaran uusimpaan talletukseen.
+
+Yhdistämisen  jälkeen tilanne näyttää tältä:
+
+```mermaid
+gitGraph
+
+commit id:"alfa"
+commit id:"beta"
+commit id:"gamma"
+commit id:"delta"
+commit id:"epsilon" tag:"main" tag:"feat123"
+```
+
+Tällaista yhdistämistä Git-terminologiassa kutsutaan __pikakelaukseksi__ (_fast-forward merge_). Tällöin yhdistämisestä ei tehdä erillistä talletusta, eikä siitä jää selkeää jälkeä versiohistoriaan.
+
+Ominaisuushaarojen yhdistämiset saatetaan kuitenkin haluta tehdä selkeästi näkyviksi versiohistoriassa. Git voidaan pakottaa tekemään yhdistämistalletus (_merge commit_) lisäämällä `merge`-komentoon laajennin `--no-ff` (_no fast-forward_), vaikka pikakelaus olisikin mahdollista.
+
+```bash
+git merge --no-ff feat123
+```
+
+Versiohistoriaan tulee nyt erillinen yhdistämistalletus, ja yhdistäminen näkyy historiaa tarkasteltaessa selkeästi.
+
+```mermaid
+gitGraph
+
+commit id:"alfa"
+commit id:"beta" 
+branch feat123
+checkout feat123
+commit id:"gamma"
+commit id:"delta"
+commit id:"epsilon" tag:"feat123"
+checkout main
+merge feat123 id:"zeta" tag:"main"
+```
+Esimerkin talletukset `epsilon` ja `zeta` ovat erilliset, vaikka niiden sisältö onkin sama.
+
+
 ### Pysyvät ja väliaikaiset haarat
 Useimmat työnkulut perustuvat siihen, että jotkin haarat ovat __päähaaroja__, joissa pidetään yllä tuoreinta tilannetta, ja yksittäisille ominaisuuksille voidaan tehdä omia __väliaikaisia haaroja__, jotka on tarkoitus yhdistää johonkin päähaaraan.
 
@@ -305,7 +362,13 @@ Testaa selaimessa, että sivun tyylit toimivat.
 
 5. Kokeile vaihtaa aktiivista haaraa haarojen `master` ja `tyylit` välillä ja lataa sivu selaimessa aina uudelleen. Miten sivu muuttuu?
 
-6. Kun olet tyytyväinen `tyylit`-haaran versioon, yhdistä se `master`-haaraan. 
+6. Kun olet tyytyväinen `tyylit`-haaran versioon, yhdistä se `master`-haaraan. Käytä yhdistämisessä `--no-ff`-laajenninta, jotta yhdistäminen jää versiohistoriaan näkyviin.
 
 7. Kokeile nyt vaihtaa aktiivista haaraa haarojen `master` ja `tyylit` välillä ja lataa sivu selaimessa aina uudelleen. Miten sivu muuttuu? 
+
+8. Kun olet saanut tehtävän valmiiksi, lisää päähaaran viimeisimpään talletukseen tunniste `harjoitus4` antamalla komento
+
+    ```
+    git tag harjoitus4
+    ```
 

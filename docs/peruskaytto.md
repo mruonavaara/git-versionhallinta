@@ -213,7 +213,11 @@ Tarkista repositorion tilanne joka välissä komennolla `status`. Muista laatia 
 7. Ensimmäisenä luotu test.txt-tiedosto on nyt käynyt tarpeettomaksi. Poista se versionhallinnasta ja talleta muutos. Laadi talletuksellesi kuvaava kommenttiviesti.
 8. Lisää vielä joitakin tiedostoja ja talleta ne versionhallintaan. 
 9. Tarkastele tekemiäsi talletuksia komennolla `git log`. Kokeile myös komentoa laajentimella `--stat`. Mitä lisätietoa saat?
+10. Kun olet saanut tehtävän valmiiksi, lisää viimeisimpään talletukseen tunniste `harjoitus2` antamalla komento
 
+    ```
+    git tag harjoitus2
+    ```
 
 ## Paluu menneisyyteen
 
@@ -399,3 +403,8 @@ Harjoitellaan peruuttelua.
      - Peruuta talletus komennolla `revert`. 
      - Mitä näyttää komento `log`?
 
+5. Kun olet saanut tehtävän valmiiksi, lisää viimeisimpään talletukseen tunniste `harjoitus3` antamalla komento
+
+    ```
+    git tag harjoitus3
+    ```

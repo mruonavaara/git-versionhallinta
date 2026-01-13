@@ -55,6 +55,11 @@ git remote rename origin temp
 git remote rm temp
 ```
 
+Yksittäisen etärepositorion tietoja voi tarkastella komennolla `show`.
+```bash
+git remote show origin
+```
+
 ## Tietojen haku etärepositoriosta
 
 Repositorioiden tietojen synkronointi tapahtuu kahdessa vaiheessa:
@@ -161,6 +166,23 @@ Komento `git pull` tekee molemmat toimenpiteet kerralla. Se hakee ensin etärepo
 ```bash
 git pull origin
 ```
+
+### Haarojen poistaminen
+
+Jos haluat poistaa haaran, joka on synkronoitu etärepositorioon, se pitää poistaa sekä paikallisesta repositoriosta että etärepositoriosta.
+
+Paikallisesta repositoriosta haara voidaan poistaa komennolla `branch --delete <haara>` :
+```bash
+git branch --delete feat123        # tai -d
+```
+
+Haara kuitenkin säilyy vielä etärepositoriossa. Sieltä sen voi poistaa komennolla `push --delete <etärepositorio> <haara>`:
+
+```bash
+git push --delete origin feat123   # tai -d
+```
+
+
 ## Useita etärepositorioita
 
 Useimmiten sisältöjä synkronoidaan vain yhden etärepositorion kanssa, mutta niitä voi olla useampiakin. Tällöin kaikkien synkronoitavien repositorioiden pitää olla samaa kantaa, niillä pitää olla yhteinen lähtökohta, johon versiohistorioita voidaan yhdistää.

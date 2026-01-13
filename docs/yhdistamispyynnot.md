@@ -154,12 +154,12 @@ Git-palvelut tukevat monipuolisesti erilaisten käyttöoikeuksien myöntämistä
 
 ## Harjoitus 7
 
-Harjoitellaan yhdistämispyyntöjen tekemistä, käsittelyä ja hyväksymistä. 
+Harjoitellaan yhdistämispyyntöjen tekemistä, käsittelyä ja hyväksymistä. Normaalisti  työnkulkuun osallistuisi muitakin, mutta nyt saat näytellä kaikki roolit itse.
 
 1. Tee harjoituksen 6 repositorioon yhdistämispyyntö:
 
-      1. Luo uusi haara paikalliseen repositorioosi muutoksia varten
-      2. Tee muutokset ominaisuushaaraan paikallisessa repositoriossa
+      1. Luo uusi ominaisuushaara paikalliseen repositorioosi muutoksia varten
+      2. Tee vapaavalintaisia muutoksia ominaisuushaaraan
       3. Vie ominaisuushaara etärepositorioon
       4. Tee GitHubissa pyyntö yhdistää ominaisuushaara etärepositoriosi päähaaraan.
    
@@ -167,6 +167,11 @@ Harjoitellaan yhdistämispyyntöjen tekemistä, käsittelyä ja hyväksymistä.
 3. Tee pyynnön haaraan toinen talletus ja vie se etärepositorioon.
 4. Hyväksy yhdistämispyyntö ja poista ominaisuushaara etärepositoriosta.
 5. Päivitä paikallinen repositoriosi vastaamaan etärepositorion sisältöä, ja poista paikallinen ominaisuushaara.
+6. Kun olet saanut tehtävän valmiiksi, lisää viimeisimpään talletukseen tunniste `harjoitus7` antamalla komento
+
+    ```
+    git tag harjoitus7
+    ```
 
 Lopputuloksena 
 
