@@ -224,7 +224,9 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -461,6 +463,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Etärepositoriot ja haarat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#haarojen-poistaminen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Haarojen poistaminen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -523,7 +540,9 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -666,6 +685,9 @@ Etärepositorioita voi uudelleennimetä komennolla <code>rename</code> ja poista
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>remote<span class="w"> </span>rename<span class="w"> </span>origin<span class="w"> </span>temp
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>remote<span class="w"> </span>rm<span class="w"> </span>temp
 </span></code></pre></div></p>
+<p>Yksittäisen etärepositorion tietoja voi tarkastella komennolla <code>show</code>.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>remote<span class="w"> </span>show<span class="w"> </span>origin
+</span></code></pre></div></p>
 <h2 id="tietojen-haku-etarepositoriosta">Tietojen haku etärepositoriosta</h2>
 <p>Repositorioiden tietojen synkronointi tapahtuu kahdessa vaiheessa:</p>
 <ol>
@@ -674,29 +696,29 @@ Etärepositorioita voi uudelleennimetä komennolla <code>rename</code> ja poista
 </ol>
 <h3 id="fetch">Fetch</h3>
 <p>Komento <code>fetch</code> lataa etärepositorion tiedot paikalliseen repositorioon. </p>
-<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
 </span></code></pre></div>
 Se ei kuitenkaan tee muutoksia paikallisen repositorion haaroihin vaan tallettaa ne erikseen. Fetch on siis täysin turvallinen komento, mikään repositoriossasi ei muutu, ellet niin erikseen käske.</p>
 <p>Etärepositorion haarat löytyvät etärepositorion nimen alta, esim. <code>origin/master</code>. etärepositorion haarat voit listata valitsimella <code>–r</code>.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>branch<span class="w"> </span>-r
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>branch<span class="w"> </span>-r
 </span></code></pre></div>
 <p>Voit tutkia etärepositoriosta ladattua sisältöä tavallisella <code>checkout</code>-komennolla (ja <code>git log</code> yms.) ja halutessasi yhdistää paikalliseen sisältöön tavallisella <code>merge</code>-komennolla.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>master
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>merge<span class="w"> </span>origin/master
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>master
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>git<span class="w"> </span>merge<span class="w"> </span>origin/master
 </span></code></pre></div>
 <h3 id="pull">Pull</h3>
 <p>Komento <code>fetch</code> lataa etärepositoriosta saataville kaikki muutokset, joita sinulla ei vielä ole. Jotta saisit ne oman repositoriosi haaraan, ne on yhdistettävä sinne (<code>merge</code>). </p>
 <p>Koska tämä kaksivaiheinen operaatio on niin tavallinen, sille on erikseen komento <code>pull</code>, joka hakee nykyisen haaran uudet tiedot etärepositoriosta ja yhdistää ne nykyiseen haaraasi automaattisesti.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>
 </span></code></pre></div>
 <p>Tämä toiminto on siis sama kuin </p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>fetch
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>git<span class="w"> </span>merge
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>fetch
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>git<span class="w"> </span>merge
 </span></code></pre></div>
 <p>Koska <code>pull</code> tekee myös yhdistämisen, komennon suorituksessa voi tulla konflikteja. Joskus voi olla selkeämpää tehdä toiminnot erikseen.</p>
 <h2 id="tietojen-vienti-etarepositorioon-push">Tietojen vienti etärepositorioon (<em>push</em>)</h2>
 <p>Komento <code>push</code> synkronoi paikallisen repositorion tietoja etärepositorioon.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master<span class="w">    </span><span class="c1"># vie paikallinen master origin-repositorioon</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master<span class="w">    </span><span class="c1"># vie paikallinen master origin-repositorioon</span>
 </span></code></pre></div>
 <ul>
 <li><code>origin</code> on etärepositorion nimi, johon tietoja viedään</li>
@@ -704,29 +726,37 @@ Se ei kuitenkaan tee muutoksia paikallisen repositorion haaroihin vaan tallettaa
 </ul>
 <p>Paikallisia haaroja ei automaattisesti viedä etärepositorioon vaan ne pitää eksplisiittisesti viedä sinne. Näin voit jättää osan haaroista täysin paikallisiksi, esim. väliaikaisia haaroja usein ei tarvitse synkronoida.</p>
 <p>Kaikki paikalliset haarat viedään, jos käytät valitsinta <code>–all</code>.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git<span class="w"> </span>push<span class="w"> </span>--all<span class="w">            </span><span class="c1"># vie kaikki paikalliset haarat origin-repositorioon</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git<span class="w"> </span>push<span class="w"> </span>--all<span class="w">            </span><span class="c1"># vie kaikki paikalliset haarat origin-repositorioon</span>
 </span></code></pre></div>
 <p>Ensimmäisellä kerralla kannattaa käyttää <code>push</code>-komennossa valitsinta <code>–u</code> (<code>--set-upstream</code>). Se asettaa kyseinen etärepositoriohaaran vietävän paikallisen haaran oletusarvoiseksi etärepositoriohaaraksi. </p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>master
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>master
 </span></code></pre></div>
 <p>Tällöin etärepositoriota ei tarvitse jatkossa erikseen komennossa ilmoittaa vaan riittää </p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git<span class="w"> </span>push<span class="w">                  </span><span class="c1"># vie nykyinen haara oletusarvoiseen etähaaraansa</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>git<span class="w"> </span>push<span class="w">                  </span><span class="c1"># vie nykyinen haara oletusarvoiseen etähaaraansa</span>
 </span></code></pre></div>
 <h2 id="etarepositoriot-ja-haarat">Etärepositoriot ja haarat</h2>
 <p>Etärepositorioiden synkronoinnissa on itse asiassa kyse haarojen synkronoinnista. </p>
 <p>Kun teet haaroja paikallisesti, ja käytössä on etärepositorio, on päätettävä, haluatko synkronoida sen vai et. Jos haluat, sinun täytyy erikseen se sinne viedä (ellet käytä valitsinta <code>--a</code>). Samalla kannattaa määrittää etähaaralle oletusarvo, niin synkronointi on jatkossa helpompaa.
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feat123
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feat123
 </span></code></pre></div></p>
 <p>Komento fetch tuo haaran tiedot paikalliseen repositorioon, mutta ei yhdistä sitä</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
 </span></code></pre></div>
 <p>Tuloksena paikalliseen repositorioon tulee tiedot etärepositorionn muutoksista. Ne talletetaan paikallisiin haaroihin, joiden nimi on muotoa <code>&lt;etärepositorio&gt;/&lt;haara&gt;</code>.</p>
 <p>Paikallinen <code>origin/master</code> on siis kopio etärepositorion <code>origin</code> haarasta <code>master</code>. Kun yhdistät tuotuja haaroja, se tapahtuu paikallisen kopion kanssa. </p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>git<span class="w"> </span>merge<span class="w"> </span>origin/master
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>git<span class="w"> </span>merge<span class="w"> </span>origin/master
 </span></code></pre></div>
 <p>Komento <code>git pull</code> tekee molemmat toimenpiteet kerralla. Se hakee ensin etärepositorion haaran (<em>fetch</em>) ja yhdistää sen paikalliseen haaraan (<em>merge</em>).
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>git<span class="w"> </span>pull<span class="w"> </span>origin
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>git<span class="w"> </span>pull<span class="w"> </span>origin
 </span></code></pre></div></p>
+<h3 id="haarojen-poistaminen">Haarojen poistaminen</h3>
+<p>Jos haluat poistaa haaran, joka on synkronoitu etärepositorioon, se pitää poistaa sekä paikallisesta repositoriosta että etärepositoriosta.</p>
+<p>Paikallisesta repositoriosta haara voidaan poistaa komennolla <code>branch --delete &lt;haara&gt;</code> :
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>git<span class="w"> </span>branch<span class="w"> </span>--delete<span class="w"> </span>feat123<span class="w">        </span><span class="c1"># tai -d</span>
+</span></code></pre></div></p>
+<p>Haara kuitenkin säilyy vielä etärepositoriossa. Sieltä sen voi poistaa komennolla <code>push --delete &lt;etärepositorio&gt; &lt;haara&gt;</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>git<span class="w"> </span>push<span class="w"> </span>--delete<span class="w"> </span>origin<span class="w"> </span>feat123<span class="w">   </span><span class="c1"># tai -d</span>
+</span></code></pre></div>
 <h2 id="useita-etarepositorioita">Useita etärepositorioita</h2>
 <p>Useimmiten sisältöjä synkronoidaan vain yhden etärepositorion kanssa, mutta niitä voi olla useampiakin. Tällöin kaikkien synkronoitavien repositorioiden pitää olla samaa kantaa, niillä pitää olla yhteinen lähtökohta, johon versiohistorioita voidaan yhdistää.</p>
 <p>Seuraavassa esimerkissä paikalliselle repositoriolle on määritelty kaksi etärepositoriota, <code>origin</code> ja <code>upstream</code>. Tilanne voisi olla seuraava:</p>
@@ -827,7 +857,7 @@ Se ei kuitenkaan tee muutoksia paikallisen repositorion haaroihin vaan tallettaa
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "toc.integrate", "navigation.footer"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Kopioitu leikep\u00f6yd\u00e4lle", "clipboard.copy": "Kopioi leikep\u00f6yd\u00e4lle", "search.result.more.one": "1 lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.more.other": "# lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.none": "Ei t\u00e4sm\u00e4\u00e4vi\u00e4 dokumentteja", "search.result.one": "1 t\u00e4sm\u00e4\u00e4v\u00e4 dokumentti", "search.result.other": "# t\u00e4sm\u00e4\u00e4v\u00e4\u00e4 dokumenttia", "search.result.placeholder": "Kirjoita aloittaaksesi haun", "search.result.term.missing": "Puuttuu", "select.version": "Valitse versio"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "toc.integrate", "navigation.footer", "navigation.expand"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Kopioitu leikep\u00f6yd\u00e4lle", "clipboard.copy": "Kopioi leikep\u00f6yd\u00e4lle", "search.result.more.one": "1 lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.more.other": "# lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.none": "Ei t\u00e4sm\u00e4\u00e4vi\u00e4 dokumentteja", "search.result.one": "1 t\u00e4sm\u00e4\u00e4v\u00e4 dokumentti", "search.result.other": "# t\u00e4sm\u00e4\u00e4v\u00e4\u00e4 dokumenttia", "search.result.placeholder": "Kirjoita aloittaaksesi haun", "search.result.term.missing": "Puuttuu", "select.version": "Valitse versio"}}</script>
     
     
       <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
