@@ -718,15 +718,15 @@
 <h4 id="kayttajan-tiedot">Käyttäjän tiedot</h4>
 <p>Jokaiseen talletettuun muutokseen tallentuu käyttäjän nimi ja sähköpostiosoite
 Käyttäjätiedot tarvitsee asettaa tietokoneelle vain kerran, ja niitä voi tarvittaessa myöhemmin muuttaa
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git config –-global user.name ”Markku Ruonavaara”
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git config –-global user.email markku.ruonavaara@haaga-helia.fi
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git config set –-global user.name ”Markku Ruonavaara”
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git config set –-global user.email markku.ruonavaara@haaga-helia.fi
 </span></code></pre></div></p>
 <p>Konfigurointitietoja tallennetaan järjestelmä-, käyttäjä- ja projektikohtaisesti. Valitsin <code>-–global</code> viittaa siihen, että asetus on järjestelmä- ja käyttäjäkohtainen: se on voimassa tällä tietokoneella (järjestelmä) tämän käyttäjän kaikille repositorioille.</p>
 <p>Jos mitään valitsinta ei määritetä, asetuksesta tulee projektikohtainen. Se tarkoittaa, että asetus on voimassa vain siinä repositoriossa, jossa se tehtiin. </p>
 <h4 id="editori">Editori</h4>
 <p>Joidenkin toimintojen yhteydessä Git käynnistää editorin tekstin kirjoittamista varten. Oletusarvoisesti se on systeemin oletuseditori, joka yleensä on vim.</p>
 <p>Voit halutessasi asettaa editorin, jonka Git käynnistää. Seuraava komento asettaa editoriksi Visual Studio Code:n.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git config --global core.editor &quot;code --wait&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git config set --global core.editor &quot;code --wait&quot;
 </span></code></pre></div>
 <p>Konfiguroinnissa määritetään käynnistyskomento, joten jos editoria ei löydy polusta, voit joutua antamaan koko polun. </p>
 <p>Jos kuitenkin joskus päädyt vim-editoriin, oheisesta ohjeesta voi olla sinulle hyötyä:</p>
@@ -739,7 +739,7 @@ Käyttäjätiedot tarvitsee asettaa tietokoneelle vain kerran, ja niitä voi tar
 </ul>
 <h4 id="konfiguraatioasetusten-tarkastelu">Konfiguraatioasetusten tarkastelu</h4>
 <p>Kaikki asetukset voit tarkistaa näin:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>config<span class="w"> </span>–-list
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>config<span class="w"> </span>list
 </span></code></pre></div></p>
 <p>Yhden parametrin arvon voit tarkistaa antamalla <code>config</code> komennon parametriksi parametrin nimen:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git config user.email
@@ -752,55 +752,21 @@ Käyttäjätiedot tarvitsee asettaa tietokoneelle vain kerran, ja niitä voi tar
 <p class="admonition-title">Huomautus</p>
 <p>Tässä materiaalissa Git-komentoihin viitataan tekstissä vain komento-osalla, esim. <code>config</code>. Komentorivillä annettava komento on tällöin <code>git config</code>. </p>
 </div>
-<p>Komennoille voidaan antaa myös valitsimia (<em>option</em>), jotka täsmentävät, mitä halutaan tehdä. Tässä esimerkissä valitsin <code>--list</code> määrittää, että halutaan listata konfiguraatioparametrit, ja valitsin <code>--global</code>, että halutaan vain globaalit, kaikkiin repositorioihisi vaikuttavat parametrit.<br />
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git config --list --global
+<p>Komennoilla voi olla alikomentoja ja niille voidaan antaa <strong>valitsimia</strong> (<em>option</em>), jotka täsmentävät, mitä halutaan tehdä. </p>
+<p>Tässä esimerkissä <code>list</code> on <code>config</code>-komennon alikomento, ja valitsin <code>--global</code> määrittää, että halutaan listata vain globaalit, kaikkiin repositorioihisi vaikuttavat parametrit.<br />
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git config list --global
 </span></code></pre></div>
-Joillekin valitsimille voi olla myös lyhyt muoto, esim. edellisen esimerkin valitsin <code>--list</code> voidaan myös antaa lyhyemmässä muodossa <code>-l</code>.  </p>
+Joillekin valitsimille voi olla myös lyhyt muoto, esim. komennon <code>git status --short</code> valitsin <code>--short</code> voidaan myös antaa lyhyemmässä muodossa <code>-s</code>.  </p>
 <p>Kaikille komennoille saa lyhyen opastustekstin valitsimella <code>-h</code></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$ git config -h
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>usage: git config [&lt;options&gt;]
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Config file location
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    --global              use global config file
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    --system              use system config file
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    --local               use repository config file
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    --worktree            use per-worktree config file
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    -f, --file &lt;file&gt;     use given config file
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    --blob &lt;blob-id&gt;      read config from given blob object
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>Action
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    --get                 get value: name [value-pattern]
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    --get-all             get all values: key [value-pattern]
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    --get-regexp          get values for regexp: name-regex [value-pattern]
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    --get-urlmatch        get value specific for the URL: section[.var] URL
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    --replace-all         replace all matching variables: name value [value-pattern]
-</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>    --add                 add a new variable: name value
-</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>    --unset               remove a variable: name [value-pattern]
-</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>    --unset-all           remove all matches: name [value-pattern]
-</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>    --rename-section      rename section: old-name new-name
-</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>    --remove-section      remove a section: name
-</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>    -l, --list            list all
-</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>    --fixed-value         use string equality when comparing values to &#39;value-pattern&#39;
-</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>    -e, --edit            open an editor
-</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>    --get-color           find the color configured: slot [default]
-</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>    --get-colorbool       find the color setting: slot [stdout-is-tty]
-</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>
-</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>Type
-</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>    -t, --type &lt;type&gt;     value is given this type
-</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>    --bool                value is &quot;true&quot; or &quot;false&quot;
-</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>    --int                 value is decimal number
-</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>    --bool-or-int         value is --bool or --int
-</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>    --bool-or-str         value is --bool or string
-</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>    --path                value is a path (file or directory name)
-</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>    --expiry-date         value is an expiry date
-</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>
-</span><span id="__span-6-38"><a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>Other
-</span><span id="__span-6-39"><a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>    -z, --null            terminate values with NUL byte
-</span><span id="__span-6-40"><a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a>    --name-only           show variable names only
-</span><span id="__span-6-41"><a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a>    --includes            respect include directives on lookup
-</span><span id="__span-6-42"><a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>    --show-origin         show origin of config (file, standard input, blob, command line)
-</span><span id="__span-6-43"><a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a>    --show-scope          show scope of config (worktree, local, global, system, command)
-</span><span id="__span-6-44"><a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a>    --default &lt;value&gt;     with --get, use default value when missing entry
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>usage: git config list [&lt;file-option&gt;] [&lt;display-option&gt;] [--includes]
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>   or: git config get [&lt;file-option&gt;] [&lt;display-option&gt;] [--includes] [--all] [--regexp] [--value=&lt;pattern&gt;] [--fixed-value] [--default=&lt;default&gt;] [--url=&lt;url&gt;] &lt;name&gt;
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>   or: git config set [&lt;file-option&gt;] [--type=&lt;type&gt;] [--all] [--value=&lt;pattern&gt;] [--fixed-value] &lt;name&gt; &lt;value&gt;
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>   or: git config unset [&lt;file-option&gt;] [--all] [--value=&lt;pattern&gt;] [--fixed-value] &lt;name&gt;
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>   or: git config rename-section [&lt;file-option&gt;] &lt;old-name&gt; &lt;new-name&gt;
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>   or: git config remove-section [&lt;file-option&gt;] &lt;name&gt;
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>   or: git config edit [&lt;file-option&gt;]
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>   or: git config [&lt;file-option&gt;] --get-colorbool &lt;name&gt; [&lt;stdout-is-tty&gt;]
 </span></code></pre></div>
 <h2 id="git-suomi-sanasto">Git-suomi -sanasto</h2>
 <p>Tässä materiaalissa käytetään Git-termeistä seuraavia suomenkielisiä vastineita:</p>
@@ -869,9 +835,20 @@ Joillekin valitsimille voi olla myös lyhyt muoto, esim. edellisen esimerkin val
 <h2 id="harjoitus-1">Harjoitus 1</h2>
 <p>Pannaan ympäristö kuntoon harjoituksia varten.</p>
 <ol>
-<li>Asenna koneellesi git ja Visual Studio Code (tai vastaava ohjelmointieditori).</li>
+<li>Asenna koneellesi Git.</li>
+<li>
+<p>Tarkista, että asennus on onnistunut tulostamalla asennetun Git-version tunniste.</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>--version
+</span></code></pre></div>
+tai laajentimen <code>--version</code> lyhyemmällä muodolla
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git -v
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Asenna Visual Studio Code (tai vastaava ohjelmointieditori).</p>
+</li>
 <li>Konfiguroi Git, ainakin käyttäjätiedot ja editori.</li>
-<li>Avaa GitHub-palveluun tili.</li>
+<li>Avaa GitHub-palveluun tili. Sitä tullaan käyttämään kurssilla myöhemmin.</li>
 </ol>
 
 

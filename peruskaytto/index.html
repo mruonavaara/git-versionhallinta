@@ -740,16 +740,18 @@
 </ul>
 <p>Git:n hallinnassa oleva työhakemiston tiedosto voi olla</p>
 <ul>
-<li><em>Unmodified</em> - muuttumaton sama kuin talletettu uusin versio </li>
+<li><em>Unmodified</em> - muuttumaton, sama kuin talletettu uusin versio </li>
 <li><em>Modified</em> – muuttunut, erilainen kuin talletettu uusin versio</li>
 <li><em>Staged</em> – merkitty otettavaksi seuraavaan talletukseen</li>
 </ul>
 <p>Oheinen kuva kuvaa eri tiloja ja niiden välisiä siirtymiä.</p>
 <ol>
-<li>Kun hakemistoon lisätään uusi tiedosto (<em>add the file</em>), se on <code>untracked</code>.</li>
-<li>Kun hakemiston jo Git-hallinnassa oleva tiedosto muuttuu (<em>edit the file</em>), sen tilaksi tulee <code>modified</code>.</li>
-<li>Uudet ja muuttuneet tiedostot voidaan merkitä otettavaksi seuraavaan talletukseen toiminnolla <code>add</code> (<em>stage the file</em>). Tällöin tiedostot ovat tilassa <code>staged</code></li>
-<li>Kun talletus  (<em>commit</em>) tehdään, kaikki mukaan otettavaksi merkityt tiedostoversiot talletetaan, ja niiden tilaksi tulee <code>unmodified</code>.</li>
+<li>Alun perin uusi tiedosto on tilassa <code>untracked</code></li>
+<li>Uusi tiedosto voidaan merkitä otettavaksi seuraavaan talletukseen voiminnolla <code>add</code> (<em>Add the file</em>), jolloin sen tilaksi tulee <code>staged</code>.</li>
+<li>Entuudestaan Git-hallinnassa oleva tiedosto on alun perin tilassa <code>unmodified</code></li>
+<li>Kun hakemiston jo Git-hallinnassa oleva tiedosto muuttuu (<em>Edit the file</em>), sen tilaksi tulee <code>modified</code>.</li>
+<li>Muuttuneet (ja uudet) tiedostot voidaan merkitä otettavaksi seuraavaan talletukseen toiminnolla <code>add</code> (<em>Stage the file</em>). Tällöin tiedostot ovat tilassa <code>staged</code></li>
+<li>Kun talletus (<em>commit</em>) tehdään, kaikki siihen mukaan otettavaksi merkityt tiedostoversiot talletetaan, ja niiden tilaksi tulee <code>unmodified</code>.</li>
 </ol>
 <p><img alt="" src="../assets/git_file_states.png" /></p>
 <p>Työhakemiston tiedostojen Git-tilaa voi tarkastella komennolla status.</p>
