@@ -79,15 +79,15 @@ $ git push origin master
 
 1. Tilanne komennon `fetch jälkeen`:
    
-![](./assets/after_fetch.png)
+    ![](./assets/after_fetch.png)
 
 2. Tilanne komennon `merge` jälkeen:
 
-![](./assets/after_merge.png)
+    ![](./assets/after_merge.png)
 
 3. Tilanne komennon `push` jälkeen:
    
-![](./assets/after_push.png)
+    ![](./assets/after_push.png)
 
 _Lähde: [Chacon S., Straub B, Pro Git, luku 5.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/)_
 
