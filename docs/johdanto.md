@@ -67,8 +67,8 @@ Asennuksen jälkeen on tarpeen tehdä joitakin konfigurointeja, ennen kuin git-k
 Jokaiseen talletettuun muutokseen tallentuu käyttäjän nimi ja sähköpostiosoite
 Käyttäjätiedot tarvitsee asettaa tietokoneelle vain kerran, ja niitä voi tarvittaessa myöhemmin muuttaa
 ```
-git config –-global user.name ”Markku Ruonavaara”
-git config –-global user.email markku.ruonavaara@haaga-helia.fi
+git config set –-global user.name ”Markku Ruonavaara”
+git config set –-global user.email markku.ruonavaara@haaga-helia.fi
 ```
 
 Konfigurointitietoja tallennetaan järjestelmä-, käyttäjä- ja projektikohtaisesti. Valitsin `-–global` viittaa siihen, että asetus on järjestelmä- ja käyttäjäkohtainen: se on voimassa tällä tietokoneella (järjestelmä) tämän käyttäjän kaikille repositorioille.
@@ -82,7 +82,7 @@ Joidenkin toimintojen yhteydessä Git käynnistää editorin tekstin kirjoittami
 Voit halutessasi asettaa editorin, jonka Git käynnistää. Seuraava komento asettaa editoriksi Visual Studio Code:n.
 
 ```
-git config --global core.editor "code --wait"
+git config set --global core.editor "code --wait"
 ```
 
 Konfiguroinnissa määritetään käynnistyskomento, joten jos editoria ei löydy polusta, voit joutua antamaan koko polun. 
@@ -99,7 +99,7 @@ GitHub-palvelun dokumentaation ohjeita editorien konfiguroinnista:
 
 Kaikki asetukset voit tarkistaa näin:
 ```bash
-git config –-list
+git config list
 ```
 
 Yhden parametrin arvon voit tarkistaa antamalla `config` komennon parametriksi parametrin nimen:
@@ -116,60 +116,26 @@ git config core.editor
 !!! note "Huomautus"
     Tässä materiaalissa Git-komentoihin viitataan tekstissä vain komento-osalla, esim. `config`. Komentorivillä annettava komento on tällöin `git config`. 
 
-Komennoille voidaan antaa myös valitsimia (_option_), jotka täsmentävät, mitä halutaan tehdä. Tässä esimerkissä valitsin `--list` määrittää, että halutaan listata konfiguraatioparametrit, ja valitsin `--global`, että halutaan vain globaalit, kaikkiin repositorioihisi vaikuttavat parametrit.  
+Komennoilla voi olla alikomentoja ja niille voidaan antaa __valitsimia__ (_option_), jotka täsmentävät, mitä halutaan tehdä. 
+
+Tässä esimerkissä `list` on `config`-komennon alikomento, ja valitsin `--global` määrittää, että halutaan listata vain globaalit, kaikkiin repositorioihisi vaikuttavat parametrit.  
 ```
-git config --list --global
+git config list --global
 ```
-Joillekin valitsimille voi olla myös lyhyt muoto, esim. edellisen esimerkin valitsin `--list` voidaan myös antaa lyhyemmässä muodossa `-l`.  
+Joillekin valitsimille voi olla myös lyhyt muoto, esim. komennon `git status --short` valitsin `--short` voidaan myös antaa lyhyemmässä muodossa `-s`.  
 
 Kaikille komennoille saa lyhyen opastustekstin valitsimella `-h`
 
 ```
 $ git config -h
-usage: git config [<options>]
-
-Config file location
-    --global              use global config file
-    --system              use system config file
-    --local               use repository config file
-    --worktree            use per-worktree config file
-    -f, --file <file>     use given config file
-    --blob <blob-id>      read config from given blob object
-
-Action
-    --get                 get value: name [value-pattern]
-    --get-all             get all values: key [value-pattern]
-    --get-regexp          get values for regexp: name-regex [value-pattern]
-    --get-urlmatch        get value specific for the URL: section[.var] URL
-    --replace-all         replace all matching variables: name value [value-pattern]
-    --add                 add a new variable: name value
-    --unset               remove a variable: name [value-pattern]
-    --unset-all           remove all matches: name [value-pattern]
-    --rename-section      rename section: old-name new-name
-    --remove-section      remove a section: name
-    -l, --list            list all
-    --fixed-value         use string equality when comparing values to 'value-pattern'
-    -e, --edit            open an editor
-    --get-color           find the color configured: slot [default]
-    --get-colorbool       find the color setting: slot [stdout-is-tty]
-
-Type
-    -t, --type <type>     value is given this type
-    --bool                value is "true" or "false"
-    --int                 value is decimal number
-    --bool-or-int         value is --bool or --int
-    --bool-or-str         value is --bool or string
-    --path                value is a path (file or directory name)
-    --expiry-date         value is an expiry date
-
-Other
-    -z, --null            terminate values with NUL byte
-    --name-only           show variable names only
-    --includes            respect include directives on lookup
-    --show-origin         show origin of config (file, standard input, blob, command line)
-    --show-scope          show scope of config (worktree, local, global, system, command)
-    --default <value>     with --get, use default value when missing entry
-
+usage: git config list [<file-option>] [<display-option>] [--includes]
+   or: git config get [<file-option>] [<display-option>] [--includes] [--all] [--regexp] [--value=<pattern>] [--fixed-value] [--default=<default>] [--url=<url>] <name>
+   or: git config set [<file-option>] [--type=<type>] [--all] [--value=<pattern>] [--fixed-value] <name> <value>
+   or: git config unset [<file-option>] [--all] [--value=<pattern>] [--fixed-value] <name>
+   or: git config rename-section [<file-option>] <old-name> <new-name>
+   or: git config remove-section [<file-option>] <name>
+   or: git config edit [<file-option>]
+   or: git config [<file-option>] --get-colorbool <name> [<stdout-is-tty>]
 ```
 ## Git-suomi -sanasto
 
@@ -196,7 +162,18 @@ working directory | työhakemisto
 
 Pannaan ympäristö kuntoon harjoituksia varten.
 
-1. Asenna koneellesi git ja Visual Studio Code (tai vastaava ohjelmointieditori).
-2. Konfiguroi Git, ainakin käyttäjätiedot ja editori.
-3. Avaa GitHub-palveluun tili.
+1. Asenna koneellesi Git.
+2. Tarkista, että asennus on onnistunut tulostamalla asennetun Git-version tunniste.
+
+    ```bash
+    git --version
+    ```
+    tai laajentimen `--version` lyhyemmällä muodolla
+    ```
+    git -v
+    ```
+
+3. Asenna Visual Studio Code (tai vastaava ohjelmointieditori).
+4. Konfiguroi Git, ainakin käyttäjätiedot ja editori.
+5. Avaa GitHub-palveluun tili. Sitä tullaan käyttämään kurssilla myöhemmin.
 

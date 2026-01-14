@@ -58,16 +58,18 @@ Git:n näkökulmasta hakemistossa olevat tiedostot voivat Git-termein olla joko
 
 Git:n hallinnassa oleva työhakemiston tiedosto voi olla
 
-- _Unmodified_ - muuttumaton sama kuin talletettu uusin versio 
+- _Unmodified_ - muuttumaton, sama kuin talletettu uusin versio 
 - _Modified_ – muuttunut, erilainen kuin talletettu uusin versio
 - _Staged_ – merkitty otettavaksi seuraavaan talletukseen
 
 Oheinen kuva kuvaa eri tiloja ja niiden välisiä siirtymiä.
 
-1. Kun hakemistoon lisätään uusi tiedosto (_add the file_), se on `untracked`.
-2. Kun hakemiston jo Git-hallinnassa oleva tiedosto muuttuu (_edit the file_), sen tilaksi tulee `modified`.
-3. Uudet ja muuttuneet tiedostot voidaan merkitä otettavaksi seuraavaan talletukseen toiminnolla `add` (_stage the file_). Tällöin tiedostot ovat tilassa `staged`
-4. Kun talletus  (_commit_) tehdään, kaikki mukaan otettavaksi merkityt tiedostoversiot talletetaan, ja niiden tilaksi tulee `unmodified`.
+1. Alun perin uusi tiedosto on tilassa `untracked`
+2. Uusi tiedosto voidaan merkitä otettavaksi seuraavaan talletukseen voiminnolla `add` (_Add the file_), jolloin sen tilaksi tulee `staged`.
+3. Entuudestaan Git-hallinnassa oleva tiedosto on alun perin tilassa `unmodified`
+4. Kun hakemiston jo Git-hallinnassa oleva tiedosto muuttuu (_Edit the file_), sen tilaksi tulee `modified`.
+5. Muuttuneet (ja uudet) tiedostot voidaan merkitä otettavaksi seuraavaan talletukseen toiminnolla `add` (_Stage the file_). Tällöin tiedostot ovat tilassa `staged`
+6. Kun talletus (_commit_) tehdään, kaikki siihen mukaan otettavaksi merkityt tiedostoversiot talletetaan, ja niiden tilaksi tulee `unmodified`.
 
 ![](assets/git_file_states.png)
 
