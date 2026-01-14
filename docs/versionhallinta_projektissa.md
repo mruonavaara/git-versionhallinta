@@ -76,11 +76,13 @@ Kun muutokset ovat valmiita, ne voidaan viedä yhteiseen repositorioon
 ```bash
 $ git push origin master
 ```
-1. Tilanne komennon `fetch jälkeen`:
 
+1. Tilanne komennon `fetch jälkeen`:
+   
 ![](./assets/after_fetch.png)
 
 2. Tilanne komennon `merge` jälkeen:
+
 ![](./assets/after_merge.png)
 
 3. Tilanne komennon `push` jälkeen:
