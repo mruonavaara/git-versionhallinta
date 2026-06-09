@@ -10,7 +10,7 @@ Käytetyimmät palvelut ovat
 - Bitbucket ([https://bitbucket.org/](https://bitbucket.org/))
 - GitLab ([https://gitlab.com/](https://gitlab.com/))
 
-Palvelut tarjoavat Git-toiminnallisuuden ja talletustilan lisäksi mm.
+Palvelut tarjoavat Git-toiminnallisuuden ja tallennustilan lisäksi mm.
 
 - Projektin jäsenten käsittelyn (_collaborators_)
 - Vikaraportoinnin (_issue and bug tracking_)

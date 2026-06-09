@@ -13,6 +13,7 @@ nav:
     - versionhallinta_projektissa.md
     - yhdistamispyynnot.md
   - muita_toimintoja.md
+  - hosting_toimintoja.md
 theme:
   name: material
   language: fi
