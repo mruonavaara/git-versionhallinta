@@ -11,6 +11,8 @@
       
       
       
+        <link rel="prev" href="../muita_toimintoja/">
+      
       
       
         
@@ -21,7 +23,7 @@
     
     
       
-        <title>Git-versionhallinta -opintojakso - Git-versionhallinta</title>
+        <title>Hosting-palvelujen toimintoja - Git-versionhallinta</title>
       
     
     
@@ -64,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#git-versionhallinta-opintojakso" class="md-skip">
+        <a href="#hosting-palvelujen-toimintoja" class="md-skip">
           Hyppää sisältöön
         </a>
       
@@ -100,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Git-versionhallinta -opintojakso
+              Hosting-palvelujen toimintoja
             
           </span>
         </div>
@@ -585,10 +587,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../hosting_toimintoja/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hosting-palvelujen toimintoja
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -604,6 +633,156 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Sisällysluettelo">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sisällysluettelo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#verkkosivujen-julkaiseminen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verkkosivujen julkaiseminen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verkkosivujen julkaiseminen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#julkaistavan-sivuston-sisalto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Julkaistavan sivuston sisältö
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#julkaiseminen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Julkaiseminen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rajoituksia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rajoituksia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yhteistyo-ja-projektinhallinta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yhteistyö ja projektinhallinta
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Yhteistyö ja projektinhallinta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kayttajien-kutsuminen-repositorioon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Käyttäjien kutsuminen repositorioon
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tehtavien-hallinta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tehtävien hallinta
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#projektinhallinta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Projektinhallinta
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#komentorivikayttoliittyma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Komentorivikäyttöliittymä
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Komentorivikäyttöliittymä">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kaytto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Käyttö
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -625,39 +804,82 @@
 
 
 
-<h1 id="git-versionhallinta-opintojakso">Git-versionhallinta -opintojakso</h1>
-<p>Tällä opintojaksolla tutustut Git-versionhallintajärjestelmän ja GitHub-palvelun käyttämiseen sekä yksittäisen ohjelmoijan että tiimin näkökulmasta. </p>
-<h2 id="osaamistavoitteet">Osaamistavoitteet</h2>
-<p>Versionhallinta on yksi ohjelmistotyön keskeisiä työkaluja. Se mahdollistaa ohjelmiston aikaisempien versioiden palauttamisen, ohjelmiston useiden eri versioiden yhtäaikaisen kehittämisen ja useiden kehittäjien osallistumisen kehitykseen yhtaikaa. </p>
-<p>Opintojakson suoritettuaan opiskelija</p>
-<ul>
-<li>tuntee git-versionhallintajärjestelmän peruskäsitteet</li>
-<li>osaa käyttää git-versionhallintajärestelmän yleisimpiä toimintoja</li>
-<li>osaa käyttää git-hosting-palveluita</li>
-<li>osaa soveltaa versiohaaroja omassa ja tiiminsä kehitystyössä</li>
-</ul>
-<p>Sisältö</p>
-<ul>
-<li>Mitä on versionhallinta, mikä on git</li>
-<li>Käyttöönotto</li>
-<li>Peruskäyttö</li>
-<li>Etä-repositoryjen käyttö ja hosting-palvelut</li>
-<li>Haarat ja niiden käyttö projektissa</li>
-<li>Muita git-toimintoja</li>
-</ul>
-<h2 id="materiaali">Materiaali</h2>
-<p>Git-versionhallinnasta on paljon ohjeita, tutoriaaleja ja ohjevideoita saatavana verkossa. Kurssimateriaali perustuu pitkälti Scott Chaconin ja BenSTraubin kirjaan Pro Git (<em>Chacon, Straub. 2014. Pro Git, 2nd edition. Apress. Berkeley</em>). </p>
-<p>Kirja on vapaasti saatavana verkosta osoitteesta <a href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a>.</p>
-<h2 id="kurssilla-tarvittavat-tyokalut">Kurssilla tarvittavat työkalut</h2>
-<p>Git-ohjelmisto on oltava asennettuna jokaisella tietokoneella, jolla sitä halutaan käyttää. Voit ladata asennuspaketin osoitteesta <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
-<p>Kurssin tehtävien tekemiseen tarvitaan ohjelmointieditori. Editoriksi suositellaan Visual Studio Codea. Sen voit ladata osoitteesta <a href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a>. Voit halutessasi käyttää myös mitä tahansa muuta ohjelmoitieditoria.</p>
-<p>Kurssilla tehtävät tehtävät talletetaan GitHub-palveluun ja palautetaan sen kautta. Palvelun käyttämiseksi on luotava palveluun tili. Palvelun käyttäminen on maksutonta eikä rekisteröitymiseen tarvita maksutietoja. Voit rekisterityä GitHub palveluun osoitteessa <a href="https://code.visualstudio.com/download">https://github.com/</a>.</p>
-<h2 id="kurssin-kaytannot">Kurssin käytännöt</h2>
-<h3 id="tehtavat">Tehtävät</h3>
-<p>Versionhallintaa on vaikea ymmärtää ja oppia lukemalla. Tällä kurssilla oleellista onkin omakohtainen harjoittelu ja kokeilu. Materiaalissa esitettyjä komentoja kannattaakin aina kokeilla itse.</p>
-<p>Kaikki tehtävät tehdään Git-versionhallintaa käyttäen. Kurssin suoritukseen vaadittavat tehtävät on merkitty materiaaliin otsikolla <strong>Tehtävä</strong>. Tehtävät rakentuvat toisilleen, joten ne on tehtävä materiaalin mukaisessa järjestyksessä.</p>
-<h3 id="arviointi">Arviointi</h3>
-<p>Kurssin arviointi perustuu kurssin harjoitusten tekemisen kautta muodostuneeseen lopputuotokseen ja sen versiohistoriaan. Arvioitavat palautukset tehdään kurssin Moodle-työtilaan.</p>
+<h1 id="hosting-palvelujen-toimintoja">Hosting-palvelujen toimintoja</h1>
+<p>Git-hosting-palvelut tarjoavat monia toimintoja, jotka helpottavat ohjelmistokehitystä ja projektinhallintaa. </p>
+<p>Tässä osiossa käydään läpi joitakin toimintoja, joita voidaan käyttää esimerkiksi opintojaksojen oppimistehtävissä.</p>
+<p>Materiaalissa esitellään esimerkkinä GitHub-palvelun toimintoja, mutta muutkin hosting-palvelut (esim. GitLab, Bitbucket) tarjoavat vastaavat toiminnallisuudet.</p>
+<h2 id="verkkosivujen-julkaiseminen">Verkkosivujen julkaiseminen</h2>
+<p><strong>GitHub Pages</strong> on GitHubin tarjoama staattisten verkkosivujen julkaisemiseen tarkoitettu palvelu, joka mahdollistaa verkkosivujen julkaisemisen suoraan GitHub-repositoriosta. Se on erityisen suosittu projektisivustojen ja henkilökohtaisten blogien ja  portfolioiden luomiseen.</p>
+<div class="admonition info">
+<p class="admonition-title">Mikä on staattinen verkkosivu?</p>
+<p>Staattinen verkkosivu on sellainen, joka koostuu HTML-, CSS- ja JavaScript-tiedostoista, eikä se vaadi palvelinpuolen käsittelyä. Tämä tarkoittaa, että kaikki sivuston sisältö on valmiiksi luotuna ja tallennettuna, eikä se muutu dynaamisesti käyttäjän toiminnan perusteella.</p>
+</div>
+<h3 id="julkaistavan-sivuston-sisalto">Julkaistavan sivuston sisältö</h3>
+<p>Sivuston sisältö julkaistaan repositoriosta. Sisältö voi olla joko HTML-sivusto tai Markdown-dokumentteja. </p>
+<p>Voit määrittää haaran, josta sisältö julkaistaan. Sisältö voi olla joko repositorion juuressa tai alihakemistossa <code>docs</code>. Julkaistavan sivustan aloitussivun nimeksi pitää antaa <code>index.html</code>, <code>index.md</code> tai <code>README.md</code>. </p>
+<h3 id="julkaiseminen">Julkaiseminen</h3>
+<p>GitHub Pages -sivuston julkaiseminen tehdään GitHub-palvelun verkkokäyttöliittymässä seuraavasti:</p>
+<ol>
+<li>Siirry repositoryn asetuksiin (<em>Settings</em>). 
+<img alt="GitHub Pages -valinta" src="../assets/github_menu_settings.png" /></li>
+<li>Etsi <em>GitHub Pages</em> -osio ja valitse kohdata <em>Source</em> (lähde) haluamasi haara ja hakemisto, josta sisältö julkaistaan.
+<img alt="GitHub Pages -lähdevalinta" src="../assets/gh-pages_source.png" /></li>
+<li>Tallenna asetukset. GitHub luo automaattisesti verkkosivun repositoryn sisällöstä.</li>
+<li>Sivusto on jetken kuluttua saatavilla osoitteessa <code>https://&lt;käyttäjätunnus&gt;.github.io/&lt;repositorion-nimi&gt;/</code>.</li>
+</ol>
+<p>Voit muokata repositorion sisältöä, ja kun teet talletuksen haaraan,  muutokset päivittyvät automaattisesti verkkosivulle.</p>
+<h3 id="rajoituksia">Rajoituksia</h3>
+<p>GitHub Pages on tarkoitettu staattisten verkkosivujen julkaisemiseen, joten dynaamiset toiminnot, kuten tietokantayhteydet tai server-side-skriptit, eivät ole tuettuja. </p>
+<p>GitHub Pages on käytettävissä vain julkisille repositorioille, ellei sinulla ole maksullista GitHub-tiliä.</p>
+<p>GitHub Pages -sivustoja ei saa käyttää kaupalliseen liiketoimintaan.</p>
+<p>Lisäksi sivustoilla on teknisiä rajoituksia mm. sivuston koon ja liikennemäärän suhteen. Näistä saat lisätietoja GitHubin dokumentaatiosta https://docs.github.com/en/pages.</p>
+<h2 id="yhteistyo-ja-projektinhallinta">Yhteistyö ja projektinhallinta</h2>
+<h3 id="kayttajien-kutsuminen-repositorioon">Käyttäjien kutsuminen repositorioon</h3>
+<p>Yhteisten repositorioiden avulla voidaan kehittää projekteja muiden kehittäjien kanssa yhteistyössä. Repositorion omistaja voi kutsua muita käyttäjiä <strong>kollaboraattoreiksi</strong>. </p>
+<p>Kollaboraattorin kutsuminen tehdään GitHub-palvelun käyttöliittymässä seuraavasti:</p>
+<ol>
+<li>Siirry repositoryn asetuksiin (<em>Settings</em>). </li>
+<li>Etsi <em>Collaborators</em>-osio ja valitse <em>Add people</em> (lisää henkilöitä).</li>
+<li>Hae GitHub-käyttäjä joko GitHub-käyttäjänimen tai sähköpostiosoitteen perusteella.</li>
+<li>Kun painat <em>Add</em>, käyttäjä saa sähköpostitse kutsun liittyä repositorion kollaboraattoriksi. Käyttäjän on hyväksyttävä kutsu, ennen kuin hän saa oikeudet repositorioon.</li>
+</ol>
+<p>Kollaboraattorioikeuksin voi tehdä muutoksia repositorion sisältöön (talletukset, haarat, tagit, yhdistämispyynnöt yms.), mutta ei voi hallinnoida repositoriota (esim. muuttaa asetuksia tai kutsua kollaboraattoreita). </p>
+<h3 id="tehtavien-hallinta">Tehtävien hallinta</h3>
+<p><strong>GitHub Issues</strong> on työkalu vikailmoitusten tai muiden tehtävien hallintaan repositoriossa. Yksi tehtävä (<strong>issue</strong>) kuvaa yleensä yhden asian, joka pitää selvittää tai toteuttaa.</p>
+<p>Tehtävien hallintaa käytetään tyypillisesti näin:</p>
+<ol>
+<li>Avaa repositorio ja valitse <em>Issues</em>.</li>
+<li>Luo uusi tehtävä painikkeella <em>New issue</em>.</li>
+<li>Kirjoita selkeä otsikko ja kuvaus: mitä havaittiin, miten ongelma toistuu tai mitä halutaan toteuttaa.</li>
+<li>Lisää tarvittaessa vastuuhenkilö (<em>assignee</em>), kenelle tehtävä kohdistetaan.</li>
+</ol>
+<p>Tehtäviä voidaan tarkastella, niistä voidaan käydä kesksutelua, ja niiden etenemistä voidaan seurata sekä merkitä ne valmiiksi, kun asia on hoidettu (<em>Close issue</em>).</p>
+<h3 id="projektinhallinta">Projektinhallinta</h3>
+<p><strong>GitHub Projects</strong> on projektinhallintatyökalu, jolla tehtäviä ja yhdistämispyyntöjä voidaan koota yhteen näkymään ja seurata työn etenemistä.</p>
+<p>Projects-työkalua käytetään usein tauluna, jossa on sarakkeita kuten <em>To do</em>, <em>In progress</em> ja <em>Done</em>. Työkohteita siirretään sarakkeesta toiseen työn edetessä.</p>
+<p>Peruskäyttö etenee näin:</p>
+<ol>
+<li>Avaa repositorio ja valitse <em>Projects</em>.</li>
+<li>Luo uusi projekti (<em>New project</em>) ja valitse sopiva pohja (esim. <em>Board</em>).</li>
+<li>Lisää projektiin tehtäviä.</li>
+<li>Päivitä kohteiden tilaa siirtämällä niitä sarakkeiden välillä.</li>
+<li>Seuraa kokonaiskuvaa projektinäkymästä ja päivitä tehtäviä säännöllisesti.</li>
+</ol>
+<h2 id="komentorivikayttoliittyma">Komentorivikäyttöliittymä</h2>
+<p>Tässä materiaalissa GitHub-palvelun toimintoja (esim. repositorioiden luonti tai yhdistämispyyntöjen käsittely) tehdään web-käyttöliittymässä. </p>
+<p>GitHub tarjoaa myös komentorivikäyttöliittymän <strong>GitHub CLI</strong> (Command Line Interface), jolla toimintoja voidaan käyttää komentoriviltä, ilman selainta.</p>
+<h3 id="kaytto">Käyttö</h3>
+<p>Komentorivikäyttöliittymäohjelmisto pitää asentaa tietokoneelle. Asennusohjeet löytyvät GitHub CLI:n dokumentaatiosta https://docs.github.com/en/github-cli/github-cli/about-github-cli.</p>
+<p>Asennuksen jälkeen GitHub CLI -komentoja voidaan antaa komentorivillä. Komennot alkavat aina <code>gh</code>.</p>
+<p>Jotta komentoja voi antaa, on kirjauduttava GitHub-tilille komentorivillä:</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">  </span>gh<span class="w"> </span>auth<span class="w"> </span>login
+</span></code></pre></div>
+Komento avaa kirjautumissivun selaimessa. Kirjautuminen tarvitsee tehdä vain kerran. </p>
+<p>Joitakin yleisiä GitHub CLI -komentoja:
+- <code>gh repo create</code>: Luo uusi repositorio
+- <code>gh pr create</code>: Luo uusi yhdistämispyyntö (<em>pull request</em>)
+- <code>gh issue create</code>: Luo uusi ongelma</p>
+<p>Kaikki komennot ja niiden käyttöohjeet löytyvät GitHub CLI:n dokumentaatiosta https://cli.github.com/manual.</p>
 
 
 
@@ -682,6 +904,28 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Alatunniste" >
+        
+          
+          <a href="../muita_toimintoja/" class="md-footer__link md-footer__link--prev" aria-label="Edellinen: Muita Git-toimintoja">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Edellinen
+              </span>
+              <div class="md-ellipsis">
+                Muita Git-toimintoja
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
