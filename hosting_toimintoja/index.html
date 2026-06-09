@@ -806,7 +806,7 @@
 
 <h1 id="hosting-palvelujen-toimintoja">Hosting-palvelujen toimintoja</h1>
 <p>Git-hosting-palvelut tarjoavat monia toimintoja, jotka helpottavat ohjelmistokehitystä ja projektinhallintaa. </p>
-<p>Tässä osiossa käydään läpi joitakin toimintoja, joita voidaan käyttää esimerkiksi opintojaksojen oppimistehtävissä.</p>
+<p>Tässä osiossa käydään läpi joitakin toimintoja, joita voidaan hyödyntää esimerkiksi opintojaksojen oppimistehtävissä.</p>
 <p>Materiaalissa esitellään esimerkkinä GitHub-palvelun toimintoja, mutta muutkin hosting-palvelut (esim. GitLab, Bitbucket) tarjoavat vastaavat toiminnallisuudet.</p>
 <h2 id="verkkosivujen-julkaiseminen">Verkkosivujen julkaiseminen</h2>
 <p><strong>GitHub Pages</strong> on GitHubin tarjoama staattisten verkkosivujen julkaisemiseen tarkoitettu palvelu, joka mahdollistaa verkkosivujen julkaisemisen suoraan GitHub-repositoriosta. Se on erityisen suosittu projektisivustojen ja henkilökohtaisten blogien ja  portfolioiden luomiseen.</p>
@@ -816,24 +816,25 @@
 </div>
 <h3 id="julkaistavan-sivuston-sisalto">Julkaistavan sivuston sisältö</h3>
 <p>Sivuston sisältö julkaistaan repositoriosta. Sisältö voi olla joko HTML-sivusto tai Markdown-dokumentteja. </p>
-<p>Voit määrittää haaran, josta sisältö julkaistaan. Sisältö voi olla joko repositorion juuressa tai alihakemistossa <code>docs</code>. Julkaistavan sivustan aloitussivun nimeksi pitää antaa <code>index.html</code>, <code>index.md</code> tai <code>README.md</code>. </p>
+<p>Voit määrittää haaran, josta sisältö julkaistaan. Sisältö voi olla joko repositorion juuressa tai alihakemistossa <code>docs</code>. Julkaistavan sivuston aloitussivun nimeksi pitää antaa <code>index.html</code>, <code>index.md</code> tai <code>README.md</code>. </p>
 <h3 id="julkaiseminen">Julkaiseminen</h3>
 <p>GitHub Pages -sivuston julkaiseminen tehdään GitHub-palvelun verkkokäyttöliittymässä seuraavasti:</p>
 <ol>
 <li>Siirry repositoryn asetuksiin (<em>Settings</em>). 
 <img alt="GitHub Pages -valinta" src="../assets/github_menu_settings.png" /></li>
-<li>Etsi <em>GitHub Pages</em> -osio ja valitse kohdata <em>Source</em> (lähde) haluamasi haara ja hakemisto, josta sisältö julkaistaan.
+<li>Etsi <em>GitHub Pages</em> -osio ja valitse kohdasta <em>Source</em> (lähde) haluamasi haara ja hakemisto, josta sisältö julkaistaan.
 <img alt="GitHub Pages -lähdevalinta" src="../assets/gh-pages_source.png" /></li>
-<li>Tallenna asetukset. GitHub luo automaattisesti verkkosivun repositoryn sisällöstä.</li>
-<li>Sivusto on jetken kuluttua saatavilla osoitteessa <code>https://&lt;käyttäjätunnus&gt;.github.io/&lt;repositorion-nimi&gt;/</code>.</li>
+<li>Tallenna asetukset. GitHub luo automaattisesti verkkosivuston repositorion sisällöstä.</li>
+<li>Sivusto on hetken kuluttua saatavilla osoitteessa <code>https://&lt;käyttäjätunnus&gt;.github.io/&lt;repositorion-nimi&gt;/</code>.</li>
 </ol>
 <p>Voit muokata repositorion sisältöä, ja kun teet talletuksen haaraan,  muutokset päivittyvät automaattisesti verkkosivulle.</p>
 <h3 id="rajoituksia">Rajoituksia</h3>
 <p>GitHub Pages on tarkoitettu staattisten verkkosivujen julkaisemiseen, joten dynaamiset toiminnot, kuten tietokantayhteydet tai server-side-skriptit, eivät ole tuettuja. </p>
 <p>GitHub Pages on käytettävissä vain julkisille repositorioille, ellei sinulla ole maksullista GitHub-tiliä.</p>
 <p>GitHub Pages -sivustoja ei saa käyttää kaupalliseen liiketoimintaan.</p>
-<p>Lisäksi sivustoilla on teknisiä rajoituksia mm. sivuston koon ja liikennemäärän suhteen. Näistä saat lisätietoja GitHubin dokumentaatiosta https://docs.github.com/en/pages.</p>
+<p>Lisäksi sivustoilla on teknisiä rajoituksia mm. sivuston koon ja liikennemäärän suhteen. Näistä saat lisätietoja GitHub Pages -palvelun dokumentaatiosta <a href="https://docs.github.com/en/pages">https://docs.github.com/en/pages</a>.</p>
 <h2 id="yhteistyo-ja-projektinhallinta">Yhteistyö ja projektinhallinta</h2>
+<p>Tässä osiossa esitellään ominaisuuksia, jotka helpottavat yhteistyötä ja projektinhallintaa GitHub-palvelussa.</p>
 <h3 id="kayttajien-kutsuminen-repositorioon">Käyttäjien kutsuminen repositorioon</h3>
 <p>Yhteisten repositorioiden avulla voidaan kehittää projekteja muiden kehittäjien kanssa yhteistyössä. Repositorion omistaja voi kutsua muita käyttäjiä <strong>kollaboraattoreiksi</strong>. </p>
 <p>Kollaboraattorin kutsuminen tehdään GitHub-palvelun käyttöliittymässä seuraavasti:</p>
@@ -869,7 +870,7 @@
 <p>Tässä materiaalissa GitHub-palvelun toimintoja (esim. repositorioiden luonti tai yhdistämispyyntöjen käsittely) tehdään web-käyttöliittymässä. </p>
 <p>GitHub tarjoaa myös komentorivikäyttöliittymän <strong>GitHub CLI</strong> (Command Line Interface), jolla toimintoja voidaan käyttää komentoriviltä, ilman selainta.</p>
 <h3 id="kaytto">Käyttö</h3>
-<p>Komentorivikäyttöliittymäohjelmisto pitää asentaa tietokoneelle. Asennusohjeet löytyvät GitHub CLI:n dokumentaatiosta https://docs.github.com/en/github-cli/github-cli/about-github-cli.</p>
+<p>Komentorivikäyttöliittymäohjelmisto pitää asentaa tietokoneelle. Asennusohjeet löytyvät GitHub CLI:n dokumentaatiosta <a href="https://docs.github.com/en/github-cli/github-cli/about-github-cli">https://docs.github.com/en/github-cli/github-cli/about-github-cli</a>.</p>
 <p>Asennuksen jälkeen GitHub CLI -komentoja voidaan antaa komentorivillä. Komennot alkavat aina <code>gh</code>.</p>
 <p>Jotta komentoja voi antaa, on kirjauduttava GitHub-tilille komentorivillä:</p>
 <p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">  </span>gh<span class="w"> </span>auth<span class="w"> </span>login
@@ -879,7 +880,7 @@ Komento avaa kirjautumissivun selaimessa. Kirjautuminen tarvitsee tehdä vain ke
 - <code>gh repo create</code>: Luo uusi repositorio
 - <code>gh pr create</code>: Luo uusi yhdistämispyyntö (<em>pull request</em>)
 - <code>gh issue create</code>: Luo uusi ongelma</p>
-<p>Kaikki komennot ja niiden käyttöohjeet löytyvät GitHub CLI:n dokumentaatiosta https://cli.github.com/manual.</p>
+<p>Kaikki komennot ja niiden käyttöohjeet löytyvät GitHub CLI:n dokumentaatiosta <a href="https://cli.github.com/manual">https://cli.github.com/manual</a>.</p>
 
 
 
