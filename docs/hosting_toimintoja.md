@@ -2,7 +2,7 @@
 
 Git-hosting-palvelut tarjoavat monia toimintoja, jotka helpottavat ohjelmistokehitystä ja projektinhallintaa. 
 
-Tässä osiossa käydään läpi joitakin toimintoja, joita voidaan käyttää esimerkiksi opintojaksojen oppimistehtävissä.
+Tässä osiossa käydään läpi joitakin toimintoja, joita voidaan hyödyntää esimerkiksi opintojaksojen oppimistehtävissä.
 
 Materiaalissa esitellään esimerkkinä GitHub-palvelun toimintoja, mutta muutkin hosting-palvelut (esim. GitLab, Bitbucket) tarjoavat vastaavat toiminnallisuudet.
 
@@ -18,7 +18,7 @@ __GitHub Pages__ on GitHubin tarjoama staattisten verkkosivujen julkaisemiseen t
 
 Sivuston sisältö julkaistaan repositoriosta. Sisältö voi olla joko HTML-sivusto tai Markdown-dokumentteja. 
 
-Voit määrittää haaran, josta sisältö julkaistaan. Sisältö voi olla joko repositorion juuressa tai alihakemistossa `docs`. Julkaistavan sivustan aloitussivun nimeksi pitää antaa `index.html`, `index.md` tai `README.md`. 
+Voit määrittää haaran, josta sisältö julkaistaan. Sisältö voi olla joko repositorion juuressa tai alihakemistossa `docs`. Julkaistavan sivuston aloitussivun nimeksi pitää antaa `index.html`, `index.md` tai `README.md`. 
 
 ### Julkaiseminen
 
@@ -26,10 +26,10 @@ GitHub Pages -sivuston julkaiseminen tehdään GitHub-palvelun verkkokäyttölii
 
 1. Siirry repositoryn asetuksiin (_Settings_). 
 ![GitHub Pages -valinta](./assets/github_menu_settings.png)
-2. Etsi _GitHub Pages_ -osio ja valitse kohdata _Source_ (lähde) haluamasi haara ja hakemisto, josta sisältö julkaistaan.
+2. Etsi _GitHub Pages_ -osio ja valitse kohdasta _Source_ (lähde) haluamasi haara ja hakemisto, josta sisältö julkaistaan.
 ![GitHub Pages -lähdevalinta](./assets/gh-pages_source.png)
-3. Tallenna asetukset. GitHub luo automaattisesti verkkosivun repositoryn sisällöstä.
-4. Sivusto on jetken kuluttua saatavilla osoitteessa `https://<käyttäjätunnus>.github.io/<repositorion-nimi>/`.
+3. Tallenna asetukset. GitHub luo automaattisesti verkkosivuston repositorion sisällöstä.
+4. Sivusto on hetken kuluttua saatavilla osoitteessa `https://<käyttäjätunnus>.github.io/<repositorion-nimi>/`.
 
 Voit muokata repositorion sisältöä, ja kun teet talletuksen haaraan,  muutokset päivittyvät automaattisesti verkkosivulle.
 
@@ -41,9 +41,11 @@ GitHub Pages on käytettävissä vain julkisille repositorioille, ellei sinulla 
 
 GitHub Pages -sivustoja ei saa käyttää kaupalliseen liiketoimintaan.
 
-Lisäksi sivustoilla on teknisiä rajoituksia mm. sivuston koon ja liikennemäärän suhteen. Näistä saat lisätietoja GitHubin dokumentaatiosta https://docs.github.com/en/pages.
+Lisäksi sivustoilla on teknisiä rajoituksia mm. sivuston koon ja liikennemäärän suhteen. Näistä saat lisätietoja GitHub Pages -palvelun dokumentaatiosta https://docs.github.com/en/pages.
 
 ## Yhteistyö ja projektinhallinta
+
+Tässä osiossa esitellään ominaisuuksia, jotka helpottavat yhteistyötä ja projektinhallintaa GitHub-palvelussa.
 
 ### Käyttäjien kutsuminen repositorioon
 
