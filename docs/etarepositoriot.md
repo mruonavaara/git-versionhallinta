@@ -35,7 +35,7 @@ Voit määritellä etärepositorioita komennolla `remote add`:
 git remote add origin https://github.com/user/repository.git
 ```
 
-- `origin` of etärepositoriolle annettu nimi
+- `origin` on etärepositoriolle annettu nimi
 - `https://github.com/user/repository.git` on sen osoite.
 
 Koska `origin` on etärepositorion oletusnimi, sitä käytetään useimmiten. Se on kuitenkin vain nimi, ei varattu sana. 
