@@ -59,24 +59,25 @@ Viedään projekti GitHub-palveluun.
 2. Konfiguroi uusi repositorio paikallisen repositoriosi etärepositorioksi nimelle `origin`. 
      - Voit tarkistaa etärepositorioasetukset komennolla `git remote -v`.
 
-3. Puske paikallisen repositorion `master`-haara GitHubiin. 
+3. Puske paikallisen repositorion `master`-haara GitHubiin. Mitä GitHub-repositoriosivulla nyt näkyy? Mitä haaroja näet GitHubissa, entä paikallisessa repositoriossasi?
 
-4. Mitä GitHub-repositoriosivulla nyt näkyy? Mitä haaroja näet GitHubissa, entä paikallisessa repositoriossasi?
+8. Tee paikalliseen repositorioon ominaisuushaara `new-feat`, siirry haaraan, tee siihen uusi tiedosto ja talleta muutos. 
 
-5. GitHub-palvelun web-käyttöliittymässä voi myös tehdä muutoksia repositorioon. Luo GitHubin käyttöliittymässä jokin uusi tiedosto ja talleta muutos.
+9. Uusi haara on nyt vain paikallisessa repositoriossasi. Näet paikalliset haarat komennolla `git branch`. Vie uusi haara etärepositorioon ja tarkista GitHub-palvelun web-käyttöliittymästä, että uusi haara on nyt sielläkin.
 
-6. Etärepositoriossa on nyt eri sisältö kuin paikallisessa repositoriossasi. Hae muutokset paikalliseen repositorioon ja mene katsomaan niitä:
+11. Web-käyttöliittymässä voi myös tehdä muutoksia repositorioon. Luo GitHubin käyttöliittymässä ominaisuushaaraan uusi tiedosto ja talleta muutos.
+
+11. Etärepositoriossa on nyt eri sisältö kuin paikallisessa repositoriossasi. Anna komento `git status`. Tee sitten `git fetch` ja anna komento `git status` uudelleen. Mikä muuttui?
+ 
+13. Fetch hakee muutokset, mutta ei yhdistä niitä. Voit mennä paikallisessa repositoriossasi katsomaan etärepositoriosta haettuja muutoksia:
 ```bash
-git fetch     # muutokset haetaan muttei yhdistetä
-git checkout origin/master 
+git checkout origin/new-feat 
 ```
-    Mikä muuttui?
+14.  Palaa paikalliseen `new-feat`-haaraan ja yhdistä `origin/new-feat`-haaran muutokset paikalliseen `new-feat`-haaraan. Mitä komento `status` nyt sanoo?
 
-1. Palaa `master`-haaraan. Mitä komento `status` sanoo?
+15. Yhdistä lopuksi `new-feat` `master`-haaraan ja vie muutokset etärepositorioon. 
 
-2. Yhdistä `origin/master`-haaran muutokset. Mitä komento `status` nyt sanoo?
-
-10. Kun olet saanut tehtävän valmiiksi, lisää viimeisimpään talletukseen tunniste `harjoitus5` antamalla komento
+16. Kun olet saanut tehtävän valmiiksi, lisää viimeisimpään talletukseen tunniste `harjoitus5` antamalla komento
 
     ```
     git tag harjoitus5
