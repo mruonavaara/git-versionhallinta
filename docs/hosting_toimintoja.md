@@ -25,11 +25,12 @@ Voit määrittää haaran, josta sisältö julkaistaan. Sisältö voi olla joko 
 GitHub Pages -sivuston julkaiseminen tehdään GitHub-palvelun verkkokäyttöliittymässä seuraavasti:
 
 1. Siirry repositoryn asetuksiin (_Settings_). 
-![GitHub Pages -valinta](./assets/github_menu_settings.png)
-2. Etsi _GitHub Pages_ -osio ja valitse kohdasta _Source_ (lähde) haluamasi haara ja hakemisto, josta sisältö julkaistaan.
+![GitHub-repositorion Settings-valinta](./assets/github_menu_settings.png)
+2. Etsi valikosta _Pages_ -osio ja valitse kohdasta _Source_ (lähde) haluamasi haara ja hakemisto, josta sisältö julkaistaan.
+![GitHub Pages -valinta](./assets/github_settings_menu_pages.png)
 ![GitHub Pages -lähdevalinta](./assets/gh-pages_source.png)
-3. Tallenna asetukset. GitHub luo automaattisesti verkkosivuston repositorion sisällöstä.
-4. Sivusto on hetken kuluttua saatavilla osoitteessa `https://<käyttäjätunnus>.github.io/<repositorion-nimi>/`.
+1. Tallenna asetukset. GitHub luo automaattisesti verkkosivuston repositorion sisällöstä.
+2. Sivusto on hetken kuluttua saatavilla osoitteessa `https://<käyttäjätunnus>.github.io/<repositorion-nimi>/`.
 
 Voit muokata repositorion sisältöä, ja kun teet talletuksen haaraan,  muutokset päivittyvät automaattisesti verkkosivulle.
 
