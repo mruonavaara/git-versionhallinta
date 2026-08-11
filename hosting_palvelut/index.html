@@ -759,26 +759,30 @@ Tilille voi perustaa useita repositorioita (projekteja).</p>
 </ul>
 </li>
 <li>
-<p>Puske paikallisen repositorion <code>master</code>-haara GitHubiin. </p>
+<p>Puske paikallisen repositorion <code>master</code>-haara GitHubiin. Mitä GitHub-repositoriosivulla nyt näkyy? Mitä haaroja näet GitHubissa, entä paikallisessa repositoriossasi?</p>
 </li>
 <li>
-<p>Mitä GitHub-repositoriosivulla nyt näkyy? Mitä haaroja näet GitHubissa, entä paikallisessa repositoriossasi?</p>
+<p>Tee paikalliseen repositorioon ominaisuushaara <code>new-feat</code>, siirry haaraan, tee siihen uusi tiedosto ja talleta muutos. </p>
 </li>
 <li>
-<p>GitHub-palvelun web-käyttöliittymässä voi myös tehdä muutoksia repositorioon. Luo GitHubin käyttöliittymässä jokin uusi tiedosto ja talleta muutos.</p>
+<p>Uusi haara on nyt vain paikallisessa repositoriossasi. Näet paikalliset haarat komennolla <code>git branch</code>. Vie uusi haara etärepositorioon ja tarkista GitHub-palvelun web-käyttöliittymästä, että uusi haara on nyt sielläkin.</p>
 </li>
 <li>
-<p>Etärepositoriossa on nyt eri sisältö kuin paikallisessa repositoriossasi. Hae muutokset paikalliseen repositorioon ja mene katsomaan niitä:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>fetch<span class="w">     </span><span class="c1"># muutokset haetaan muttei yhdistetä</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>origin/master<span class="w"> </span>
-</span></code></pre></div>
-    Mikä muuttui?</p>
+<p>Web-käyttöliittymässä voi myös tehdä muutoksia repositorioon. Luo GitHubin käyttöliittymässä ominaisuushaaraan uusi tiedosto ja talleta muutos.</p>
 </li>
 <li>
-<p>Palaa <code>master</code>-haaraan. Mitä komento <code>status</code> sanoo?</p>
+<p>Etärepositoriossa on nyt eri sisältö kuin paikallisessa repositoriossasi. Anna komento <code>git status</code>. Tee sitten <code>git fetch</code> ja anna komento <code>git status</code> uudelleen. Mikä muuttui?</p>
 </li>
 <li>
-<p>Yhdistä <code>origin/master</code>-haaran muutokset. Mitä komento <code>status</code> nyt sanoo?</p>
+<p>Fetch hakee muutokset, mutta ei yhdistä niitä. Voit mennä paikallisessa repositoriossasi katsomaan etärepositoriosta haettuja muutoksia:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>origin/new-feat<span class="w"> </span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Palaa paikalliseen <code>new-feat</code>-haaraan ja yhdistä <code>origin/new-feat</code>-haaran muutokset paikalliseen <code>new-feat</code>-haaraan. Mitä komento <code>status</code> nyt sanoo?</p>
+</li>
+<li>
+<p>Yhdistä lopuksi <code>new-feat</code> <code>master</code>-haaraan ja vie muutokset etärepositorioon. </p>
 </li>
 <li>
 <p>Kun olet saanut tehtävän valmiiksi, lisää viimeisimpään talletukseen tunniste <code>harjoitus5</code> antamalla komento</p>
