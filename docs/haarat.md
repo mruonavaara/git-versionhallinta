@@ -211,7 +211,6 @@ $ git commit
 ```
 ![](./assets/merge_conflict_example_solved.png)
 
-
 ## Haarautumisen käyttötapoja
 
 Haarautumista voit käyttää, kun haluat pitää uuden kehityksen erillään kehityksen, jotta et sotkisi toimivaa versiota  keskeneräisillä, toimimattomilla tai epäyhteensopivilla commiteilla, esim.
@@ -308,6 +307,28 @@ Myös voidaan toimia niin, että toimitettaville versioille (_release_) on omat 
 Tällöin väliaikaiset haarat yhdistetään ensin kehityshaaraan, ja kehityshaarasta yhdistetään release-haaraan vain valmiit testatut ja viimeistellyt toimitettavat versiot.
 
 Tilanteeseen sopivinta haaroittamiskäytäntöä kannattaa miettiä projektin alussa hetki, vaikka olisit tekemässä projektia yksinkin. Yksittäinen kehittäjäkin voi tehostaa työtään hyödyntämällä haarautumista.
+
+## Haarojen poistaminen
+
+Haara voi käydä tarpeettomaksi esimerkiksi silloin, kun omassa haarassaan kehitetty ominaisuus on valmis ja sen muutokset on yhdistetty päähaaraan. Tällöin sitä ei enää tarvitse pitää yllä ja se voidaan poistaa. Tarpeettomien haarojen poistaminen pitää repositorion siistinä ja helpottaa repositoriossa työskentelyä.
+
+Haaran voi poistaa komennolla 
+
+```bash
+git branch -d <haara>
+```
+
+Git varmistaa, että haara on jo yhdistetty ja poistaminen on turvallista. 
+
+Jos haluat pakottaa haaran poiston, vaikka siitä olisi vielä tekemättömiä muutoksia, voit käyttää komentoa `git branch -D <haara>`. 
+
+!!! tip "Poistetun haaran palauttaminen"
+    Haarojen poistaminen kuulostaa paljon vakavammalta kuin se onkaan. Haarahan on vain viittaus johonkin talletukseen, jos sen poistaa, häviää tieto haarasta mutta talletukset ovat yhä olemassa. 
+    
+    Talletusten löytäminen on voi olla hankalampiaa, mutta graafisilla työkaluilla sekin on varsin helppoa. Voit palauttaa poistetun haaran, kun olet löytänyt sen viimeisen talletuksen, komennolla
+    ```bash
+    git branch <haaran nimi> <talletuksen hash>
+    ```
 
 ## Harjoitus 4
 
