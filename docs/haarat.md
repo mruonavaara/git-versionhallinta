@@ -223,9 +223,9 @@ Haaroittamisstrategioita on useita. Yksi yleinen ja yksinkertainen strategia on,
 
 ### Toiminnallisuus omaan haaraan (_feature branch_)
 
-Ota lähtökohdaksi päähaarasi (tässä master) tuorein commit
+Ota lähtökohdaksi kehityshaarasi (tässä master) tuorein commit
 ```bash
-git checkout master 		# vaihda master-haaraan
+git switch master 		# vaihda master-haaraan
 ```
 
 Luo uudelle ominaisuudelle haara (git branch) ja vaihda siihen haaraan  (git switch). Tähän on pikakomento:

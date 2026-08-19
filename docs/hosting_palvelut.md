@@ -71,7 +71,7 @@ Viedään projekti GitHub-palveluun.
  
 13. Fetch hakee muutokset, mutta ei yhdistä niitä. Voit mennä paikallisessa repositoriossasi katsomaan etärepositoriosta haettuja muutoksia:
 ```bash
-git checkout origin/new-feat 
+git switch origin/new-feat 
 ```
 14.  Palaa paikalliseen `new-feat`-haaraan ja yhdistä `origin/new-feat`-haaran muutokset paikalliseen `new-feat`-haaraan. Mitä komento `status` nyt sanoo?
 

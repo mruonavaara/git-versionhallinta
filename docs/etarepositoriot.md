@@ -82,10 +82,10 @@ Etärepositorion haarat löytyvät etärepositorion nimen alta, esim. `origin/ma
 git branch -r
 ```
 
-Voit tutkia etärepositoriosta ladattua sisältöä tavallisella `checkout`-komennolla (ja `git log` yms.) ja halutessasi yhdistää paikalliseen sisältöön tavallisella `merge`-komennolla.
+Voit tutkia etärepositoriosta ladattua sisältöä tavallisella `switch`-komennolla (ja `git log` yms.) ja halutessasi yhdistää paikalliseen sisältöön tavallisella `merge`-komennolla.
 
 ```bash
-git checkout master
+git switch master
 git merge origin/master
 ```
 
