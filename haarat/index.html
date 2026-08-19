@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.1">
     
     
       
@@ -1004,8 +1004,8 @@ Toiminto merge tekee uuden talletuksen, jossa on yhdistetty molempien haarojen m
 </ul>
 <p>Haaroittamisstrategioita on useita. Yksi yleinen ja yksinkertainen strategia on, että kaikki uudet ominaisuudet kehitetään omissa haaroissaan, ja ne yhdistetään päähaaraan vasta, kun ne ovat valmiita ja toimivia (<em>feature branch workflow</em>).</p>
 <h3 id="toiminnallisuus-omaan-haaraan-feature-branch">Toiminnallisuus omaan haaraan (<em>feature branch</em>)</h3>
-<p>Ota lähtökohdaksi päähaarasi (tässä master) tuorein commit
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>master<span class="w">         </span><span class="c1"># vaihda master-haaraan</span>
+<p>Ota lähtökohdaksi kehityshaarasi (tässä master) tuorein commit
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>switch<span class="w"> </span>master<span class="w">       </span><span class="c1"># vaihda master-haaraan</span>
 </span></code></pre></div></p>
 <p>Luo uudelle ominaisuudelle haara (git branch) ja vaihda siihen haaraan  (git switch). Tähän on pikakomento:
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>switch<span class="w"> </span>–c<span class="w"> </span>feat123<span class="w">       </span><span class="c1"># luo haaran ja vaihtaa siihen </span>
