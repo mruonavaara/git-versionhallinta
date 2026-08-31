@@ -1,6 +1,6 @@
 site_name: Git-versionhallinta
 site_author: Markku Ruonavaara
-copyright: Markku Ruonavaara 2024
+copyright: Markku Ruonavaara 2024-2026
 nav:
   - johdanto.md
   - 'Paikallinen Git':
@@ -15,14 +15,32 @@ nav:
   - muita_toimintoja.md
   - hosting_toimintoja.md
 theme:
-  name: material
+  name: materialx
   language: fi
+  palette: 
+  # Palette toggle for light mode
+  - scheme: default
+    primary: indigo
+    accent: indigo
+    toggle:
+      icon: material/brightness-7 
+      name: Switch to dark mode
+  # Palette toggle for dark mode
+  - scheme: slate
+    primary: cyan
+    accent: cyan
+    toggle:
+      icon: material/brightness-4
+      name: Switch to light mode
   features:
     - content.code.copy
     - content.code.select
     - toc.integrate
-    - navigation.footer
     - navigation.expand
+    - navigation.footer
+    - navigation.tabs
+    - navi
+    # - navigation.tabs.sticky
 extra_css:
   - stylesheets/extra.css
 markdown_extensions:
