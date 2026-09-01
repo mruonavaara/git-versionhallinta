@@ -334,6 +334,8 @@ Jos haluat pakottaa haaran poiston, vaikka siitä olisi vielä tekemättömiä m
 
 Harjoitellaan ominaisuushaarojen (_feature branch_) käyttöä kehityksessä.
 
+<div class="steps" markdown>
+
 1. Hello-ohjelmamme on vielä kovin riisuttu. Lisätään siihen HTML-sivun perusrakenne:
 ```html
 <!DOCTYPE html>
@@ -392,4 +394,4 @@ Testaa selaimessa, että sivun tyylit toimivat.
     ```
     git tag harjoitus4
     ```
-
+</div>

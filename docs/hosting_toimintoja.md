@@ -4,7 +4,7 @@ Git-hosting-palvelut tarjoavat monia toimintoja, jotka helpottavat ohjelmistokeh
 
 Tässä osiossa käydään läpi joitakin toimintoja, joita voidaan hyödyntää esimerkiksi opintojaksojen oppimistehtävissä.
 
-Materiaalissa esitellään esimerkkinä GitHub-palvelun toimintoja, mutta muutkin hosting-palvelut (esim. GitLab, Bitbucket) tarjoavat vastaavat toiminnallisuudet.
+Materiaalissa esitellään esimerkkinä GitHub-palvelun toimintoja, mutta muutkin hosting-palvelut (esim. GitLab, Bitbucket) tarjoavat vastaavia toiminnallisuuksia.
 
 ## Verkkosivujen julkaiseminen
 
@@ -108,6 +108,7 @@ Jotta komentoja voi antaa, on kirjauduttava GitHub-tilille komentorivillä:
 Komento avaa kirjautumissivun selaimessa. Kirjautuminen tarvitsee tehdä vain kerran. 
 
 Joitakin yleisiä GitHub CLI -komentoja:
+
 - `gh repo create`: Luo uusi repositorio
 - `gh pr create`: Luo uusi yhdistämispyyntö (_pull request_)
 - `gh issue create`: Luo uusi ongelma

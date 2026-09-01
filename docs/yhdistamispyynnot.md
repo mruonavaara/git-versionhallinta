@@ -156,6 +156,8 @@ Git-palvelut tukevat monipuolisesti erilaisten käyttöoikeuksien myöntämistä
 
 Harjoitellaan yhdistämispyyntöjen tekemistä, käsittelyä ja hyväksymistä. Normaalisti  työnkulkuun osallistuisi muitakin, mutta nyt saat näytellä kaikki roolit itse.
 
+<div class="steps" markdown>
+
 1. Tee harjoituksen 6 repositorioon yhdistämispyyntö:
 
       1. Luo uusi ominaisuushaara paikalliseen repositorioosi muutoksia varten
@@ -172,6 +174,7 @@ Harjoitellaan yhdistämispyyntöjen tekemistä, käsittelyä ja hyväksymistä. 
     ```
     git tag harjoitus7
     ```
+</div>
 
 Lopputuloksena 
 

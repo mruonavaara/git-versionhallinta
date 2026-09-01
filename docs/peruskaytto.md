@@ -193,6 +193,8 @@ Harjoitellaan perustoimintoja.
 
 Tarkista repositorion tilanne joka välissä komennolla `status`. Muista laatia talletuksillesi kuvaava kommenttiviesti!
 
+<div class="steps" markdown>
+
 1. Tee koneellesi kurssin harjoituksia varten hakemisto ja perusta sinne Git-repositorio.
 2. Tee repositorioon tiedosto (esim. `test.txt`) ja kirjoita tiedostoon jotain. Talleta tiedosto Git-hallintaan. 
 4. Tee repositorioon tiedosto `hello.html`. Tiedoston sisältö voi olla esim.
@@ -220,6 +222,7 @@ Tarkista repositorion tilanne joka välissä komennolla `status`. Muista laatia 
     ```
     git tag harjoitus2
     ```
+</div>
 
 ## Paluu menneisyyteen
 
@@ -387,6 +390,8 @@ Muista, että __kaikki, mikä on versionhallintaan talletettu, on palautettaviss
 
 Harjoitellaan peruuttelua.
 
+<div class="steps" markdown>
+
 1. Tee repositorioosi useita muutoksia: muuta talletettuja tiedostoja ja lisää uusia tiedostoja.  Älä talleta!
 
 2. Kokeile `add`-toiminnon peruuttamista. 
@@ -410,3 +415,4 @@ Harjoitellaan peruuttelua.
     ```
     git tag harjoitus3
     ```
+</div>

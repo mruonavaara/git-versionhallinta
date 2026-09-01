@@ -51,6 +51,8 @@ Markdownia käytetään usein projektien dokumentointiin, sillä siten saadaan d
 
 Viedään projekti GitHub-palveluun.
 
+<div class="steps" markdown>
+
 1. Lisää GitHubiin tyhjä repositorio. 
     - Älä anna GitHubin tehdä sinne mitään, ei edes README-tiedostoa!. 
     
@@ -82,6 +84,8 @@ git switch origin/new-feat
     ```
     git tag harjoitus5
     ```
+
+</div>
 
 Vinkkejä:
 

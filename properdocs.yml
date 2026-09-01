@@ -17,6 +17,7 @@ nav:
 theme:
   name: materialx
   language: fi
+  # topbar_style: primary
   palette: 
   # Palette toggle for light mode
   - scheme: default
@@ -39,7 +40,6 @@ theme:
     - navigation.expand
     - navigation.footer
     - navigation.tabs
-    - navi
     # - navigation.tabs.sticky
 extra_css:
   - stylesheets/extra.css
@@ -47,6 +47,7 @@ markdown_extensions:
   - toc:
       title: Sisällysluettelo
   - admonition
+  - md_in_html
   - pymdownx.superfences
   - pymdownx.details
   - pymdownx.highlight:

@@ -174,6 +174,8 @@ Projektissa seuraavaksi lisätään sovellukseen toiminta, jolla käyttäjälle 
 
     Virtuaalinen tiimikaverisi olettaa, että Hello-sivusto on repositorion juurihakemistossa ja html-tiedoston nimi on `index.html`. Jos olet tehnyt sivuston alihakemistoon, siirrä se tehtävää varten repositorion juureen.
 
+<div class="steps" markdown>
+
 1. Versionhallintakäytännön mukaisesti siirry haaraan `develop`. Sitä ei vielä ole, joten se pitää luoda.
 
     ``` { .bash .no-copy }
@@ -242,6 +244,9 @@ Projektissa seuraavaksi lisätään sovellukseen toiminta, jolla käyttäjälle 
     ```
     git tag harjoitus6
     ```
+
+</div>
+
 Lopputulos näyttää jokseenkin tämänkaltaiselta:
 
 ![](./assets/hei_maailma_lopputulos.png)
