@@ -41,6 +41,47 @@ theme:
     - navigation.footer
     - navigation.tabs
     # - navigation.tabs.sticky
+plugins:
+  - i18n:
+      docs_structure: folder
+      languages:
+        - locale: fi
+          default: true
+          name: Suomi
+          build: true
+          theme:
+            name: materialx
+            language: en
+        - locale: en
+          name: English
+          build: true
+          site_name: Git version control
+          nav:
+            - introduction.md
+            - 'Local Git':
+              - basic_use.md
+              - haarat.md
+            - 'Distributed Git':
+              - etarepositoriot.md
+              - hosting_palvelut.md
+            - 'Git in project':
+              - versionhallinta_projektissa.md
+              - yhdistamispyynnot.md
+            - muita_toimintoja.md
+            - hosting_toimintoja.md
+          theme:
+            name: materialx
+            language: en
+      reconfigure_material: true
+      reconfigure_search: true
+extra:
+  alternate:
+    - name: Suomi
+      link: / 
+      lang: fi
+    - name: English
+      link: /en/
+      lang: en
 extra_css:
   - stylesheets/extra.css
 markdown_extensions:

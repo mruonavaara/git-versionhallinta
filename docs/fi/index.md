@@ -15,11 +15,13 @@ Opintojakson suoritettuaan opiskelija
 
 Sisältö
 
-- Mitä on versionhallinta, mikä on git
+- Mitä on versionhallinta, mikä on Git
 - Käyttöönotto
 - Peruskäyttö
 - Etä-repositoryjen käyttö ja hosting-palvelut
-- Haarat ja niiden käyttö projektissa
+- Haarat ja niiden käyttö
+- Työnkulut projekteissa
+- Yhdistämispyynnöt
 - Muita git-toimintoja
 
 ## Materiaali
