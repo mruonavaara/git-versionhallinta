@@ -325,9 +325,9 @@ Jos haluat pakottaa haaran poiston, vaikka siitä olisi vielä tekemättömiä m
 !!! tip "Poistetun haaran palauttaminen"
     Haarojen poistaminen kuulostaa paljon vakavammalta kuin se onkaan. Haarahan on vain viittaus johonkin talletukseen, jos sen poistaa, häviää tieto haarasta mutta talletukset ovat yhä olemassa. 
     
-    Talletusten löytäminen on voi olla hankalampiaa, mutta graafisilla työkaluilla sekin on varsin helppoa. Voit palauttaa poistetun haaran, kun olet löytänyt sen viimeisen talletuksen, komennolla
+    Talletusten löytäminen voi olla hankalampaa, mutta graafisilla työkaluilla sekin on varsin helppoa. Kun olet löytänyt poistetun haaran viimeisen talletuksen, voit palauttaa haaran komennolla
     ```bash
-    git branch <haaran nimi> <talletuksen hash>
+    git branch <haaran nimi> <viimeisen talletuksen hash>
     ```
 
 ## Harjoitus 4
