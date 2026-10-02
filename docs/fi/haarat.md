@@ -375,7 +375,7 @@ main {
   text-align: center;
 }
 ```
-Tyylit pitää vielä liittää `hello.html`-tiedostoon. Lisää sen `head`-osioon määritys
+Tyylit pitää vielä liittää `index.html`-tiedostoon. Lisää sen `head`-osioon määritys
 ```html
 <link rel="stylesheet" href="styles.css">
 ```
