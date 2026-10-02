@@ -3,9 +3,8 @@ site_author: Markku Ruonavaara
 copyright: Markku Ruonavaara 2024-2026
 nav:
   - johdanto.md
-  - 'Paikallinen Git':
-    - peruskaytto.md
-    - haarat.md
+  - peruskaytto.md
+  - haarat.md
   - 'Hajautettu Git':
     - etarepositoriot.md
     - hosting_palvelut.md
@@ -50,27 +49,26 @@ plugins:
           name: Suomi
           build: true
           theme:
-            name: materialx
-            language: en
+            language: fi
         - locale: en
           name: English
           build: true
           site_name: Git version control
           nav:
             - introduction.md
-            - 'Local Git':
-              - basic_use.md
-              - haarat.md
+            - basic_use.md
+            - haarat.md
             - 'Distributed Git':
               - etarepositoriot.md
               - hosting_palvelut.md
             - 'Git in project':
               - versionhallinta_projektissa.md
               - yhdistamispyynnot.md
-            - muita_toimintoja.md
-            - hosting_toimintoja.md
+            - 'More Git features':
+              - muita_toimintoja.md
+            - 'Hosting servide features':
+              - hosting_toimintoja.md
           theme:
-            name: materialx
             language: en
       reconfigure_material: true
       reconfigure_search: true
