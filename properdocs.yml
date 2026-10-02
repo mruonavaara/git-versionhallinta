@@ -2,8 +2,9 @@ site_name: Git-versionhallinta
 site_author: Markku Ruonavaara
 copyright: Markku Ruonavaara 2024-2026
 nav:
-  - johdanto.md
-  - peruskaytto.md
+  - index.md
+  - introduction.md
+  - basic_use.md
   - haarat.md
   - 'Hajautettu Git':
     - etarepositoriot.md
@@ -36,7 +37,6 @@ theme:
     - content.code.copy
     - content.code.select
     - toc.integrate
-    - navigation.expand
     - navigation.footer
     - navigation.tabs
     # - navigation.tabs.sticky
@@ -54,20 +54,9 @@ plugins:
           name: English
           build: true
           site_name: Git version control
-          nav:
-            - introduction.md
-            - basic_use.md
-            - haarat.md
-            - 'Distributed Git':
-              - etarepositoriot.md
-              - hosting_palvelut.md
-            - 'Git in project':
-              - versionhallinta_projektissa.md
-              - yhdistamispyynnot.md
-            - 'More Git features':
-              - muita_toimintoja.md
-            - 'Hosting servide features':
-              - hosting_toimintoja.md
+          nav_translations:
+            'Hajautettu Git': 'Distributed Git'
+            'Git projektissa': Git in a project
           theme:
             language: en
       reconfigure_material: true
