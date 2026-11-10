@@ -144,6 +144,8 @@ usage: git config list [<file-option>] [<display-option>] [--includes]
 
 Let's get the environment ready for exercises.
 
+<div class="steps" markdown>
+
 1. Install Git on your computer.
 2. Verify that the installation was successful by printing the Git version identifier:
 
@@ -159,3 +161,4 @@ Let's get the environment ready for exercises.
 4. Configure Git, at least user information and editor.
 5. Create an account on the GitHub service. This will be used later in the course.
 
+</div>
