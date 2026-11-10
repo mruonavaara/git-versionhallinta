@@ -1,130 +1,130 @@
-# Introduction to version control
+# Introduction to Version Control
 
-## Mitä on versionhallinta
+## What is Version Control?
 
-Versionhallinnan tarkoituksena on tallettaa lähdekoodin versioiden muutoksia siten, että
+The purpose of version control is to store changes to source code versions such that:
 
-- Saman ohjelmiston eri versioille voidaan antaa tunnisteet muuttamatta ohjelmakoodin sisältöä (esim. tiedostonimiä)
-- Aikaisemmat versiot voidaan tarvittaessa palauttaa
-- Ohjelmistosta voidaan kehittää useita eri versioita yhtaikaa hallitusti.
-- Ohjelmistoon tehtyjä muutoksia voidaan seurata, dokumentoida ja hallita. 
+- Different versions of the same software can be labeled without modifying the program code itself (e.g., file names)
+- Earlier versions can be restored when necessary
+- Multiple different versions of the software can be developed simultaneously in a controlled manner
+- Changes made to the software can be tracked, documented, and managed
 
-Versionhallinta helpottaa ja tehostaa yksittäisen kehittäjän työtä. Ennen kaikkea se kuitenkin mahdollistaa ohjelmistojen tehokkaan kehittämisen ohjelmistotiimeissä. 
+Version control makes work easier and more efficient for an individual developer. Most importantly, however, it enables efficient development of software within development teams.
 
-Versionhallinnan käyttö on yksi ohjelmistoalan ammattilaisen perustaitoja.
+Using version control is one of the fundamental skills of a professional software developer.
 
-## Mikä on Git
+## What is Git?
 
-Versionhallintajärjestelmiä on useita erilaisia. Käytännössä niistä __Git__ on muodostunut versionhallinnan de-facto standardiksi.
+There are many different version control systems. In practice, __Git__ has become the de facto standard for version control.
 
-Syynä Git:n suosioon lienee, että se on 
+Git's popularity is likely because it is:
 
-- Avointa lähdekoodia. Git on lisensoitu avoimen lähdekoodin GPLv2-lisenssillä. 
-- Ilmainen. 
-- Hajautettu. Siinä ei ole minkäänlaista keskitettyä palvelinta. 
-- Saatavilla kaikkiin ympäristöihin.
+- Open source. Git is licensed under the open source GPLv2 license.
+- Free.
+- Distributed. It does not have any centralized server.
+- Available for all environments.
 
-## Git-repositoriot
+## Git Repositories
 
-Git tallettaa kaiken informaation paikallisesti omaan tietovarastoonsa, jota kutsutaan nimellä __repositorio__. 
+Git stores all information locally in its own data storage, which is called a __repository__.
 
-Lähes kaikki toiminnot voidaan tehdä paikallisesti. Voit siis kehittää ja tallettaa ohjelmiston versioita ilman verkkoyhteyttä.
+Almost all operations can be performed locally. This means you can develop and store software versions without an internet connection.
 
-Repositorio sijaitsee paikallisella koneella siinä hakemistossa, jossa ohjelmistoa kehitetään. 
+A repository is located on the local machine in the directory where the software is being developed.
 
-## Repositorioiden hajautus ja synkronointi
+## Repository Distribution and Synchronization
 
-Itsenäisten repositoryjen sisältöjä voidaan __synkronoida__ keskenään. Tähän tietysti tarvitaan verkkoyhteys. 
+The contents of independent repositories can be __synchronized__ with each other. Of course, this requires a network connection.
 
 ![](assets/repo_sync.png)
 
-Repositorioiden sisältöjen synkronointi mahdollistaa niiden sisältöjen jakamisen useiden kehittäjien kesken. Tyypillinen malli on, että kehittäjät synkronoivat oman työnsä verkkopalvelussa sijaitsevaan repositorioon, ja saavat muiden kehittäjien tekemän työn sen kautta synkronoitua itselleen.
+Synchronizing repository contents makes it possible to share their contents among multiple developers. A typical model is that developers synchronize their own work to a repository located on a web service, and receive the work done by other developers through that synchronization.
 
-## Git:n käyttöönotto
+## Getting Started with Git
 
-### Komentorivi
+### Command Line
 
-Git:lle on useita graafisia käyttöliittymiä, myös Windows-asennuspaketissa on yksi sellainen. Tällä kurssilla käytämme kuitenkin __komentorivikomentoja__.  Niin tekevät useimmat ammattilaisetkin.
+Git has several graphical user interfaces, and even the Windows installation package includes one. However, in this course we use __command-line commands__. Most professionals do the same.
 
-Windows-käyttöjärjestelmällä on kaksi __komentotulkkia__, _cmd_ ja _powershell_. Git:n Windows-asennus sisältää _Git Bash_ –komentotulkin, joka emuloi iOS- ja Linux-järjestelmiin esiasennettua _bash_-komentotulkkia
+Windows has two __command shells__: _cmd_ and _powershell_. Git's Windows installation includes the _Git Bash_ command shell, which emulates the _bash_ command shell pre-installed on iOS and Linux systems.
 
-Git-komennot ovat kaikissa komentotulkeissa samat. Hakemistojen ja tiedostojen käsittelykomennot voivat eri komentotulkeissa poiketa toisistaan. 
+Git commands are the same in all command shells. Directory and file handling commands may differ in different command shells.
 
-Jos komentotulkin käyttäminen ei ole entuudestaan tuttua, voit perehtyä siihen esim. oheisen materiaalin avulla: 
+If command shell usage is unfamiliar to you, you can learn about it using material like this:
 
 - [Command line crash course](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line)
 
-!!! note "Huomautus"
+!!! note "Note"
 
-    Tässä materiaalissa käytetään mahdollisissa tiedostojärjestelmäkomennoissa bash-komentoja. 
+    In this material, bash commands are used for any file system commands.
 
-### Konfigurointi
+### Configuration
 
-Asennuksen jälkeen on tarpeen tehdä joitakin konfigurointeja, ennen kuin git-käyttö voidaan aloittaa.
+After installation, it is necessary to perform some configuration before you can start using Git.
 
-#### Käyttäjän tiedot
+#### User Information
 
-Jokaiseen talletettuun muutokseen tallentuu käyttäjän nimi ja sähköpostiosoite
-Käyttäjätiedot tarvitsee asettaa tietokoneelle vain kerran, ja niitä voi tarvittaessa myöhemmin muuttaa
+Each committed change stores the user's name and email address.
+User information needs to be set on the computer only once, and can be changed later if needed.
 ```
-git config set –-global user.name ”Markku Ruonavaara”
-git config set –-global user.email markku.ruonavaara@haaga-helia.fi
+git config set --global user.name "Markku Ruonavaara"
+git config set --global user.email markku.ruonavaara@haaga-helia.fi
 ```
 
-Konfigurointitietoja tallennetaan järjestelmä-, käyttäjä- ja projektikohtaisesti. Valitsin `-–global` viittaa siihen, että asetus on järjestelmä- ja käyttäjäkohtainen: se on voimassa tällä tietokoneella (järjestelmä) tämän käyttäjän kaikille repositorioille.
+Configuration information can be stored at the system, user, and project levels. The `--global` option means that the setting is system and user-level: it applies to this computer (system) for all repositories of this user.
 
-Jos mitään valitsinta ei määritetä, asetuksesta tulee projektikohtainen. Se tarkoittaa, että asetus on voimassa vain siinä repositoriossa, jossa se tehtiin. 
+If no option is specified, the setting becomes project-specific. This means the setting applies only to the repository in which it was made.
 
-#### Editori
+#### Editor
 
-Joidenkin toimintojen yhteydessä Git käynnistää editorin tekstin kirjoittamista varten. Oletusarvoisesti se on systeemin oletuseditori, joka yleensä on vim.
+In some operations, Git launches an editor for writing text. By default, it is the system's default editor, which is usually vim.
 
-Voit halutessasi asettaa editorin, jonka Git käynnistää. Seuraava komento asettaa editoriksi Visual Studio Code:n.
+If you wish, you can set the editor that Git launches. The following command sets Visual Studio Code as the editor:
 
 ```
 git config set --global core.editor "code --wait"
 ```
 
-Konfiguroinnissa määritetään käynnistyskomento, joten jos editoria ei löydy polusta, voit joutua antamaan koko polun. 
+Configuration specifies the launch command, so if the editor is not found in the path, you may need to provide the full path.
 
-Jos kuitenkin joskus päädyt vim-editoriin, oheisesta ohjeesta voi olla sinulle hyötyä:
+However, if you ever end up in the vim editor, the following guide may be helpful:
 
-- [https://www.linuxjournal.com/content/how-use-vi-editor-linux ](https://www.linuxjournal.com/content/how-use-vi-editor-linux )
+- [https://www.linuxjournal.com/content/how-use-vi-editor-linux](https://www.linuxjournal.com/content/how-use-vi-editor-linux)
 
-GitHub-palvelun dokumentaation ohjeita editorien konfiguroinnista:
+GitHub's documentation provides guidance on editor configuration:
 
 - [https://docs.github.com/en/get-started/getting-started-with-git/associating-text-editors-with-git](https://docs.github.com/en/get-started/getting-started-with-git/associating-text-editors-with-git)
 
-#### Konfiguraatioasetusten tarkastelu
+#### Viewing Configuration Settings
 
-Kaikki asetukset voit tarkistaa näin:
+You can check all settings like this:
 ```bash
 git config list
 ```
 
-Yhden parametrin arvon voit tarkistaa antamalla `config` komennon parametriksi parametrin nimen:
+You can check the value of a single parameter by providing the parameter name to the `config` command:
 ```
 git config user.email
 ```
 
-## Git-komennoista yleisesti
+## General Information About Git Commands
 
-Kaikki Git-komennot alkavat `git`, sen jälkeen tulee varsinainen __komento__ (esim. `config`). Komennoilla voi olla __parametreja__. Tässä esimerkissä komennolle `config` annetaan parametriksi halutun konfiguraatioparametrin nimi `core.editor` 
+All Git commands start with `git`, followed by the actual __command__ (e.g., `config`). Commands can have __parameters__. In this example, the `config` command is given a parameter with the name of the desired configuration parameter `core.editor`:
 ```
 git config core.editor
 ```
-!!! note "Huomautus"
-    Tässä materiaalissa Git-komentoihin viitataan tekstissä vain komento-osalla, esim. `config`. Komentorivillä annettava komento on tällöin `git config`. 
+!!! note "Note"
+    In this material, Git commands are referred to in the text using only the command part, e.g., `config`. The command to enter on the command line is then `git config`.
 
-Komennoilla voi olla alikomentoja ja niille voidaan antaa __valitsimia__ (_option_), jotka täsmentävät, mitä halutaan tehdä. 
+Commands can have __subcommands__ and can be given __options__, which clarify what you want to do.
 
-Tässä esimerkissä `list` on `config`-komennon alikomento, ja valitsin `--global` määrittää, että halutaan listata vain globaalit, kaikkiin repositorioihisi vaikuttavat parametrit.  
+In this example, `list` is a subcommand of the `config` command, and the `--global` option specifies that you want to list only global parameters that affect all your repositories:
 ```
 git config list --global
 ```
-Joillekin valitsimille voi olla myös lyhyt muoto, esim. komennon `git status --short` valitsin `--short` voidaan myös antaa lyhyemmässä muodossa `-s`.  
+Some options may also have a short form. For example, in the `git status --short` command, the `--short` option can also be given in the shorter form `-s`.
 
-Kaikille komennoille saa lyhyen opastustekstin valitsimella `-h`
+All commands provide brief help text with the `-h` option (short form of option `--help`):
 
 ```
 $ git config -h
@@ -137,43 +137,23 @@ usage: git config list [<file-option>] [<display-option>] [--includes]
    or: git config edit [<file-option>]
    or: git config [<file-option>] --get-colorbool <name> [<stdout-is-tty>]
 ```
-## Git-suomi -sanasto
 
-Tässä materiaalissa käytetään Git-termeistä seuraavia suomenkielisiä vastineita:
+## Exercise 1
 
-Git | suomi
---- | ---
-branch | haara
-command line | komentorivi
-commit | talletus
-directory | hakemisto
-fetch | _[haaran]_ haku _[etärepositoriosta]_
-merge | yhdistäminen
-_[command]_ option | valitsin
-pull | _[haaran]_ tuonti _[etärepositoriosta]_
-push | _[haaran]_ vienti _[etärepositorioon]_
-remote | etärepositorio
-repository | repositorio
-shell | komentotulkki
-working directory | työhakemisto
+Let's get the environment ready for exercises.
 
-
-## Harjoitus 1
-
-Pannaan ympäristö kuntoon harjoituksia varten.
-
-1. Asenna koneellesi Git.
-2. Tarkista, että asennus on onnistunut tulostamalla asennetun Git-version tunniste.
+1. Install Git on your computer.
+2. Verify that the installation was successful by printing the Git version identifier:
 
     ```bash
     git --version
     ```
-    tai laajentimen `--version` lyhyemmällä muodolla
+    or use the shorter form of the `--version` option:
     ```
     git -v
     ```
 
-3. Asenna Visual Studio Code (tai vastaava ohjelmointieditori).
-4. Konfiguroi Git, ainakin käyttäjätiedot ja editori.
-5. Avaa GitHub-palveluun tili. Sitä tullaan käyttämään kurssilla myöhemmin.
+3. Install Visual Studio Code (or an equivalent programming editor).
+4. Configure Git, at least user information and editor.
+5. Create an account on the GitHub service. This will be used later in the course.
 

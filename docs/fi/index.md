@@ -35,9 +35,9 @@ Versionhallintaa on vaikea ymmärtää ja oppia lukemalla. Tällä kurssilla ole
 
 Kaikki tehtävät tehdään Git-versionhallintaa käyttäen. Kurssin suoritukseen vaadittavat tehtävät on merkitty materiaaliin otsikolla __Harjoitus__. Harjoitukset rakentuvat toisilleen, joten ne on tehtävä materiaalin mukaisessa järjestyksessä.
 
-Lisäksi kurssilla laaditaan oppimispäiväkirja. 
+Versionhallintaharjoitusten lisäksi kurssilla on reflektoivia kirjallisia tehtäviä. Myös ne tehdään Git-versionhallintaa käyttäen.
 
-Kurssin tehtävänannot ja tehtävien palautusohjeet löytyvät Moodle-työtilasta.
+Kaikki tiedot kurssista, kurssin tehtävänannot ja tehtävien palautusohjeet löytyvät Moodle-työtilasta.
 
 ## Harjoituksissa tarvittavat työkalut
 

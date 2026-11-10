@@ -34,7 +34,7 @@ Repositorio sijaitsee paikallisella koneella siinä hakemistossa, jossa ohjelmis
 
 ## Repositorioiden hajautus ja synkronointi
 
-Itsenäisten repositoryjen sisältöjä voidaan __synkronoida__ keskenään. Tähän tietysti tarvitaan verkkoyhteys. 
+Itsenäisten repositorioiden sisältöjä voidaan __synkronoida__ keskenään. Tähän tietysti tarvitaan verkkoyhteys. 
 
 ![](assets/repo_sync.png)
 
@@ -60,7 +60,7 @@ Jos komentotulkin käyttäminen ei ole entuudestaan tuttua, voit perehtyä siihe
 
 ### Konfigurointi
 
-Asennuksen jälkeen on tarpeen tehdä joitakin konfigurointeja, ennen kuin git-käyttö voidaan aloittaa.
+Asennuksen jälkeen on tarpeen tehdä joitakin konfigurointeja, ennen kuin Git-käyttö voidaan aloittaa.
 
 #### Käyttäjän tiedot
 
@@ -71,7 +71,7 @@ git config set –-global user.name ”Markku Ruonavaara”
 git config set –-global user.email markku.ruonavaara@haaga-helia.fi
 ```
 
-Konfigurointitietoja tallennetaan järjestelmä-, käyttäjä- ja projektikohtaisesti. Valitsin `-–global` viittaa siihen, että asetus on järjestelmä- ja käyttäjäkohtainen: se on voimassa tällä tietokoneella (järjestelmä) tämän käyttäjän kaikille repositorioille.
+Konfigurointitietoja voidaan tallennetaa järjestelmä-, käyttäjä- ja projektikohtaisesti. Valitsin `-–global` viittaa siihen, että asetus on järjestelmä- ja käyttäjäkohtainen: se on voimassa tällä tietokoneella (järjestelmä) tämän käyttäjän kaikille repositorioille.
 
 Jos mitään valitsinta ei määritetä, asetuksesta tulee projektikohtainen. Se tarkoittaa, että asetus on voimassa vain siinä repositoriossa, jossa se tehtiin. 
 
@@ -116,7 +116,7 @@ git config core.editor
 !!! note "Huomautus"
     Tässä materiaalissa Git-komentoihin viitataan tekstissä vain komento-osalla, esim. `config`. Komentorivillä annettava komento on tällöin `git config`. 
 
-Komennoilla voi olla alikomentoja ja niille voidaan antaa __valitsimia__ (_option_), jotka täsmentävät, mitä halutaan tehdä. 
+Komennoilla voi olla __alikomentoja__ ja niille voidaan antaa __valitsimia__ (_option_), jotka täsmentävät, mitä halutaan tehdä. 
 
 Tässä esimerkissä `list` on `config`-komennon alikomento, ja valitsin `--global` määrittää, että halutaan listata vain globaalit, kaikkiin repositorioihisi vaikuttavat parametrit.  
 ```
@@ -124,7 +124,7 @@ git config list --global
 ```
 Joillekin valitsimille voi olla myös lyhyt muoto, esim. komennon `git status --short` valitsin `--short` voidaan myös antaa lyhyemmässä muodossa `-s`.  
 
-Kaikille komennoille saa lyhyen opastustekstin valitsimella `-h`
+Kaikille komennoille saa lyhyen opastustekstin valitsimella `-h` (lyhyt muoto valitsimesta `--help`)
 
 ```
 $ git config -h
