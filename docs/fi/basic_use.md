@@ -49,7 +49,7 @@ Täsä aihetta käsitellään myöhemmin osiossa _Hajautettu Git_.
 
 Hakemisto, johon on perustettu Git-repositorio, on Git:n __työhakemisto__ (_working set_). 
 
-Työhakemistossa olevat tiedostot ja alihakemistot ovat otettavissa Git-hallintaan. Tiedostot pitää viedä erikseen Git-hallintaan, jos niiden versioita halutaan hallinnoida.
+Työhakemistossa olevat tiedostot ja alihakemistot ovat otettavissa Git-hallintaan. Tiedostot pitää viedä erikseen Git-hallintaan, jotta niiden versioita voidaan hallinnoida. Työhakemistossa voi olla myös tiedostoja, jotka eivät ole Git:n hallinnassa.
 
 Git:n näkökulmasta hakemistossa olevat tiedostot voivat Git-termein olla joko 
 
@@ -105,7 +105,7 @@ git add .		# piste viittaa nykyiseen hakemistoon, kaikki uudet ja muuttuneet tie
 
 Nyt muuttuneet tiedostot ovat valmiita talletettavaksi versionhallintaan. Kuten huomasit, uuden tiedoston tuominen on muutos siinä kuin olemassa olevankin muuttaminen.
 
-Nyt Git on tietoinen, mitä pitää tallentaa, ja ollaan valmiita `commit`-toimintoa varten.
+Git on tietoinen siitä, mitä pitää tallentaa, ja ollaan valmiita `commit`-toimintoa varten.
 
 ### Vaihe 2: commit
 
@@ -122,7 +122,7 @@ Kirjaa kommenttiin muutoksen aihe selkeästi, ne ovat tärkeää kommunikaatiota
 Voit myös kirjata kommentin komentorivillä ilman editoria:
 
 ```bash
-git commit –m "Lisätty logout-toiminnallisuus"
+git commit –m "Lisää logout-toiminnallisuus"
 ```
 
 !!! tip "Vinkki"
@@ -134,7 +134,7 @@ git commit –m "Lisätty logout-toiminnallisuus"
     1. Paina ++escape++ siirtyäksi komentotilaan.
     2. Anna komento `:wq` tallettaaksesi ja poistuaksesi editorista.
 
-    Sen jälkeen voit palata lukuun [Git:n käyttöönottoluvun konfigurointi-osioon](johdanto.md#editori) ja määritellä mieleisesi Git-editorin.
+    Sen jälkeen voit palata lukuun [Git:n käyttöönottoluvun konfigurointi-osioon](introduction.md#editori) ja määritellä mieleisesi Git-editorin.
 
 
 ## Talletusten tarkastelu
@@ -176,7 +176,7 @@ git commit -m "Poistettu tarpeeton tiedosto"
 
 Huomaa, että vanhat talletetut versiot säilyvät versionhallinnassa! Se, mikä on versionhallintaan talletettu, säilyy siellä.
 
-Git-komennolla `mv` voi nimeätä tiedoston uudelleen tai siirtää toiseen hakemistoon. 
+Git-komennolla `mv` voi nimetä tiedoston uudelleen tai siirtää toiseen hakemistoon. 
 
 ``` bash
 git mv oldname.txt newname.txt

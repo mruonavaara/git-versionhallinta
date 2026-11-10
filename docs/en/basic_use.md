@@ -1,19 +1,19 @@
-# Basic use
+# Basic Use
 
-## Repositorion perustaminen
+## Creating a Repository
 
-Voit perustaa repositorion hakemistoon, joka ei ole vielä versionhallinnassa, komennolla `init`.
+You can create a repository in a directory that is not yet under version control using the `init` command.
 
 ```bash
-mkdir demo 		# luodaan hakemisto
-cd demo		    # vaihdetaan uusi hakemisto oletushakemistoksi
+mkdir demo 		# create directory
+cd demo		    # change to new directory as default
 git init
 ```
 
-Komento luo tyhjän repositorion, johon voit tallettaa versioita. Tiedot tallentuvat alihakemistoon `.git`-nimiseen alihakemistoon. 
-`.git`-hakemistosta tunnistat, onko hakemisto Git-versionhallinnassa.
+The command creates an empty repository where you can store versions. The data is saved to a subdirectory named `.git`.
+You can identify if a directory is under Git version control by the presence of the `.git` directory.
 
-Tiedostot ja hakemistot, joiden nimi alkaa pisteellä, ovat piilotettuja, niitä ei oletusarvoisesti näytetä. Saat piilotetut hakemistot näkyviin `ls`-komennon laajentimella `-a`. Laajentimella `-l` näytetään tiedostojen ja hakemistojen kaikki tiedot.
+Files and directories whose names start with a dot are hidden and are not shown by default. You can make hidden directories visible using the `-a` option with the `ls` command. The `-l` option displays all information about files and directories.
 
 ``` bash
 $ ls -l -a
@@ -29,235 +29,236 @@ drwxr-xr-x 1 h01975 1049089    0 Feb 15 12:36 .github/
 -rw-r--r-- 1 h01975 1049089   29 Feb 15 15:04 time.txt
 ```
 
-Jotta piilotetut tiedostot näkyisivät Windowsin tiedostojenhallinnassa, on tiedostojenhallinnan asetuksissa määritettävä piilotetut tiedostot näkyviin.
+To make hidden files visible in Windows File Explorer, you need to configure the File Explorer settings to show hidden files.
 
 - [View hidden files and folders in Windows](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-97fbc472-c603-9d90-91d0-1166d1d9f4b5)
 
-### Repositorion perustaminen toisesta repositoriosta
+### Creating a Repository from an Existing Repository
 
-Usein haluat kopioida olemassa olevan repositoryn ja jatkaa työskentelyä siitä. Tämä tapahtuu komennolla `clone`, esim.
+Often you want to copy an existing repository and continue working from it. This is done using the `clone` command, for example:
 
 ```
 git clone https://github.com/libgit2/libgit2
 ```
 
-Komento lisää nykyiseen hakemistoon alihakemiston libgit2, joka sisältää alkuperäisen repositoryn datan kopion (`.git`) sekä uusimman version tiedostot. Se myös konfiguroi alkuperäisen repositoryn uuden repositoryn etärepositoryksi. 
+The command adds a subdirectory libgit2 to the current directory, which contains a copy of the original repository's data (`.git`) and the latest version files. It also configures the original repository as the remote repository for the new repository.
 
-Täsä aihetta käsitellään myöhemmin osiossa _Hajautettu Git_.
+This topic will be covered later in the section _Distributed Git_.
 
-## Tiedostot Git-hakemistossa
+## Files in a Git Directory
 
-Hakemisto, johon on perustettu Git-repositorio, on Git:n __työhakemisto__ (_working set_). 
+A directory that has a Git repository created in it is Git's __working directory__ (_working set_).
 
-Työhakemistossa olevat tiedostot ja alihakemistot ovat otettavissa Git-hallintaan. Tiedostot pitää viedä erikseen Git-hallintaan, jos niiden versioita halutaan hallinnoida.
+The files and subdirectories in the working directory can be brought under Git control. Files must be explicitly added to Git control to enable version control for them. The working directory may also contain files that are not under Git control.
 
-Git:n näkökulmasta hakemistossa olevat tiedostot voivat Git-termein olla joko 
+From Git's perspective, files in the directory can be either:
 
--  _Tracked_ (Otettu Git:n hallintaan) tai 
--  _Untracked_ (Ei Git-hallinnassa).
+- _Tracked_ (taken under Git management) or
+- _Untracked_ (not under Git management).
 
-Git:n hallinnassa oleva työhakemiston tiedosto voi olla
+A file under Git management in the working directory can be:
 
-- _Unmodified_ - muuttumaton, sama kuin talletettu uusin versio 
-- _Modified_ – muuttunut, erilainen kuin talletettu uusin versio
-- _Staged_ – merkitty otettavaksi seuraavaan talletukseen
+- _Unmodified_ - unchanged, the same as the latest stored version
+- _Modified_ – changed, different from the latest stored version
+- _Staged_ – marked to be included in the next commit
 
-Oheinen kuva kuvaa eri tiloja ja niiden välisiä siirtymiä.
+The following diagram shows different states and transitions between them.
 
-1. Alun perin uusi tiedosto on tilassa `untracked`
-2. Uusi tiedosto voidaan merkitä otettavaksi seuraavaan talletukseen voiminnolla `add` (_Add the file_), jolloin sen tilaksi tulee `staged`.
-3. Entuudestaan Git-hallinnassa oleva tiedosto on alun perin tilassa `unmodified`
-4. Kun hakemiston jo Git-hallinnassa oleva tiedosto muuttuu (_Edit the file_), sen tilaksi tulee `modified`.
-5. Muuttuneet (ja uudet) tiedostot voidaan merkitä otettavaksi seuraavaan talletukseen toiminnolla `add` (_Stage the file_). Tällöin tiedostot ovat tilassa `staged`
-6. Kun talletus (_commit_) tehdään, kaikki siihen mukaan otettavaksi merkityt tiedostoversiot talletetaan, ja niiden tilaksi tulee `unmodified`.
+1. Initially, a new file is in the `untracked` state
+2. A new file can be marked to be included in the next commit using the `add` operation (_Add the file_), which changes its state to `staged`.
+3. A file already under Git management is initially in the `unmodified` state
+4. When a file under Git management in the directory changes (_Edit the file_), its state becomes `modified`.
+5. Changed (and new) files can be marked to be included in the next commit using the `add` operation (_Stage the file_). Then files are in the `staged` state
+6. When a commit is made, all file versions marked to be included in it are stored, and their state becomes `unmodified`.
 
 ![](assets/git_file_states.png)
 
-Työhakemiston tiedostojen Git-tilaa voi tarkastella komennolla status.
+You can check the Git status of files in the working directory with the `status` command.
 
 ```bash
 git status
 ```
 
-!!! tip "Vinkki"
+!!! tip "Tip"
     
-    Työhakemiston git-tilaa (komento `status`) kannattaa tarkastella ennen Git-operaatioita ja niiden jälkeen, niin pysyt aina tilanteen tasalla, mitä repositoriossasi tapahtuu. 
+    It is a good idea to check the Git status of your working directory (command `status`) before and after Git operations. This way you always know what is happening in your repository.
 
-## Muutosten tallettaminen 
+## Storing Changes
 
-Tiedostoversioiden tallettaminen on kaksivaiheinen operaatio. 
+Storing file versions is a two-step operation.
 
-### Vaihe 1: add
+### Step 1: add
 
-Kun tiedosto on valmis talletettavaksi versionhallintaan, uusi tai muutettu tiedosto on merkittävä otettavaksi mukaan seuraavaan talletukseen (_commit_). Tätä toimintoa kutsutaan Git-terminologiassa nimellä _staging_, ja se tehdään komennolla `add`. 
+When a file is ready to be stored in version control, a new or modified file must be marked to be included in the next commit. This operation is called _staging_ in Git terminology and is done with the `add` command.
 
-Tiedostot voidaan lisätä seuraavaan talletukseen yksittäin.
-
-```bash
-git add hello.html   # tiedosto hello.html otetaan mukaan seuraavaan talletukseen
-```
-
-Voit myös lisätä koko hakemiston, jolloin kaikki hakemiston tiedostot ja alihakemistot sisältöineen lisätään kerralla. Hakemistot ovat myös tiedostoja, nekin versioituvat.
+Files can be added to the next commit individually.
 
 ```bash
-git add .		# piste viittaa nykyiseen hakemistoon, kaikki uudet ja muuttuneet tiedostot otetaan mukaan
+git add hello.html   # hello.html file will be included in the next commit
 ```
 
-Nyt muuttuneet tiedostot ovat valmiita talletettavaksi versionhallintaan. Kuten huomasit, uuden tiedoston tuominen on muutos siinä kuin olemassa olevankin muuttaminen.
+You can also add an entire directory, which adds all files in the directory and its subdirectories at once. Directories are also files, they are versioned too.
 
-Nyt Git on tietoinen, mitä pitää tallentaa, ja ollaan valmiita `commit`-toimintoa varten.
+```bash
+git add .		# dot refers to the current directory, all new and changed files will be included
+```
 
-### Vaihe 2: commit
+Now the changed files are ready to be stored in version control. As you may have noticed, introducing a new file is a change just like modifying an existing one.
 
-Varsinainen talletus tapahtuu komennolla `commit`.
+Git is aware of what needs to be stored, and we're ready for the `commit` operation.
+
+### Step 2: commit
+
+The actual storage happens with the `commit` command.
 
 ```bash
 git commit
 ```
 
-Komento käynnistää editorin, jolla voit kirjoittaa muutokseen talletettavan kommentin. Kun talletat ja suljet, muutos viedään tietovarastoon.
+The command launches an editor where you can write a comment to be stored with the change. When you save and close, the change is written to the repository.
 
-Kirjaa kommenttiin muutoksen aihe selkeästi, ne ovat tärkeää kommunikaatiota itsellesi ja projektiryhmällesi.
+Write the topic of the change in the comment clearly, as it is important communication for yourself and your project team.
 
-Voit myös kirjata kommentin komentorivillä ilman editoria:
+You can also write the comment on the command line without using an editor:
 
 ```bash
-git commit –m "Lisätty logout-toiminnallisuus"
+git commit –m "Add logout functionality"
 ```
 
-!!! tip "Vinkki"
+!!! tip "Tip"
 
-    Jos et ollut määritellyt mitään muuta, Git avaa oletusarvoisesti `vim`-editorin, joka perehtymättömälle on melko hankala ymmärtää ja käyttää. 
+    If you have not configured anything else, Git opens the `vim` editor by default, which can be quite difficult to understand and use for the unfamiliar.
 
-    `vim` editorista pääsee ulos seuraavasti:
+    You can exit the vim editor as follows:
 
-    1. Paina ++escape++ siirtyäksi komentotilaan.
-    2. Anna komento `:wq` tallettaaksesi ja poistuaksesi editorista.
+    1. Press ++escape++ to enter command mode.
+    2. Give the command `:wq` to save and exit the editor.
 
-    Sen jälkeen voit palata lukuun [Git:n käyttöönottoluvun konfigurointi-osioon](johdanto.md#editori) ja määritellä mieleisesi Git-editorin.
+    After that, you can return to the [Git Getting Started chapter's configuration section](introduction.md#editor) and set your preferred Git editor.
 
 
-## Talletusten tarkastelu
+## Viewing Commits
 
-Työtilan muutoksia verrattuna talletettuihin voit tarkastella tutulla komennolla `status`. Sitä kannattaa käyttää ahkerasti, jotta pysyt selvillä, mikä on hakemiston ja sen muutosten Git-tila:
+You can view changes in the working directory compared to stored commits using the familiar `status` command. You should use it frequently to keep track of the Git status of your directory and its changes:
 
 ```bash
 git status
 ```
 
-Näet `commit`-talletusten historian komennolla `log`.
+You can see the history of `commit` storage with the `log` command.
 
 ```bash
 git log
 ```
 
-Komento listaa kaikki talletukset käänteisessä aikajärjestyksessä. Laajentimella `--stat` Git lisää tulostukseen lyhyen yhteenvedon talletusten muutoksista:
+The command lists all commits in reverse chronological order. With the `--stat` option, Git adds a brief summary of the changes in the commits to the output:
 
 ```
 git log --stat
 ```
 
-Työhakemistossa olevan tiedoston muutoksia verrattuna viimeksi talletettuun versioon voi tarkastella komennolla `diff`.
+You can view changes in a file in the working directory compared to the most recently committed version using the `diff` command.
 
 ```bash
 git diff hello.html
 ```
 
-## Tiedostojen poistaminen ja siirtäminen
+## Removing and Moving Files
 
-Kuten aiemmin todettiin, hakemistot versioituvat myös. Jos haluat poistaa tiedoston repositoriosta tai siirtää tiedoston toiseen hakemistoon, olet tekemässä uutta versiota hakemistoista. 
+As mentioned earlier, directories are also versioned. If you want to delete a file from the repository or move a file to another directory, you are creating a new version of the directories.
 
-Git-komento `rm` poistaa tiedoston paitsi työhakemistosta myös Git-hallinnasta. Muutos on sen lisäksi talletettava versionhallintaan.
+The Git command `rm` removes a file from both the working directory and Git management. This change must also be stored in version control.
 
 ```bash
 git rm test.txt
-git commit -m "Poistettu tarpeeton tiedosto"
+git commit -m "Removed unnecessary file"
 ```
 
-Huomaa, että vanhat talletetut versiot säilyvät versionhallinnassa! Se, mikä on versionhallintaan talletettu, säilyy siellä.
+Note that old stored versions remain in version control! What has been stored in version control stays there.
 
-Git-komennolla `mv` voi nimeätä tiedoston uudelleen tai siirtää toiseen hakemistoon. 
+You can rename a file or move it to another directory using the Git command `mv`.
 
 ``` bash
 git mv oldname.txt newname.txt
 mkdir newdir
 git mv newname.txt newdir
 git add .
-git commit -m "Uudelleenjärjestelty tiedostoja"
+git commit -m "Reorganized files"
 ```
 
-Tiedostoja voi poistaa ja siirtää repositorion sisällä käyttöjärjestelmän komennoilla (esim. `rm` tai `mv`). Muutokset talletetaan Git-hallintaan samalla tapaa kuin mikä tahansa muutos: ensin `add`, sitten `commit`. Vastaavilla Git-komennoilla ei `add`-vaihetta tarvita.
+You can delete and move files within the repository using operating system commands (e.g., `rm` or `mv`). Changes are stored in Git management the same way as any other change: first `add`, then `commit`. The equivalent Git commands do not require the `add` step.
 
-## Harjoitus 2
-Harjoitellaan perustoimintoja. 
+## Exercise 2
+Let's practice basic operations.
 
-Tarkista repositorion tilanne joka välissä komennolla `status`. Muista laatia talletuksillesi kuvaava kommenttiviesti!
+Check the repository status with the `status` command regularly. Remember to write descriptive comment messages for your commits!
 
 <div class="steps" markdown>
 
-1. Tee koneellesi kurssin harjoituksia varten hakemisto ja perusta sinne Git-repositorio.
-2. Tee repositorioon tiedosto (esim. `test.txt`) ja kirjoita tiedostoon jotain. Talleta tiedosto Git-hallintaan. 
-4. Tee repositorioon tiedosto `hello.html`. Tiedoston sisältö voi olla esim.
+1. Create a directory on your computer for this course's exercises and create a Git repository in it.
+2. Create a file in the repository (e.g., `test.txt`) and write something in the file. Store the file in Git management.
+4. Create a file `hello.html` in the repository. The file content could be, for example:
 
     ``` html
-    Hei maailma!
+    Hello world!
     ```
 
-    Vie nämä muutokset Git-hallintaan.
+    Add these changes to Git management.
 
-5. `hello.html`-tiedoston sisältö ei vielä ole HTML-koodia. Lisää tekstiin h1-merkkaus, jolloin siitä tulee HTML-elementti:
+5. The content of the `hello.html` file is not yet HTML code. Add h1 markup to the text to make it an HTML element:
 
     ``` html
-    <h1>Hei maailma!</h1>
+    <h1>Hello world!</h1>
     ```
 
-    Vie muutos versionhallintaan. 
+    Add the change to version control.
 
-6. Muuta `hello.html`-tiedoston nimeksi `index.html` ja talleta muutos.
-7. Ensimmäisenä luotu test.txt-tiedosto on nyt käynyt tarpeettomaksi. Poista se versionhallinnasta ja talleta muutos. Laadi talletuksellesi kuvaava kommenttiviesti.
-8. Lisää vielä joitakin tiedostoja ja talleta ne versionhallintaan. 
-9. Tarkastele tekemiäsi talletuksia komennolla `git log`. Kokeile myös komentoa laajentimella `--stat`. Mitä lisätietoa saat?
-10. Kun olet saanut tehtävän valmiiksi, lisää viimeisimpään talletukseen tunniste `harjoitus2` antamalla komento
+6. Rename the `hello.html` file to `index.html` and store the change.
+7. The test.txt file created first is now becoming unnecessary. Delete it from version control and store the change. Write a descriptive comment message for the commit.
+8. Add a few more files and store them in version control.
+9. View the commits you made using the `git log` command. Also try the command with the `--stat` option. What additional information do you get?
+10. When you have completed the task, add the identifier `exercise2` to the latest commit by running the command
 
     ```
-    git tag harjoitus2
+    git tag exercise2
     ```
 </div>
 
-## Paluu menneisyyteen
+## Going Back in Time
 
-Johdanto-osiossa väitettiin, että versionhallinnan avulla on mahdollista palauttaa ohjelmiston aiempia versioita. Kokeillaan sitä seuraavassa.
+The introduction section claimed that with version control, it is possible to restore earlier versions of the software. Let's try that next.
 
-Tarkastellaan Git-komennon `log` tulostusta:
+Let's look at the output of the Git command `log`:
 ```
 commit 6fa5fd1b94a163464aaf56a7b69b6f7f4cca429b
 Author: Ruonavaara Markku <markku.ruonavaara@haaga-helia.fi>
 Date:   Sun Mar 10 15:16:39 2024 +0200
 
-    Lisätty toinen tiedosto
+    Add second file
 
 commit 77d8790ada4aa9ce8e438a360e44657334eeb7d3
 Author: Ruonavaara Markku <markku.ruonavaara@haaga-helia.fi>
 Date:   Sun Mar 10 15:14:41 2024 +0200
 
-    Uudelleenjärjestelty tiedostoja
+    Reorganize files
 
 commit 5d565f66349cb8eb1b3550855d89d12496f23a1b
 Author: Ruonavaara Markku <markku.ruonavaara@haaga-helia.fi>
 Date:   Sun Mar 10 15:13:46 2024 +0200
 
-    Lisätty tiedosto
+    Add file
 
 commit f78c0a4d638b3c3f3cfb85a2c5e7eba38023d8b3
 Author: Ruonavaara Markku <markku.ruonavaara@haaga-helia.fi>
 Date:   Sun Mar 10 14:57:53 2024 +0200
 
-    Ensimmäinen commit
+    Initial commit
 
 ```
-Git antaa jokaiselle talletukselle (_commit_) yksikäsitteisen tunnistemerkkijonon (esim. _6fa5fd1b94a163464aaf56a7b69b6f7f4cca429b_). Tätä tunnistetta kutsutaan Git-terminologiassa nimellä _hash_.
 
-Kun tiedämme tallennuksen tunnisteen, voimme palata sen tilanteeseen komennolla `checkout`. Palataan ensimmäisen tallennuksen _Ensimmäinen commit_ tilanteeseen: 
+Git gives each commit a unique identifier string (e.g., _6fa5fd1b94a163464aaf56a7b69b6f7f4cca429b_). This identifier is called a _hash_ in Git terminology.
+
+When we know the commit identifier, we can return to that state using the `checkout` command. Let's return to the first commit's _First commit_ state:
 ```bash
 $ git checkout f78c0a4
 Note: switching to 'f78c0a4'.
@@ -277,11 +278,12 @@ Or undo this operation with:
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
-HEAD is now at f78c0a4 Ensimmäinen commit
+HEAD is now at f78c0a4 First commit
 ```
-Koko tunnistetta ei tarvitse antaa, seitsemän ensimmäistä merkkiä riittää.
 
-Nyt työhakemisto on päivittynyt ensimmäisen talltuksen tilanteeseen, ja hakemistossa on vain sinne ensimmäisenä tehty tiedosto `text.txt`.
+You don't need to provide the full identifier; the first seven characters are enough.
+
+Now the working directory has been updated to the state of the first commit, and the directory contains only the file `text.txt` that was created there first.
 
 ```
 $ ls -l -a
@@ -293,76 +295,77 @@ drwxr-xr-x 1 h01975 1049089  0 Mar 10 16:20 .git/
 
 ```
 
-Komennon ilmoitus kertoo, että olemme _detached HEAD_-tilassa. Se tarkoittaa, että jos teemme muutoksia, ne eivät tule tallettumaan mihinkään _haaraan_, jolloin ne eivät näkyisi versiohistoriassa. Käytännössä tässä tilassa ei kannata tallettaa muutoksia. 
+The command notification tells you that we are in _detached HEAD_ state. This means that if we make changes, they won't be recorded in any _branch_, so they won't show up in version history. Practically speaking, it's not a good idea to make commits in this state.
 
-Takaisin nykytilaan päästään esimerkiksi Git:n antaman neuvon mukaisesti:
+You can return to the current state, for example, as suggested by Git:
 
 ```bash
-git switch -     # palataan siihen haaraan, josta checkout tehtiin
+git switch -     # return to the branch from which checkout was performed
 ```
 
-Siihen, mistä tässä on kyse ja miten kannattaa toimia, palataan myöhemmin osiossa _Haarat_. 
+We'll return to what this is about and how to proceed later in the section _Branches_.
 
-!!! tip "Vinkki"
-    Git neuvoo sinua aina, kun teet jonkin toimenpiteen. 
+!!! tip "Tip"
+    Git always advises you when you perform an operation.
     
-    Ilmoituksia kannattaa lukea ja yrittää tulkita. Ongelmatilanteissa sen ehdotukset usein ohjaavat oikeaan suuntaan.
+    You should read the notifications and try to interpret them. In problem situations, its suggestions often point you in the right direction.
 
 
-## Oho! Eiku…
+## Oops! Never mind…
 
-Versionhallintatoimintojen kanssa voi helposti tulla erehdyksiä. Hätä ei kuitenkaan ole tämännäköinen, kaikki on oikaistavissa. Tässä joitakin peruutusohjeita.
+It's easy to make mistakes when working with version control operations. But there's no need to worry; everything can be corrected. Here are some basic undo instructions.
 
-### `add`-komennon peruuttaminen
+### Undoing the `add` Command
 
-Jos lisäsit seuraavaan talletukseen tiedoston, joka ei sinne kuuluisi, voit peruuttaa lisäyksen komennolla `reset`.
+If you added a file to the next commit that shouldn't be there, you can undo the addition with the `reset` command.
 
 ```bash
 git reset temp.log
 ```
 
-Jos et anna parametria, kaikki lisätyt tiedostot poistetaan seuraavasta tallennuksesta.
+If you don't provide a parameter, all added files are removed from the next commit.
 
-Komento ei poista tai muuta tiedostoja, vain muuttaa tiedostojen tilan talletuksen suhteen.
+The command does not delete or modify files, it only changes the status of files relative to the commit.
 
-### Työtilaan tehtyjen muutosten peruuttaminen ennen talletusta
+### Undoing Changes in the Working Directory Before Committing
 
-Jos haluat peruuttaa työtilassa tekemäsi muutokset, __joita ei vielä ole talletettu versionhallintaan__, voit palauttaa tiedoston versionhallinnan tuoreimman version tasalle komennolla `restore`:
+If you want to undo changes you made in the working directory, __which have not yet been committed to version control__, you can restore the file to the latest version in version control using the `restore` command:
 
 ```bash
 git restore hello.html
 ```
-!!! danger "Varoitus"
-    Huomaa, että tässä tapauksessa __tekemästi muutokset häviävät eivätkä ne ole palautettavissa__. Vain talletetut versiot voidaan palautettaa.
 
-Jos haluat peruuttaa kaikki työtilaan tekemäsi muutokset, se onnistuu komennolla `git reset --hard`. Käytä sitä vain, kun olet varma, että haluat hylätä kaikki tekemästi muutoksiet
+!!! danger "Warning"
+    Note that in this case __your changes are lost and cannot be recovered__. Only committed versions can be restored.
 
-### Talletettujen muutosten peruminen
+If you want to undo all changes you made in the working directory, you can do it with the `git reset --hard` command. Use it only when you are sure you want to discard all the changes you made.
 
-Jos olet tallettanut muutoksen versionhallintaan, muutokselle on jo luotu tunniste ja siitä on talletettu kaikki tiedot. Jos sitä muutettaisiin, jouduttaisin peukaloimaan repositorion versiohistoriaa.
+### Undoing Committed Changes
 
-Talletetun muutoksen poistaminen ei oikeastaan edes ole järkevää. Sen sijaan että yrittäisit muuttaa historiaa, voit tehdä uuden muutoksen, jossa väärä muutos korjataan. 
+If you have committed a change to version control, an identifier has already been created for it and all its information is stored. If you tried to change it, you would end up tampering with the repository's version history.
 
-Yksi ylimääräinen talletus ei haittaa, ja korjaus on täysin riskitön. Historian muuttaminen sen sijaan olisi riskialtista, se voisi aiheuttaa monin verroin suurempia ongelmia kuin ylimääräinen talletus.
+Actually, undoing a committed change doesn't even make sense. Instead of trying to change history, you can make a new change that corrects the wrong change.
 
-Voit peruuttaa kokonaisen talletuksen tekemällä "anti-talletuksen" Git-komennolla `revert`. Komento tekee muutoksen, joka peruuttaa sille parametrina annetun talletuksen kokonaan.
+One extra commit doesn't hurt, and the correction is completely safe. Changing history, on the other hand, would be risky and could cause many times more problems than an extra commit.
+
+You can undo an entire commit by making an "anti-commit" using the Git command `revert`. The command makes a change that completely reverses the commit provided as a parameter.
 
 ```bash
-$ git log -2      # näyttää kaksi viimeisintä talletusta
+$ git log -2      # shows the last two commits
 commit 4a731586b83b6c1469416a489e5da1a4560707d4 (HEAD -> master)
 Author: Ruonavaara Markku <markku.ruonavaara@haaga-helia.fi>
 Date:   Sun Mar 10 16:58:47 2024 +0200
 
-    Lisätty log-tiedosto
+    Add log file
 
 commit 21f29c9814e6f101319edc51a199b2d62eb97fae
 Author: Ruonavaara Markku <markku.ruonavaara@haaga-helia.fi>
 Date:   Sun Mar 10 15:19:32 2024 +0200
 
-    Siirrelty taas tiedostoja
+    Reorganize files
 
 $ git revert 4a73158
-[master 83e809b] Revert "Lisätty log-tiedosto"
+[master 83e809b] Revert "Add log file"
  1 file changed, 53 deletions(-)
  delete mode 100644 log.txt
 
@@ -371,7 +374,7 @@ commit 83e809b0dd28076a423d916229567e61f8f44043 (HEAD -> master)
 Author: Ruonavaara Markku <markku.ruonavaara@haaga-helia.fi>
 Date:   Sun Mar 10 16:59:26 2024 +0200
 
-    Revert "Lisätty log-tiedosto"
+    Revert "Add log file"
 
     This reverts commit 4a731586b83b6c1469416a489e5da1a4560707d4.
 
@@ -379,40 +382,41 @@ commit 4a731586b83b6c1469416a489e5da1a4560707d4
 Author: Ruonavaara Markku <markku.ruonavaara@haaga-helia.fi>
 Date:   Sun Mar 10 16:58:47 2024 +0200
 
-    Lisätty log-tiedosto
+    Add log file
 
 ```
-Komento `revert` peruuttaa yhden talletuksen kerrallaan. Jos haluat peruuttaa useampia talletuksia, jokainen pitää peruuttaa yksi kerrallaan.
 
-Muista, että __kaikki, mikä on versionhallintaan talletettu, on palautettavissa__. Siksi `commit`-talletuksia kannattaa tehdä usein.
+The `revert` command undoes one commit at a time. If you want to undo multiple commits, each one must be undone one at a time.
 
-## Harjoitus 3
+Remember that __everything that is stored in version control can be recovered__. That's why you should `commit` your work frequently.
 
-Harjoitellaan peruuttelua.
+## Exercise 3
+
+Let's practice undoing operations.
 
 <div class="steps" markdown>
 
-1. Tee repositorioosi useita muutoksia: muuta talletettuja tiedostoja ja lisää uusia tiedostoja.  Älä talleta!
+1. Make several changes to your repository: modify committed files and add new files. Do not commit!
 
-2. Kokeile `add`-toiminnon peruuttamista. 
-     - Lisää muutokset seuraavaan talletukseen (`add`).
-     - Poista muutoksia yksittäin seuraavasta talletuksesta.
-     - Poista kaikki loput muutokset seuraavasta talletuksesta. 
-     - Sinulla pitäisi nyt olla työtilassa useita tallettamattomia muutoksia, joista mikään ei ole menossa seuraavaan talletukseen. 
+2. Practice undoing the `add` operation.
+     - Add the changes to the next commit (`add`).
+     - Remove changes one at a time from the next commit.
+     - Remove all remaining changes from the next commit.
+     - You should now have several uncommitted changes in your working directory, none of which are going into the next commit.
 
-3. Kokeile työtilaan tehtyjen muutosten peruuttamista. Tarkista tilanne joka välissä komennolla `status`.
-     - Peruuta jonkin talletetun tiedoston muutokset työtilasta.
-     - Poista kaikki loput muutokset työtilasta. 
-     - Mitä tapahtui uusille _untracked_-tilassa oleville tiedostoille?
+3. Practice undoing changes made to the working directory. Check the status regularly with the `status` command.
+     - Undo changes to a previously committed file from the working directory.
+     - Delete all remaining changes from the working directory.
+     - What happened to the new files in _untracked_ status?
 
-4. Kokeile talletuksen peruuttamista.
-     - Tee useita muutoksia ja talleta ne. 
-     - Peruuta talletus komennolla `revert`. 
-     - Mitä näyttää komento `log`?
+4. Practice undoing a commit.
+     - Make several changes and commit them.
+     - Undo the commit using the `revert` command.
+     - What does the `log` command show?
 
-5. Kun olet saanut tehtävän valmiiksi, lisää viimeisimpään talletukseen tunniste `harjoitus3` antamalla komento
+5. When you have completed the task, add the identifier `exercise3` to the latest commit by running the command
 
     ```
-    git tag harjoitus3
+    git tag exercise3
     ```
 </div>

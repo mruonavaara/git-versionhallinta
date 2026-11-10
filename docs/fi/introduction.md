@@ -46,7 +46,7 @@ Repositorioiden sisältöjen synkronointi mahdollistaa niiden sisältöjen jakam
 
 Git:lle on useita graafisia käyttöliittymiä, myös Windows-asennuspaketissa on yksi sellainen. Tällä kurssilla käytämme kuitenkin __komentorivikomentoja__.  Niin tekevät useimmat ammattilaisetkin.
 
-Windows-käyttöjärjestelmällä on kaksi __komentotulkkia__, _cmd_ ja _powershell_. Git:n Windows-asennus sisältää _Git Bash_ –komentotulkin, joka emuloi iOS- ja Linux-järjestelmiin esiasennettua _bash_-komentotulkkia
+Windows-käyttöjärjestelmällä on kaksi __komentotulkkia__, _cmd_ ja _powershell_. Git:n Windows-asennus sisältää _Git Bash_ –komentotulkin, joka emuloi moniin Linux-järjestelmiin esiasennettua _bash_-komentotulkkia.
 
 Git-komennot ovat kaikissa komentotulkeissa samat. Hakemistojen ja tiedostojen käsittelykomennot voivat eri komentotulkeissa poiketa toisistaan. 
 
@@ -57,6 +57,8 @@ Jos komentotulkin käyttäminen ei ole entuudestaan tuttua, voit perehtyä siihe
 !!! note "Huomautus"
 
     Tässä materiaalissa käytetään mahdollisissa tiedostojärjestelmäkomennoissa bash-komentoja. 
+
+    Linux- ja iOS-käyttöjärjestelmissä voidaan käyttää mitä tahansa unix-komentotulkkia, sillä komennot ovat samat.
 
 ### Konfigurointi
 
@@ -162,6 +164,8 @@ working directory | työhakemisto
 
 Pannaan ympäristö kuntoon harjoituksia varten.
 
+<div class="steps" markdown>
+
 1. Asenna koneellesi Git.
 2. Tarkista, että asennus on onnistunut tulostamalla asennetun Git-version tunniste.
 
@@ -177,3 +181,4 @@ Pannaan ympäristö kuntoon harjoituksia varten.
 4. Konfiguroi Git, ainakin käyttäjätiedot ja editori.
 5. Avaa GitHub-palveluun tili. Sitä tullaan käyttämään kurssilla myöhemmin.
 
+</div>

@@ -46,7 +46,7 @@ Synchronizing repository contents makes it possible to share their contents amon
 
 Git has several graphical user interfaces, and even the Windows installation package includes one. However, in this course we use __command-line commands__. Most professionals do the same.
 
-Windows has two __command shells__: _cmd_ and _powershell_. Git's Windows installation includes the _Git Bash_ command shell, which emulates the _bash_ command shell pre-installed on iOS and Linux systems.
+Windows has two __command shells__: _cmd_ and _powershell_. Git's Windows installation includes the _Git Bash_ command shell, which emulates the _bash_ command shell pre-installed on many Linux systems.
 
 Git commands are the same in all command shells. Directory and file handling commands may differ in different command shells.
 
@@ -57,6 +57,8 @@ If command shell usage is unfamiliar to you, you can learn about it using materi
 !!! note "Note"
 
     In this material, bash commands are used for any file system commands.
+
+    In Linux and iOS environments any unix command shell can be used, as the commands are the same.
 
 ### Configuration
 
