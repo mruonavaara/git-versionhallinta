@@ -39,6 +39,7 @@ theme:
     - toc.integrate
     - navigation.footer
     - navigation.tabs
+    - content.footnote.tooltips
     # - navigation.tabs.sticky
 plugins:
   - i18n:
@@ -90,4 +91,5 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.magiclink
+  - footnotes
 

@@ -18,7 +18,7 @@ Jokaisessa mainituista tapauksista halutaan tehdä yhtaikaisesti kehitystä kaht
 
 Versionhallintajärjestelmän keinoin haarautuneet versiot ohjelmistosta voidaan jälleen __yhdistää__ (_merge_). 
 
-Esimerkiksi, kehittäjänä voit yhdistää oman työsi, jonka olet tehnyt kehityshaarassasi, yhteiseen versiohaaraan. Toiset kehittäjät voivat yhteisestä versiohaarasta yhdistää sinun työsi omiin kehityshaaroihinsa ja jatkaa kehittämistä edelleen.
+Esimerkiksi, kehittäjänä voit yhdistää oman työsi, jonka olet tehnyt kehityshaarassasi, yhteiseen versiohaaraan. Toiset kehittäjät voivat yhteisestä versiohaarasta hakea sinun työsi ja yhdistää sen omiin kehityshaaroihinsa, ja jatkaa kehittämistä edelleen.
 
 ## Miten Git toimii
 
@@ -26,10 +26,12 @@ Haarautumisen ymmärtämiseksi on syytä perehtyä muutamiin Git:n toimintaperia
 
 __Talletus__ (_commit_) tallettaa
 
-1. viittaukset niihin tiedostoversioihin, jotka olet sinne lisännyt (_snapshot_), sekä 
-2. viittauksen edelliseen talletukseen. 
+1. viittaukset talletuksen sisältämiin muutoksiin (_snapshot_), sekä 
+2. viittauksen edeltävään talletukseen (tai edeltäviin talletuksiin[^1]). 
  
 Muutoksia voi siis navigoida taaksepäin seuraamalla viittauksia.
+
+[^1]: Talletuksella voi olla monta edeltäjää, esim. jos se on yhdistämistalletus.
 
 __Haara__ (_branch_) on viittaus talletukseen, josta tulee aikanaan seuraavan talletuksen edeltäjä. Kun teet uuden talletuksen, haaraviittaus siirtyy eteenpäin osoittamaan tekemääsi uutta talletusta. 
 
@@ -334,12 +336,17 @@ Git varmistaa, että haara on jo yhdistetty ja poistaminen on turvallista.
 Jos haluat pakottaa haaran poiston, vaikka siitä olisi vielä tekemättömiä muutoksia, voit käyttää komentoa `git branch -D <haara>`. 
 
 !!! tip "Poistetun haaran palauttaminen"
-    Haarojen poistaminen kuulostaa paljon vakavammalta kuin se onkaan. Haarahan on vain viittaus johonkin talletukseen, jos sen poistaa, häviää tieto haarasta mutta talletukset ovat yhä olemassa. 
+    Haarojen poistaminen kuulostaa lopullisemmalta kuin se onkaan. Haarahan on vain viittaus johonkin talletukseen, jos sen poistaa, häviää tieto haarasta mutta talletuksia ei poisteta samalla kertaa. 
     
-    Talletusten löytäminen voi olla hankalampaa, mutta graafisilla työkaluilla sekin on varsin helppoa. Kun olet löytänyt poistetun haaran viimeisen talletuksen, voit palauttaa haaran komennolla
+    Talletusten löytäminen voi olla hankalaa, mutta kun olet löytänyt poistetun haaran viimeisen talletuksen, voit palauttaa haaran komennolla
     ```bash
     git branch <haaran nimi> <viimeisen talletuksen hash>
     ```
+
+    Jos talletukset kuuluvat johonkin olemassa olevaan haaraan, ne on helppo löytää esimerkikis käyttämällä graafisia Git-työkaluja. Jos ne eivät ole, komento `reflog` nayttää lokin viimeaikaisista viittausten päivityksistä. Saatat löytää poistetun haaran viimeisen talletuksen tunnisteen tutkimalla lokia.
+
+    Huomaa kuitenkin, että poistetun haaran talletuksia ei välttämättä säilytetä loputtomasti. Git:n roskienkeruu saattaa jossain vaiheessa poistaa talletukset, joihin ei ole mitään viittausta.
+
 
 ## Harjoitus 4
 

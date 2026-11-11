@@ -16,9 +16,9 @@ _Source: [Git Branch, Atlassian](https://www.atlassian.com/git/tutorials/using-b
 
 In each of these cases, development needs to take place on two or more versions of the software at the same time. When multiple developers are involved, each developer works on their own version of the software.
 
-Version control systems make it possible to __merge__ branched versions of software again. 
+Version control systems make it possible to __merge__ branched versions of software again.
 
-For example, you as a developer can merge the work you have done in your development branch into a shared branch. Other developers get merge your work from the shared branch into their development branches and further develop the software.
+For example, you as a developer can merge the work you have done in your development branch into a shared branch. Other developers can fetch your work from the shared branch and merge it into their own development branches, and develop the software futher.
 
 ## How Git works
 
@@ -26,10 +26,12 @@ To understand branching, it is useful to learn a few of Git's operating principl
 
 A __commit__ records:
 
-1. references to the versions of the files you added to it (_snapshot_), and
-2. a reference to the previous commit.
+1. the state of the tracked files when the commit was made (_snapshot_), and
+2. a reference to the parent commit(s)[^1].
 
 You can therefore navigate backwards through changes by following the references.
+
+[^1]: The commit may have more than one parent, for example if it is a merge commit.
 
 A __branch__ is a reference to a commit that will eventually become the parent of the next commit. When you create a new commit, the branch reference moves forward to point to that new commit.
 
@@ -47,9 +49,9 @@ _Source: [Chacon S., Straub B., Pro Git, chapter 3](https://git-scm.com/book/en/
 
 When you create a repository, a branch named `master` is already created for you, and `HEAD` points to it. This is Git's default branch.
 
-!!! note 
+!!! note
 
-    Git's default branch is named `master`, but you can change the branch name. GitHub and other Git hosting services nowadys use `main` as the default branch name and recommend changing the name. It will become the default name in Git too from release 3.0 on.
+    Git's default branch is named `master`, but you can change the branch name. GitHub and other Git hosting services nowadays use `main` as the default branch name and recommend changing the name. It will become the default name in Git too from release 3.0 on.
 
     You may therefore encounter repositories whose default branch is called either `master` or `main`. This material uses `master` as the name of the default branch.
 
@@ -178,7 +180,7 @@ CONFLICT (content): Merge conflict in hello.html
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-Git starts merging and detects that a change in file `hello.html` cannot be merged automatically; Git cannot determine what the correct outcome of the merge should be. It adds conflict markers in all conflicting sections in the files. 
+Git starts merging and detects that a change in file `hello.html` cannot be merged automatically; Git cannot determine what the correct outcome of the merge should be. It adds conflict markers in all conflicting sections in the files.
 
 ![](./assets/merge_conflict_example.en.png)
 
@@ -200,7 +202,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 ```
 ## Resolving a conflict
 
-The developer makes the necessary corrections and removes the conflict markers from the files. 
+The developer makes the necessary corrections and removes the conflict markers from the files.
 
 ![](./assets/merge_conflict_example_solved.png)
 
@@ -333,12 +335,17 @@ Git checks that the branch has already been merged and that it is safe to delete
 If you want to force-delete a branch even though it still contains unmerged changes, use `git branch -D <branch>`.
 
 !!! tip "Restoring a deleted branch"
-    Deleting branches sounds much more serious than it is. A branch is only a reference to a commit. If you delete it, the reference is removed, but the commits still exist.
+    Deleting branches sounds more final than it is. A branch is only a reference to a commit. If you delete it, the reference is removed, but the commits are not removed at the same time. 
 
-    Finding the commits may be more difficult, but graphical tools make it quite easy. Once you have found the last commit on the deleted branch, you can restore the branch with this command:
+    Finding the commits may be difficult, but once you have found the last commit on the deleted branch, you can restore the branch with this command:
     ```bash
     git branch <branch-name> <last-commit-hash>
     ```
+
+    If the commits are part of an existing branch, they are quite easy to find e.g. by using graphical Git tools. If they are not, use command `reflog` to view the log of recent reference updates. You may find the hash of the last commit by examining the log.
+
+    Note that the commits of a deleted branch are not necessarily retained forever. Commits that are no longer reachable from any reference may eventually be removed by Git’s garbage collection.
+
 
 ## Exercise 4
 
