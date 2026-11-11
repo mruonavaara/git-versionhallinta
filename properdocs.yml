@@ -5,7 +5,7 @@ nav:
   - index.md
   - introduction.md
   - basic_use.md
-  - haarat.md
+  - branches.md
   - 'Hajautettu Git':
     - etarepositoriot.md
     - hosting_palvelut.md

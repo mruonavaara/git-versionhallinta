@@ -16,7 +16,9 @@ _Lähde: [Git Branch, Atlassian](https://www.atlassian.com/git/tutorials/using-b
 
 Jokaisessa mainituista tapauksista halutaan tehdä yhtaikaisesti kehitystä kahteen tai useampaan versioon ohjelmistosta. Monen kehittäjän tapauksessa jokainen kehittäjä luo omaa versiotaan ohjelmistosta. 
 
-Versionhallintajärjestelmän keinoin haarautuneet versiot ohjelmistosta voidaan jälleen __yhdistää__ (_merge_). Esimerkiksi, kehittäjä yhdistää oman kehityshaaransa muutokset yhteiseen versiohaaraan, josta toiset kehittäjät saavat sen käyttöönsä ja edelleen kehitettäväksi.
+Versionhallintajärjestelmän keinoin haarautuneet versiot ohjelmistosta voidaan jälleen __yhdistää__ (_merge_). 
+
+Esimerkiksi, kehittäjänä voit yhdistää oman työsi, jonka olet tehnyt kehityshaarassasi, yhteiseen versiohaaraan. Toiset kehittäjät voivat yhteisestä versiohaarasta yhdistää sinun työsi omiin kehityshaaroihinsa ja jatkaa kehittämistä edelleen.
 
 ## Miten Git toimii
 
@@ -33,7 +35,7 @@ __Haara__ (_branch_) on viittaus talletukseen, josta tulee aikanaan seuraavan ta
 
 Haara siis antaa nimen tiettyyn talletusketjuun, ja haaraviittauksen avulla löydetään sen tuorein talletus.
 
-__HEAD__ on viittaus siihen haaraan, jossa tällä hetkellä olet. Se on looginen tunniste, ei haara. Jokin haara on aina valittuna, HEAD viittaa aina johonkin haaraan.
+__HEAD__ on viittaus siihen haaraan, jossa tällä hetkellä olet. Se on looginen tunniste, ei haara. Kun asetat jonkin haaran nykyiseksi, HEAD asetetaan viittaamaan siihen.
 
 Seuraavassa kuvassa **talletukset** ovat <span style="background-color: lightgrey">harmaita</span>, **haarat** ovat <span style="background-color: darkorange">oransseja</span>, **HEAD**-viittaus on  <span style="background-color: gold">keltainen</span> ja <span style="background-color: teal; color: white;">vihreät</span> **muutosjoukot** (_snapshot_) sisältävät kuhunkin talletukseen kuuluvat muutokset.   
 
@@ -48,7 +50,7 @@ Kun perustat repositoryn, sinulle on jo valmiiksi luotu yksi haara nimeltä `mas
 
 !!! note "Huomautus"
 
-    Git:n oletushaara on nimeltään `master`, mutta haaran nimen voi vaihtaa. GitHub ja muut Git-hosting -palvelut käyttävät nykyään oletushaaralle nimeä `main` ja suosittelevat nimen vaihtamista. 
+    Git:n oletushaara on nimeltään `master`, mutta haaran nimen voi vaihtaa. GitHub ja muut Git-hosting -palvelut käyttävät nykyään oletushaaralle nimeä `main` ja suosittelevat nimen vaihtamista. Siitä tulee oletushaaran nimi myös Git:ssä versiosta 3.0 eteenpäin. 
 
     Voit siis tavata repositorioita, joissa oletushaara on `master` sekä sellaisia, joissa se on `main`. Tässä materiaalissa käytetään oletushaarasta nimeä `master`.
 
@@ -116,7 +118,7 @@ Eri haaroihin tehdyt muutokset pysyvät erillisinä, ja voit milloin tahansa pal
 
 ## Eriytyneet haarat
 
-Jos esimerkissämme nyt teet uuden talletuksen `master`-haaraan, projektilla on kaksi toisistaan erkaantunutta haaraa. Erkaantunut tarkoittaa sitä, että molemmissa haaroissa on talletuksia, joita toisessa ei ole. 
+Jos esimerkissämme nyt teet uuden talletuksen `master`-haaraan, projektilla on kaksi toisistaan erkaantunutta (_diverged_) haaraa. Erkaantunut tarkoittaa sitä, että molemmissa haaroissa on talletuksia, joita toisessa ei ole. 
 
 Molempia voidaan kehittää eteenpäin toisistaan riippumatta täysin hallitusti. 
 
@@ -124,7 +126,7 @@ Molempia voidaan kehittää eteenpäin toisistaan riippumatta täysin hallitusti
 
 _Lähde: [Chacon S., Straub B, Pro Git, luku 3.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/)_
 
-Nyt commit-lokin esittäminen käy vähän hankalammaksi, kun on esitettävä rinnakkain eteneviä historiapolkuja, esim näin:
+Nyt talletusten lokin esittäminen käy vähän hankalammaksi, kun on esitettävä rinnakkain eteneviä historiapolkuja, esim näin:
 ```bash
 git log --graph --all --oneline
 ```
@@ -169,13 +171,19 @@ Koodieditoreissa on toiminnallisuuksia, jotka auttavat konfliktien ratkaisemises
 
 ## Esimerkki konfliktista
 
+Olet `master`-haarassa, ja yhdistät `testing`-haarassa tehtyjä muutoksia.
+
 ```
 $ git merge testing
 Auto-merging hello.html
 CONFLICT (content): Merge conflict in hello.html
 Automatic merge failed; fix conflicts and then commit the result.
 ```
+Git aloittaa yhdistämisen ja havaitsee, että muutosta tiedostossa `hello.html` ei voida yhdistää automaattisesti; Git ei osaa määrittää, mikä olisi yhdistämisen oikea lopputulos. Se lisää konfliktimerkinnät jokaiseen ristiriitakohtaan tiedostoissa.
+
 ![](./assets/merge_conflict_example.png)
+
+Komento `status` kertoo, että yhdistäminen on keskeytynyt ja tiedostoissa on ratkaisemattomia konflikteja. Yhdistämistalletusta ei ole vielä tehty.
 
 ```
 $ git status
@@ -193,7 +201,11 @@ no changes added to commit (use "git add" and/or "git commit -a")
 ```
 ## Konfliktin ratkaiseminen
 
-Kehittäjä tekee oikeat korjaukset ja poistaa konfliktimerkit tiedostoista. Sitten vain lisätään korjatut tiedostot committiin ja tehdään commit.
+Kehittäjä tekee oikeat korjaukset ja poistaa konfliktimerkit tiedostoista. 
+
+![](./assets/merge_conflict_example_solved.png)
+
+Sitten vain lisätään korjatut tiedostot committiin ja tehdään commit. Yhdistäminen on saatu valmiiksi.
 
 ```
 $ git add .	
@@ -209,7 +221,6 @@ Changes to be committed:
 $ git commit
 [master 577421e] Merge branch 'testing'
 ```
-![](./assets/merge_conflict_example_solved.png)
 
 ## Haarautumisen käyttötapoja
 
@@ -219,7 +230,7 @@ Haarautumista voit käyttää, kun haluat pitää uuden kehityksen erillään ke
 - Haluat kokeilla jotain turvallisesti sotkematta varsinaista kehitystä.
 - Kehität tuotteen useita versioita yhtaikaa, esim. version 1 vikakorjauksia ja version 2 uuskehitystä.
 
-Haaroittamisstrategioita on useita. Yksi yleinen ja yksinkertainen strategia on, että kaikki uudet ominaisuudet kehitetään omissa haaroissaan, ja ne yhdistetään päähaaraan vasta, kun ne ovat valmiita ja toimivia (_feature branch workflow_).
+Haaroittamisstrategioita on useita. Yksi yleinen ja yksinkertainen strategia on, että jokainen uusi ominaisuus kehitetään omassa haarassaan, ja se yhdistetään päähaaraan vasta, kun ominaisuus on valmis ja toimiva (_feature branch workflow_).
 
 ### Toiminnallisuus omaan haaraan (_feature branch_)
 
@@ -228,7 +239,7 @@ Ota lähtökohdaksi kehityshaarasi (tässä master) tuorein commit
 git switch master 		# vaihda master-haaraan
 ```
 
-Luo uudelle ominaisuudelle haara (git branch) ja vaihda siihen haaraan  (git switch). Tähän on pikakomento:
+Luo uudelle ominaisuudelle haara (`git branch`) ja vaihda siihen haaraan  (`git switch`). Tälle usein tehtävälle toiminnolle on pikakomento:
 ```bash
 git switch –c feat123		# luo haaran ja vaihtaa siihen 
 ```
@@ -257,7 +268,7 @@ commit id:"delta"
 commit id:"epsilon" tag:"feat123"
 ```
 
-Kun nyt yhdistät ominaisuushaaran `feat123` päähaaraan, ei Git:n tarvitse tehdä muustosten yhdistämiseksi oikeastaan mitään, vaan ominaisuushaaran talletukset voidaan viedä päähaaraan jatkoksi sellaisinaan. Haara `main` siirretään vain osoittamaan `feat123`-haaran uusimpaan talletukseen.
+Kun nyt yhdistät ominaisuushaaran `feat123` päähaaraan, ei Git:n tarvitse tehdä muutosten yhdistämiseksi oikeastaan mitään, vaan ominaisuushaaran talletukset voidaan viedä päähaaraan jatkoksi sellaisinaan. Haara `main` siirretään vain osoittamaan `feat123`-haaran uusimpaan talletukseen.
 
 Yhdistämisen  jälkeen tilanne näyttää tältä:
 
@@ -294,17 +305,17 @@ commit id:"epsilon" tag:"feat123"
 checkout main
 merge feat123 id:"zeta" tag:"main"
 ```
-Esimerkin talletukset `epsilon` ja `zeta` ovat erilliset, vaikka niiden sisältö onkin sama.
+Esimerkin talletukset `epsilon` ja `zeta` ovat erilliset, vaikka niiden muutosjoukot ovatkin samat.
 
 
 ### Pysyvät ja väliaikaiset haarat
-Useimmat työnkulut perustuvat siihen, että jotkin haarat ovat __päähaaroja__, joissa pidetään yllä tuoreinta tilannetta, ja yksittäisille ominaisuuksille voidaan tehdä omia __väliaikaisia haaroja__, jotka on tarkoitus yhdistää johonkin päähaaraan.
+Useimmat työnkulut perustuvat siihen, että jotkin haarat ovat __pysyviä haaroja__, joissa pidetään yllä jonkin järjestelmän variantin tuoreinta tilannetta, ja yksittäisille ominaisuuksille voidaan tehdä omia __väliaikaisia haaroja__, jotka on tarkoitus yhdistää johonkin pysyvään haaraan.
 
-Päähaarat ovat sellaisia konfiguraatioita, joita kehitetään pitkän aikaa, esim. ohjelmiston versio 1, 2, 3 jne. Väliaikaiset haarat voidaan poistaa sen jälkeen, kun ne on onnistuneesti yhdistetty johonkin päähaaraan.
+Pysyvät haarat ovat sellaisia konfiguraatioita, joita kehitetään pitkän aikaa, esim. ohjelmiston versio 1, 2, 3 jne. Väliaikaiset haarat voidaan poistaa sen jälkeen, kun ne on onnistuneesti yhdistetty johonkin päähaaraan.
 
-Myös voidaan toimia niin, että toimitettaville versioille (_release_) on omat päähaaransa, ja kehitys pidetään omassa päähaarassaan. 
+Usein myös järjestelmän toimitettaville julkaisuille (_release_) on omat päähaaransa, ja kehitys pidetään omassa päähaarassaan. 
 
-Tällöin väliaikaiset haarat yhdistetään ensin kehityshaaraan, ja kehityshaarasta yhdistetään release-haaraan vain valmiit testatut ja viimeistellyt toimitettavat versiot.
+Tällöin väliaikaiset haarat yhdistetään ensin kehityshaaraan, ja kehityshaarasta yhdistetään julkaisuhaaraan vain valmiit testatut ja viimeistellyt toimitettavat versiot.
 
 Tilanteeseen sopivinta haaroittamiskäytäntöä kannattaa miettiä projektin alussa hetki, vaikka olisit tekemässä projektia yksinkin. Yksittäinen kehittäjäkin voi tehostaa työtään hyödyntämällä haarautumista.
 
