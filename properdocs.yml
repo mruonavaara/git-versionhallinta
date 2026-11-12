@@ -11,7 +11,7 @@ nav:
     - hosting-services.md
   - 'Git projektissa':
     - distributed-workflows.md
-    - yhdistamispyynnot.md
+    - pull-requests.md
   - muita_toimintoja.md
   - hosting_toimintoja.md
 theme:
