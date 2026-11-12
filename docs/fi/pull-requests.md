@@ -27,7 +27,7 @@ Seuraavassa esimerkissä tehdään yhdistämispyyntö GitHub-palvelussa.
 
 Ensin ehdotettava muutos on tehtävä paikallisesti. Sille tehdään ominaisuushaara ja viedään muutokset siihen. Ominaisuushaara täytyy viedä etärepositorioon GitHub-palvelussa, jotta sille voidaan tehdä yhdistämispyyntö.
 
-```
+```bash
 git switch -c muutospyynnot
 git add .
 git commit -m "Lisää luku muutospyynnöistä"
@@ -64,22 +64,22 @@ Kun yhdistämispyynnön ominaisuushaara on yhdistetty, haara voidaan poistaa et�
 Paikallinen repositorio pitää nyt päivittää, sillä uudet muutokset ovat vasta etärepositoriossa. 
 
 ```bash
-# git switch master
+$ git switch master
 Switched to branch 'master'
 Your branch is up to date with 'origin/master'.
 ```
 
 Huomaa, että jos et ole noutanut uusimpia muutoksia etärepositoriosta, paikallinen repositoriosi ei ole niistä tietoinen ja väittää, että haara on ajan tasalla!
 
-```
-# git fetch
+```bash
+$ git fetch
 remote: Enumerating objects: 1, done.
 remote: Counting objects: 100% (1/1), done.
 remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
 Unpacking objects: 100% (1/1), 913 bytes | 304.00 KiB/s, done.
 From https://github.com/mruonavaara/git-versionhallinta
    66b3a1d..081b8a9  i18n       -> origin/i18n
-# git status
+$ git status
 Your branch is behind 'origin/master' by 3 commits, and can be fast-forwarded.
   (use "git pull" to update your local branch)
   
@@ -88,8 +88,8 @@ nothing to commit, working tree clean
 
 Komennon `fetch` suorittaminen ei ole kuitenkaan välttämätöntä. Voit antaa komennon `pull`, joka tekee sekä noutamisen että yhdistämisen.
 
-```
-# git pull         
+```bash
+$ git pull         
 Updating 473853e..9fe0f50
 Fast-forward
  docs/assets/pr_create_form.png      | Bin 0 -> 47869 bytes
@@ -104,11 +104,12 @@ Fast-forward
 
 Huomaa, että vaikka yhdistämispyynnön haara olisikin poistettu etärepositoriosta, se on vielä tallella paikallisesti ja se pitää poistaa erikseen.
 
-```
-# git branch
+```bash
+$ git branch
 * master
   muutospyynnot
-# git branch -d muutospyynnot
+$ git branch -d muutospyynnot
+Deleted branch muutospyynnot (was d6c118e).
 ```
 
 ## Yhdistämispyynnöt repositoriosta toiseen

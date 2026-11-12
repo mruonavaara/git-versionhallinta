@@ -27,7 +27,7 @@ In the following example, a pull request is made on GitHub.
 
 First, the proposed change must be made locally. A feature branch is created for it and changes are committed there. The feature branch must be pushed to the remote repository on GitHub so that a pull request can be made for it.
 
-```
+```bash
 git switch -c pull-requests
 git add .
 git commit -m "Add chapter about pull requests"
@@ -64,21 +64,21 @@ Once the pull request's feature branch is merged, the branch can be deleted from
 The local repository now needs to be updated, as the new changes are still only in the remote repository.
 
 ```bash
-# git switch i18n
+$ git switch i18n
 Switched to branch 'i18n'
 Your branch is up to date with 'origin/i18n'.
 ```
 Note that if you have not fetched the lates changes from the remote, your local repository is unaware of them and claims that your branch is up to date with the remote branch! 
 
-```
-# git fetch
+```bash
+$ git fetch
 remote: Enumerating objects: 1, done.
 remote: Counting objects: 100% (1/1), done.
 remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
 Unpacking objects: 100% (1/1), 913 bytes | 304.00 KiB/s, done.
 From https://github.com/mruonavaara/git-versionhallinta
    66b3a1d..081b8a9  i18n       -> origin/i18n
-# git status
+$ git status
 On branch i18n
 Your branch is behind 'origin/i18n' by 3 commits, and can be fast-forwarded.
   (use "git pull" to update your local branch)
@@ -88,8 +88,8 @@ nothing to commit, working tree clean
 
 Running `fetch` is not mandatory, though. You can just run `pull` which does both fetching and merging.
 
-```
-# git pull
+```bash
+$ git pull
 Updating 66b3a1d..081b8a9
 Fast-forward
  docs/en/pull-requests.md                           | 188 +++++++++++++++++++++
@@ -103,12 +103,13 @@ Fast-forward
 
 Note that even though the pull request's remote branch might have been deleted, it still exists locally and must be deleted separately.
 
-```
-# git branch
+```bash
+$ git branch
 * i18n
   master
   pull-requests
-# git branch -d pull-requests
+$ git branch -d pull-requests
+Deleted branch pull-requests (was d6c118e).
 ```
 
 ## Pull requests between repositories
