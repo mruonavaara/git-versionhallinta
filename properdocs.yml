@@ -10,7 +10,7 @@ nav:
     - remotes.md
     - hosting-services.md
   - 'Git projektissa':
-    - versionhallinta_projektissa.md
+    - distributed-workflows.md
     - yhdistamispyynnot.md
   - muita_toimintoja.md
   - hosting_toimintoja.md

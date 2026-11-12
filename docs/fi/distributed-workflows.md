@@ -2,7 +2,10 @@
 
 Git:n käyttö perustuu siihen, että kaikki tapahtuu paikallisessa repositoriossa. Kun projektissa on useita kehittäjiä, eri kehittäjien työ jaetaan toisille etärepositorioiden avulla.
 
-Etä-repositoriot voidaan organisoida usein eri tavoin, ja niiden käyttöön voidaan laatia erilaisia työnkulkuja. Työnkulku vastaa kysymyksiin
+Etä-repositoriot voidaan organisoida usein eri tavoin, ja niiden käyttöön voidaan laatia erilaisia työnkulkuja. 
+
+__Työnkulku__ vastaa kysymyksiin
+
 - Miten organisoin oman työni omassa repositoriossani, jotta sen vieminen yhteiseen projektiin onnistuu
 - Miten vien oman työni yhteiseen projektiin
 - Miten saan muiden työt omaan repositoriooni
@@ -35,7 +38,7 @@ _Lähde: [Chacon S., Straub B, Pro Git, luku 5.](https://git-scm.com/book/en/v2/
 
 Kukin kehittäjä julkaisee muutoksensa omaan julkiseen repositorioonsa ja lähettää ylläpitäjälle muutospyynnön (_pull request_) yhdistää ne viralliseen repositorioon. Ylläpitäjä voi täten tarkastella ehdotettua muutosta ja halutessaan ottaa sen mukaan joko sellaisenaan tai pyytää tekijältä siihen korjauksia.
 
-Muutospyyntöjä voidaan tehdä repositorioiden sisälläkin, ja tosielämän projektien versionhallintakäytännöissä muutokset yhteiseen koodiin usein viedään juuri muutospyyntöjen kautta. Tätä ei kuitenkaan tässä materiaalissa tämän laajemmin käsitellä.
+Muutospyyntöjä voidaan tehdä repositorioiden sisälläkin, ja tosielämän projektien versionhallintakäytännöissä muutokset yhteiseen koodiin usein viedään juuri muutospyyntöjen kautta. Muutospyyntöjä käsitellään tässä materiaalissa myöhemmin osiossa [Yhdistämispyynnöt](yhdistamispyynnot.md).
 
 ## Talletusten käytännöt
 
@@ -142,7 +145,7 @@ _Lähde: [Chacon S., Straub B, Pro Git, luku 5.](https://git-scm.com/book/en/v2/
 - Alussa kehittäjät kloonaavat yhteisen repositorion. Näin he saavat olemassaolevan koodin työtilaansa ja voivat jatkaa kehitystä.
 - Kukin kehittäjä tekee oman työnsä omassa repositoriossaan.
 - Ennen omien muutosten julkaisemista kunkin kehittäjän on tuotava omaan repositorioonsa se haara, johon uudet muutokset halutaan viedä.
-- Etärepositoriosta saadut muutokset pitää yhdistää omiin muutoksiin. Tuloksena saadaan tallennus, jossa on kaikki tämänhetkiset muutokset.
+- Etärepositoriosta saadut muutokset pitää yhdistää omiin muutoksiin. Tuloksena saadaan uusi tallennus, jossa on kaikki tämänhetkiset muutokset.
 - Uusi tallennus viedään yhteiseen repositorioon, josta muut kehittäjät puolestaan voivat hakea sen itselleen.
 
 ## Harjoitus 6
@@ -163,12 +166,14 @@ Harjoitellaan ohjelmiston kehittämistä ja muutosten synkronointia verkkopalvel
 
     Harjoitus perustuu aiemmin tehtyihin harjoituksiin, ja sen tekemisessä tarvitaan kaikkien aiempien osioiden oppeja! 
 
+    Noudata tehtävän suoritusvaiheitä täsmällisesti, muutoin virtuaalinen kollegasi ei ehkä pysty seuraamaan projektinne etenemistä ja tekemään omia kehitystehtäviään.
+
 Kehitätte Hello-sovellusta projektitiimissä. Olette sopineet seuraavat versionhallintakäytännöt:
 
 - Kukin tekee omat muutoksensa aina ensin haaraan nimeltä `develop`.
 - Päähaaraan viedään vain versioita, jotka on testattu ja yhteisesti todettu valmiiksi. 
 
-Projektissa seuraavaksi lisätään sovellukseen toiminta, jolla käyttäjälle näytetään kellonaika. Sait tehtäväksesi lisätä nappulan, jolla käyttäjä voi pyytää näyttämään kellonajan. 
+Projektissa seuraavaksi lisätään sovellukseen toiminta, jolla käyttäjälle näytetään kellonaika. Sait ensimmäiseksi tehtäväksesi lisätä nappulan, jolla käyttäjä voi pyytää näyttämään kellonajan. 
 
 !!! note "Huomautus"
 
@@ -188,7 +193,7 @@ Projektissa seuraavaksi lisätään sovellukseen toiminta, jolla käyttäjälle 
     git push -u origin develop # -u on sama kuin --set-upstream
     ```
 
-2. Lisää html-tiedostoon `<main>`-osioon nappulaelementti päivämäärää ja kellonaikaa varten sekä nappula, jota painamalla tiedot näytetään:
+2. Lisää html-tiedostoon `<main>`-osioon elementti päivämäärän ja kellonajan näyttämistä varten sekä nappula, jonka painalluksesta tiedot näytetään:
 
     ```html
     <div id="datetime"></div>
@@ -229,7 +234,9 @@ Projektissa seuraavaksi lisätään sovellukseen toiminta, jolla käyttäjälle 
     
     Kun olet tyytyväinen lopputulokseen, talleta muutokset `develop`-haaraan ja vie etärepositorioon.
 
-5. Scrum-kokouksessa aamulla päätettiin muuttaa toimintaa niin, että kellonaika näytetäänkin jatkuvasti. Tiimikaverisi on jo ehtinyt toteuttaa JavaScript-toiminnallisuuden, sinun tehtäväksesi sovittiin tarpeettomaksi käyneen nappulan poistaminen.
+5. Scrum-kokouksessa aamulla päätettiin muuttaa toimintaa niin, että kellonaika näytetäänkin jatkuvasti. 
+
+    Tiimikaverisi on jo ehtinyt toteuttaa JavaScript-toiminnallisuuden, sinun tehtäväksesi sovittiin tarpeettomaksi käyneen nappulan poistaminen.
 
     Hae tiimikaverisi muutokset ja poista kaikki nappulaan liittyvä tarpeeton koodi, testaa, että kaikki toimii.
     
@@ -237,9 +244,11 @@ Projektissa seuraavaksi lisätään sovellukseen toiminta, jolla käyttäjälle 
 
 6.  Seuraavassa Scrum-kokouksessa todetaan, että ominaisuus on valmis esiteltäväksi sprintin katselmoinnissa `develop`-haaran uusimman version mukaisena. 
 
-    Yhdistä se päähaaraan. Muista viedä päähaarakin etärepositorioon!
+    Yhdistä se päähaaraan. 
+    
+    Muista tarkistaa, että sinulla on kaikki tuoreimmat muutokset ennen yhdistämistä ja päähaaran vientiä etärepositorioon!
 
-10. Kun olet saanut tehtävän valmiiksi, lisää viimeisimpään talletukseen tunniste `harjoitus6` antamalla komento
+7.  Kun olet saanut tehtävän valmiiksi, lisää viimeisimpään talletukseen tunniste `harjoitus6` antamalla komento
 
     ```
     git tag harjoitus6
@@ -251,7 +260,9 @@ Lopputulos näyttää jokseenkin tämänkaltaiselta:
 
 ![](./assets/hei_maailma_lopputulos.png)
 
-Eikö lopputulos näytä samalta? Muistitko hakea muiden tuoreimmat muutokset ennen yhdistämistä? Jos et, hae ne, testaa `develop`-haarassa ja yhdistä sitten uudelleen päähaaraan.
+### Eikö lopputulos näytä samalta? 
+
+Muistitko hakea muiden tuoreimmat muutokset ennen yhdistämistä? Jos et, hae ne, testaa `develop`-haarassa ja yhdistä sitten uudelleen päähaaraan.
 
 ??? note "Haluatko kokeilla uudelleen?"
 
@@ -263,7 +274,7 @@ Eikö lopputulos näytä samalta? Muistitko hakea muiden tuoreimmat muutokset en
     ```
     Mitä tapahtuu haaraan tehdyille talletuksille? 
     
-    Kuten aiemmin luvattiin, kaikki, mikä on versionhallintaan talletettu, säilyy siellä. Niin nämäkin, mutta haaraviittaus niihin (`develop`) on poistettu. Talletuksia on vaikeampi löytää ja käsitellä, mutta ne on mahdollista palauttaa.
+    Kuten aiemmin luvattiin, kaikki, mikä on versionhallintaan talletettu, säilyy siellä. Niin nämäkin, mutta haaraviittaus niihin (`develop`) on poistettu. Talletuksia on vaikeampi löytää ja käsitellä, mutta ne on mahdollista palauttaa kunnes Git:n roskienkeruu lopulta poistaa ne.
     
 
 
