@@ -34,11 +34,11 @@ git commit -m "Add chapter about pull requests"
 git push -u origin pull-requests
 ```
 
-![](assets/pr_feature_branch.png)
+![](assets/pr_feature_branch.en.png)
 
 When the branch is visible in the remote repository, the pull request can be made in GitHub's web interface.
 
-![](assets/pr_create_form.png)
+![](assets/pr_create_form.en.png)
 
 A pull request can be assigned to one or more repository maintainers for review or approval. They will receive a notification about the request.
 
@@ -47,7 +47,7 @@ A pull request can be assigned to one or more repository maintainers for review 
 A pull request can be commented on, and the discussion about it is saved in the pull request.
 A pull request can also be expanded, meaning new commits can be made to its branch.
 
-![](assets/pr_elaboration.png)
+![](assets/pr_elaboration.en.png)
 
 When the request is approved, it can be accepted. In this case, merging happens automatically. If the change would cause conflicts, they must be resolved first.
 
@@ -55,11 +55,11 @@ When the request is approved, it can be accepted. In this case, merging happens 
 
 Merging results in a new commit to the remote repository.
 
-![](assets/pr_merge_form.png)
+![](assets/pr_merge_form.en.png)
 
 Once the pull request's feature branch is merged, the branch can be deleted from the remote repository.
 
-![](assets/pr_delete_branch.png)
+![](assets/pr_delete_branch.en.png)
 
 The local repository now needs to be updated, as the new changes are still only in the remote repository. Note that the pull request's branch is still there locally and must be deleted separately.
 
