@@ -61,12 +61,34 @@ Kun yhdistämispyynnön ominaisuushaara on yhdistetty, haara voidaan poistaa et�
 
 ![](assets/pr_delete_branch.png)
 
-Paikallinen repositorio pitää nyt päivittää, sillä uudet muutokset ovat vasta etärepositoriossa. Huomaa, että yhdistämispyynnön haara on vielä tallella paikallisesti, se pitää poistaa erikseen.
+Paikallinen repositorio pitää nyt päivittää, sillä uudet muutokset ovat vasta etärepositoriossa. 
+
+```bash
+# git switch master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+```
+
+Huomaa, että jos et ole noutanut uusimpia muutoksia etärepositoriosta, paikallinen repositoriosi ei ole niistä tietoinen ja väittää, että haara on ajan tasalla!
 
 ```
-# git switch master
+# git fetch
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (1/1), 913 bytes | 304.00 KiB/s, done.
+From https://github.com/mruonavaara/git-versionhallinta
+   66b3a1d..081b8a9  i18n       -> origin/i18n
+# git status
 Your branch is behind 'origin/master' by 3 commits, and can be fast-forwarded.
   (use "git pull" to update your local branch)
+  
+nothing to commit, working tree clean
+```
+
+Komennon `fetch` suorittaminen ei ole kuitenkaan välttämätöntä. Voit antaa komennon `pull`, joka tekee sekä noutamisen että yhdistämisen.
+
+```
 # git pull         
 Updating 473853e..9fe0f50
 Fast-forward
@@ -78,6 +100,11 @@ Fast-forward
  docs/versionhallinta_projektissa.md |   4 +---
  mkdocs.yml                          |   4 +++-
  7 files changed, 43 insertions(+), 5 deletions(-)
+```
+
+Huomaa, että vaikka yhdistämispyynnön haara olisikin poistettu etärepositoriosta, se on vielä tallella paikallisesti ja se pitää poistaa erikseen.
+
+```
 # git branch
 * master
   muutospyynnot
