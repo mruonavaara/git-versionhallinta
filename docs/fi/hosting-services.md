@@ -29,9 +29,9 @@ Kirjautumisten helpottamiseksi palveluihin voi tallettaa SSH-salausavaimen, joll
 
 Repositorioita voi luoda palvelun web-käyttöliittymässä. Osa palveluista tukee myös repositoryn perustamista suoraan push-operaatiolla.
 
-Repositorioihin voidaan lisätä jäseniä (_collaborator_), ja heille voidaan antaa erilaisia oikeuksia, esim. _guest_, _reporter_, _developer_, _maintainer_. 
+Repositorioihin voidaan lisätä jäseniä (_collaborator_), ja heille voidaan määrittää rooleja, joilla on erilaisia oikeuksia, esim. _guest_, _reporter_, _developer_, _maintainer_. 
 
-Erilaisia toimintoja ja asetuksia on runsaasti, esim. notifikaatioita ja automatisointitoimintoja. 
+Erilaisia toimintoja ja asetuksia on runsaasti, esim. notifikaatioita ja työnkulkujen automatisointitoimintoja. 
 
 Perehdy palveluntarjoajasi ohjeisiin. Kaikilla suurilla palveluilla on erinomainen dokumentaatio.
 
@@ -41,7 +41,7 @@ Palvelut esittävät README-nimisen tiedoston repositoryn etusivulla. Yleensä s
 
 Markdown on yksinkertainen merkkauskieli, katso esim. [https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
-Koodieditoreihin on saatavana Markdown tukilaajennuksia, esim. Visual Studio Code -editorissa on jo esiasennettuna esikatselu ja useita editointiaputoimintoja ([https://code.visualstudio.com/docs/languages/markdown](https://code.visualstudio.com/docs/languages/markdown)).
+Koodieditoreihin on saatavana Markdown tukilaajennuksia, esim. Visual Studio Code -editorissa on jo esiasennettuna esikatselu ja useita editointiaputoimintoja Markdown-dokumenttien laatimiseen ([https://code.visualstudio.com/docs/languages/markdown](https://code.visualstudio.com/docs/languages/markdown)).
 
 Markdownia käytetään usein projektien dokumentointiin, sillä siten saadaan dokumentaatiollekin samanlainen versionhallinta kuin koodille.
 
@@ -61,25 +61,33 @@ Viedään projekti GitHub-palveluun.
 2. Konfiguroi uusi repositorio paikallisen repositoriosi etärepositorioksi nimelle `origin`. 
      - Voit tarkistaa etärepositorioasetukset komennolla `git remote -v`.
 
-3. Puske paikallisen repositorion `master`-haara GitHubiin. Mitä GitHub-repositoriosivulla nyt näkyy? Mitä haaroja näet GitHubissa, entä paikallisessa repositoriossasi?
+3. Puske paikallisen repositorion `master`-haara GitHubiin. Mitä GitHub-repositoriosivulla nyt näkyy? 
 
-8. Tee paikalliseen repositorioon ominaisuushaara `new-feat`, siirry haaraan, tee siihen uusi tiedosto ja talleta muutos. 
+    Mitä haaroja näet GitHubissa, entä paikallisessa repositoriossasi?
 
-9. Uusi haara on nyt vain paikallisessa repositoriossasi. Näet paikalliset haarat komennolla `git branch`. Vie uusi haara etärepositorioon ja tarkista GitHub-palvelun web-käyttöliittymästä, että uusi haara on nyt sielläkin.
+4. Tee paikalliseen repositorioon ominaisuushaara `new-feat`, siirry haaraan, tee siihen uusi tiedosto ja talleta muutos. 
 
-11. Web-käyttöliittymässä voi myös tehdä muutoksia repositorioon. Luo GitHubin käyttöliittymässä ominaisuushaaraan uusi tiedosto ja talleta muutos.
+5. Uusi haara on nyt vain paikallisessa repositoriossasi. Näet paikalliset haarat komennolla `git branch`.
+   
+   Vie uusi haara etärepositorioon ja tarkista GitHub-palvelun web-käyttöliittymästä, että uusi haara on nyt sielläkin.
 
-11. Etärepositoriossa on nyt eri sisältö kuin paikallisessa repositoriossasi. Anna komento `git status`. Tee sitten `git fetch` ja anna komento `git status` uudelleen. Mikä muuttui?
+6.  Web-käyttöliittymässä voi myös tehdä muutoksia repositorioon. Luo GitHubin käyttöliittymässä ominaisuushaaraan uusi tiedosto ja talleta muutos.
+
+7.  Etärepositoriossa on nyt eri sisältö kuin paikallisessa repositoriossasi. Anna komento `git status`. Tee sitten `git fetch` ja anna komento `git status` uudelleen. 
+    
+    Mikä muuttui?
  
-13. Fetch hakee muutokset, mutta ei yhdistä niitä. Voit mennä paikallisessa repositoriossasi katsomaan etärepositoriosta haettuja muutoksia:
+8.  Fetch hakee muutokset, mutta ei yhdistä niitä. Voit mennä paikallisessa repositoriossasi katsomaan etärepositoriosta haettuja muutoksia:
 ```bash
 git switch origin/new-feat 
 ```
-14.  Palaa paikalliseen `new-feat`-haaraan ja yhdistä `origin/new-feat`-haaran muutokset paikalliseen `new-feat`-haaraan. Mitä komento `status` nyt sanoo?
+9.   Palaa paikalliseen `new-feat`-haaraan ja yhdistä `origin/new-feat`-haaran muutokset paikalliseen `new-feat`-haaraan. 
+  
+     Mitä komento `status` nyt sanoo?
 
-15. Yhdistä lopuksi `new-feat` `master`-haaraan ja vie muutokset etärepositorioon. 
+12.  Yhdistä lopuksi `new-feat` `master`-haaraan ja vie muutokset etärepositorioon. 
 
-16. Kun olet saanut tehtävän valmiiksi, lisää viimeisimpään talletukseen tunniste `harjoitus5` antamalla komento
+13.  Kun olet saanut tehtävän valmiiksi, lisää viimeisimpään talletukseen tunniste `harjoitus5` antamalla komento
 
     ```
     git tag harjoitus5

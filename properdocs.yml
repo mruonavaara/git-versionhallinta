@@ -8,7 +8,7 @@ nav:
   - branches.md
   - 'Hajautettu Git':
     - remotes.md
-    - hosting_palvelut.md
+    - hosting-services.md
   - 'Git projektissa':
     - versionhallinta_projektissa.md
     - yhdistamispyynnot.md
