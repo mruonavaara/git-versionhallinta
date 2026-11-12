@@ -34,11 +34,11 @@ git commit -m "Add chapter about pull requests"
 git push -u origin pull-requests
 ```
 
-![](assets/pr_feature_branch.png)
+![](assets/pr_feature_branch.en.png)
 
 When the branch is visible in the remote repository, the pull request can be made in GitHub's web interface.
 
-![](assets/pr_create_form.png)
+![](assets/pr_create_form.en.png)
 
 A pull request can be assigned to one or more repository maintainers for review or approval. They will receive a notification about the request.
 
@@ -47,7 +47,7 @@ A pull request can be assigned to one or more repository maintainers for review 
 A pull request can be commented on, and the discussion about it is saved in the pull request.
 A pull request can also be expanded, meaning new commits can be made to its branch.
 
-![](assets/pr_elaboration.png)
+![](assets/pr_elaboration.en.png)
 
 When the request is approved, it can be accepted. In this case, merging happens automatically. If the change would cause conflicts, they must be resolved first.
 
@@ -55,31 +55,58 @@ When the request is approved, it can be accepted. In this case, merging happens 
 
 Merging results in a new commit to the remote repository.
 
-![](assets/pr_merge_form.png)
+![](assets/pr_merge_form.en.png)
 
 Once the pull request's feature branch is merged, the branch can be deleted from the remote repository.
 
-![](assets/pr_delete_branch.png)
+![](assets/pr_delete_branch.en.png)
 
-The local repository now needs to be updated, as the new changes are still only in the remote repository. Note that the pull request's branch is still there locally and must be deleted separately.
+The local repository now needs to be updated, as the new changes are still only in the remote repository.
+
+```bash
+# git switch i18n
+Switched to branch 'i18n'
+Your branch is up to date with 'origin/i18n'.
+```
+Note that if you have not fetched the lates changes from the remote, your local repository is unaware of them and claims that your branch is up to date with the remote branch! 
 
 ```
-# git switch master
-Your branch is behind 'origin/master' by 3 commits, and can be fast-forwarded.
+# git fetch
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (1/1), 913 bytes | 304.00 KiB/s, done.
+From https://github.com/mruonavaara/git-versionhallinta
+   66b3a1d..081b8a9  i18n       -> origin/i18n
+# git status
+On branch i18n
+Your branch is behind 'origin/i18n' by 3 commits, and can be fast-forwarded.
   (use "git pull" to update your local branch)
-# git pull         
-Updating 473853e..9fe0f50
+
+nothing to commit, working tree clean
+```
+
+Running `fetch` is not mandatory, though. You can just run `pull` which does both fetching and merging.
+
+```
+# git pull
+Updating 66b3a1d..081b8a9
 Fast-forward
- docs/assets/pr_create_form.png      | Bin 0 -> 47869 bytes
- docs/assets/pr_feature_branch.png   | Bin 0 -> 41894 bytes
- docs/assets/pr_list.png             | Bin 0 -> 22471 bytes
- docs/muita_toimintoja.md            |   2 +-
- "docs/muutospyynn\303\266t.md"      |  38 ++++++++++++++++++++++++++++++++++++
- docs/versionhallinta_projektissa.md |   4 +---
- mkdocs.yml                          |   4 +++-
- 7 files changed, 43 insertions(+), 5 deletions(-)
+ docs/en/pull-requests.md                           | 188 +++++++++++++++++++++
+ docs/fi/{yhdistamispyynnot.md => pull-requests.md} |   0
+ properdocs.yml                                     |   2 +-
+ 3 files changed, 189 insertions(+), 1 deletion(-)
+ create mode 100644 docs/en/pull-requests.md
+ rename docs/fi/{yhdistamispyynnot.md => pull-requests.md} (100%)
+
+```
+
+Note that even though the pull request's remote branch might have been deleted, it still exists locally and must be deleted separately.
+
+```
 # git branch
-* master
+* i18n
+  master
   pull-requests
 # git branch -d pull-requests
 ```
