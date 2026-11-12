@@ -7,7 +7,7 @@ nav:
   - basic_use.md
   - branches.md
   - 'Hajautettu Git':
-    - etarepositoriot.md
+    - remotes.md
     - hosting_palvelut.md
   - 'Git projektissa':
     - versionhallinta_projektissa.md

@@ -20,7 +20,7 @@ git clone https://github.com/libgit2/libgit2
 ```
 Kloonaaminen tekee valmiin paikallisen repositorion, joka on täydellinen kopio alkuperäisestä. Kloonaus
 
-- lisää hakemistoon master-haaran uusimmat tiedostot ja
+- lisää hakemistoon oletushaaran (esim. `master`) uusimmat tiedostot ja
 - konfiguroi alkuperäisen repositorion uuden repositorion etärepositorioksi oletusnimellä `origin`.
 
 Tästä voi heti jatkaa kehitystä omassa työtilassaan.
@@ -38,7 +38,7 @@ git remote add origin https://github.com/user/repository.git
 - `origin` of etärepositoriolle annettu nimi
 - `https://github.com/user/repository.git` on sen osoite.
 
-Koska `origin` on etärepositorion oletusnimi, sitä käytetään useimmiten. Se on kuitenkin vain nimi, ei varattu sana. 
+Koska `origin` on etärepositorion oletusnimi, sitä käytetään useimmiten. Se on kuitenkin vain nimi, ei varattu sana.
 
 Voit listata etärepositoriot komennolla `remote`. 
 
@@ -113,13 +113,13 @@ Koska `pull` tekee myös yhdistämisen, komennon suorituksessa voi tulla konflik
 Komento `push` synkronoi paikallisen repositorion tietoja etärepositorioon.
 
 ```bash
-git push origin master    # vie paikallinen master origin-repositorioon
+git push origin master    # vie paikallinen master-haara origin-repositorioon
 ```
 
 - `origin` on etärepositorion nimi, johon tietoja viedään
 - `master` on vietävän haaran nimi
 
-Paikallisia haaroja ei automaattisesti viedä etärepositorioon vaan ne pitää eksplisiittisesti viedä sinne. Näin voit jättää osan haaroista täysin paikallisiksi, esim. väliaikaisia haaroja usein ei tarvitse synkronoida.
+Paikallisia haaroja ei automaattisesti viedä etärepositorioon vaan ne pitää eksplisiittisesti viedä sinne. Jos haaraa ei tarvitse jakaa etärepositorion kautta, voit jättää haaran täysin paikallisiksi. Esimerkiksi väliaikaisia haaroja usein ei tarvitse synkronoida.
 
 Kaikki paikalliset haarat viedään, jos käytät valitsinta `–all`.
 
@@ -127,7 +127,7 @@ Kaikki paikalliset haarat viedään, jos käytät valitsinta `–all`.
 git push --all            # vie kaikki paikalliset haarat origin-repositorioon
 ```
 
-Ensimmäisellä kerralla kannattaa käyttää `push`-komennossa valitsinta `–u` (`--set-upstream`). Se asettaa kyseinen etärepositoriohaaran vietävän paikallisen haaran oletusarvoiseksi etärepositoriohaaraksi. 
+Kun teet sykronointia ensimmäistä kertaa, kannattaa käyttää `push`-komennossa valitsinta `–u` (`--set-upstream`). Se asettaa kyseinen etärepositoriohaaran vietävän paikallisen haaran oletusarvoiseksi etärepositoriohaaraksi. 
 
 ```bash
 git push -u origin master
