@@ -13,7 +13,7 @@ nav:
     - distributed-workflows.md
     - pull-requests.md
   - other-git-functions.md
-  - hosting_toimintoja.md
+  - hosting-functions.md
 theme:
   name: materialx
   language: fi

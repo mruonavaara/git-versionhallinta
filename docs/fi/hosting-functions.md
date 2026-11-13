@@ -18,21 +18,31 @@ __GitHub Pages__ on GitHubin tarjoama staattisten verkkosivujen julkaisemiseen t
 
 Sivuston sisältö julkaistaan repositoriosta. Sisältö voi olla joko HTML-sivusto tai Markdown-dokumentteja. 
 
-Voit määrittää haaran, josta sisältö julkaistaan. Sisältö voi olla joko repositorion juuressa tai alihakemistossa `docs`. Julkaistavan sivuston aloitussivun nimeksi pitää antaa `index.html`, `index.md` tai `README.md`. 
+Voit määrittää haaran, josta sisältö julkaistaan. Sisältö voi olla joko repositorion juuressa tai alihakemistossa `docs`. 
+
+Julkaistavan sivuston aloitussivun nimeksi pitää antaa `index.html`, `index.md` tai `README.md`. 
 
 ### Julkaiseminen
 
 GitHub Pages -sivuston julkaiseminen tehdään GitHub-palvelun verkkokäyttöliittymässä seuraavasti:
 
+<div class="steps" markdown>
+
 1. Siirry repositoryn asetuksiin (_Settings_). 
 ![GitHub-repositorion Settings-valinta](./assets/github_menu_settings.png)
+
 2. Etsi valikosta _Pages_ -osio ja valitse kohdasta _Source_ (lähde) haluamasi haara ja hakemisto, josta sisältö julkaistaan.
+
 ![GitHub Pages -valinta](./assets/github_settings_menu_pages.png)
 ![GitHub Pages -lähdevalinta](./assets/gh-pages_source.png)
+
 1. Tallenna asetukset. GitHub luo automaattisesti verkkosivuston repositorion sisällöstä.
+
 2. Sivusto on hetken kuluttua saatavilla osoitteessa `https://<käyttäjätunnus>.github.io/<repositorion-nimi>/`.
 
-Voit muokata repositorion sisältöä, ja kun teet talletuksen haaraan,  muutokset päivittyvät automaattisesti verkkosivulle.
+</div>
+
+Voit muokata repositorion sisältöä, ja aina kun teet uuden talletuksen haaraan,  muutokset päivittyvät automaattisesti verkkosivulle.
 
 ### Rajoituksia
 
@@ -54,10 +64,22 @@ Yhteisten repositorioiden avulla voidaan kehittää projekteja muiden kehittäji
 
 Kollaboraattorin kutsuminen tehdään GitHub-palvelun käyttöliittymässä seuraavasti:
 
+<div class="steps" markdown>
+
 1. Siirry repositoryn asetuksiin (_Settings_). 
 2. Etsi _Collaborators_-osio ja valitse _Add people_ (lisää henkilöitä).
+
+![GitHub-kollaboraattorien lisäys](./assets/github_add_collaborator.png)
+
 3. Hae GitHub-käyttäjä joko GitHub-käyttäjänimen tai sähköpostiosoitteen perusteella.
-4. Kun painat _Add_, käyttäjä saa sähköpostitse kutsun liittyä repositorion kollaboraattoriksi. Käyttäjän on hyväksyttävä kutsu, ennen kuin hän saa oikeudet repositorioon.
+
+![GitHub-käyttäjän haku](./assets/github_lookup_people.png)
+
+4. Kun painat _Add_, käyttäjä saa sähköpostitse kutsun liittyä repositorion kollaboraattoriksi. 
+   
+5. Käyttäjän on hyväksyttävä kutsu, ennen kuin hän saa oikeudet repositorioon.
+
+</div>
 
 Kollaboraattorioikeuksin voi tehdä muutoksia repositorion sisältöön (talletukset, haarat, tagit, yhdistämispyynnöt yms.), mutta ei voi hallinnoida repositoriota (esim. muuttaa asetuksia tai kutsua kollaboraattoreita). 
 
@@ -67,12 +89,17 @@ __GitHub Issues__ on työkalu vikailmoitusten tai muiden tehtävien hallintaan r
 
 Tehtävien hallintaa käytetään tyypillisesti näin:
 
+<div class="steps" markdown>
+
 1. Avaa repositorio ja valitse _Issues_.
 2. Luo uusi tehtävä painikkeella _New issue_.
 3. Kirjoita selkeä otsikko ja kuvaus: mitä havaittiin, miten ongelma toistuu tai mitä halutaan toteuttaa.
 4. Lisää tarvittaessa vastuuhenkilö (_assignee_), kenelle tehtävä kohdistetaan.
+5. Paina _Create issue_ luodaksesi uuden tehtävän.
 
-Tehtäviä voidaan tarkastella, niistä voidaan käydä kesksutelua, ja niiden etenemistä voidaan seurata sekä merkitä ne valmiiksi, kun asia on hoidettu (_Close issue_).
+</div>
+
+Tehtäviä voidaan tarkastella, niistä voidaan käydä keskustelua, ja niiden etenemistä voidaan seurata sekä merkitä ne valmiiksi, kun asia on hoidettu (_Close issue_).
 
 ### Projektinhallinta
 
@@ -82,11 +109,15 @@ Projects-työkalua käytetään usein tauluna, jossa on sarakkeita kuten _To do_
 
 Peruskäyttö etenee näin:
 
+<div class="steps" markdown>
+
 1. Avaa repositorio ja valitse _Projects_.
 2. Luo uusi projekti (_New project_) ja valitse sopiva pohja (esim. _Board_).
 3. Lisää projektiin tehtäviä.
 4. Päivitä kohteiden tilaa siirtämällä niitä sarakkeiden välillä.
 5. Seuraa kokonaiskuvaa projektinäkymästä ja päivitä tehtäviä säännöllisesti.
+
+</div>
 
 ## Komentorivikäyttöliittymä
 
