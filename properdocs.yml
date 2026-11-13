@@ -12,7 +12,7 @@ nav:
   - 'Git projektissa':
     - distributed-workflows.md
     - pull-requests.md
-  - muita_toimintoja.md
+  - other-git-functions.md
   - hosting_toimintoja.md
 theme:
   name: materialx

@@ -157,7 +157,11 @@ Tilannetta, jossa HEAD-viittaus ei osoita mihinkään haaraan vaan suoraan yhtee
 Tarkastellaan, miltä normaali HEAD-tila näyttää.
 
 ```mermaid
-gitGraph
+---
+config:
+  theme: 'base'
+---
+gitGraph LR:
 
 commit id:"alfa" tag:"HEAD" tag:"MAIN" 
 commit id:"beta" 
@@ -177,6 +181,10 @@ git checkout gamma      # käytä komentoa checkout talletuksille, switch toimii
 Tilanne näyttää nyt tältä:
 
 ```mermaid
+---
+config:
+  theme: 'base'
+---
 gitGraph
 
 commit id:"alfa" tag:"MAIN" 
@@ -195,6 +203,10 @@ Pääset pois tilasta vaihtamalla jonkin haaran taas aktiiviseksi, esim. `git sw
     Jos teet talletuksia, kun HEAD on irrallaan, talletuksista muodostuu ikään kuin nimetön haara. 
 
     ```mermaid
+    ---
+    config:
+        theme: 'base'
+    ---
     gitGraph
 
     commit id:"alfa" tag:"MAIN" 
@@ -219,6 +231,10 @@ Pääset pois tilasta vaihtamalla jonkin haaran taas aktiiviseksi, esim. `git sw
     Silloin haara saa nimen ja on normaalisti käytettävissä.
 
     ```mermaid
+    ---
+    config:
+        theme: 'base'
+    ---
     gitGraph
 
     commit id:"alfa" tag:"MAIN" 
