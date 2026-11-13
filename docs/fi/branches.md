@@ -259,6 +259,10 @@ git merge feat123
 Olkoon tilanne, että olet erkaantunut ominaisuushaaraan `feat123` ja tehnyt sinne muutoksia. Samaan aikaan alkuperäiseen haaraan ei ole tullut mitään muutoksia.
 
 ```mermaid
+---
+config:
+    theme: 'base'
+---
 gitGraph
 
 commit id:"alfa"
@@ -275,6 +279,10 @@ Kun nyt yhdistät ominaisuushaaran `feat123` päähaaraan, ei Git:n tarvitse teh
 Yhdistämisen  jälkeen tilanne näyttää tältä:
 
 ```mermaid
+---
+config:
+    theme: 'base'
+---
 gitGraph
 
 commit id:"alfa"
@@ -295,6 +303,10 @@ git merge --no-ff feat123
 Versiohistoriaan tulee nyt erillinen yhdistämistalletus, ja yhdistäminen näkyy historiaa tarkasteltaessa selkeästi.
 
 ```mermaid
+---
+config:
+    theme: 'base'
+---
 gitGraph
 
 commit id:"alfa"

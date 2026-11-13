@@ -17,19 +17,15 @@ nav:
 theme:
   name: materialx
   language: fi
-  # topbar_style: primary
+  # topbar_style: accent
   palette: 
   # Palette toggle for light mode
   - scheme: default
-    primary: indigo
-    accent: indigo
     toggle:
       icon: material/brightness-7 
       name: Switch to dark mode
   # Palette toggle for dark mode
   - scheme: slate
-    primary: cyan
-    accent: cyan
     toggle:
       icon: material/brightness-4
       name: Switch to light mode

@@ -258,6 +258,10 @@ git merge feat123
 Suppose you branched off into the `feat123` feature branch and made changes there. At the same time, no changes have been made to the original branch.
 
 ```mermaid
+---
+config:
+    theme: 'base'
+---
 gitGraph
 
 commit id:"alpha"
@@ -274,6 +278,10 @@ When you now merge the `feat123` feature branch into the main branch, Git does n
 After the merge, the situation looks like this:
 
 ```mermaid
+---
+config:
+    theme: 'base'
+---
 gitGraph
 
 commit id:"alpha"
@@ -294,6 +302,10 @@ git merge --no-ff feat123
 The version history now includes a separate merge commit, making the merge clearly visible when you inspect the history.
 
 ```mermaid
+---
+config:
+    theme: 'base'
+---
 gitGraph
 
 commit id:"alpha"

@@ -1,6 +1,6 @@
-# Basic Use
+# Basic use
 
-## Creating a Repository
+## Creating a repository
 
 You can create a repository in a directory that is not yet under version control using the `init` command.
 
@@ -33,7 +33,7 @@ To make hidden files visible in Windows File Explorer, you need to configure the
 
 - [View hidden files and folders in Windows](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-97fbc472-c603-9d90-91d0-1166d1d9f4b5)
 
-### Creating a Repository from an Existing Repository
+### Creating a repository from an existing repository
 
 Often you want to copy an existing repository and continue working from it. This is done using the `clone` command, for example:
 
@@ -45,7 +45,7 @@ The command adds a subdirectory libgit2 to the current directory, which contains
 
 This topic will be covered later in the section _Distributed Git_.
 
-## Files in a Git Directory
+## Files in a Git directory
 
 A directory that has a Git repository created in it is Git's __working directory__ (_working set_).
 
@@ -83,7 +83,7 @@ git status
     
     It is a good idea to check the Git status of your working directory (command `status`) before and after Git operations. This way you always know what is happening in your repository.
 
-## Storing Changes
+## Storing changes
 
 Storing file versions is a two-step operation.
 
@@ -137,7 +137,7 @@ git commit –m "Add logout functionality"
     After that, you can return to the [Git Getting Started chapter's configuration section](introduction.md#editor) and set your preferred Git editor.
 
 
-## Viewing Commits
+## Viewing commits
 
 You can view changes in the working directory compared to stored commits using the familiar `status` command. You should use it frequently to keep track of the Git status of your directory and its changes:
 
@@ -163,7 +163,7 @@ You can view changes in a file in the working directory compared to the most rec
 git diff hello.html
 ```
 
-## Removing and Moving Files
+## Removing and moving files
 
 As mentioned earlier, directories are also versioned. If you want to delete a file from the repository or move a file to another directory, you are creating a new version of the directories.
 
@@ -224,7 +224,7 @@ Check the repository status with the `status` command regularly. Remember to wri
     ```
 </div>
 
-## Going Back in Time
+## Going back in time
 
 The introduction section claimed that with version control, it is possible to restore earlier versions of the software. Let's try that next.
 
@@ -315,7 +315,7 @@ We'll return to what this is about and how to proceed later in the section _Bran
 
 It's easy to make mistakes when working with version control operations. But there's no need to worry; everything can be corrected. Here are some basic undo instructions.
 
-### Undoing the `add` Command
+### Undoing the `add` command
 
 If you added a file to the next commit that shouldn't be there, you can undo the addition with the `reset` command.
 
@@ -327,7 +327,7 @@ If you don't provide a parameter, all added files are removed from the next comm
 
 The command does not delete or modify files, it only changes the status of files relative to the commit.
 
-### Undoing Changes in the Working Directory Before Committing
+### Undoing changes in the working directory before committing
 
 If you want to undo changes you made in the working directory, __which have not yet been committed to version control__, you can restore the file to the latest version in version control using the `restore` command:
 
@@ -340,7 +340,7 @@ git restore hello.html
 
 If you want to undo all changes you made in the working directory, you can do it with the `git reset --hard` command. Use it only when you are sure you want to discard all the changes you made.
 
-### Undoing Committed Changes
+### Undoing committed changes
 
 If you have committed a change to version control, an identifier has already been created for it and all its information is stored. If you tried to change it, you would end up tampering with the repository's version history.
 

@@ -1,4 +1,4 @@
-# Git Version Control Course
+# Git version control course
 
 In this course, you will learn how to use the Git version control system and the GitHub service as an individual programmer as well as and in a team.
 

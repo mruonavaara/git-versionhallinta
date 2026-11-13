@@ -1,6 +1,6 @@
-# Introduction to Version Control
+# Introduction to version control
 
-## What is Version Control?
+## What is version control?
 
 The purpose of version control is to store changes to source code versions such that:
 
@@ -24,7 +24,7 @@ Git's popularity is likely because it is:
 - Distributed. It does not have any centralized server.
 - Available for all environments.
 
-## Git Repositories
+## Git repositories
 
 Git stores all information locally in its own data storage, which is called a __repository__.
 
@@ -32,7 +32,7 @@ Almost all operations can be performed locally. This means you can develop and s
 
 A repository is located on the local machine in the directory where the software is being developed.
 
-## Repository Distribution and Synchronization
+## Repository distribution and synchronization
 
 The contents of independent repositories can be __synchronized__ with each other. Of course, this requires a network connection.
 
@@ -40,9 +40,9 @@ The contents of independent repositories can be __synchronized__ with each other
 
 Synchronizing repository contents makes it possible to share their contents among multiple developers. A typical model is that developers synchronize their own work to a repository located on a web service, and receive the work done by other developers through that synchronization.
 
-## Getting Started with Git
+## Getting started with Git
 
-### Command Line
+### Command line
 
 Git has several graphical user interfaces, and even the Windows installation package includes one. However, in this course we use __command-line commands__. Most professionals do the same.
 
@@ -64,7 +64,7 @@ If command shell usage is unfamiliar to you, you can learn about it using materi
 
 After installation, it is necessary to perform some configuration before you can start using Git.
 
-#### User Information
+#### User information
 
 Each committed change stores the user's name and email address.
 User information needs to be set on the computer only once, and can be changed later if needed.
@@ -97,7 +97,7 @@ GitHub's documentation provides guidance on editor configuration:
 
 - [https://docs.github.com/en/get-started/getting-started-with-git/associating-text-editors-with-git](https://docs.github.com/en/get-started/getting-started-with-git/associating-text-editors-with-git)
 
-#### Viewing Configuration Settings
+#### Viewing configuration settings
 
 You can check all settings like this:
 ```bash
@@ -109,7 +109,7 @@ You can check the value of a single parameter by providing the parameter name to
 git config user.email
 ```
 
-## General Information About Git Commands
+## General information about Git commands
 
 All Git commands start with `git`, followed by the actual __command__ (e.g., `config`). Commands can have __parameters__. In this example, the `config` command is given a parameter with the name of the desired configuration parameter `core.editor`:
 ```
