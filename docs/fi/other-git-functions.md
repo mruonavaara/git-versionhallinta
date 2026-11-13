@@ -16,7 +16,7 @@ Yleissääntönä pois jätetään
 Repositorioon pitää viedä kaikki sellaiset tiedostot, joita tarvitaan kehittämiseen. Jos uusi kehittäjä kloonaa repositorion, hänen pitäisi pystyä jatkamaan kehitystä siitä.
 
 ### Luottamuksellinen tieto
-Versionhallintaan ei pitäisi viedä luottamuksellisia tietoja kuten käyttäjätunnuksia, salasanoja ja järjestelmäkonfiguraatioita. Jos ne ovat versionhallinnassa ja viedään etärepositoryyn, ne ovat kaikkien niiden nähtävissä, joilla on repositoriaan lukuoikeus.
+Versionhallintaan ei pitäisi viedä luottamuksellisia tietoja kuten käyttäjätunnuksia, salasanoja, API- avaimia ja järjestelmäkonfiguraatioita. Jos ne ovat versionhallinnassa ja viedään etärepositorioon, ne ovat kaikkien niiden nähtävissä, joilla on repositoriaan lukuoikeus.
 
 Luottamuksellisia tietoja kuitenkin tarvitaan järjestelmien kehittämisessä esimerkiksi tietokantayhteyden muodostamiseen. Tällöin on tehtävä jokin ratkaisu, jolla luottamukselliset tiedot tuodaan järjestelmään jotenkin toisin. 
 
@@ -65,7 +65,7 @@ build/
 
 GitHubilla on laaja valikoima .gitignore-malleja erilaisille projekteille. Niistä saat hyvän lähtökohdan oman projektisi konfigurointiin ([https://github.com/github/gitignore](https://github.com/github/gitignore)).
 
-### Huomiotta jätetyn tiedoston poistaminen
+### Tiedoston poistaminen repositoriosta
 
 Joskus repositorioon lipsahtaa jotain sellaista, jonka ei sinne olisi pitänyt mennä, koska `.gitignore`-tiedostosta puuttuu sääntö, joka olisi pitänyt sinne laatia.
 
@@ -73,7 +73,7 @@ Tällöin voidaan poistaa tiedosto Git-hallinnasta:
 ```bash
 git rm --cached tiedostonimi
 ```
-Tiedosto merkitään poistettavaksi hakemistosta seuraavassa commitissa, valitsin `--cached` kuitenkin säilyttää sen työtilassa. Tiedosto on nyt työhakemistossasi `untracked`-tilassa, voit nyt lisätä .gitignore-säännön ja tehdä commitin, jossa tiedoston poisto talletetaan.
+Tiedosto merkitään poistettavaksi hakemistosta seuraavassa commitissa, valitsin `--cached` kuitenkin säilyttää sen työtilassa. Tiedosto on nyt työhakemistossasi `untracked`-tilassa, voit nyt lisätä `.gitignore`-säännön ja tehdä commitin, jossa tiedoston poisto talletetaan.
 
 __Huom!__ Tiedoston vanhat versiot kuitenkin jäävät historiaan. Jos haluat poistaa ne sieltäkin, on muutettava historiaa, mikä on aina riskialtista. Perehdy huolellisesti dokumentaatioon, jos lähdet sitä tekemään.
 
@@ -141,8 +141,97 @@ Tagi voidaan poistaa laajentimella `-d`:
 ```bash
 git tag -d v1.0.3
 ```
+### Tagien käyttäminen
 
-Koska tagit ovat viittauksia talletuksiin siinä kuin muutkin viittaukset, niitä voi käyttää samalla tapaa, esim.
+Koska tagit ovat viittauksia talletuksiin siinä kuin muutkin viittaukset, niitä voi käyttää samalla tapaa, esimerkiksi voit tarkastella tiedostoversioita, joihin tag osoittaa:
+
 ```bash
 git checkout v1.2
 ```
+
+Jos tee näin, päädyt _detached HEAD_ -tilaan.
+
+## Irrallaan oleva HEAD
+Tilannetta, jossa HEAD-viittaus ei osoita mihinkään haaraan vaan suoraan yhteen talletukseen, kutsutaan __detached HEAD__ -tilaksi.
+
+Tarkastellaan, miltä normaali HEAD-tila näyttää.
+
+```mermaid
+gitGraph
+
+commit id:"alfa" tag:"HEAD" tag:"MAIN" 
+commit id:"beta" 
+commit id:"gamma"
+commit id: "delta"
+
+```
+
+HEAD osoittaa nykyisen haaran `main` uusinta talletusta.
+
+Siirrytään tarkastelemaan tilannetta, joka oli talletuksessa `gamma`:
+
+```bash
+git checkout gamma      # käytä komentoa checkout talletuksille, switch toimii vain haaroilla
+``` 
+
+Tilanne näyttää nyt tältä:
+
+```mermaid
+gitGraph
+
+commit id:"alfa" tag:"MAIN" 
+commit id:"beta" 
+commit id:"gamma" tag:"HEAD"
+commit id: "delta"
+
+```
+
+HEAD ei nyt osoita mihinkään haaraan vaan suoraan yhteen talletukseen. Jos tehtäisiin talletus, se ei tulisi mihinkään olemassa olevaan haaraan. Siksi Git antaa varoituksen, että HEAD on irrallaan.
+
+Pääset pois tilasta vaihtamalla jonkin haaran taas aktiiviseksi, esim. `git switch main`.
+
+!!! info "Hyvä tietää"
+
+    Jos teet talletuksia, kun HEAD on irrallaan, talletuksista muodostuu ikään kuin nimetön haara. 
+
+    ```mermaid
+    gitGraph
+
+    commit id:"alfa" tag:"MAIN" 
+    commit id:"beta" 
+    commit id:"gamma"
+    branch "no name"
+    checkout "no name"
+    commit
+    commit tag:"HEAD"
+    checkout "main"
+    commit id:"delta"
+    ```
+    
+    Jos talletuksia ei haluta säilyttää, voit vain palata johonkin haaraan, ja talletukset eivät vaikuta mihinkään olemassa olevaan haaraan.
+
+    Jos taas haluat ne säilyttää, voit luoda niitä varten uuden haaran ja siirtyä siihen. 
+    ```bash
+    git branch new-feature
+    git switch new-feature
+    ```
+    
+    Silloin haara saa nimen ja on normaalisti käytettävissä.
+
+    ```mermaid
+    gitGraph
+
+    commit id:"alfa" tag:"MAIN" 
+    commit id:"beta" 
+    commit id:"gamma" tag:"v1.2"
+    branch "new-feature"
+    checkout "new-feature"
+    commit
+    commit tag:"new-feature" tag:"HEAD"
+    checkout "main"
+    commit id:"delta"
+    ```
+
+
+
+
