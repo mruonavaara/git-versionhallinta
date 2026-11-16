@@ -1,10 +1,10 @@
-# Hosting service functions
+# Hosting service features
 
-Git hosting services offer many functions that facilitate software development and project management.
+Git hosting services offer many features that facilitate software development and project management.
 
-This section covers some functions that can be utilized, for example, in learning tasks for courses.
+This section covers some features that can be utilized, for example, in learning tasks for courses.
 
-The material presents examples of GitHub service functions, but other hosting services (e.g., GitLab, Bitbucket) offer similar functionality.
+The material presents examples of GitHub service features, but other hosting services (e.g., GitLab, Bitbucket) offer similar functionality.
 
 ## Publishing websites
 

@@ -13,7 +13,7 @@ Opintojakson suoritettuaan opiskelija
 - osaa käyttää git-hosting-palveluita
 - osaa soveltaa versiohaaroja omassa ja tiiminsä kehitystyössä
 
-Sisältö
+Sisältö:
 
 - Mitä on versionhallinta, mikä on Git
 - Käyttöönotto
@@ -23,6 +23,7 @@ Sisältö
 - Työnkulut projekteissa
 - Yhdistämispyynnöt
 - Muita git-toimintoja
+- Hosting-palvelujen toimintoja
 
 ## Materiaali
 

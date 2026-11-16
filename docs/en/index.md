@@ -1,4 +1,4 @@
-# Git version control course
+# Git Version Control course
 
 In this course, you will learn how to use the Git version control system and the GitHub service as an individual programmer as well as and in a team.
 
@@ -13,7 +13,7 @@ After completing the course, the student
 - can use Git hosting services
 - can apply branches in their own and their team's development work
 
-## Contents
+Contents:
 
 - What is version control and what is Git
 - Getting started
@@ -23,6 +23,7 @@ After completing the course, the student
 - Version control workflows in projects
 - Pull requests
 - Other Git operations
+- Hosting service features
 
 ## Materials
 
