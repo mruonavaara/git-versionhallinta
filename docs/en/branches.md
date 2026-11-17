@@ -253,7 +253,19 @@ git switch master
 git merge feat123
 ```
 
-### Fast-forwarding
+### Permanent and temporary branches
+
+Most workflows rely on some branches being __permanent branches__ that maintain the latest state of a system variant, while individual features can be developed on their own __temporary branches__, which are intended to be merged into a permanent branch.
+
+Permanent branches are configurations that are developed over a long period, such as versions 1, 2, 3, and so on of a software product. Temporary branches can be deleted after they have been successfully merged into a main branch.
+
+It is also common to use separate permanent branches for releases and keep development on its own main branch.
+
+In this case, temporary branches are first merged into the development branch. Only completed, tested, and finalized releases are then merged from the development branch into a release branch.
+
+It is worth taking some time at the beginning of a project to consider which branching strategy is best for the situation, even if you are working on the project alone. Individual developers can also improve their workflow by using branches.
+
+## Fast-forwarding
 
 Suppose you branched off into the `feat123` feature branch and made changes there. At the same time, no changes have been made to the original branch.
 
@@ -319,18 +331,6 @@ checkout main
 merge feat123 id:"zeta" tag:"main"
 ```
 The `epsilon` and `zeta` commits in the example are separate, even though their snapshots are the same.
-
-### Permanent and temporary branches
-
-Most workflows rely on some branches being __permanent branches__ that maintain the latest state of a system variant, while individual features can be developed on their own __temporary branches__, which are intended to be merged into a permanent branch.
-
-Permanent branches are configurations that are developed over a long period, such as versions 1, 2, 3, and so on of a software product. Temporary branches can be deleted after they have been successfully merged into a main branch.
-
-It is also common to use separate permanent branches for releases and keep development on its own main branch.
-
-In this case, temporary branches are first merged into the development branch. Only completed, tested, and finalized releases are then merged from the development branch into a release branch.
-
-It is worth taking some time at the beginning of a project to consider which branching strategy is best for the situation, even if you are working on the project alone. Individual developers can also improve their workflow by using branches.
 
 ## Deleting branches
 

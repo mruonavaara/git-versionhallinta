@@ -169,7 +169,6 @@ commit id:"alfa"
 commit id:"beta" 
 commit id:"gamma"
 commit id: "delta" tag:"HEAD" tag:"main" 
-
 ```
 
 HEAD points to the latest commit of the current branch `main`. 
@@ -193,7 +192,6 @@ commit id:"alfa"
 commit id:"beta" tag:"HEAD"
 commit id:"gamma"
 commit id: "delta" tag:"main"
-
 ```
 
 HEAD now does not point to any branch but directly to a single commit. If a commit were made, it would not go into any existing branch. That is why Git gives a warning that HEAD is detached.

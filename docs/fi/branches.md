@@ -254,7 +254,18 @@ git switch master
 git merge feat123
 ```
 
-### Pikakelaus (_fast-forwarding_)
+### Pysyvät ja väliaikaiset haarat
+Useimmat työnkulut perustuvat siihen, että jotkin haarat ovat __pysyviä haaroja__, joissa pidetään yllä jonkin järjestelmän variantin tuoreinta tilannetta, ja yksittäisille ominaisuuksille voidaan tehdä omia __väliaikaisia haaroja__, jotka on tarkoitus yhdistää johonkin pysyvään haaraan.
+
+Pysyvät haarat ovat sellaisia konfiguraatioita, joita kehitetään pitkän aikaa, esim. ohjelmiston versio 1, 2, 3 jne. Väliaikaiset haarat voidaan poistaa sen jälkeen, kun ne on onnistuneesti yhdistetty johonkin päähaaraan.
+
+Usein myös järjestelmän toimitettaville julkaisuille (_release_) on omat päähaaransa, ja kehitys pidetään omassa päähaarassaan. 
+
+Tällöin väliaikaiset haarat yhdistetään ensin kehityshaaraan, ja kehityshaarasta yhdistetään julkaisuhaaraan vain valmiit testatut ja viimeistellyt toimitettavat versiot.
+
+Tilanteeseen sopivinta haaroittamiskäytäntöä kannattaa miettiä projektin alussa hetki, vaikka olisit tekemässä projektia yksinkin. Yksittäinen kehittäjäkin voi tehostaa työtään hyödyntämällä haarautumista.
+
+## Pikakelaus (_fast-forwarding_)
 
 Olkoon tilanne, että olet erkaantunut ominaisuushaaraan `feat123` ja tehnyt sinne muutoksia. Samaan aikaan alkuperäiseen haaraan ei ole tullut mitään muutoksia.
 
@@ -320,18 +331,6 @@ checkout main
 merge feat123 id:"zeta" tag:"main"
 ```
 Esimerkin talletukset `epsilon` ja `zeta` ovat erilliset, vaikka niiden muutosjoukot ovatkin samat.
-
-
-### Pysyvät ja väliaikaiset haarat
-Useimmat työnkulut perustuvat siihen, että jotkin haarat ovat __pysyviä haaroja__, joissa pidetään yllä jonkin järjestelmän variantin tuoreinta tilannetta, ja yksittäisille ominaisuuksille voidaan tehdä omia __väliaikaisia haaroja__, jotka on tarkoitus yhdistää johonkin pysyvään haaraan.
-
-Pysyvät haarat ovat sellaisia konfiguraatioita, joita kehitetään pitkän aikaa, esim. ohjelmiston versio 1, 2, 3 jne. Väliaikaiset haarat voidaan poistaa sen jälkeen, kun ne on onnistuneesti yhdistetty johonkin päähaaraan.
-
-Usein myös järjestelmän toimitettaville julkaisuille (_release_) on omat päähaaransa, ja kehitys pidetään omassa päähaarassaan. 
-
-Tällöin väliaikaiset haarat yhdistetään ensin kehityshaaraan, ja kehityshaarasta yhdistetään julkaisuhaaraan vain valmiit testatut ja viimeistellyt toimitettavat versiot.
-
-Tilanteeseen sopivinta haaroittamiskäytäntöä kannattaa miettiä projektin alussa hetki, vaikka olisit tekemässä projektia yksinkin. Yksittäinen kehittäjäkin voi tehostaa työtään hyödyntämällä haarautumista.
 
 ## Haarojen poistaminen
 
