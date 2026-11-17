@@ -38,7 +38,7 @@ _Lähde: [Chacon S., Straub B, Pro Git, luku 5.](https://git-scm.com/book/en/v2/
 
 Kukin kehittäjä julkaisee muutoksensa omaan julkiseen repositorioonsa ja lähettää ylläpitäjälle muutospyynnön (_pull request_) yhdistää ne viralliseen repositorioon. Ylläpitäjä voi täten tarkastella ehdotettua muutosta ja halutessaan ottaa sen mukaan joko sellaisenaan tai pyytää tekijältä siihen korjauksia.
 
-Muutospyyntöjä voidaan tehdä repositorioiden sisälläkin, ja tosielämän projektien versionhallintakäytännöissä muutokset yhteiseen koodiin usein viedään juuri muutospyyntöjen kautta. Muutospyyntöjä käsitellään tässä materiaalissa myöhemmin osiossa [Yhdistämispyynnöt](yhdistamispyynnot.md).
+Muutospyyntöjä voidaan tehdä repositorioiden sisälläkin, ja tosielämän projektien versionhallintakäytännöissä muutokset yhteiseen koodiin usein viedään juuri muutospyyntöjen kautta. Muutospyyntöjä käsitellään tässä materiaalissa myöhemmin osiossa [Yhdistämispyynnöt](pull-requests.md).
 
 ## Talletusten käytännöt
 

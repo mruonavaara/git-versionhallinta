@@ -159,15 +159,14 @@ Tarkastellaan, miltä normaali HEAD-tila näyttää.
 ```mermaid
 ---
 config:
-  theme: 'base'
+    theme: 'base'
 ---
-gitGraph LR:
+gitGraph
 
-commit id:"alfa" tag:"HEAD" tag:"MAIN" 
+commit id:"alfa" 
 commit id:"beta" 
 commit id:"gamma"
-commit id: "delta"
-
+commit id: "delta" tag:"HEAD" tag:"main" 
 ```
 
 HEAD osoittaa nykyisen haaran `main` uusinta talletusta.
@@ -183,15 +182,14 @@ Tilanne näyttää nyt tältä:
 ```mermaid
 ---
 config:
-  theme: 'base'
+    theme: 'base'
 ---
 gitGraph
 
-commit id:"alfa" tag:"MAIN" 
-commit id:"beta" 
-commit id:"gamma" tag:"HEAD"
-commit id: "delta"
-
+commit id:"alfa"
+commit id:"beta" tag:"HEAD"
+commit id:"gamma"
+commit id: "delta" tag:"main"
 ```
 
 HEAD ei nyt osoita mihinkään haaraan vaan suoraan yhteen talletukseen. Jos tehtäisiin talletus, se ei tulisi mihinkään olemassa olevaan haaraan. Siksi Git antaa varoituksen, että HEAD on irrallaan.
@@ -209,15 +207,15 @@ Pääset pois tilasta vaihtamalla jonkin haaran taas aktiiviseksi, esim. `git sw
     ---
     gitGraph
 
-    commit id:"alfa" tag:"MAIN" 
+    commit id:"alfa"
     commit id:"beta" 
-    commit id:"gamma"
     branch "no name"
     checkout "no name"
     commit
     commit tag:"HEAD"
     checkout "main"
-    commit id:"delta"
+    commit id:"gamma"
+    commit id:"delta" tag:"main" 
     ```
     
     Jos talletuksia ei haluta säilyttää, voit vain palata johonkin haaraan, ja talletukset eivät vaikuta mihinkään olemassa olevaan haaraan.
@@ -237,15 +235,15 @@ Pääset pois tilasta vaihtamalla jonkin haaran taas aktiiviseksi, esim. `git sw
     ---
     gitGraph
 
-    commit id:"alfa" tag:"MAIN" 
+    commit id:"alfa" 
     commit id:"beta" 
-    commit id:"gamma" tag:"v1.2"
     branch "new-feature"
     checkout "new-feature"
     commit
-    commit tag:"new-feature" tag:"HEAD"
+    commit tag:"HEAD" tag:"new-feature"
     checkout "main"
-    commit id:"delta"
+    commit id:"gamma"
+    commit id:"delta" tag:"main"
     ```
 
 

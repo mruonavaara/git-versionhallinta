@@ -1,8 +1,8 @@
 site_name: Git-versionhallinta
 site_author: Markku Ruonavaara
-copyright: Markku Ruonavaara 2024-2026
+copyright: '  Copyright © 2024-2026 Markku Ruonavaara <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>'
 nav:
-  - index.md
+  - 'Opintojakso': index.md
   - introduction.md
   - basic_use.md
   - branches.md
@@ -16,7 +16,6 @@ nav:
   - hosting-features.md
 theme:
   name: materialx
-  language: fi
   # topbar_style: accent
   palette: 
   # Palette toggle for light mode
@@ -50,8 +49,9 @@ plugins:
         - locale: en
           name: English
           build: true
-          site_name: Git version control
+          site_name: Git Version Control
           nav_translations:
+            'Opintojakso': 'Course'
             'Hajautettu Git': 'Distributed Git'
             'Git projektissa': Git in a project
           theme:
@@ -69,8 +69,6 @@ extra:
 extra_css:
   - stylesheets/extra.css
 markdown_extensions:
-  - toc:
-      title: Sisällysluettelo
   - admonition
   - md_in_html
   - pymdownx.superfences

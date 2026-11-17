@@ -165,19 +165,19 @@ config:
 ---
 gitGraph
 
-commit id:"alfa" tag:"HEAD" tag:"MAIN" 
+commit id:"alfa" 
 commit id:"beta" 
 commit id:"gamma"
-commit id: "delta"
+commit id: "delta" tag:"HEAD" tag:"main" 
 
 ```
 
 HEAD points to the latest commit of the current branch `main`. 
 
-Now let's change to look at the situation at commit `gamma`: 
+Now let's change to look at the situation at commit `beta`: 
 
 ```bash
-git checkout gamma      # use command checkout with commits, switch works only with branches
+git checkout beta      # use command checkout with commits, switch works only with branches
 ``` 
 
 The situation now looks like this:
@@ -189,10 +189,10 @@ config:
 ---
 gitGraph
 
-commit id:"alfa" tag:"MAIN" 
-commit id:"beta" 
-commit id:"gamma" tag:"HEAD"
-commit id: "delta"
+commit id:"alfa"
+commit id:"beta" tag:"HEAD"
+commit id:"gamma"
+commit id: "delta" tag:"main"
 
 ```
 
@@ -211,15 +211,15 @@ You can get out of this state by switching back to some branch, for example `git
     ---
     gitGraph
 
-    commit id:"alfa" tag:"MAIN" 
+    commit id:"alfa"
     commit id:"beta" 
-    commit id:"gamma"
     branch "no name"
     checkout "no name"
     commit
     commit tag:"HEAD"
     checkout "main"
-    commit id:"delta"
+    commit id:"gamma"
+    commit id:"delta" tag:"main" 
     ```
     
     If you do not want to keep the commits, you can simply return to some branch, and the commits will not affect any existing branch.
@@ -239,14 +239,14 @@ You can get out of this state by switching back to some branch, for example `git
     ---
     gitGraph
 
-    commit id:"alfa" tag:"MAIN" 
+    commit id:"alfa" 
     commit id:"beta" 
-    commit id:"gamma"
     branch "new-feature"
     checkout "new-feature"
     commit
     commit tag:"HEAD" tag:"new-feature"
     checkout "main"
-    commit id:"delta"
+    commit id:"gamma"
+    commit id:"delta" tag:"main"
     ```
 
